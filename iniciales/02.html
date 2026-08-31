@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>Ejemplo de clase hoy con ramon</div>
+  </body>
+  <script>
+    // creo una constante que apunta al div
+    const nodoDiv = document.querySelector("div");
+
+    /*
+    creo una variable con el texto que contenga
+    el div que apunta la constante
+    */
+    let mensaje = nodoDiv.innerHTML;
+
+    // mostrar el texto del div en una ventana emergente
+    alert(mensaje);
+  </script>
+</html>
