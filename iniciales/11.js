@@ -39,3 +39,6 @@ spanLado1.textContent = lado1;
 spanLado2.textContent = lado2;
 spanArea.textContent = area;
 spanPerimetro.textContent = perimetro;
+
+
+
