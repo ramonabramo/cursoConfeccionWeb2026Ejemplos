@@ -1,0 +1,4 @@
+/*
+Pedir un numero por teclado y 
+en el parrafo salida escribir el doble de ese numero
+*/
