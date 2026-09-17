@@ -1,21 +1,22 @@
 
 /**
- * quiero leer el contenido del div nombre y escribirlo en el div salida
+ * quiero leer el contenido del input nombre y escribirlo en el div salida
  */
 
 // variables
-let nombre='';
+let nombre = '';
 
 // constantes
 
 // constantes al DOM
-const inputNombre=document.querySelector('#nombre');
-const divSalida=document.querySelector('#salida');
+const inputNombre = document.querySelector('#nombre');
+const divSalida = document.querySelector('#salida');
 
 // entradas
-nombre=inputNombre.value;
+nombre = inputNombre.value;
 
 // procesamiento
 
 // salidas
-divSalida.textContent=nombre;
+divSalida.textContent = nombre;
+
