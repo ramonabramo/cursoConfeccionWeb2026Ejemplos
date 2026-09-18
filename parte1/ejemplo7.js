@@ -13,7 +13,7 @@ let salida = 0;
 const nodoSalida = document.querySelector('#salida');
 
 // entradas
-numero = Number(prompt('Introduce un numero'));
+numero = Number(prompt('Introduce un numero', 0));
 
 // procesamiento
 salida = numero * 2;

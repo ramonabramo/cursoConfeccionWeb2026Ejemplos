@@ -1,0 +1,17 @@
+Quiero que utilices siempre la misma estructura para mi js
+// variables (crearlas siempre con let e inicializarlas)
+
+// constantes (cuando sea una constante que no sea del DOM colocarla en mayusculas)
+
+// constantes al dom (para apuntar al DOM utilizar siempre queryselector con selector por ID a los nombres de la constantes colocar el id precedido de la palabra nodo en camelcase)
+
+// entradas
+
+// procesamiento
+
+// salidas (utilizar de momento textContent o innerHTML)
+
+
+No quiero que se creen constantes o variables fuera de las zonas delimitadas 
+
+Utilizar para los identificadores siempre camelcase
