@@ -1,4 +1,7 @@
 Quiero que utilices siempre la misma estructura para mi js
+
+// comentarios de cabecera con la descripcion del ejercicio y un ejemplo de funcionamiento
+
 // variables (crearlas siempre con let e inicializarlas)
 
 // constantes (cuando sea una constante que no sea del DOM colocarla en mayusculas)
@@ -9,7 +12,7 @@ Quiero que utilices siempre la misma estructura para mi js
 
 // procesamiento
 
-// salidas (utilizar de momento textContent o innerHTML)
+// salidas (utilizar textContent o innerHTML)
 
 
 No quiero que se creen constantes o variables fuera de las zonas delimitadas 
