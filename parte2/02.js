@@ -3,6 +3,7 @@
 // declaracion de variables y constantes globales
 
 
+// gestion de eventos
 
 // constantes al DOM
 // solo apuntamos a los elementos que queramos colocar escuchador
@@ -32,10 +33,7 @@ boton.addEventListener('click', function () {
 
 });
 
-// entradas
 
 
-// procesamiento
 
-// salidas
 
