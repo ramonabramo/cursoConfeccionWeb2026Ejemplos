@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            decoro la caja de salida
+            */
+        .salida {
+            display: inline-block;
+            background-color: #ccc;
+            color: white;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid black;
+            border-radius: 4px;
+            width: 200px;
+            height: 80px;
+            line-height: 80px;
+
+        }
+
+        /*
+            decoro el input del formulario
+            */
+
+        input {
+            border: 1px solid black;
+            border-radius: 4px;
+            padding: 5px;
+            margin: 5px;
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        /*
+            decoro el label del formulario
+            */
+
+        label {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px;
+            line-height: 30px;
+            height: 30px;
+        }
+
+        /*
+            decoro el button del formulario
+            */
+        button {
+            border: 1px solid black;
+            border-radius: 4px;
+            padding: 5px;
+            margin: 5px;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            box-sizing: content-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form>
+            <div>
+                <label for="radio">Radio:</label>
+                <input type="text" name="radio" id="radio">
+                <button type="button">Calcular</button>
+            </div>
+
+        </form>
+    </div>
+    <ul>
+        <li>Radio: <span class="salida" id="radioSalida"> - </span></li>
+        <li>Area: <span class="salida" id="area"> - </span> </li>
+        <li>Perimetro: <span class="salida" id="perimetro"> - </span></li>
+    </ul>
+    <svg width="1000" height="200" xmlns="http://www.w3.org/2000/svg">
+        <circle id="circulo" cx="50" cy="50" r="0" stroke="green" stroke-width="1" fill="black" />
+    </svg>
+</body>
+<script src="05.js"></script>
+
+</html>
