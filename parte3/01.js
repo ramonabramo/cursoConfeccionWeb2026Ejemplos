@@ -20,8 +20,12 @@ const divSalida = document.querySelector('#salida');
 numero = Number(prompt('Introduce un numero'));
 
 // procesamiento
+
+
 if (numero > 5) {
-    mensaje = 'Es mayor que 5';
+    mensaje = 'el numero es mayor que 5';
+} else {
+    mensaje = 'el numero es menor o igual que 5';
 }
 
 // salidas
