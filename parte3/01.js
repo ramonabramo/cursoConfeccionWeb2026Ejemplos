@@ -1,11 +1,28 @@
 /**
- * En un formulario con 2 cajas de tipo numero
- * Colocar 4 botones que nos permitan 
- * sumar
- * restar
- * multiplicar 
- * dividir 
- * 
- * Al pulsar un boton mostrar el resultado lo quiero en un div llamado salida
+ * pedir un numero por teclado e indicar si es mayor que 5
+ * en el div salida
  */
+
+// variables y constantes
+let numero = 0;
+let mensaje = '';
+
+// constantes al DOM
+const divSalida = document.querySelector('#salida');
+
+// gestion de eventos
+// constantes al DOM que queremos escuchar
+// colocar escuchadores de eventos
+
+// entradas
+numero = Number(prompt('Introduce un numero'));
+
+// procesamiento
+if (numero > 5) {
+    mensaje = 'Es mayor que 5';
+}
+
+// salidas
+divSalida.textContent = mensaje;
+
 
