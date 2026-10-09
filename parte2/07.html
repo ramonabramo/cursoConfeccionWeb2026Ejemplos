@@ -1,49 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Panel de Bloques</title>
     <style>
-        #origen{
+        /* Reseteo y tipografía del sistema */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* Lienzo centrado vertical y horizontalmente */
+        body {
+            background-color: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        /* Envoltorio opcional si prefieres verlos lado a lado */
+        .bloques-wrapper {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Estilo base de los bloques */
+        #origen, #destino {
             width: 200px;
             height: 200px;
-            background-color: red;
-            color:white;
-            margin: 30px auto;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.12);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            user-select: none;
         }
-        #destino{
-            width: 200px;
-            height: 200px;
-            background-color: green;
-            color:white;
-            margin: 30px auto;
+
+        /* Efecto de elevación al pasar el cursor */
+        #origen:hover, #destino:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 28px -6px rgba(0, 0, 0, 0.2);
         }
-        #boton{
-            background-color: black;
-            color:white;
+
+        /* Degradados para sustituir los colores planos */
+        #origen {
+            background: linear-gradient(135deg, #f43f5e, #be123c);
+        }
+
+        #destino {
+            background: linear-gradient(135deg, #10b981, #047857);
+        }
+
+        /* Botón de acción con estilo píldora */
+        #boton {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0f172a;
+            color: #ffffff;
             text-decoration: none;
-            padding: 10px;
-            display: block;
-            width: 200px;
-            text-align: center;
-            height: 30px;
-            line-height: 30px;
-            border-radius: 4px;
-            margin: 30px auto;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.75rem 2.25rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+        }
+
+        #boton:hover {
+            background-color: #1e293b;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.3);
+        }
+
+        #boton:active {
+            transform: scale(0.96);
         }
     </style>
 </head>
 
 <body>
-    <div id="origen">
-        alpe
+    <!-- Contenedor flexible para disponer los dos bloques en paralelo -->
+    <div class="bloques-wrapper">
+        <div id="origen">
+            alpe
+        </div>
+
+        <div id="destino">
+            formacion
+        </div>
     </div>
 
-    <div id="destino">
-        formacion
-    </div>
     <a href="#" id="boton">Cambiar</a>
 </body>
+<script src="07.js"></script>
 </html>
