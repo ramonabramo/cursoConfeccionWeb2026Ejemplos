@@ -32,6 +32,7 @@ boton.addEventListener('click', function () {
     const spanRadio = document.querySelector('#radioSalida');
     const spanArea = document.querySelector('#area');
     const spanPerimetro = document.querySelector('#perimetro');
+    const circulo = document.querySelector('#circulo');
 
     // entradas
     radio = Number(inputRadio.value);
@@ -46,4 +47,5 @@ boton.addEventListener('click', function () {
     spanRadio.innerHTML = radio;
     spanArea.innerHTML = area;
     spanPerimetro.innerHTML = perimetro;
+    circulo.setAttribute('r', radio);
 });
