@@ -1,6 +1,8 @@
 /**
  * pedir un numero por teclado e indicar si es mayor que 5
- * en el div salida
+ * o si menor o igual en el div Salida
+ * 
+ * Solo podemos utilizar if sin else
  */
 
 // variables y constantes
