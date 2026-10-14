@@ -18,15 +18,26 @@
 // estructura programa
 
 // declaracion de variables y constantes
+let nota = 0;
+let mensaje = "";
+const NOTA_MINIMA = 5;
 
 // constantes al DOM
+const divSalida = document.querySelector('#salida');
 
 // gestion de eventos
 // constantes al DOM que queremos escuchar
 // colocar escuchadores de eventos
 
 // entradas
+nota = Number(prompt("Introduzca la nota")); 
 
 // procesamiento
+if (nota >= NOTA_MINIMA) {
+    mensaje = "Aprobado";
+} else {
+    mensaje = "Suspendido";
+}
 
 // salidas
+divSalida.textContent = mensaje;
