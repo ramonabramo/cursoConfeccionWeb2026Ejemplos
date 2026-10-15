@@ -14,7 +14,7 @@
  *           * Si numero > 0 -> asignar el color 'blue' (azul).
  *           * Si numero < 0 -> asignar el color 'red' (rojo).
  *           * Si no (cuando es 0) -> asignar el color 'black' (negro).
- * - 4 PASO: Calcular la anchura multiplicando el número por 10 (anchura = numero * 10).
+ * - 4 PASO: Calcular la anchura multiplicando el número por 10 (anchura = Math.abs(numero) * 10).
  * - 5 PASO: Mostrar las salidas en el div #salida:
  *           * Asignar el color de fondo con style.backgroundColor.
  *           * Asignar la anchura con style.width (concatenando 'px').
@@ -47,7 +47,7 @@ if (numero > 0) {
     color = "black";
 }
 
-anchura = numero * 10;
+anchura = Math.abs(numero) * 10;
 
 // salidas
 divSalida.style.backgroundColor = color;
