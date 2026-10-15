@@ -18,28 +18,19 @@
 // estructura programa
 
 // declaracion de variables y constantes
-let numero = 0;
-let mensaje = '';
+
 
 // constantes al DOM
-const divSalida = document.querySelector('#salida');
+
 
 // gestion de eventos
 // constantes al DOM que queremos escuchar
 // colocar escuchadores de eventos
 
 // entradas
-numero = Number(prompt('Introduce un número'));
+
 
 // procesamiento
-if (numero > 0) {
-    mensaje = 'Positivo';
-} else if (numero < 0) {
-    mensaje = 'Negativo';
-} else {
-    mensaje = 'Cero';
 
-}
 
 // salidas
-divSalida.textContent = mensaje;

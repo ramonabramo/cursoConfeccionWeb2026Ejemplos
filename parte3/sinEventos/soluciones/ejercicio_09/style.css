@@ -1,0 +1,163 @@
+/* ---------------------------------------------------------
+   ESTILOS GENERALES DE LOS EJERCICIOS DE JAVASCRIPT
+   --------------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 45px 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #263238;
+    background: linear-gradient(135deg, #edf4fb 0%, #f8fbfe 100%);
+}
+
+/* Títulos y textos */
+h1,
+h2 {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    padding: 18px 24px;
+    color: #174a7c;
+    background-color: rgba(255, 255, 255, 0.96);
+    border: 1px solid #d9e5f0;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(31, 68, 120, 0.10);
+}
+
+p {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    padding: 16px 22px;
+    line-height: 1.6;
+    color: #52667a;
+    background-color: rgba(255, 255, 255, 0.94);
+    border-radius: 12px;
+}
+
+/* Salidas de los ejercicios */
+#salida,
+#numero,
+#mensaje {
+    max-width: 900px;
+    min-height: 70px;
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #183b56;
+    background-color: #ffffff;
+    border: 1px solid #d9e5f0;
+    border-left: 6px solid #2f80ed;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(31, 68, 120, 0.10);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Cuando JavaScript cambia el color o tamaño de #salida,
+   estos estilos sirven únicamente como presentación inicial. */
+#salida {
+    transition:
+        width 0.35s ease,
+        background-color 0.35s ease,
+        color 0.35s ease;
+}
+
+/* Listas */
+ul {
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 0;
+    list-style: none;
+    background-color: #ffffff;
+    border: 1px solid #d9e5f0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(31, 68, 120, 0.10);
+}
+
+li {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e4edf5;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+li:last-child {
+    border-bottom: 0;
+}
+
+/* Tabla del ejercicio de calificaciones */
+table {
+    width: min(900px, 100%);
+    margin: 25px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(31, 68, 120, 0.10);
+}
+
+table,
+th,
+td {
+    border: 1px solid #d9e5f0;
+}
+
+th,
+td {
+    padding: 14px 12px;
+    text-align: center;
+}
+
+thead {
+    background-color: #243b53;
+    color: #ffffff;
+}
+
+tbody {
+    background-color: #f4f8fc;
+}
+
+/* Las celdas modificadas desde JavaScript mantienen
+   correctamente los colores aplicados por el programa. */
+td {
+    height: 55px;
+    transition: background-color 0.3s ease;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 700px) {
+    body {
+        padding: 25px 14px;
+    }
+
+    h1,
+    h2,
+    p,
+    #salida,
+    #numero,
+    #mensaje {
+        width: 100%;
+    }
+
+    table {
+        font-size: 0.86rem;
+    }
+
+    th,
+    td {
+        padding: 10px 6px;
+    }
+}
