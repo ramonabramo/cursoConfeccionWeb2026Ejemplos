@@ -12,7 +12,7 @@
  * - 3 PASO: Evaluar con una estructura 'if ... else' si el número es positivo:
  *           * Si numero > 0 (o >= 0), guardamos el color 'blue' (azul).
  *           * Si no (else), guardamos el color 'red' (rojo).
- * - 4 PASO: Calcular la anchura multiplicando el número por 10 (anchura = numero * 10).
+ * - 4 PASO: Calcular la anchura multiplicando el valor absoluto del nnúmero por 10 (anchura = Math.abs(numero) * 10).
  * - 5 PASO: Aplicar los estilos al div #salida modificando sus propiedades CSS desde JS:
  *           * divSalida.style.backgroundColor para el color de fondo.
  *           * divSalida.style.width para la anchura (añadiendo la unidad 'px' al final).
@@ -22,7 +22,11 @@
 
 // declaracion de variables y constantes
 
+
+
 // constantes al DOM
+
+
 
 // gestion de eventos
 // constantes al DOM que queremos escuchar
@@ -30,6 +34,12 @@
 
 // entradas
 
+
+
 // procesamiento
+
+
+
+
 
 // salidas
