@@ -24,7 +24,10 @@
 
 // declaracion de variables y constantes
 
+
+
 // constantes al DOM
+
 
 // gestion de eventos
 // constantes al DOM que queremos escuchar
@@ -32,6 +35,8 @@
 
 // entradas
 
+
 // procesamiento
 
 // salidas
+
