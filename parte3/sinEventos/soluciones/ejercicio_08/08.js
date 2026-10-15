@@ -20,7 +20,7 @@ numero3 = Number(prompt('Introduce el tercer número'));
 
 // procesamiento
 if (numero1 == numero2 && numero1 == numero3) {
-    mensaje = 'Los tres números son iguales (' + numero1 + ')';
+    mensaje = `Los tres números son iguales (${numero1})`;
 } else if (numero1 >= numero2 && numero1 >= numero3) {
     mensaje = 'El número mayor es ' + numero1;
 } else if (numero2 >= numero1 && numero2 >= numero3) {
