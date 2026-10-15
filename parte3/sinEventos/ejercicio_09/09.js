@@ -1,5 +1,5 @@
 /**
- * EJERCICIO 08 - CONDICIONALES POR TRAMOS Y VALIDACIÓN (NOTAS DE EXAMEN)
+ * EJERCICIO 09 - CONDICIONALES POR TRAMOS Y VALIDACIÓN (NOTAS DE EXAMEN)
  *
  * Enunciado:
  * Pedir una nota numérica del 0 al 10 por teclado y mostrar en el div #salida
