@@ -13,7 +13,7 @@
  * - 3 PASO: Evaluar el valor de 'numero' mediante condicionales (if ... else if ... else o if anidados):
  *           * Si numero > 0 -> asignar el color 'blue' (azul).
  *           * Si numero < 0 -> asignar el color 'red' (rojo).
- *           * Si no (cuando es 0) -> asignar el color 'black' (negro).
+ *           * Si no (cuando es 0) -> asignar el color 'black' (negro) y colocamos el numero a 10.
  * - 4 PASO: Calcular la anchura multiplicando el número por 10 (anchura = Math.abs(numero) * 10).
  * - 5 PASO: Mostrar las salidas en el div #salida:
  *           * Asignar el color de fondo con style.backgroundColor.
