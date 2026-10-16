@@ -51,14 +51,12 @@
 const temperaturas = [18, 22, 14, 25, 30, 11, 27];
 
 // constantes al DOM que queremos escuchar
-const formFiltro = document.querySelector('#formFiltro');
+const btnFiltrar = document.querySelector('#btnFiltrar');
 const inputUmbral = document.querySelector('#inputUmbral');
 const nodoResultado = document.querySelector('#resultado');
 
 // colocar escuchadores de eventos
-formFiltro.addEventListener('submit', function (e) {
-    // Evitamos la recarga por defecto
-    e.preventDefault();
+btnFiltrar.addEventListener('click', function () {
 
     // entradas
     const umbral = Number(inputUmbral.value);

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 08: Intercambio dinámico de valores entre inputs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="contenedor">
+        <h1>Selector de Trayecto</h1>
+        <form>
+            <div class="campo">
+                <label for="origen">Origen:</label>
+                <input type="text" name="origen" id="origen" value="Madrid" placeholder="Ciudad de salida">
+            </div>
+            <div class="campo">
+                <label for="destino">Destino:</label>
+                <input type="text" name="destino" id="destino" value="Sevilla" placeholder="Ciudad de llegada">
+            </div>
+            <button type="button" id="boton">Invertir Trayecto</button>
+        </form>
+    </main>
+
+  <!-- Script al final del body para garantizar que el DOM ya existe sin requerir defer -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+.circulo {
+  width: 140px;
+  height: 140px;
+  background-color: #e2e8f0;
+  transition: background-color 0.4s ease;
+}

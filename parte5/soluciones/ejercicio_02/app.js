@@ -32,7 +32,7 @@
  * - 1 PASO: Declarar el array 'listaCompra' con los elementos iniciales ['Pan', 'Leche'].
  * - 2 PASO: Crear constantes al DOM para #formCompra, #inputArticulo y #resultado.
  * - 3 PASO: Escuchar 'submit' en el formulario pasando (e).
- * - 4 PASO: Llamar a e.preventDefault().
+ * - 4 PASO: Leer los datos del formulario directamente sin necesidad de preventDefault().
  * - 5 PASO: Validar con 'if' que el texto no esté vacío.
  * - 6 PASO: Ejecutar listaCompra.push(articulo).
  * - 7 PASO: Mostrar el resumen actualizado en #resultado y limpiar el input.
@@ -44,14 +44,12 @@
 let listaCompra = ['Pan', 'Leche'];
 
 // constantes al DOM que queremos escuchar
-const formCompra = document.querySelector('#formCompra');
+const btnAgregar = document.querySelector('#btnAgregar');
 const inputArticulo = document.querySelector('#inputArticulo');
 const nodoResultado = document.querySelector('#resultado');
 
 // colocar escuchadores de eventos
-formCompra.addEventListener('submit', function (e) {
-    // Evitamos la recarga de página
-    e.preventDefault();
+btnAgregar.addEventListener('click', function () {
 
     // entradas
     const articulo = inputArticulo.value.trim();

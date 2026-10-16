@@ -1,144 +1,88 @@
-# Parte 1: Primeros Pasos en JavaScript — Variables, Entradas con `prompt()` y Salidas en DOM/Consola
+# Módulo: Fundamentos, Variables y Salidas Básicas (Parte 1)
+## Introducción a la Programación Algorítmica en JavaScript
 
-Bienvenido a la **Parte 1** del curso de JavaScript. En este bloque inicial aprenderemos los fundamentos esenciales de la programación web: cómo vincular código JavaScript con páginas HTML, declarar variables y constantes, solicitar datos al usuario mediante `prompt()`, realizar cálculos básicos y mostrar la información en pantalla utilizando la consola, alertas emergentes y manipulación directa del DOM (`textContent` e `innerHTML`).
+Bienvenido a la **Parte 1** del curso práctico de JavaScript. En este bloque formativo se asientan las bases de la lógica de programación: cómo declarar y usar variables y constantes, cómo interactuar con el usuario a través de canales de entrada (`prompt`), cómo emitir resultados mediante la consola de desarrollo (`console.log`) y cómo alterar dinámicamente los primeros elementos del **DOM** (`textContent`, `innerHTML` y `style`).
 
----
-
-## 1. Teoría Fundamental para Empezar a Programar
-
-### 1.1. ¿Cómo se ejecuta JavaScript en una página web?
-JavaScript es el lenguaje que dota de dinamismo e interactividad a las páginas web. Para ejecutar código JS externo en un documento HTML, enlazamos el archivo mediante la etiqueta `<script>`:
-
-```html
-<!-- En el <head> con el atributo defer para esperar a que el HTML esté cargado -->
-<script src="ejemplo1.js" defer></script>
-
-<!-- O justo antes de cerrar la etiqueta </body> -->
-<script src="ejemplo1.js"></script>
-```
-
-El atributo `defer` garantiza que el navegador cargue y construya primero toda la estructura de la página web (DOM) antes de ejecutar el código JavaScript, evitando errores al buscar elementos que aún no existan.
+Todos los ejercicios están organizados en carpetas independientes para el alumno (`ejercicio_01/` a `ejercicio_11/`, conservando la numeración original) con plantillas comentadas ("sin hacer", guiadas paso a paso) y sus correspondientes soluciones en la carpeta `soluciones/`.
 
 ---
 
-### 1.2. Variables y Constantes: `let` vs `const`
-Para guardar información en la memoria de nuestro programa utilizamos **variables** y **constantes**:
+## 1. Teoría Fundamental
 
-* **`let` (Variables):** Se utiliza cuando el valor que almacena puede cambiar a lo largo del programa (por ejemplo: la edad, un contador, el total de una compra).
-  ```javascript
-  let edad = 20;
-  edad = 21; // Válido: el valor cambia
-  ```
-* **`const` (Constantes):** Se utiliza para valores fijos que **nunca deben ser reasignados** o para referencias a elementos del DOM.
-  ```javascript
-  const PI = 3.1416;
-  const nodoSalida = document.querySelector('#salida');
-  ```
+### 1.1. ¿Cómo se ejecuta JavaScript en el navegador?
+JavaScript es un lenguaje interpretado que el motor del navegador (V8 en Chrome/Edge, SpiderMonkey en Firefox) ejecuta instrucción por instrucción.
+Tradicionalmente, en esta fase inicial se trabaja con un modelo de **ejecución secuencial**: el código se lee de arriba hacia abajo tan pronto como el documento HTML ha sido cargado.
 
 ---
 
-### 1.3. Tipos de Datos Primitivos
-En este bloque trabajaremos con los tipos de datos más comunes:
-1. **Cadenas de texto (`String`):** Texto delimitado entre comillas simples (`'Hola'`) o dobles (`"Hola"`).
-2. **Números (`Number`):** Valores numéricos enteros (`12`) o decimales (`19.99`), sin comillas.
-3. **Objetos literales (`Object`):** Agrupaciones de datos organizados por parejas clave-valor:
+### 1.2. Declaración de Variables y Constantes (`let` vs `const`)
+En JavaScript moderno (**ES6+**) está terminantemente desaconsejado el uso de `var` debido a problemas de ámbito (*scope*) y elevación (*hoisting*). Usamos exclusivamente:
+
+1. **`let`**: Para declarar variables cuyo valor cambiará a lo largo del programa (por ejemplo, contadores, acumuladores, datos introducidos por el usuario).
    ```javascript
-   const alumno = {
-       nombre: 'Lucía',
-       edad: 22,
-       puntos: 100
-   };
-   console.log(alumno.nombre); // "Lucía"
+   let puntos = 0;
+   puntos = 12; // Reasignación válida
+   ```
+2. **`const`**: Para declarar valores constantes inmutables o referencias fijas a elementos del DOM. No se pueden reasignar una vez inicializadas.
+   ```javascript
+   const PI = 3.14159;
+   const nodoTitulo = document.querySelector('h1');
    ```
 
 ---
 
-### 1.4. Canales de Salida: ¿Dónde mostramos los datos?
+### 1.3. Canales de Entrada: `prompt()` y Conversión con `Number()`
+La función `prompt("mensaje", valorPorDefecto)` abre un cuadro de diálogo del navegador que solicita texto al usuario:
 
-JavaScript nos ofrece distintas formas de mostrar información:
-
-#### A. La Consola del Navegador (`console.log`)
-Es la herramienta principal del desarrollador para inspeccionar valores, verificar que el código funciona y depurar errores. No es visible para el usuario común (se consulta pulsando `F12` en el navegador $\rightarrow$ pestaña *Consola*).
-```javascript
-console.log('Mensaje de prueba');
-console.log(10 + 5); // 15
-```
-
-#### B. Ventanas emergentes (`alert`)
-Muestra un cuadro de diálogo flotante del sistema operativo con un botón de aceptar.
-```javascript
-alert('¡Bienvenido a la página!');
-```
-
-#### C. Escribir directamente en la página web (DOM)
-Para que los usuarios vean los resultados integrados en el diseño de la página, primero apuntamos al elemento HTML con `document.querySelector()` y luego modificamos su contenido:
-* **`elemento.textContent`**: Inserta o lee texto plano. Es el método más seguro, limpio y rápido cuando no necesitamos añadir etiquetas HTML.
-  ```javascript
-  const nodo = document.querySelector('#salida');
-  nodo.textContent = 'Hola mundo';
-  ```
-* **`elemento.innerHTML`**: Inserta o lee contenido interpretando etiquetas HTML (como `<p>`, `<strong>`, `<li>`). También permite concatenar contenido nuevo al que ya existía usando `+=`.
-  ```javascript
-  nodo.innerHTML = '<strong>Texto en negrita</strong>';
-  nodo.innerHTML += '<span>Texto añadido a continuación</span>';
-  ```
-
----
-
-### 1.5. Canales de Entrada: `prompt()` y Conversión de Tipos
-
-#### Solicitar datos con `prompt()`
-Antes de ver formularios interactivos, la forma más directa de pedir un dato al usuario en ejercicios introductorios es la función `prompt()`:
-```javascript
-let nombre = prompt('Introduce tu nombre:');
-```
-
-> [!WARNING]
-> **¡Atención a la conversión de tipos!**
-> La función `prompt()` devuelve **SIEMPRE una cadena de texto (`string`)**, incluso si el usuario teclea números.
-> Si intentamos sumar dos datos pedidos por `prompt()` sin convertirlos previamente, el operador `+` los concatenará como textos:
+> [!IMPORTANT]
+> `prompt()` devuelve **siempre un string (cadena de texto)**, incluso si el usuario teclea únicamente números.
+> Si deseamos realizar operaciones matemáticas, debemos convertir explícitamente el valor utilizando la función global **`Number()`**:
 > ```javascript
-> let n1 = prompt('Primer número');  // El usuario escribe 10 -> n1 vale "10"
-> let n2 = prompt('Segundo número'); // El usuario escribe 5  -> n2 vale "5"
-> console.log(n1 + n2);              // "105" (¡Error de concatenación!)
-> ```
-> Para solucionarlo, debemos convertir el texto a número con **`Number()`**:
-> ```javascript
-> let n1 = Number(prompt('Primer número'));  // 10 (número real)
-> let n2 = Number(prompt('Segundo número')); // 5  (número real)
-> console.log(n1 + n2);                      // 15 (¡Suma matemática correcta!)
+> let numero = Number(prompt('Introduce un número:', 0));
+> let doble = numero * 2;
 > ```
 
 ---
 
-### 1.6. Operaciones, Cadenas y Estilos
+### 1.4. Canales de Salida: Consola vs DOM
 
-#### A. Operadores Matemáticos
-* Suma: `+`
-* Resta: `-`
-* Multiplicación: `*`
-* División: `/`
-* Potencia: `**` (por ejemplo: `radio ** 2`)
+1. **La Consola de Desarrollo (`console.log`):**
+   Es la herramienta esencial para el programador. Permite depurar, inspeccionar tipos de datos y verificar resultados intermedios sin alterar la interfaz visual:
+   ```javascript
+   console.log("Hola desde JS");
+   console.log(10 + 5); // Imprime 15
+   ```
+   Para verla en el navegador, se pulsa la tecla **F12** (o clic derecho -> *Inspeccionar*) y se selecciona la pestaña **Consola**.
 
-#### B. Concatenación vs Plantillas de Texto (*Template Literals*)
-* **Concatenación tradicional (`+`):**
+2. **Salidas en el DOM (`textContent` e `innerHTML`):**
+   Permiten volcar la información directamente dentro de las etiquetas HTML de la página:
+   * **`.textContent`**: Inserta texto plano de forma segura (sin interpretar etiquetas HTML). Es el método más rápido y recomendado para textos sencillos.
+   * **`.innerHTML`**: Interpreta el texto como código HTML dinámico, permitiendo inyectar etiquetas como `<strong>`, `<span>` o listas `<li>`.
+
+---
+
+### 1.5. Manipulación de Cadenas y Estilos
+
+#### A. Concatenación vs Template Literals (Backticks ` `)
+* **Concatenación clásica con el operador `+`:**
   ```javascript
   console.log(nombre + ' tiene ' + puntos + ' puntos');
   ```
-* **Plantillas de texto modernas (Backticks `` ` ``):** Permiten interpolar variables y expresiones fácilmente con la sintaxis `${variable}`:
+* **Plantillas de texto modernas (Template Literals con comillas invertidas `):**
+  Permiten interpolar variables y expresiones fácilmente con la sintaxis `${expresion}`:
   ```javascript
   console.log(`${nombre} tiene ${puntos} puntos`);
   ```
 
-#### C. Métodos Útiles de Texto
+#### B. Métodos Útiles de Texto
 * **`.trim()`**: Elimina los espacios en blanco sobrantes al principio y al final de una cadena.
 * **`.toLowerCase()`**: Convierte todo el texto a minúsculas.
 ```javascript
 let limpio = entrada.trim().toLowerCase();
 ```
 
-#### D. Manipulación Básica de Estilos CSS (`.style`)
-Podemos modificar directamente el aspecto visual de cualquier elemento desde JavaScript accediendo a su propiedad `.style`:
+#### C. Manipulación Básica de Estilos CSS (`.style`)
+Podemos alterar directamente las reglas CSS en línea de un elemento mediante su propiedad `.style`:
 ```javascript
 const caja = document.querySelector('#salida');
 caja.style.width = '300px';
@@ -148,8 +92,8 @@ caja.style.color = 'white';
 
 ---
 
-### 1.7. Estructura Estándar de un Programa Secuencial
-Para aprender a programar de manera ordenada, dividimos siempre el archivo en bloques lógicos:
+### 1.6. Estructura Estándar de Trabajo en 5 Pasos
+Para aprender a programar de manera sistemática y ordenada, cada ejercicio sigue el mismo esquema:
 
 ```javascript
 // 1. Declaración de variables y constantes
@@ -173,48 +117,50 @@ nodoTotal.textContent = `Total con IVA: ${total} €`;
 
 ## 2. Tabla Resumen de los Ejercicios de la Parte 1
 
-| Nº / Archivo | Concepto Clave / Novedad | Archivo JS | Archivo HTML |
+| Nº / Archivo | Concepto Clave / Novedad | Plantilla Alumno | Solución Completa |
 | :---: | :--- | :---: | :---: |
-| **Ejemplo 1** | Primer script: vinculación con `defer`, `console.log` y primer `textContent` | [`ejemplo1.js`](./ejemplo1.js) | [`ejemplo1.html`](./ejemplo1.html) |
-| **Ejemplo 2** | Lectura de párrafos en el DOM, variables y plantillas con backticks | [`ejemplo2.js`](./ejemplo2.js) | [`ejemplo2.html`](./ejemplo2.html) |
-| **Ejemplo 4** | Declaración de constantes (`const`) y escritura de saludo en el DOM | [`ejemplo4.js`](./ejemplo4.js) | [`ejemplo4.html`](./ejemplo4.html) |
-| **Ejemplo 5** | Objetos literales (`{}`) para agrupar datos leídos de una lista `<ul>` | [`ejemplo5.js`](./ejemplo5.js) | [`ejemplo5.html`](./ejemplo5.html) |
-| **Ejemplo 6** | Manipulación de estilos CSS en línea (`style.width`, `style.backgroundColor`) | [`ejemplo6.js`](./ejemplo6.js) | [`ejemplo6.html`](./ejemplo6.html) |
-| **Ejemplo 7** | Entrada de datos con `prompt()`, conversión con `Number()` y cálculo del doble | [`ejemplo7.js`](./ejemplo7.js) | [`ejemplo7.html`](./ejemplo7.html) |
-| **Ejemplo 8** | Limpieza de strings con `.trim()` y conversión a minúsculas con `.toLowerCase()` | [`ejemplo8.js`](./ejemplo8.js) | [`ejemplo8.html`](./ejemplo8.html) |
-| **Ejemplo 9** | Saludo dinámico: captura de nombre con `prompt()` e interpolación en el DOM | [`ejemplo9.js`](./ejemplo9.js) | [`ejemplo9.html`](./ejemplo9.html) |
-| **Ejemplo 10** | Fórmula matemática: conversión de grados Celsius a Fahrenheit ($C \cdot 1.8 + 32$) | [`ejemplo10.js`](./ejemplo10.js) | [`ejemplo10.html`](./ejemplo10.html) |
-| **Ejemplo 11** | Cálculo financiero: precio base, porcentaje de IVA y total acumulado en `innerHTML` | [`ejemplo11.js`](./ejemplo11.js) | [`ejemplo11.html`](./ejemplo11.html) |
+| **01** (Ejemplo 1) | Primer script: `console.log` y primer `textContent` | [ejercicio_01/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_01/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_01/app.js) |
+| **02** (Ejemplo 2) | Lectura de párrafos en el DOM, variables y plantillas con backticks | [ejercicio_02/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_02/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_02/app.js) |
+| **04** (Ejemplo 4) | Declaración de constantes (`const`) y escritura de saludo en el DOM | [ejercicio_04/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_04/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_04/app.js) |
+| **05** (Ejemplo 5) | Objetos literales (`{}`) para agrupar datos leídos de una lista `<ul>` | [ejercicio_05/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_05/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_05/app.js) |
+| **06** (Ejemplo 6) | Manipulación de estilos CSS en línea (`style.width`, `style.backgroundColor`) | [ejercicio_06/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_06/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_06/app.js) |
+| **07** (Ejemplo 7) | Entrada de datos con `prompt()`, conversión con `Number()` y cálculo del doble | [ejercicio_07/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_07/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_07/app.js) |
+| **08** (Ejemplo 8) | Limpieza de strings con `.trim()` y conversión a minúsculas con `.toLowerCase()` | [ejercicio_08/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_08/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_08/app.js) |
+| **09** (Ejemplo 9) | Saludo dinámico: captura de nombre con `prompt()` e interpolación en el DOM | [ejercicio_09/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_09/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_09/app.js) |
+| **10** (Ejemplo 10) | Fórmula matemática: conversión de grados Celsius a Fahrenheit ($C \cdot 1.8 + 32$) | [ejercicio_10/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_10/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_10/app.js) |
+| **11** (Ejemplo 11) | Cálculo financiero: precio base, porcentaje de IVA y total acumulado en `innerHTML` | [ejercicio_11/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_11/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_11/app.js) |
 
 ---
 
 ## 3. Enunciados Detallados de los Ejercicios
 
-### Ejemplo 1: Primer script y canales de salida
-* **Archivos:** [`ejemplo1.js`](./ejemplo1.js) \| [`ejemplo1.html`](./ejemplo1.html)
+### Ejercicio 01 (Ejemplo 1): Primer script y canales de salida
+* **Carpeta Alumno:** [`ejercicio_01/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_01/index.html)
+* **Solución:** [`soluciones/ejercicio_01/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_01/app.js)
 * **Objetivo:** Comprender la ejecución de JavaScript externo y los dos primeros canales de salida: la consola y el DOM.
 * **Enunciado:**
-  1. Vincular el archivo `ejemplo1.js` en el `<head>` del HTML utilizando el atributo `defer`.
-  2. Apuntar al párrafo con identificador `#salidaMensaje` y escribir en él el texto: `"Javascript esta funcionando"` usando `textContent`.
-  3. Enviar a la consola del desarrollador el mensaje: `"Hola desde JS"`.
-  4. Realizar una operación matemática directa (`10 + 5`) y mostrar su resultado en la consola.
+  1. Apuntar al párrafo con identificador `#salidaMensaje` y escribir en él el texto: `"Javascript esta funcionando"` usando `textContent`.
+  2. Enviar a la consola del desarrollador el mensaje: `"Hola desde JS"`.
+  3. Realizar una operación matemática directa (`10 + 5`) y mostrar su resultado en la consola.
 
 ---
 
-### Ejemplo 2: Lectura del DOM, concatenación y Template Literals
-* **Archivos:** [`ejemplo2.js`](./ejemplo2.js) \| [`ejemplo2.html`](./ejemplo2.html)
+### Ejercicio 02 (Ejemplo 2): Lectura del DOM, concatenación y Template Literals
+* **Carpeta Alumno:** [`ejercicio_02/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_02/index.html)
+* **Solución:** [`soluciones/ejercicio_02/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_02/app.js)
 * **Objetivo:** Extraer información existente en etiquetas HTML y formatear salidas de texto.
 * **Enunciado:**
   En el HTML existen dos párrafos: `<p id="nombre">Lucia</p>` y `<p id="puntos">12</p>`.
   1. Apuntar a ambos elementos con `document.querySelector()`.
   2. Leer su contenido textual mediante `.textContent` y guardarlo en variables (`nombre` y `puntos`).
   3. Mostrar en la consola la frase: `"Lucia tiene 12 puntos"` utilizando primero la concatenación tradicional con `+`.
-  4. Mostrar la misma frase utilizando plantillas de texto modernas (*template literals*) con comillas invertidas (`` `${nombre} tiene ${puntos} puntos` ``).
+  4. Mostrar la misma frase utilizando plantillas de texto modernas (*template literals*) con comillas invertidas (`${nombre} tiene ${puntos} puntos`).
 
 ---
 
-### Ejemplo 4: Uso de constantes para textos fijos
-* **Archivos:** [`ejemplo4.js`](./ejemplo4.js) \| [`ejemplo4.html`](./ejemplo4.html)
+### Ejercicio 04 (Ejemplo 4): Uso de constantes para textos fijos
+* **Carpeta Alumno:** [`ejercicio_04/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_04/index.html)
+* **Solución:** [`soluciones/ejercicio_04/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_04/app.js)
 * **Objetivo:** Declarar constantes inmutables y plasmarlas en el DOM.
 * **Enunciado:**
   1. Declarar una constante llamada `TEXTO` con el valor `"hola desde un archivo externo"`.
@@ -223,33 +169,36 @@ nodoTotal.textContent = `Total con IVA: ${total} €`;
 
 ---
 
-### Ejemplo 5: Agrupación de datos en un objeto literal
-* **Archivos:** [`ejemplo5.js`](./ejemplo5.js) \| [`ejemplo5.html`](./ejemplo5.html)
+### Ejercicio 05 (Ejemplo 5): Agrupación de datos en un objeto literal
+* **Carpeta Alumno:** [`ejercicio_05/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_05/index.html)
+* **Solución:** [`soluciones/ejercicio_05/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_05/app.js)
 * **Objetivo:** Aprender a organizar múltiples datos relacionados dentro de un objeto literal.
 * **Enunciado:**
   Dada una lista en HTML con tres elementos: `<li id="nombre">Ramon</li>`, `<li id="poblacion">Santander</li>` y `<li id="edad">54</li>`.
-  1. Crear un objeto constante `datos` con propiedades vacías: `{ nombre: '', poblacion: '', edad: 0 }`.
+  1. Crear un objeto constante `datos` con propiedades: `{ nombre: '', poblacion: '', edad: 0 }`.
   2. Leer el texto de cada `<li>` del DOM y almacenarlo en la propiedad correspondiente del objeto (`datos.nombre`, etc.).
   3. Mostrar en la consola un resumen formateado: `"Nombre: Ramon Edad: 54 Poblacion: Santander"`.
 
 ---
 
-### Ejemplo 6: Manipulación de propiedades CSS desde JavaScript
-* **Archivos:** [`ejemplo6.js`](./ejemplo6.js) \| [`ejemplo6.html`](./ejemplo6.html)
+### Ejercicio 06 (Ejemplo 6): Manipulación de propiedades CSS desde JavaScript
+* **Carpeta Alumno:** [`ejercicio_06/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_06/index.html)
+* **Solución:** [`soluciones/ejercicio_06/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_06/app.js)
 * **Objetivo:** Modificar el estilo visual de elementos HTML en tiempo real mediante la propiedad `.style`.
 * **Enunciado:**
   Dado un elemento `<div id="salida">` y un objeto constante con propiedades de diseño:
   `const propiedades = { ancho: 300, alto: 100, fondo: 'blue', colorLetra: 'white' };`
   1. Apuntar al div `#salida`.
-  2. Asignar el ancho en píxeles: `nodoSalida.style.width = \`\${propiedades.ancho}px\``.
-  3. Asignar la altura en píxeles: `nodoSalida.style.height = \`\${propiedades.alto}px\``.
+  2. Asignar el ancho en píxeles: `nodoSalida.style.width = `${propiedades.ancho}px``.
+  3. Asignar la altura en píxeles: `nodoSalida.style.height = `${propiedades.alto}px``.
   4. Cambiar el color de fondo: `nodoSalida.style.backgroundColor = propiedades.fondo`.
   5. Cambiar el color del texto: `nodoSalida.style.color = propiedades.colorLetra`.
 
 ---
 
-### Ejemplo 7: Entrada con `prompt()`, conversión numérica y cálculo
-* **Archivos:** [`ejemplo7.js`](./ejemplo7.js) \| [`ejemplo7.html`](./ejemplo7.html)
+### Ejercicio 07 (Ejemplo 7): Entrada con `prompt()`, conversión numérica y cálculo
+* **Carpeta Alumno:** [`ejercicio_07/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_07/index.html)
+* **Solución:** [`soluciones/ejercicio_07/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_07/app.js)
 * **Objetivo:** Solicitar datos por teclado, convertirlos a tipo numérico y volcar el cálculo en el DOM.
 * **Enunciado:**
   1. Pedir un número al usuario por teclado mediante `prompt('Introduce un numero', 0)`.
@@ -259,8 +208,9 @@ nodoTotal.textContent = `Total con IVA: ${total} €`;
 
 ---
 
-### Ejemplo 8: Métodos de manipulación de texto (`.trim()` y `.toLowerCase()`)
-* **Archivos:** [`ejemplo8.js`](./ejemplo8.js) \| [`ejemplo8.html`](./ejemplo8.html)
+### Ejercicio 08 (Ejemplo 8): Métodos de manipulación de texto (`.trim()` y `.toLowerCase()`)
+* **Carpeta Alumno:** [`ejercicio_08/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_08/index.html)
+* **Solución:** [`soluciones/ejercicio_08/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_08/app.js)
 * **Objetivo:** Limpiar y normalizar cadenas de texto introducidas por los usuarios.
 * **Enunciado:**
   1. Solicitar el nombre de usuario mediante `prompt('Ingrese su nombre de usuario')`.
@@ -270,28 +220,31 @@ nodoTotal.textContent = `Total con IVA: ${total} €`;
 
 ---
 
-### Ejemplo 9: Saludo interactivo con Template Literals
-* **Archivos:** [`ejemplo9.js`](./ejemplo9.js) \| [`ejemplo9.html`](./ejemplo9.html)
+### Ejercicio 09 (Ejemplo 9): Saludo interactivo con Template Literals
+* **Carpeta Alumno:** [`ejercicio_09/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_09/index.html)
+* **Solución:** [`soluciones/ejercicio_09/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_09/app.js)
 * **Objetivo:** Combinar entradas por teclado con interpolación de variables en la interfaz.
 * **Enunciado:**
   1. Pedir el nombre del usuario con `prompt('Ingrese su nombre: ')`.
   2. Apuntar al párrafo `#salidaBienvenida`.
-  3. Escribir en el párrafo el mensaje: `` `Bienvenido, ${nombre}` `` usando `textContent`.
+  3. Escribir en el párrafo el mensaje: ``Bienvenido, ${nombre}`` usando `textContent`.
 
 ---
 
-### Ejemplo 10: Conversión matemática de temperaturas
-* **Archivos:** [`ejemplo10.js`](./ejemplo10.js) \| [`ejemplo10.html`](./ejemplo10.html)
+### Ejercicio 10 (Ejemplo 10): Conversión matemática de temperaturas
+* **Carpeta Alumno:** [`ejercicio_10/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_10/index.html)
+* **Solución:** [`soluciones/ejercicio_10/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_10/app.js)
 * **Objetivo:** Aplicar fórmulas de conversión científica en JavaScript.
 * **Enunciado:**
   1. Pedir al usuario una temperatura en grados Celsius mediante `prompt()`.
   2. Aplicar la fórmula de conversión a grados Fahrenheit: $\text{Fahrenheit} = \text{Celsius} \cdot 1.8 + 32$.
-  3. Mostrar en el `<div id="salida">` el mensaje formateado: `` `${celsius} °C equivalen a ${farenheit} °F` ``.
+  3. Mostrar en el `<div id="salida">` el mensaje formateado: ``${celsius} °C equivalen a ${farenheit} °F``.
 
 ---
 
-### Ejemplo 11: Cálculo de IVA y total con concatenación en `innerHTML`
-* **Archivos:** [`ejemplo11.js`](./ejemplo11.js) \| [`ejemplo11.html`](./ejemplo11.html)
+### Ejercicio 11 (Ejemplo 11): Cálculo de IVA y total con concatenación en `innerHTML`
+* **Carpeta Alumno:** [`ejercicio_11/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/ejercicio_11/index.html)
+* **Solución:** [`soluciones/ejercicio_11/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte1/soluciones/ejercicio_11/app.js)
 * **Objetivo:** Realizar cálculos comerciales con porcentajes y concatenar resultados en una lista HTML existente.
 * **Enunciado:**
   Dada una lista `<ul>` con `<li id="precio">Precio: </li>`, `<li id="iva">IVA: </li>` y `<li id="total">Precio final: </li>`.

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 02: El primer evento con formulario y addEventListener</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 2: Formulario con Evento Click</h1>
+        <p class="descripcion">Introduce tu edad en el campo y pulsa el botón para actualizar la interfaz sin recargar la página.</p>
+        <form class="formulario">
+            <div class="campo">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" placeholder="Ej: 25">
+            </div>
+            <button type="button" id="boton">Pulsar</button>
+        </form>
+        <ul class="lista-salida">
+            <li><strong>Edad registrada:</strong> <span id="salida">-</span></li>
+        </ul>
+    </main>
+
+  <!-- Script al final del body para garantizar que el DOM ya existe sin requerir defer -->
+  <script src="app.js"></script>
+</body>
+</html>

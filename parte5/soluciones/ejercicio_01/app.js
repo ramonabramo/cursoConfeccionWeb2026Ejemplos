@@ -43,6 +43,10 @@
  */
 
 // estructura del programa principal
+// NOTA PEDAGÓGICA: En este primer ejercicio utilizamos type="submit" y el evento 'submit'
+// con e.preventDefault() para ilustrar cómo se evita la recarga automática de la página en un formulario.
+// En los ejercicios siguientes se utilizan botones type="button" con evento 'click' directo.
+
 
 // declaracion del array y constantes globales
 const diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];

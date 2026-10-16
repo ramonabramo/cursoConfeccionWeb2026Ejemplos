@@ -1,0 +1,81 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f4f6f9;
+}
+
+.contenedor {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  max-width: 480px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 1.3rem;
+  color: #1e3a8a;
+  margin-bottom: 15px;
+}
+
+.campo {
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+input[type="number"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.botones-operaciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+.panel-salida {
+  margin-top: 15px;
+  background-color: #f1f5f9;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.panel-salida span {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+#salida {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1e3a8a;
+  margin-top: 5px;
+}

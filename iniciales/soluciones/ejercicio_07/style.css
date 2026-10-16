@@ -1,0 +1,20 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f4f6f9;
+}
+
+.lista-resultados {
+  list-style: none;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  max-width: 400px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.lista-resultados li {
+  padding: 8px 0;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #f1f5f9;
+}

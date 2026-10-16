@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f4f6f9;
+}
+
+.contenedor {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  max-width: 450px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 1.3rem;
+  color: #1e3a8a;
+  margin-bottom: 15px;
+}
+
+.lista-usuario {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-usuario li {
+  padding: 10px;
+  background: #f8fafc;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  font-size: 1.05rem;
+}
+
+.ayuda {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-top: 15px;
+}

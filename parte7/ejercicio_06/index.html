@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 06 - Bucle for...of sobre una NodeList del DOM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 06 - Bucle for...of sobre una NodeList del DOM</h1>
+        <p class="descripcion">Aplica el bucle for...of para iterar directamente sobre una colección de nodos del DOM capturados con querySelectorAll() y calcular precios y descuentos.</p>
+        <span class="tag-tipo tipo-practica">Práctica del Alumno</span>
+        <div class="grid-tarjetas">
+            <div class="tarjeta-libro" data-categoria="Programación">
+                <h4>JavaScript Moderno</h4>
+                <p>Precio: <span class="precio-libro">25.50</span> €</p>
+            </div>
+            <div class="tarjeta-libro" data-categoria="Diseño">
+                <h4>CSS Grid y Flexbox</h4>
+                <p>Precio: <span class="precio-libro">18.00</span> €</p>
+            </div>
+            <div class="tarjeta-libro" data-categoria="Programación">
+                <h4>Node.js Avanzado</h4>
+                <p>Precio: <span class="precio-libro">32.20</span> €</p>
+            </div>
+            <div class="tarjeta-libro" data-categoria="Bases de Datos">
+                <h4>SQL y Modelado</h4>
+                <p>Precio: <span class="precio-libro">21.00</span> €</p>
+            </div>
+        </div>
+        <div class="grupo-botones">
+            <button type="button" id="btnCalcularPrecios" class="btn-exito">Calcular Totales con for...of</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Práctica del Alumno:</strong> Completa el archivo <strong>app.js</strong> siguiendo las instrucciones de sus comentarios.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

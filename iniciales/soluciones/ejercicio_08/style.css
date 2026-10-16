@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f4f6f9;
+}
+
+.panel-salida {
+  margin-bottom: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#caja {
+  background-color: #64748b;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  transition: width 0.4s ease, height 0.4s ease;
+}

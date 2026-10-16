@@ -1,0 +1,24 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f4f6f9;
+}
+
+.tabla-datos {
+  width: 80%;
+  max-width: 600px;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tabla-datos th, .tabla-datos td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #e2e8f0;
+}
+
+.tabla-datos th {
+  background-color: #3b82f6;
+  color: white;
+}

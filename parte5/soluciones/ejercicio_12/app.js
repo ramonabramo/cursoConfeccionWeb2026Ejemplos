@@ -48,7 +48,7 @@
 let peliculas = ['El Padrino', 'Pulp Fiction', 'Interestelar', 'Matrix', 'Origen'];
 
 // constantes al DOM que queremos escuchar
-const formPelicula = document.querySelector('#formPelicula');
+const btnAgregar = document.querySelector('#btnAgregar');
 const inputPelicula = document.querySelector('#inputPelicula');
 const btnRanking = document.querySelector('#btnRanking');
 const nodoResultado = document.querySelector('#resultado');
@@ -56,8 +56,7 @@ const nodoResultado = document.querySelector('#resultado');
 // colocar escuchadores de eventos
 
 // 1. Permitir añadir nuevas películas
-formPelicula.addEventListener('submit', function (e) {
-    e.preventDefault();
+btnAgregar.addEventListener('click', function () {
     const titulo = inputPelicula.value.trim();
 
     if (titulo !== '') {

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 03 - Estilos CSS internos y prompt() (Solución)</title>
+  <style>
+    div {
+      color: white;
+      background-color: red;
+      width: 500px;
+      margin: 10px auto;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.2rem;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div>Ejemplo de clase</div>
+
+  <script>
+    /**
+     * EJERCICIO 03 - ESTILOS CSS INTERNOS Y CAMBIO DINÁMICO CON PROMPT() (SOLUCIÓN)
+     *
+     * Objetivo:
+     * Integrar estilos CSS en la etiqueta <style> del <head> y modificar dinámicamente
+     * el estilo en línea con JavaScript incrustado mediante prompt().
+     *
+     * PASOS A REALIZAR:
+     * - 1 PASO: Crear una constante nodoDiv que apunte al elemento <div> con document.querySelector("div").
+     * - 2 PASO: Declarar una variable color inicializada como string vacío ("").
+     * - 3 PASO: Pedir al usuario que introduzca un color en inglés mediante prompt() y almacenarlo en color.
+     * - 4 PASO: Asignar el color recibido al fondo del div modificando nodoDiv.style.backgroundColor.
+     */
+
+    // 1. constantes al DOM
+    const nodoDiv = document.querySelector("div");
+
+    // 2. variables
+    let color = "";
+
+    // 3. entradas
+    color = prompt("Introduce un color en ingles");
+
+    // 4. procesamiento y salidas
+    nodoDiv.style.backgroundColor = color;
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f4f6f9;
+}
+
+.contenedor {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  max-width: 480px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.3rem;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+.cajas-intercambio {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.caja {
+  background-color: #eff6ff;
+  border: 2px dashed #3b82f6;
+  color: #1e40af;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  flex: 1;
+}
+
+button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}

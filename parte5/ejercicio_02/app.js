@@ -32,7 +32,7 @@
  * - 1 PASO: Declarar el array 'listaCompra' con los elementos iniciales ['Pan', 'Leche'].
  * - 2 PASO: Crear constantes al DOM para #formCompra, #inputArticulo y #resultado.
  * - 3 PASO: Escuchar 'submit' en el formulario pasando (e).
- * - 4 PASO: Llamar a e.preventDefault().
+ * - 4 PASO: Leer los datos del formulario directamente sin necesidad de preventDefault().
  * - 5 PASO: Validar con 'if' que el texto no esté vacío.
  * - 6 PASO: Ejecutar listaCompra.push(articulo).
  * - 7 PASO: Mostrar el resumen actualizado en #resultado y limpiar el input.

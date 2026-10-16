@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solución Ejercicio 12 - Reto Integrador: Panel de Inventario con Bucles Selectivos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Solución Ejercicio 12 - Reto Integrador: Panel de Inventario con Bucles Selectivos</h1>
+        <p class="descripcion">Proyecto integrador que exige seleccionar y aplicar el bucle adecuado para cada tarea: for...of para acumular, while con break para localizar roturas de stock, y for...in para inspeccionar metadatos.</p>
+        <span class="tag-tipo tipo-practica">Práctica del Alumno</span>
+        <div class="lista-productos">
+            <div class="tarjeta-producto" data-id="101" data-stock="15" data-precio="120">
+                <span>Monitor LED (120 €) - Stock: 15</span>
+                <button type="button" class="btn-eliminar btn-peligro">Eliminar</button>
+            </div>
+            <div class="tarjeta-producto" data-id="102" data-stock="42" data-precio="25">
+                <span>Ratón Inalámbrico (25 €) - Stock: 42</span>
+                <button type="button" class="btn-eliminar btn-peligro">Eliminar</button>
+            </div>
+            <div class="tarjeta-producto agotado" data-id="103" data-stock="0" data-precio="80">
+                <span>Teclado Mecánico (80 €) - <strong>¡AGOTADO (Stock: 0)!</strong></span>
+                <button type="button" class="btn-eliminar btn-peligro">Eliminar</button>
+            </div>
+            <div class="tarjeta-producto" data-id="104" data-stock="8" data-precio="45">
+                <span>Auriculares USB (45 €) - Stock: 8</span>
+                <button type="button" class="btn-eliminar btn-peligro">Eliminar</button>
+            </div>
+        </div>
+        <div class="grupo-botones">
+            <button type="button" id="btnValorInventario" class="btn-exito">Valor Total (for...of)</button>
+            <button type="button" id="btnBuscarAgotado" class="btn-peligro">Detectar Agotado (while + break)</button>
+            <button type="button" id="btnVerMetadatos" class="btn-secundario">Metadatos Almacén (for...in)</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Solución completa comprobada.</strong> Inspecciona el código de <strong>app.js</strong> para ver la implementación.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

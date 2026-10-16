@@ -1,0 +1,44 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f4f6f9;
+}
+
+.contenedor {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  max-width: 450px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 1.3rem;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+}
+
+.descripcion {
+  color: #4b5563;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.panel-resultado {
+  background: #f1f5f9;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.panel-resultado span {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+#salida {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2563eb;
+  margin-top: 5px;
+}

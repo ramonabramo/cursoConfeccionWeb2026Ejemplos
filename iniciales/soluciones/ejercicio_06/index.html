@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 06: Rellenar una tabla HTML con datos del usuario (Solución)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Ficha de Usuario</h1>
+    <table border="1" class="tabla-datos">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Población</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="nombre">-</td>
+                <td id="edad">-</td>
+                <td id="poblacion">-</td>
+            </tr>
+        </tbody>
+    </table>
+
+  <!-- Script al final del body para garantizar que el DOM ya ha sido cargado -->
+  <script src="app.js"></script>
+</body>
+</html>

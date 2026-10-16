@@ -43,15 +43,13 @@
 let puntuaciones = [85, 92, 78, 64, 90];
 
 // constantes al DOM que queremos escuchar
-const formPuntuacion = document.querySelector('#formPuntuacion');
+const btnActualizar = document.querySelector('#btnActualizar');
 const inputPosicion = document.querySelector('#inputPosicion');
 const inputValor = document.querySelector('#inputValor');
 const nodoResultado = document.querySelector('#resultado');
 
 // colocar escuchadores de eventos
-formPuntuacion.addEventListener('submit', function (e) {
-    // Evitamos la recarga de página
-    e.preventDefault();
+btnActualizar.addEventListener('click', function () {
 
     // entradas
     const posicion = Number(inputPosicion.value);

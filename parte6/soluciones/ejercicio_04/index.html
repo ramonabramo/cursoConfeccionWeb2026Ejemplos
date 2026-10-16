@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solución Ejercicio 04 - Patrón de exclusión mutua: Pestañas activas (Tabs)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Solución Ejercicio 04 - Patrón de exclusión mutua: Pestañas activas (Tabs)</h1>
+        <p class="descripcion">Domina el patrón indispensable de exclusión mutua: al hacer clic en un elemento, se desmarcan todos los demás con forEach() y se activa únicamente el pulsado.</p>
+        <nav class="tabs-nav">
+            <button type="button" class="tab-btn activo">Inicio</button>
+            <button type="button" class="tab-btn">Perfil</button>
+            <button type="button" class="tab-btn">Mensajes</button>
+            <button type="button" class="tab-btn">Configuración</button>
+        </nav>
+        <div id="contenidoTab" class="panel-tab">
+            Bienvenido a la sección <strong>Inicio</strong>. Selecciona otra pestaña para navegar.
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Solución completa comprobada.</strong> Inspecciona el código de <strong>app.js</strong> para ver la implementación.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

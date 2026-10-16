@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solución Ejercicio 08 - Conversión de NodeList a Array con Array.from() y métodos funcionales</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Solución Ejercicio 08 - Conversión de NodeList a Array con Array.from() y métodos funcionales</h1>
+        <p class="descripcion">Comprende la diferencia crítica entre una NodeList y un Array real. Aprende a convertir con Array.from() para utilizar métodos potentes como filter() y map().</p>
+        <p class="descripcion">Lista de alumnos con sus calificaciones registradas:</p>
+        <div class="lista-alumnos">
+            <div class="alumno" data-nombre="Ana García" data-nota="8.5">
+                <span>Ana García</span>
+                <span class="badge">Nota: 8.5</span>
+            </div>
+            <div class="alumno" data-nombre="Carlos Ruiz" data-nota="4.2">
+                <span>Carlos Ruiz</span>
+                <span class="badge">Nota: 4.2</span>
+            </div>
+            <div class="alumno" data-nombre="Beatriz López" data-nota="9.0">
+                <span>Beatriz López</span>
+                <span class="badge">Nota: 9.0</span>
+            </div>
+            <div class="alumno" data-nombre="David Morales" data-nota="3.5">
+                <span>David Morales</span>
+                <span class="badge">Nota: 3.5</span>
+            </div>
+            <div class="alumno" data-nombre="Elena Santos" data-nota="6.8">
+                <span>Elena Santos</span>
+                <span class="badge">Nota: 6.8</span>
+            </div>
+        </div>
+        <div class="grupo-botones">
+            <button type="button" id="btnAprobados" class="btn-exito">Filtrar Aprobados (>= 5)</button>
+            <button type="button" id="btnSuspensos" class="btn-peligro">Filtrar Suspensos (&lt; 5)</button>
+            <button type="button" id="btnNombres" class="btn-secundario">Listar Nombres (map)</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Solución completa comprobada.</strong> Inspecciona el código de <strong>app.js</strong> para ver la implementación.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

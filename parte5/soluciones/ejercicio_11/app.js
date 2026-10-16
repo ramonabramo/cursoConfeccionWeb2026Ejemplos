@@ -53,7 +53,7 @@
 let lenguajes = ['JavaScript', 'Python', 'Java', 'PHP', 'TypeScript'];
 
 // constantes al DOM que queremos escuchar
-const formLenguaje = document.querySelector('#formLenguaje');
+const btnAgregar = document.querySelector('#btnAgregar');
 const inputLenguaje = document.querySelector('#inputLenguaje');
 const btnMostrar = document.querySelector('#btnMostrar');
 const nodoResultado = document.querySelector('#resultado');
@@ -61,8 +61,7 @@ const nodoResultado = document.querySelector('#resultado');
 // colocar escuchadores de eventos
 
 // 1. Añadir nuevo elemento opcionalmente
-formLenguaje.addEventListener('submit', function (e) {
-    e.preventDefault();
+btnAgregar.addEventListener('click', function () {
     const nuevo = inputLenguaje.value.trim();
 
     if (nuevo !== '') {

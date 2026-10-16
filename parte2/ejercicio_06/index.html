@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 06: Geometría: Cuadrado y representación visual SVG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 6: Geometría de Cuadrado y SVG</h1>
+        <form class="formulario">
+            <div class="campo">
+                <label for="inputLado">Lado del Cuadrado (px):</label>
+                <input type="number" id="inputLado" placeholder="Ej: 80">
+            </div>
+            <button type="button" id="boton">Calcular y Dibujar</button>
+        </form>
+
+        <ul class="lista-salida">
+            <li><strong>Lado:</strong> <span id="lado">-</span></li>
+            <li><strong>Área:</strong> <span id="area">-</span></li>
+            <li><strong>Perímetro:</strong> <span id="perimetro">-</span></li>
+        </ul>
+
+        <div class="panel-svg">
+            <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                <rect id="rectangulo" x="10" y="10" width="0" height="0" fill="#2563eb" stroke="#1e40af" stroke-width="2" />
+            </svg>
+        </div>
+    </main>
+
+  <!-- Script al final del body para garantizar que el DOM ya existe sin requerir defer -->
+  <script src="app.js"></script>
+</body>
+</html>

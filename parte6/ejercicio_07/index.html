@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 07 - Lectura de atributos personalizados data-* (dataset) en colecciones</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 07 - Lectura de atributos personalizados data-* (dataset) en colecciones</h1>
+        <p class="descripcion">Aprende a leer metadatos almacenados en etiquetas HTML mediante la propiedad nodo.dataset al iterar colecciones de tarjetas de productos.</p>
+        <p class="descripcion">Haz clic en el botón de cualquier producto para consultar su ficha técnica leyendo sus atributos data-*:</p>
+        <div class="grid-tarjetas">
+            <div class="tarjeta-producto" data-id="101" data-nombre="Portátil Pro 15" data-categoria="Informática" data-precio="899">
+                <div>
+                    <h3>Portátil Pro 15</h3>
+                    <div class="meta">Categoría: Informática</div>
+                    <div class="precio">899 €</div>
+                </div>
+                <button type="button" class="btn-detalle">Ver Ficha</button>
+            </div>
+            <div class="tarjeta-producto" data-id="102" data-nombre="Auriculares Bluetooth" data-categoria="Audio" data-precio="79">
+                <div>
+                    <h3>Auriculares Bluetooth</h3>
+                    <div class="meta">Categoría: Audio</div>
+                    <div class="precio">79 €</div>
+                </div>
+                <button type="button" class="btn-detalle">Ver Ficha</button>
+            </div>
+            <div class="tarjeta-producto" data-id="103" data-nombre="Monitor 27 Pulgadas" data-categoria="Informática" data-precio="249">
+                <div>
+                    <h3>Monitor 27 Pulgadas</h3>
+                    <div class="meta">Categoría: Informática</div>
+                    <div class="precio">249 €</div>
+                </div>
+                <button type="button" class="btn-detalle">Ver Ficha</button>
+            </div>
+            <div class="tarjeta-producto" data-id="104" data-nombre="Altavoz Inteligente" data-categoria="Audio" data-precio="49">
+                <div>
+                    <h3>Altavoz Inteligente</h3>
+                    <div class="meta">Categoría: Audio</div>
+                    <div class="precio">49 €</div>
+                </div>
+                <button type="button" class="btn-detalle">Ver Ficha</button>
+            </div>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            Completa el archivo <strong>app.js</strong> siguiendo las instrucciones de sus comentarios.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

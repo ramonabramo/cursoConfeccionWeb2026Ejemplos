@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 05: Geometría: Círculo y actualización de SVG dinámico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 5: Geometría de Círculo y SVG</h1>
+        <form class="formulario">
+            <div class="campo">
+                <label for="radio">Radio del Círculo:</label>
+                <input type="number" id="radio" placeholder="Introduce radio (ej: 40)">
+            </div>
+            <button type="button" id="boton">Calcular y Dibujar</button>
+        </form>
+
+        <ul class="lista-salida">
+            <li><strong>Radio:</strong> <span class="salida" id="radioSalida">-</span></li>
+            <li><strong>Área:</strong> <span class="salida" id="area">-</span></li>
+            <li><strong>Perímetro:</strong> <span class="salida" id="perimetro">-</span></li>
+        </ul>
+
+        <div class="panel-svg">
+            <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                <circle id="circulo" cx="100" cy="100" r="0" stroke="#059669" stroke-width="3" fill="#10b981" />
+            </svg>
+        </div>
+    </main>
+
+  <!-- Script al final del body para garantizar que el DOM ya existe sin requerir defer -->
+  <script src="app.js"></script>
+</body>
+</html>

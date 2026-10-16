@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solución Ejercicio 01 - Selección múltiple con querySelectorAll() y acceso por índice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Solución Ejercicio 01 - Selección múltiple con querySelectorAll() y acceso por índice</h1>
+        <p class="descripcion">Aprende a capturar colecciones de elementos HTML con document.querySelectorAll(), consultar su longitud (.length) y acceder al primer y último elemento con corchetes.</p>
+        <div class="grid-cajas">
+            <div class="caja">Caja 1: HTML</div>
+            <div class="caja">Caja 2: CSS</div>
+            <div class="caja">Caja 3: JavaScript</div>
+            <div class="caja">Caja 4: React</div>
+            <div class="caja">Caja 5: Node.js</div>
+        </div>
+        <div class="grupo-botones">
+            <button type="button" id="btnContar">Contar Cajas</button>
+            <button type="button" id="btnPrimera" class="btn-secundario">Primera Caja [0]</button>
+            <button type="button" id="btnUltima" class="btn-secundario">Última Caja [length - 1]</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Solución completa comprobada.</strong> Inspecciona el código de <strong>app.js</strong> para ver la implementación.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

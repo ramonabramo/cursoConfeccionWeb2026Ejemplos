@@ -29,9 +29,9 @@
  *
  * PASOS A REALIZAR:
  * - 1 PASO: Declarar el array 'invitados' con los 5 nombres en minúsculas.
- * - 2 PASO: Crear constantes al DOM para el formulario (#formInvitado), input (#inputNombre) y #resultado.
+ * - 2 PASO: Crear constantes al DOM para el botón (#btnComprobar), input (#inputNombre) y #resultado.
  * - 3 PASO: Escuchar el evento 'submit' pasando (e).
- * - 4 PASO: Llamar a e.preventDefault().
+ * - 4 PASO: Leer los datos del formulario directamente sin necesidad de preventDefault().
  * - 5 PASO: Evaluar con 'if (invitados.includes(nombre))'.
  * - 6 PASO: Mostrar el mensaje de acceso o denegación en #resultado.
  */
@@ -42,14 +42,12 @@
 const invitados = ['lucia', 'marcos', 'sofia', 'daniel', 'elena'];
 
 // constantes al DOM que queremos escuchar
-const formInvitado = document.querySelector('#formInvitado');
+const btnComprobar = document.querySelector('#btnComprobar');
 const inputNombre = document.querySelector('#inputNombre');
 const nodoResultado = document.querySelector('#resultado');
 
 // colocar escuchadores de eventos
-formInvitado.addEventListener('submit', function (e) {
-    // Evitamos la recarga por defecto
-    e.preventDefault();
+btnComprobar.addEventListener('click', function () {
 
     // entradas: pasamos a minúsculas para comparar limpiamente
     const nombre = inputNombre.value.trim().toLowerCase();

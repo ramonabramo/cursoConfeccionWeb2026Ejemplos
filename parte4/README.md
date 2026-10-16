@@ -125,6 +125,50 @@ tarjeta.addEventListener('click', function (e) {
 
 ---
 
+### 1.5. Evolución Metodológica: Uso Profesional de `const` frente a `let`
+
+A partir de esta **Parte 4**, introducimos un cambio de mentalidad fundamental en la forma de programar que acerca al alumno a las mejores prácticas de **JavaScript Moderno (ES6+)**:
+
+#### El enfoque didáctico inicial (Partes 1, 2 y 3)
+En las primeras unidades, para facilitar la asimilación conceptual de los principiantes, seguíamos una regla nemotécnica sencilla:
+- Usar `const` para los elementos u objetos del DOM (`const boton = document.querySelector(...)`).
+- Usar `let` para las variables de datos primitivos (`let edad = 0;`, `let nombre = '';`).
+
+#### El nuevo estándar profesional (Parte 4 en adelante)
+En el desarrollo real, el criterio para elegir entre `const` y `let` no depende de si el valor es un objeto o un dato primitivo, sino de **su mutabilidad (si va a ser reasignado o no)**:
+
+1. **Usar `const` por defecto para todo dato leído que NO vaya a cambiar**:
+   Cuando leemos una propiedad de un objeto (como el objeto `event` o un campo de entrada) y ese valor no se va a reasignar durante la ejecución de la función, **se declara siempre con `const` aunque sea un dato primitivo** (número, texto o booleano):
+   ```javascript
+   boton.addEventListener('click', function (e) {
+       // Datos primitivos leídos que NO se reasignan -> Usamos CONST
+       const tipo = e.type;                  // String inmutable
+       const tecla = e.key;                  // String inmutable
+       const coordX = e.clientX;             // Number inmutable
+       const shiftPulsado = e.shiftKey;      // Boolean inmutable
+       const valorTexto = inputNombre.value; // String inmutable
+   });
+   ```
+
+2. **Reservar `let` exclusivamente para variables mutables**:
+   Solo utilizamos `let` cuando el valor de la variable **necesariamente debe ser modificado o reasignado** a lo largo del tiempo (contadores, acumuladores, estados que cambian condicionalmente):
+   ```javascript
+   let contadorClics = 0;
+   contadorClics++; // Requiere let porque cambia su valor numérico
+
+   let mensaje = '';
+   if (coordX > 200) {
+       mensaje = 'Zona derecha'; // Requiere let porque se reasigna condicionalmente
+   } else {
+       mensaje = 'Zona izquierda';
+   }
+   ```
+
+> [!TIP]
+> **Regla de oro profesional**: Declara siempre por defecto con `const`. Cambia a `let` únicamente cuando la lógica del programa requiera reasignar la variable. Esto previene sobreescrituras accidentales y comunica con total claridad que el dato leído permanecerá inalterable.
+
+---
+
 ## 2. Tabla Resumen de los 11 Ejercicios
 
 | Nº | Ejercicio | Concepto Clave del objeto `event` | Carpeta Alumno | Carpeta Solución |

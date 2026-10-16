@@ -43,14 +43,12 @@
 const productos = ['teclado', 'raton', 'monitor', 'auriculares', 'altavoces'];
 
 // constantes al DOM que queremos escuchar
-const formProducto = document.querySelector('#formProducto');
+const btnBuscar = document.querySelector('#btnBuscar');
 const inputProducto = document.querySelector('#inputProducto');
 const nodoResultado = document.querySelector('#resultado');
 
 // colocar escuchadores de eventos
-formProducto.addEventListener('submit', function (e) {
-    // Evitamos la recarga de página
-    e.preventDefault();
+btnBuscar.addEventListener('click', function () {
 
     // entradas
     const productoBuscado = inputProducto.value.trim().toLowerCase();

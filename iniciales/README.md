@@ -1,96 +1,91 @@
-# Iniciales: Introducción a la Web y Primeros Pasos con JavaScript
+# Módulo Inicial: Introducción a JavaScript y la Tríada Web
+## Fundamentos, Carga de Archivos, el DOM y Estructura de Ejercicios
 
-Bienvenido a la carpeta de **Ejercicios Iniciales**. Esta unidad marca el punto de partida del curso. Su propósito es asentar con total claridad los cimientos del desarrollo web: comprender la función de cada una de las tres tecnologías clave (**HTML**, **CSS** y **JavaScript**), aprender las distintas formas de enlazar hojas de estilo y scripts, y entender qué es el **DOM** y por qué la posición de la etiqueta `<script>` (o el uso del atributo `defer`) determina si podemos o no interactuar con la página.
+Bienvenido a la carpeta de **ejercicios iniciales** del curso de JavaScript. En este bloque formativo se sientan los cimientos esenciales para cualquier desarrollador web: la interacción entre los tres lenguajes del frontend (**HTML, CSS y JavaScript**), cómo el navegador procesa y representa una página mediante el **DOM**, y cómo cargar los scripts de forma eficiente y segura.
 
----
-
-## 1. Teoría Fundamental: La Tríada Web y el Modelo DOM
-
-### 1.1. La Tríada de la Web: HTML, CSS y JavaScript
-Una página web moderna funciona gracias a la colaboración de tres capas con responsabilidades bien diferenciadas:
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│ HTML (Estructura y Contenido)                               │
-│ El esqueleto: textos, títulos, párrafos, tablas, inputs     │
-├─────────────────────────────────────────────────────────────┤
-│ CSS (Presentación y Estilo)                                 │
-│ La apariencia: colores, dimensiones, márgenes, tipografías  │
-├─────────────────────────────────────────────────────────────┤
-│ JavaScript (Lógica e Interactividad)                        │
-│ El comportamiento: cálculos, respuestas al usuario, cambios │
-└─────────────────────────────────────────────────────────────┘
-```
-
-* **HTML (HyperText Markup Language):** Define qué elementos hay en la página (`<div>`, `<h1>`, `<p>`, `<table>`, `<input>`).
-* **CSS (Cascading Style Sheets):** Define cómo se ven esos elementos (`background-color: red;`, `width: 500px;`, `text-align: center;`).
-* **JavaScript (JS):** Define qué hacen esos elementos (pedir datos con `prompt()`, calcular operaciones matemáticas, modificar el contenido o cambiar estilos sobre la marcha).
+Todos los ejercicios están organizados en carpetas individuales con plantillas comentadas para el alumno (`ejercicio_01/` a `ejercicio_16/`) y sus correspondientes soluciones en `soluciones/`.
 
 ---
 
-### 1.2. Cómo incluir CSS: ¿En el mismo archivo o en archivo externo?
-Existen dos formas principales de añadir estilos a nuestras páginas:
+## 1. Teoría Fundamental
 
-#### A. CSS Interno (en el mismo archivo HTML)
-Se escriben las reglas de estilo dentro de una etiqueta `<style>` situada en la cabecera `<head>` del documento:
+### 1.1. La Tríada Web: Roles y Diferencias
+Una página web profesional se compone de tres tecnologías que trabajan de forma sincronizada:
 
-```html
-<head>
-    <style>
-        div {
-            color: white;
-            background-color: red;
-            width: 500px;
-            margin: 10px auto;
-        }
-    </style>
-</head>
 ```
-* **Ventaja:** Ideal para pruebas muy rápidas o ejemplos de un solo archivo (visto en `03.html`).
-* **Inconveniente:** Si tenemos varias páginas, hay que repetir el código CSS en cada una.
-
-#### B. CSS Externo (en un archivo independiente `.css`)
-Los estilos se guardan en un archivo separado (por ejemplo, `04.css`) y se vinculan desde el HTML mediante la etiqueta `<link>` dentro del `<head>`:
-
-```html
-<head>
-    <link rel="stylesheet" href="04.css" />
-</head>
+   ┌────────────────────────────────────────────────────────┐
+   │                       LA TRÍADA WEB                    │
+   ├──────────────────┬──────────────────┬──────────────────┤
+   │       HTML       │       CSS        │    JAVASCRIPT    │
+   ├──────────────────┼──────────────────┼──────────────────┤
+   │    Estructura    │   Presentación   │  Comportamiento  │
+   │  (Los cimientos) │   (La estética)  │  (El dinamismo)  │
+   │                  │                  │                  │
+   │  - Párrafos <p>  │  - Colores       │  - Clics botón   │
+   │  - Botones       │  - Tipografías   │  - Cálculos      │
+   │  - Formularios   │  - Flexbox/Grid  │  - Modificar DOM │
+   │  - Tablas        │  - Animaciones   │  - Validaciones  │
+   └──────────────────┴──────────────────┴──────────────────┘
 ```
-* **Ventaja profesional:** Separación total de responsabilidades, reutilización del mismo diseño en múltiples páginas y código mucho más limpio y mantenible (visto a partir de `04.html`).
+
+1. **HTML (HyperText Markup Language):** Proporciona el significado semántico y los elementos del documento. Sin HTML no hay contenido.
+2. **CSS (Cascading Style Sheets):** Define las reglas visuales para embellecer los elementos HTML. Sin CSS, la web sería texto plano en blanco y negro.
+3. **JavaScript (JS):** Es el motor lógico que reacciona a los eventos del usuario, altera el contenido en vivo y se comunica con otras fuentes de información.
 
 ---
 
-### 1.3. ¿Qué es el DOM (Document Object Model)?
-Cuando el navegador web lee nuestro archivo `.html`, no trabaja directamente con el texto plano que hemos escrito en el editor de código.
+### 1.2. Métodos de Carga de CSS: ¿Interno o Externo?
+El código CSS puede incorporarse al proyecto de dos formas principales:
 
-En su lugar, el navegador analiza cada etiqueta y construye en la memoria del ordenador una representación estructurada en árbol llamada **DOM (Document Object Model)**:
+1. **CSS Interno (en la etiqueta `<style>` dentro de `<head>`):**
+   ```html
+   <head>
+       <style>
+           div { background-color: red; color: white; }
+       </style>
+   </head>
+   ```
+   * *Ventaja:* Todo está contenido en un único archivo.
+   * *Inconveniente:* No se puede reutilizar en otras páginas. En proyectos reales produce archivos gigantes e inmanejables.
+
+2. **CSS Externo (enlace con `<link rel="stylesheet">`):**
+   ```html
+   <head>
+       <link rel="stylesheet" href="style.css">
+   </head>
+   ```
+   * *Ventaja:* **Buenas prácticas profesionales**. Permite reutilizar la misma hoja de estilos en decenas de páginas, se almacena en la caché del navegador para cargar más rápido y separa limpiamente el diseño del código.
+
+---
+
+### 1.3. ¿Qué es el DOM (*Document Object Model*)?
+Cuando el navegador web lee un archivo `.html`, no trabaja directamente con el texto plano del código fuente, sino que construye en la memoria RAM una estructura de datos viva y jerárquica en forma de árbol llamada **DOM (Document Object Model)**.
 
 ```
-                window
-                  │
-               document
-                  │
-               <html>
-             ┌────┴────┐
-          <head>     <body>
-           │           │
-        <title>      <div> ─── "Ejemplo de clase"
+                     window
+                       │
+                    document
+                       │
+                     <html>
+                  ┌────┴────┐
+               <head>      <body>
+                 │          │
+              <title>     ┌─┴─────────────┐
+                          │               │
+                         <h1>            <div>
+                          │               │
+                     "Mi Título"     "Hola clase"
 ```
 
-* Cada etiqueta HTML se convierte en un **objeto interactivo (nodo)** en JavaScript.
-* A través de JavaScript podemos **seleccionar** esos nodos con `document.querySelector()`.
-* Una vez seleccionado un nodo, podemos:
-  - Leer o cambiar su texto: `nodo.textContent` o `nodo.innerHTML`.
-  - Cambiar sus estilos CSS en vivo: `nodo.style.backgroundColor = 'blue'`.
-  - Leer lo que el usuario ha escrito en un campo: `input.value`.
+* Cada etiqueta HTML se convierte en un **objeto / nodo** dentro del árbol.
+* **JavaScript no modifica el archivo .html del disco duro**; lo que hace es modificar el **DOM en la memoria** del navegador. Al cambiar un nodo del DOM, el navegador repinta la pantalla de inmediato.
 
 ---
 
 ### 1.4. ¿Dónde colocar la etiqueta `<script>` y por qué importa?
 El navegador lee y procesa el código HTML en orden secuencial: **de arriba hacia abajo**. Por este motivo, el lugar donde situemos la etiqueta `<script>` es crítico.
 
-#### Caso 1: En el `<head>` SIN `defer` (❌ Problema con el DOM)
+#### Caso 1: En el `<head>` SIN `defer` (❌ Error de acceso al DOM)
 ```html
 <head>
     <script src="app.js"></script> <!-- Sin defer -->
@@ -99,8 +94,8 @@ El navegador lee y procesa el código HTML en orden secuencial: **de arriba haci
     <div id="caja">Hola</div>
 </body>
 ```
-* **¿Qué sucede?** El navegador lee el `<head>`, encuentra la etiqueta `<script>`, detiene inmediatamente la lectura del HTML y ejecuta el archivo JavaScript.
-* **El error:** En ese instante, el `<body>` y su `<div id="caja">` **aún no han sido leídos ni creados en la memoria del DOM**.
+* **¿Qué sucede?** El navegador lee el `<head>`, encuentra la etiqueta `<script>`, detiene inmediatamente la lectura del HTML y descarga/ejecuta el archivo JavaScript.
+* **El error:** En ese instante, el `<body>` y su `<div id="caja">` **aún no han sido procesados ni creados en la memoria del DOM**.
 * Si el código hace `document.querySelector('#caja')`, JavaScript devolverá **`null`**, provocando el clásico error:
   `Uncaught TypeError: Cannot set properties of null`.
 
@@ -116,7 +111,7 @@ El navegador lee y procesa el código HTML en orden secuencial: **de arriba haci
 </body>
 ```
 * **¿Qué sucede?** Cuando el navegador llega a la etiqueta `<script>`, ya ha leído y creado en memoria todos los elementos HTML anteriores (`<div id="caja">`).
-* **Resultado:** JavaScript tiene acceso inmediato y seguro al DOM. Es el patrón utilizado en la mayoría de estos ejercicios iniciales (`01` a `16`).
+* **Resultado:** JavaScript tiene acceso inmediato y seguro al DOM.
 
 ---
 
@@ -129,10 +124,10 @@ El navegador lee y procesa el código HTML en orden secuencial: **de arriba haci
     <div id="caja">Hola</div>
 </body>
 ```
-* **¿Qué hace `defer`?** Le da una orden especial al navegador:
+* **¿Qué hace `defer`?** Da una instrucción especial al navegador:
   1. *Descarga el archivo JavaScript en segundo plano (paralelo)* mientras sigues leyendo y pintando el HTML sin pausas.
-  2. *No ejecutes el código JS hasta que todo el documento HTML haya terminado de procesarse*.
-* **Resultado:** Obtenemos lo mejor de ambos mundos: scripts organizados en la cabecera `<head>`, máxima velocidad de carga de la página y acceso 100% garantizado a todos los elementos del DOM.
+  2. *No ejecutes el código JS hasta que todo el documento HTML haya terminado de parsearse por completo*.
+* **Resultado:** Scripts organizados en el `<head>`, máxima velocidad de carga de la página y acceso 100% garantizado a todos los elementos del DOM.
 
 ---
 
@@ -146,51 +141,46 @@ El navegador lee y procesa el código HTML en orden secuencial: **de arriba haci
 
 ---
 
-### 1.6. Código JS Interno vs Código JS Externo
-Al igual que con el CSS:
-* **JS Interno:** Se escribe directamente entre `<script>` y `</script>` dentro del HTML (ejemplos `01.html`, `02.html`, `03.html`). Útil para experimentos de 2 minutos.
-* **JS Externo:** Se separa en su propio archivo `.js` y se enlaza con `<script src="archivo.js"></script>` (ejemplos `04` a `16`). Es la práctica profesional obligatoria para mantener el código ordenado y reutilizable.
-
----
-
 ## 2. Tabla Resumen de los 16 Ejercicios Iniciales
 
-| Nº | Ejercicio | Concepto Clave Aprendido | Archivo HTML | Archivo JS / CSS |
+| Nº | Ejercicio | Concepto Clave Aprendido | Plantilla Alumno | Solución Completa |
 | :---: | :--- | :--- | :---: | :---: |
-| **01** | Primer script interno | JS embebido al final de `body`, variables (`let`) y `alert()` | [`01.html`](./01.html) | *(Embebido en HTML)* |
-| **02** | Primer acceso al DOM | `document.querySelector('div')`, lectura con `.innerHTML` y `alert()` | [`02.html`](./02.html) | *(Embebido en HTML)* |
-| **03** | Estilos CSS internos | CSS en `<style>`, entrada con `prompt()` y cambio de `style.backgroundColor` | [`03.html`](./03.html) | *(Embebido en HTML)* |
-| **04** | Separación en 3 archivos | HTML (`04.html`) + CSS externo (`04.css`) + JS externo (`04.js`) | [`04.html`](./04.html) | [`04.js`](./04.js) / [`04.css`](./04.css) |
-| **05** | Suma con `Number()` | Entrada por `prompt()`, conversión con `Number()` para evitar concatenar | [`05.html`](./05.html) | [`05.js`](./05.js) |
-| **06** | Rellenar tabla HTML | Captura de nombre, edad y población con volcado en celdas `<td>` | [`06.html`](./06.html) | [`06.js`](./06.js) |
-| **07** | Geometría: Círculo | Cálculo con `Math.PI` y operador de potencia `**` en elementos `<span>` | [`07.html`](./07.html) | [`07.js`](./07.js) |
-| **08** | Dibujo y escala CSS | Redimensionar una caja circular modificando `style.width` y `style.height` en píxeles | [`08.html`](./08.html) | [`08.js`](./08.js) |
-| **09** | Títulos y párrafos | Combinar constantes fijas y variables de `prompt()` en `<h1>` y `<p>` | [`09.html`](./09.html) | [`09.js`](./09.js) |
-| **10** | Cálculo de potencias | Base y exponente con `Number()`, operador `**` y template literals | [`10.html`](./10.html) | [`10.js`](./10.js) |
-| **11** | Rectángulo en lista | Cálculo de área y perímetro de rectángulo en una lista `<ul>` con `<span>` | [`11.html`](./11.html) | [`11.js`](./11.js) |
-| **12** | HTML dinámico con backticks | Generar una lista `<ul>` completa con resultados usando `div.innerHTML` | [`12.html`](./12.html) | [`12.js`](./12.js) |
-| **13** | Caja interactiva completa | Pedir ancho, alto y color y asignarlos a la vez con `style` y textos | [`13.html`](./13.html) | [`13.js`](./13.js) |
-| **14** | `querySelector` vs `All` | Tabla 4x4: seleccionar el primer `td` vs el 4º elemento (`celdas[3]`) | [`14.html`](./14.html) | [`14.js`](./14.js) |
-| **15** | Copiar texto entre `divs` | Leer el contenido de un `div#nombre` con `textContent` y volcarlo en `#salida` | [`15.html`](./15.html) | [`15.js`](./15.js) |
-| **16** | Contenedor vs Input | Leer el valor de un `<input id="nombre">` con `.value` y copiarlo en un `div` | [`16.html`](./16.html) | [`16.js`](./16.js) |
+| **01** | Primer script en la página | Declaración con `let` y visualización con `alert()` | [ejercicio_01/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_01/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_01/index.html) |
+| **02** | Primer acceso al DOM | `document.querySelector('div')`, lectura con `.innerHTML` y `alert()` | [ejercicio_02/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_02/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_02/index.html) |
+| **03** | Estilos CSS y `prompt()` | Entrada con `prompt()` y cambio dinámico de `style.backgroundColor` | [ejercicio_03/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_03/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_03/index.html) |
+| **04** | Separación en 3 archivos | HTML (`index.html`) + CSS externo (`style.css`) + JS externo (`app.js`) | [ejercicio_04/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_04/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_04/app.js) |
+| **05** | Suma con `Number()` | Entrada por `prompt()`, conversión con `Number()` para evitar concatenar | [ejercicio_05/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_05/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_05/app.js) |
+| **06** | Rellenar tabla HTML | Captura de nombre, edad y población con volcado en celdas `<td>` | [ejercicio_06/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_06/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_06/app.js) |
+| **07** | Geometría: Círculo | Cálculo con `Math.PI` y operador de potencia `**` en elementos `<span>` | [ejercicio_07/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_07/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_07/app.js) |
+| **08** | Dibujo y escala CSS | Redimensionar una caja circular modificando `style.width` y `style.height` | [ejercicio_08/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_08/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_08/app.js) |
+| **09** | Títulos y párrafos | Combinar constantes fijas y variables de `prompt()` en `<h1>` y `<p>` | [ejercicio_09/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_09/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_09/app.js) |
+| **10** | Cálculo de potencias | Base y exponente con `Number()`, operador `**` y template literals | [ejercicio_10/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_10/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_10/app.js) |
+| **11** | Rectángulo en lista | Cálculo de área y perímetro de rectángulo en una lista `<ul>` con `<span>` | [ejercicio_11/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_11/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_11/app.js) |
+| **12** | HTML dinámico con backticks | Generar una lista `<ul>` completa con resultados usando `div.innerHTML` | [ejercicio_12/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_12/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_12/app.js) |
+| **13** | Caja interactiva completa | Pedir ancho, alto y color y asignarlos a la vez con `style` y textos | [ejercicio_13/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_13/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_13/app.js) |
+| **14** | `querySelector` vs `All` | Tabla 4x4: seleccionar el primer `td` vs el 4º elemento (`celdas[3]`) | [ejercicio_14/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_14/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_14/app.js) |
+| **15** | Copiar texto entre `divs` | Leer el contenido de un `div#nombre` con `textContent` y volcarlo en `#salida` | [ejercicio_15/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_15/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_15/app.js) |
+| **16** | Contenedor vs Input | Leer el valor de un `<input id="nombre">` con `.value` y copiarlo en un `div` | [ejercicio_16/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_16/index.html) | [solución](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_16/app.js) |
 
 ---
 
 ## 3. Enunciados y Análisis Detallado de los Ejercicios
 
 ### Ejercicio 01: El primer script en la página
-* **Archivos:** [`01.html`](./01.html)
+* **Carpeta Alumno:** [`ejercicio_01/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_01/index.html) (Script interno dentro de `index.html`)
+* **Solución:** [`soluciones/ejercicio_01/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_01/index.html)
 * **Objetivo:** Mostrar cómo se ejecuta el código JavaScript básico incrustado en el propio documento HTML.
 * **Enunciado:**
   Crear una estructura HTML con un `<div>` que contenga el texto `"Ejemplo de clase"`. Al final del `<body>`, añadir una etiqueta `<script>` que declare una variable `mensaje = "hola clase"` y la muestre al usuario mediante una ventana emergente `alert()`.
 * **Puntos clave:**
-  - Código JavaScript interno.
+  - Código JavaScript interno incrustado en `<script>`.
   - Declaración básica con `let`.
 
 ---
 
 ### Ejercicio 02: Primer contacto con el DOM
-* **Archivos:** [`02.html`](./02.html)
+* **Carpeta Alumno:** [`ejercicio_02/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_02/index.html) (Script interno dentro de `index.html`)
+* **Solución:** [`soluciones/ejercicio_02/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_02/index.html)
 * **Objetivo:** Aprender a seleccionar un elemento de la página y leer su contenido desde JavaScript.
 * **Enunciado:**
   Dado un `<div>Ejemplo de clase hoy con ramon</div>`, utilizar `document.querySelector('div')` para apuntar a él desde JavaScript. Extraer el texto interior que contiene usando la propiedad `.innerHTML`, guardarlo en una variable y mostrarlo en un `alert()`.
@@ -200,145 +190,147 @@ Al igual que con el CSS:
 
 ---
 
-### Ejercicio 03: Estilos CSS internos y cambio dinámico con `prompt()`
-* **Archivos:** [`03.html`](./03.html)
-* **Objetivo:** Integrar HTML, CSS interno en `<style>` y modificación dinámica de estilos en línea.
+### Ejercicio 03: Estilos CSS y cambio dinámico con `prompt()`
+* **Carpeta Alumno:** [`ejercicio_03/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_03/index.html) (Estilo en `<style>` y script interno en `index.html`)
+* **Solución:** [`soluciones/ejercicio_03/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_03/index.html)
+* **Objetivo:** Integrar HTML, CSS y modificación dinámica de estilos en línea.
 * **Enunciado:**
-  Decorar un `<div>` mediante CSS dentro de la etiqueta `<style>` en el `<head>`. Mediante un script al final del `<body>`:
+  Decorar un `<div>` centrado en pantalla. Mediante un script:
   1. Apuntar al `<div>`.
   2. Pedir al usuario un color en inglés mediante `prompt("Introduce un color en ingles")`.
   3. Cambiar el color de fondo del elemento asignando el valor a `nodoDiv.style.backgroundColor`.
 * **Puntos clave:**
-  - Inclusión de estilos mediante `<style>`.
   - La propiedad `.style` en JavaScript modifica los estilos CSS en línea del elemento.
 
 ---
 
 ### Ejercicio 04: Separación total de responsabilidades (HTML, CSS y JS externos)
-* **Archivos:** [`04.html`](./04.html) \| [`04.css`](./04.css) \| [`04.js`](./04.js)
-* **Objetivo:** Romper el archivo monolítico y organizar el proyecto en tres archivos especializados independientes.
+* **Carpeta Alumno:** [`ejercicio_04/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_04/index.html)
+* **Solución:** [`soluciones/ejercicio_04/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_04/app.js)
+* **Objetivo:** Organizar el proyecto en tres archivos especializados independientes (`index.html`, `style.css` y `app.js`).
 * **Enunciado:**
-  Replicar el funcionamiento del Ejercicio 03 separando el código:
-  1. El HTML se queda exclusivamente con la estructura en `04.html`.
-  2. Los estilos se extraen al archivo `04.css` y se enlazan con `<link rel="stylesheet" href="04.css" />`.
-  3. El código JavaScript se extrae a `04.js` y se enlaza con `<script src="04.js"></script>`.
+  Repetir la funcionalidad del ejercicio 03 pero desacoplando el código en tres archivos:
+  - Estructura en `index.html`.
+  - Estilos visuales en `style.css` vinculado con `<link>`.
+  - Lógica interactiva en `app.js` enlazado al final del `<body>` mediante `<script src="app.js"></script>`.
+
+---
+
+### Ejercicio 05: Suma aritmética y conversión con `Number()`
+* **Carpeta Alumno:** [`ejercicio_05/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_05/index.html)
+* **Solución:** [`soluciones/ejercicio_05/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_05/app.js)
+* **Objetivo:** Manejar entradas por teclado numéricas evitando la concatenación indeseada de texto.
+* **Enunciado:**
+  Pedir dos números por teclado al usuario con `prompt()`. Convertir ambas entradas a tipo numérico con `Number()`, calcular su suma aritmética y mostrar el resultado tanto en una alerta (`alert`) como en la consola (`console.log`).
 * **Puntos clave:**
-  - Estructura limpia y profesional de proyectos web.
+  - `prompt()` siempre devuelve un valor de tipo texto (`string`).
+  - `Number()` convierte dicho texto en un número operable.
 
 ---
 
-### Ejercicio 05: Suma numérica y prevención de concatenación
-* **Archivos:** [`05.html`](./05.html) \| [`05.js`](./05.js)
-* **Objetivo:** Evitar el clásico error de sumar textos pedidos con `prompt()`.
+### Ejercicio 06: Inserción de datos en una tabla HTML
+* **Carpeta Alumno:** [`ejercicio_06/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_06/index.html)
+* **Solución:** [`soluciones/ejercicio_06/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_06/app.js)
+* **Objetivo:** Capturar múltiples datos e insertarlos en celdas específicas del DOM.
 * **Enunciado:**
-  Solicitar dos números al usuario mediante dos llamadas a `prompt()`. Convertir obligatoriamente ambas entradas con `Number()`, calcular su suma matemática y mostrar el resultado tanto en una alerta emergente como en la consola del navegador (`console.log`).
-* **Puntos clave:**
-  - `prompt()` devuelve texto; sin `Number()`, `10 + 5` daría `"105"`.
+  Partiendo de una tabla HTML con celdas identificadas por IDs (`#nombre`, `#edad`, `#poblacion`), solicitar los tres datos al usuario mediante `prompt()` y asignarlos a las celdas de la tabla con `textContent`.
 
 ---
 
-### Ejercicio 06: Rellenar una tabla HTML dinámica
-* **Archivos:** [`06.html`](./06.html) \| [`06.js`](./06.js)
-* **Objetivo:** Apuntar a identificadores específicos de una tabla e inyectar datos recogidos por teclado.
+### Ejercicio 07: Geometría - Área de un círculo
+* **Carpeta Alumno:** [`ejercicio_07/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_07/index.html)
+* **Solución:** [`soluciones/ejercicio_07/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_07/app.js)
+* **Objetivo:** Usar el objeto matemático `Math` y operadores aritméticos de potencia.
 * **Enunciado:**
-  Dada una tabla con celdas identificadas: `<td id="nombre">`, `<td id="edad">` y `<td id="poblacion">`.
-  Pedir por teclado los tres datos al usuario y escribir cada uno en su celda correspondiente mediante `.innerHTML`.
-* **Puntos clave:**
-  - Selección precisa por identificador con `#nombre`, `#edad`, etc.
+  Pedir el radio de un círculo por teclado. Calcular el área aplicando la fórmula matemática `Área = π * r²` (utilizando `Math.PI` y el operador `**`). Mostrar el radio introducido y el área calculada en los elementos `<span id="radio">` y `<span id="area">`.
 
 ---
 
-### Ejercicio 07: Fórmulas matemáticas y objeto `Math`
-* **Archivos:** [`07.html`](./07.html) \| [`07.js`](./07.js)
-* **Objetivo:** Realizar cálculos geométricos precisos utilizando las funciones matemáticas de JavaScript.
+### Ejercicio 08: Dibujo dinámico y escala en píxeles con CSS
+* **Carpeta Alumno:** [`ejercicio_08/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_08/index.html)
+* **Solución:** [`soluciones/ejercicio_08/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_08/app.js)
+* **Objetivo:** Controlar las dimensiones físicas de un elemento gráfico desde JavaScript.
 * **Enunciado:**
-  Pedir el radio de un círculo con `prompt()`. Calcular el área utilizando la constante `Math.PI` y el operador de potencia (`Math.PI * radio ** 2`). Mostrar el radio introducido y el área calculada en los elementos `<span id="radio">` y `<span id="area">`.
-* **Puntos clave:**
-  - Uso de `Math.PI` y potencias `**`.
+  Solicitar un número al usuario que representará el diámetro de un círculo. Escribir el número en un contenedor `#salida` y alterar dinámicamente las propiedades `style.width` y `style.height` de una caja circular `#caja` concatenando la unidad de medida `"px"`.
 
 ---
 
-### Ejercicio 08: Dibujo y escalado de formas con CSS
-* **Archivos:** [`08.html`](./08.html) \| [`08.js`](./08.js)
-* **Objetivo:** Relacionar un valor numérico introducido por el usuario con las dimensiones físicas de un elemento gráfico en pantalla.
+### Ejercicio 09: Encabezados y párrafos: Constantes vs Variables
+* **Carpeta Alumno:** [`ejercicio_09/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_09/index.html)
+* **Solución:** [`soluciones/ejercicio_09/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_09/app.js)
+* **Objetivo:** Distinguir entre constantes de configuración inmutables y variables dinámicas.
 * **Enunciado:**
-  Pedir un número por teclado. Mostrar el número en el `<div id="salida">` con formato HTML enriquecido y, simultáneamente, cambiar el ancho y alto del `<div id="caja">` (que tiene `border-radius: 100%`) para dibujar un círculo a escala del número de píxeles introducido.
-* **Puntos clave:**
-  - Asignación de unidades: `divCaja.style.width = \`\${numero}px\``.
+  Definir una constante fija `titulo = 'Ejercicio de clase'` y una variable `poblacion` que se solicitará con `prompt()`. Inyectar la constante en la etiqueta `<h1>` y la variable en el párrafo `<p id="parrafo">`.
 
 ---
 
-### Ejercicio 09: Encabezados y párrafos sincronizados
-* **Archivos:** [`09.html`](./09.html) \| [`09.js`](./09.js)
-* **Objetivo:** Combinar textos fijos del sistema con entradas dinámicas del usuario.
+### Ejercicio 10: Cálculo de potencias y Template Literals
+* **Carpeta Alumno:** [`ejercicio_10/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_10/index.html)
+* **Solución:** [`soluciones/ejercicio_10/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_10/app.js)
+* **Objetivo:** Manejar fórmulas matemáticas de dos variables e interpolación de strings.
 * **Enunciado:**
-  Definir una constante con el título del ejercicio y pedir al usuario su población con `prompt()`. Inyectar el título en la etiqueta `<h1>` y la población en el párrafo `<p id="parrafo">`.
+  Pedir por teclado la base y el exponente. Calcular la potencia matemática (`base ** exponente`). Mostrar en pantalla:
+  - En `#base`: el número base.
+  - En `#exponente`: el exponente.
+  - En `#resultado`: la expresión completa, por ejemplo: `2 ** 3 = 8`.
 
 ---
 
-### Ejercicio 10: Potencias y formato de salida
-* **Archivos:** [`10.html`](./10.html) \| [`10.js`](./10.js)
-* **Objetivo:** Manejar múltiples inputs numéricos y componer cadenas con operaciones matemáticas.
+### Ejercicio 11: Geometría de un rectángulo en lista ordenada
+* **Carpeta Alumno:** [`ejercicio_11/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_11/index.html)
+* **Solución:** [`soluciones/ejercicio_11/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_11/app.js)
+* **Objetivo:** Procesar múltiples cálculos geométricos y distribuirlos en listas `<ul>` preexistentes.
 * **Enunciado:**
-  Pedir la base y el exponente con `Number(prompt())`. Calcular la potencia (`base ** exponente`) y mostrar en sus respectivos spans la base, el exponente y la expresión completa (por ejemplo: `2 ** 3 = 8`).
+  Solicitar las longitudes de los dos lados de un rectángulo (`lado1` y `lado2`). Calcular el área (`lado1 * lado2`) y el perímetro (`2 * lado1 + 2 * lado2`). Asignar cada uno de los cuatro valores a sus respectivos `<span>` en el DOM.
 
 ---
 
-### Ejercicio 11: Geometría de un rectángulo en lista `<ul>`
-* **Archivos:** [`11.html`](./11.html) \| [`11.js`](./11.js)
-* **Objetivo:** Realizar múltiples cálculos sobre los mismos datos y volcarlos en una lista estructurada.
+### Ejercicio 12: Generación e inyección de HTML con Backticks
+* **Carpeta Alumno:** [`ejercicio_12/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_12/index.html)
+* **Solución:** [`soluciones/ejercicio_12/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_12/app.js)
+* **Objetivo:** Construir estructuras HTML dinámicas completas usando Template Literals e `innerHTML`.
 * **Enunciado:**
-  Pedir por teclado los dos lados de un rectángulo (`lado1` y `lado2`). Calcular su área (`lado1 * lado2`) y su perímetro (`2 * lado1 + 2 * lado2`). Mostrar cada uno de los cuatro valores en sus respectivos `<span>`.
+  A partir de los cálculos del ejercicio 11, en lugar de disponer de elementos HTML vacíos en el documento original, generar mediante JavaScript un bloque de texto que contenga una lista completa (`<ul>` y cuatro `<li>`) e inyectarla de una sola vez en el contenedor `<div id="salida">` usando `.innerHTML`.
 
 ---
 
-### Ejercicio 12: Generación de bloques HTML completos con template literals
-* **Archivos:** [`12.html`](./12.html) \| [`12.js`](./12.js)
-* **Objetivo:** Construir estructuras HTML enteras desde JavaScript en lugar de limitarse a rellenar huecos vacíos.
+### Ejercicio 13: Caja interactiva completa (Ancho, Alto y Color)
+* **Carpeta Alumno:** [`ejercicio_13/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_13/index.html)
+* **Solución:** [`soluciones/ejercicio_13/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_13/app.js)
+* **Objetivo:** Modificar simultáneamente múltiples reglas CSS y textos informativos.
 * **Enunciado:**
-  A partir de los lados de un rectángulo, generar desde JavaScript una lista `<ul>` completa con todos sus `<li>` mediante backticks (`` ` ``) e insertarla de una sola vez en el `<div id="salida">` usando `innerHTML`.
-* **Puntos clave:**
-  - Potencia de los template literals multilínea para crear HTML dinámico.
+  Pedir por teclado el ancho, el alto y el color de fondo para un rectángulo.
+  1. Mostrar los tres valores en tres `<div>` informativos independientes (`#ancho`, `#alto`, `#color`).
+  2. Aplicar dichos valores a un `<div id="caja">` modificando su `style.width`, `style.height` y `style.backgroundColor`.
 
 ---
 
-### Ejercicio 13: Caja dinámica paramétrica
-* **Archivos:** [`13.html`](./13.html) \| [`13.js`](./13.js)
-* **Objetivo:** Configurar simultáneamente dimensiones y colores de un elemento mediante entradas de usuario.
+### Ejercicio 14: `querySelector` frente a `querySelectorAll`
+* **Carpeta Alumno:** [`ejercicio_14/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_14/index.html)
+* **Solución:** [`soluciones/ejercicio_14/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_14/app.js)
+* **Objetivo:** Entender la diferencia entre capturar un único elemento y capturar una colección indexada (`NodeList`).
 * **Enunciado:**
-  Pedir por teclado el ancho, el alto y el color de un rectángulo. Mostrar los valores introducidos en cajas de texto y aplicar los tres valores simultáneamente a una caja gráfica `#caja` mediante `style.width`, `style.height` y `style.backgroundColor`.
+  En una tabla HTML de 4x4 (16 celdas `<td>`):
+  1. Usar `document.querySelector('td')` para pintar de rojo la **primera celda**.
+  2. Usar `document.querySelectorAll('td')` para obtener la lista de todas las celdas y pintar de rojo la **cuarta celda** accediendo a su posición mediante corchetes (`celdas[3]`).
 
 ---
 
-### Ejercicio 14: Selección individual vs Selección múltiple (`querySelector` vs `querySelectorAll`)
-* **Archivos:** [`14.html`](./14.html) \| [`14.js`](./14.js)
-* **Objetivo:** Introducir la diferencia crucial entre seleccionar un único elemento o una lista completa de nodos.
+### Ejercicio 15: Leer contenido de un contenedor (`div`) y copiarlo
+* **Carpeta Alumno:** [`ejercicio_15/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_15/index.html)
+* **Solución:** [`soluciones/ejercicio_15/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_15/app.js)
+* **Objetivo:** Aprender a extraer el texto de una etiqueta informativa estándar utilizando `.textContent`.
 * **Enunciado:**
-  Dada una tabla de 4x4 con 16 celdas `<td>`:
-  1. `document.querySelector('td')`: selecciona únicamente la **primera** celda de la tabla y la colorea de rojo.
-  2. `document.querySelectorAll('td')`: obtiene una colección (NodeList) con las **16 celdas**, permitiendo acceder por índice (por ejemplo, `celdas[3]` para colorear la cuarta celda).
-* **Puntos clave:**
-  - `querySelector()` devuelve un único nodo.
-  - `querySelectorAll()` devuelve una colección indexada como un array.
+  Dado un `<div id="nombre">Alpe</div>`, capturar su texto interno mediante `divNombre.textContent`, guardarlo en una variable y escribirlo dentro de un segundo `<div id="salida">`.
 
 ---
 
-### Ejercicio 15: Lectura y copia entre elementos contenedores (`<div>`)
-* **Archivos:** [`15.html`](./15.html) \| [`15.js`](./15.js)
-* **Objetivo:** Aprender a extraer texto de un contenedor del DOM para plasmarlo en otro contenedor.
+### Ejercicio 16: Contenedor estático vs Campo de formulario (`input.value`)
+* **Carpeta Alumno:** [`ejercicio_16/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/ejercicio_16/index.html)
+* **Solución:** [`soluciones/ejercicio_16/`](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/iniciales/soluciones/ejercicio_16/app.js)
+* **Objetivo:** Dominar la diferencia crucial entre leer un elemento contenedor (`.textContent`) y leer un control interactivo (`.value`).
 * **Enunciado:**
-  Dado un `<div id="nombre">Alpe</div>`, leer su contenido textual mediante la propiedad `.textContent` y escribir dicho valor dentro del `<div id="salida">`.
-* **Puntos clave:**
-  - Uso simétrico de `.textContent`: a la derecha del igual para leer (`nombre = div.textContent`) y a la izquierda para escribir (`salida.textContent = nombre`).
-
----
-
-### Ejercicio 16: La gran diferencia: Contenedor vs `<input>` (`.textContent` vs `.value`)
-* **Archivos:** [`16.html`](./16.html) \| [`16.js`](./16.js)
-* **Objetivo:** Comprender por qué los campos de formulario no se leen con `textContent` ni con `innerHTML`.
-* **Enunciado:**
-  En este ejercicio, en lugar de un `div`, tenemos un campo de texto interactivo: `<input id="nombre" value="Alpe" />`.
-  Leer el texto escrito en el input utilizando su propiedad específica **`.value`** y volcarlo dentro del `<div id="salida">` mediante `.textContent`.
-* **Puntos clave:**
-  - Las etiquetas contenedoras (`div`, `p`, `span`, `h1`) usan `.textContent` / `.innerHTML`.
-  - Las etiquetas de formulario (`input`, `select`, `textarea`) usan **`.value`**.
+  Dado un campo de entrada `<input id="nombre" value="Alpe">`:
+  1. Apuntar al input desde JavaScript.
+  2. Leer su contenido utilizando la propiedad `.value` (nunca `.textContent`).
+  3. Escribir dicho valor dentro del contenedor `<div id="salida">` usando `.textContent`.

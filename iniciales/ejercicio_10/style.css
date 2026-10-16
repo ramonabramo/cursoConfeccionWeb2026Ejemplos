@@ -1,0 +1,18 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f4f6f9;
+}
+
+.tarjeta-calculo {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  max-width: 450px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tarjeta-calculo p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}

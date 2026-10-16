@@ -197,6 +197,56 @@ while (i < palabras.length) { // 2. Condición de parada
 
 ---
 
+### 1.7. Manejo de Formularios en esta Unidad: `<button type="button">` frente a `<button type="submit">`
+
+Al trabajar con formularios interactivos y arrays en JavaScript existen dos formas de capturar las acciones del usuario:
+
+#### 1. Formulario clásico con botón de envío (`type="submit"`) y `e.preventDefault()`
+Por defecto en los navegadores, cualquier `<button>` situado dentro de una etiqueta `<form>` actúa como `type="submit"`. Al pulsarlo (o pulsar Enter dentro de un input), el navegador intenta enviar el formulario mediante una petición HTTP recargando la página entera.
+
+Para procesar los datos íntegramente con JavaScript en el navegador del usuario y evitar esa recarga, debemos:
+1. Escuchar el evento `'submit'` en la etiqueta `<form>`.
+2. Capturar el objeto de evento `e`.
+3. Invocar inmediatamente `e.preventDefault()` para cancelar el envío nativo.
+
+```javascript
+// Ejemplo pedagógico (Ejercicio 01):
+form.addEventListener('submit', function (e) {
+    e.preventDefault(); // ¡Obligatorio para evitar que la página se recargue!
+    // lógica con el array...
+});
+```
+
+> [!NOTE]
+> En esta unidad, el **Ejercicio 01** mantiene expresamente este mecanismo con `<button type="submit">` y `e.preventDefault()` con el fin pedagógico de entender cómo se intercepta el envío por defecto de los formularios.
+
+#### 2. Botón estándar (`type="button"`) y evento `'click'` — ⭐ Enfoque del Ejercicio 02 al 15
+Cuando un formulario actúa únicamente como contenedor visual de controles y la lógica se gestiona completamente en JavaScript cliente, la solución más limpia y moderna consiste en asignar a los botones el atributo explícito `type="button"`:
+
+```html
+<!-- HTML -->
+<form id="formCompra">
+    <input type="text" id="inputArticulo" placeholder="Nuevo artículo">
+    <button type="button" id="btnAgregar">Añadir a la Lista</button>
+</form>
+```
+
+```javascript
+// JavaScript:
+btnAgregar.addEventListener('click', function () {
+    // Al ser type="button", el navegador NO envía el formulario ni recarga la página.
+    // No necesitamos recibir el objeto de evento 'e' ni llamar a e.preventDefault().
+    const articulo = inputArticulo.value.trim();
+    // lógica con el array...
+});
+```
+
+**Ventajas de `<button type="button">` en aplicaciones con arrays:**
+- **Código más limpio y directo:** No requiere capturar el parámetro `e` ni acordarse de invocar `e.preventDefault()`.
+- **Múltiples acciones independientes:** Permite incluir dentro de un mismo formulario varios botones distintos (por ejemplo: *Añadir*, *Buscar*, *Eliminar*, *Mostrar*) y escuchar el evento `'click'` de cada uno de ellos por separado sin que ninguno dispare envíos no deseados.
+
+---
+
 ## 2. Tabla Resumen de los 15 Ejercicios
 
 | Nº | Ejercicio | Concepto Clave de Arrays | Carpeta Alumno | Carpeta Solución |
@@ -222,13 +272,13 @@ while (i < palabras.length) { // 2. Condición de parada
 ## 3. Enunciados Detallados de los Ejercicios
 
 ### Ejercicio 01: Creación y acceso por índice
-* **Archivos:** [`ejercicio_01/app.js`](./ejercicio_01/app.js) \| [Solución](soluciones/ejercicio_01/app.js)
-* **Objetivo:** Comprender la indexación desde 0 y la lectura de elementos mediante corchetes.
+* **Archivos:** [`ejercicio_01/app.js`](./ejercicio_01/app.js) | [Solución](soluciones/ejercicio_01/app.js)
+* **Objetivo:** Comprender la indexación desde 0 y la lectura de elementos mediante corchetes, utilizando el evento `'submit'` y `e.preventDefault()`.
 * **Enunciado:**
   Dado un array con los 7 días de la semana:
   `['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']`.
   El usuario introduce un número de índice en `#inputIndice`.
-  Al enviar el formulario:
+  Al pulsar el botón de envío (`type="submit"`):
   1. Evita la recarga con `e.preventDefault()`.
   2. Valida con un `if` que el índice introducido esté entre `0` y `diasSemana.length - 1`.
   3. Si es válido, muestra el elemento correspondiente (`diasSemana[indice]`) y el total de días del array.
@@ -237,32 +287,33 @@ while (i < palabras.length) { // 2. Condición de parada
   1. Declarar el array `diasSemana`.
   2. Apuntar al formulario `#formulario`, input `#inputIndice` y div `#resultado`.
   3. Escuchar el evento `'submit'` del formulario.
-  4. Convertir el valor a número con `Number()`.
-  5. Comparar `indice >= 0 && indice < diasSemana.length` y mostrar el resultado en pantalla.
+  4. Llamar a `e.preventDefault()` para interceptar el envío nativo.
+  5. Convertir el valor a número con `Number()`.
+  6. Comparar `indice >= 0 && indice < diasSemana.length` y mostrar el resultado en pantalla.
 
 ---
 
 ### Ejercicio 02: Añadir al final con `push()`
-* **Archivos:** [`ejercicio_02/app.js`](./ejercicio_02/app.js) \| [Solución](soluciones/ejercicio_02/app.js)
-* **Objetivo:** Aprender a insertar nuevos elementos dinámicamente en el array.
+* **Archivos:** [`ejercicio_02/app.js`](./ejercicio_02/app.js) | [Solución](soluciones/ejercicio_02/app.js)
+* **Objetivo:** Aprender a insertar nuevos elementos dinámicamente en el array con un botón `type="button"`.
 * **Enunciado:**
   Comenzamos con una lista de la compra inicial: `let listaCompra = ['Pan', 'Leche'];`.
-  Al enviar el formulario `#formCompra`:
-  1. Evita la recarga con `e.preventDefault()`.
-  2. Obtén el nombre del artículo introducido por el usuario sin espacios (`.trim()`).
-  3. Si tiene texto, añade el artículo al final del array con `listaCompra.push(articulo)`.
-  4. Limpia el input y muestra en `#resultado` el artículo añadido, la lista completa y el total de artículos (`.length`).
+  Al hacer clic en el botón `#btnAgregar` (`type="button"`):
+  1. Obtén el nombre del artículo introducido por el usuario sin espacios (`.trim()`).
+  2. Si tiene texto, añade el artículo al final del array con `listaCompra.push(articulo)`.
+  3. Limpia el input y muestra en `#resultado` el artículo añadido, la lista completa y el total de artículos (`.length`).
 * **Pasos a realizar:**
   1. Declarar el array `listaCompra`.
-  2. Escuchar el evento `'submit'` en `#formCompra`.
-  3. Validar con `if` que el input no esté vacío.
-  4. Ejecutar `listaCompra.push(articulo)`.
-  5. Actualizar la vista con el array resultante.
+  2. Apuntar a `#inputArticulo`, `#btnAgregar` y `#resultado`.
+  3. Escuchar el evento `'click'` en `#btnAgregar`.
+  4. Validar con `if` que el input no esté vacío.
+  5. Ejecutar `listaCompra.push(articulo)`.
+  6. Actualizar la vista con el array resultante y vaciar el input.
 
 ---
 
 ### Ejercicio 03: Eliminar del final con `pop()`
-* **Archivos:** [`ejercicio_03/app.js`](./ejercicio_03/app.js) \| [Solución](soluciones/ejercicio_03/app.js)
+* **Archivos:** [`ejercicio_03/app.js`](./ejercicio_03/app.js) | [Solución](soluciones/ejercicio_03/app.js)
 * **Objetivo:** Extraer y eliminar el último elemento de una lista, controlando el caso de array vacío.
 * **Enunciado:**
   Partimos de una pila de tareas pendientes:
@@ -282,7 +333,7 @@ while (i < palabras.length) { // 2. Condición de parada
 ---
 
 ### Ejercicio 04: Añadir y quitar al inicio con `unshift()` y `shift()`
-* **Archivos:** [`ejercicio_04/app.js`](./ejercicio_04/app.js) \| [Solución](soluciones/ejercicio_04/app.js)
+* **Archivos:** [`ejercicio_04/app.js`](./ejercicio_04/app.js) | [Solución](soluciones/ejercicio_04/app.js)
 * **Objetivo:** Manipular el primer elemento del array para simular colas de turnos y prioridades.
 * **Enunciado:**
   Tenemos una cola de clientes: `let cola = ['Carlos', 'Ana', 'Beatriz'];`.
@@ -298,108 +349,108 @@ while (i < palabras.length) { // 2. Condición de parada
 ---
 
 ### Ejercicio 05: Modificar un elemento por su índice
-* **Archivos:** [`ejercicio_05/app.js`](./ejercicio_05/app.js) \| [Solución](soluciones/ejercicio_05/app.js)
+* **Archivos:** [`ejercicio_05/app.js`](./ejercicio_05/app.js) | [Solución](soluciones/ejercicio_05/app.js)
 * **Objetivo:** Entender la mutabilidad de los arrays reasignando casillas específicas (`array[i] = nuevo`).
 * **Enunciado:**
   Array inicial de puntuaciones: `let puntuaciones = [85, 92, 78, 64, 90];`.
-  Al enviar el formulario `#formPuntuacion`:
-  1. Evita la recarga con `e.preventDefault()`.
-  2. Obtén la posición a modificar y la nueva puntuación como números.
-  3. Valida con un `if` que la posición exista (`posicion >= 0 && posicion < puntuaciones.length`).
-  4. Si existe, guarda el valor previo, reasigna `puntuaciones[posicion] = nuevoValor` y muestra el cambio realizado y el array resultante.
-  5. Si no existe, muestra un mensaje de error.
+  Al hacer clic en el botón `#btnModificar` (`type="button"`):
+  1. Obtén la posición a modificar y la nueva puntuación como números.
+  2. Valida con un `if` que la posición exista (`posicion >= 0 && posicion < puntuaciones.length`).
+  3. Si existe, guarda el valor previo, reasigna `puntuaciones[posicion] = nuevoValor` y muestra el cambio realizado y el array resultante.
+  4. Si no existe, muestra un mensaje de error.
 * **Pasos a realizar:**
   1. Declarar el array `puntuaciones`.
-  2. Apuntar a los inputs y al formulario.
-  3. Validar el rango del índice.
-  4. Reasignar `puntuaciones[posicion]`.
-  5. Imprimir el resumen en `#resultado`.
+  2. Apuntar a los inputs, al botón `#btnModificar` y a `#resultado`.
+  3. Escuchar `'click'` en `#btnModificar`.
+  4. Validar el rango del índice.
+  5. Reasignar `puntuaciones[posicion]`.
+  6. Imprimir el resumen en `#resultado`.
 
 ---
 
 ### Ejercicio 06: Comprobar existencia con `includes()`
-* **Archivos:** [`ejercicio_06/app.js`](./ejercicio_06/app.js) \| [Solución](soluciones/ejercicio_06/app.js)
+* **Archivos:** [`ejercicio_06/app.js`](./ejercicio_06/app.js) | [Solución](soluciones/ejercicio_06/app.js)
 * **Objetivo:** Comprobar si un dato está incluido en el array utilizando el método booleano `includes()`.
 * **Enunciado:**
   Lista de invitados VIP: `const invitados = ['lucia', 'marcos', 'sofia', 'daniel', 'elena'];`.
-  Al enviar el formulario `#formInvitado`:
-  1. Evita la recarga con `e.preventDefault()`.
-  2. Obtén el nombre del input y conviértelo a minúsculas con `.toLowerCase()`.
-  3. Evalúa con un `if (invitados.includes(nombre))`:
+  Al hacer clic en el botón `#btnComprobar` (`type="button"`):
+  1. Obtén el nombre del input y conviértelo a minúsculas con `.toLowerCase()`.
+  2. Evalúa con un `if (invitados.includes(nombre))`:
      - Si es true: `"¡Acceso Concedido! '[nombre]' está en la lista de invitados VIP."`.
      - Si es false: `"Acceso Denegado: '[nombre]' no aparece en la lista de invitados."`.
 * **Pasos a realizar:**
   1. Declarar el array `invitados`.
-  2. Escuchar el evento `'submit'` en el formulario.
-  3. Obtener el nombre en minúsculas.
-  4. Evaluar con `if (invitados.includes(nombre))`.
-  5. Mostrar el mensaje de bienvenida o denegación.
+  2. Apuntar a `#inputNombre`, `#btnComprobar` y `#resultado`.
+  3. Escuchar el evento `'click'` en `#btnComprobar`.
+  4. Obtener el nombre en minúsculas.
+  5. Evaluar con `if (invitados.includes(nombre))`.
+  6. Mostrar el mensaje de bienvenida o denegación.
 
 ---
 
 ### Ejercicio 07: Localizar posición con `indexOf()`
-* **Archivos:** [`ejercicio_07/app.js`](./ejercicio_07/app.js) \| [Solución](soluciones/ejercicio_07/app.js)
+* **Archivos:** [`ejercicio_07/app.js`](./ejercicio_07/app.js) | [Solución](soluciones/ejercicio_07/app.js)
 * **Objetivo:** Obtener la posición numérica de un elemento y controlar el valor `-1` cuando no existe.
 * **Enunciado:**
   Inventario del almacén: `const productos = ['teclado', 'raton', 'monitor', 'auriculares', 'altavoces'];`.
-  Al enviar el formulario `#formProducto`:
-  1. Evita la recarga con `e.preventDefault()`.
-  2. Obtén el nombre del producto en minúsculas.
-  3. Busca su posición con `const posicion = productos.indexOf(producto);`.
-  4. Si `posicion !== -1`: muestra que el producto está en la posición/estante `posicion`.
-  5. Si `posicion === -1`: muestra que el producto no existe en el catálogo.
+  Al hacer clic en el botón `#btnBuscar` (`type="button"`):
+  1. Obtén el nombre del producto en minúsculas.
+  2. Busca su posición con `const posicion = productos.indexOf(producto);`.
+  3. Si `posicion !== -1`: muestra que el producto está en la posición/estante `posicion`.
+  4. Si `posicion === -1`: muestra que el producto no existe en el catálogo.
 * **Pasos a realizar:**
   1. Declarar el array `productos`.
-  2. Escuchar el `'submit'` del formulario.
-  3. Ejecutar `productos.indexOf(producto)`.
-  4. Comprobar con `if (posicion !== -1)`.
-  5. Mostrar el mensaje en `#resultado`.
+  2. Apuntar a `#inputProducto`, `#btnBuscar` y `#resultado`.
+  3. Escuchar `'click'` en `#btnBuscar`.
+  4. Ejecutar `productos.indexOf(producto)`.
+  5. Comprobar con `if (posicion !== -1)`.
+  6. Mostrar el mensaje en `#resultado`.
 
 ---
 
 ### Ejercicio 08: Eliminar elemento específico con `indexOf()` y `splice()`
-* **Archivos:** [`ejercicio_08/app.js`](./ejercicio_08/app.js) \| [Solución](soluciones/ejercicio_08/app.js)
+* **Archivos:** [`ejercicio_08/app.js`](./ejercicio_08/app.js) | [Solución](soluciones/ejercicio_08/app.js)
 * **Objetivo:** Combinar la búsqueda por índice con el borrado en cualquier parte del array.
 * **Enunciado:**
   Censo de animales en un refugio: `let animales = ['perro', 'gato', 'loro', 'conejo', 'tortuga'];`.
-  Al enviar el formulario `#formAnimal`:
-  1. Evita la recarga con `e.preventDefault()`.
-  2. Obtén el nombre del animal en minúsculas.
-  3. Localiza su posición con `const indice = animales.indexOf(animal);`.
-  4. Con un `if`:
+  Al hacer clic en el botón `#btnAdoptar` (`type="button"`):
+  1. Obtén el nombre del animal en minúsculas.
+  2. Localiza su posición con `const indice = animales.indexOf(animal);`.
+  3. Con un `if`:
      - Si `indice !== -1`: elimínalo con `animales.splice(indice, 1)` y muestra el refugio actualizado y los animales restantes.
      - Si `indice === -1`: muestra que el animal no se encuentra en el refugio.
 * **Pasos a realizar:**
   1. Declarar el array `animales`.
-  2. Escuchar `'submit'` en `#formAnimal`.
-  3. Buscar con `indexOf()`.
-  4. Si existe, ejecutar `animales.splice(indice, 1)`.
-  5. Mostrar el array resultante en `#resultado`.
+  2. Apuntar a `#inputAnimal`, `#btnAdoptar` y `#resultado`.
+  3. Escuchar `'click'` en `#btnAdoptar`.
+  4. Buscar con `indexOf()`.
+  5. Si existe, ejecutar `animales.splice(indice, 1)`.
+  6. Mostrar el array resultante en `#resultado`.
 
 ---
 
 ### Ejercicio 09: Unir y formatear elementos con `join()`
-* **Archivos:** [`ejercicio_09/app.js`](./ejercicio_09/app.js) \| [Solución](soluciones/ejercicio_09/app.js)
+* **Archivos:** [`ejercicio_09/app.js`](./ejercicio_09/app.js) | [Solución](soluciones/ejercicio_09/app.js)
 * **Objetivo:** Aprender a convertir arrays en cadenas de texto continuas con separadores personalizados.
 * **Enunciado:**
   Array de etiquetas: `let etiquetas = ['html', 'css', 'javascript', 'frontend'];`.
-  Al enviar el formulario `#formEtiquetas`:
-  1. Evita la recarga con `e.preventDefault()`.
-  2. Si el usuario escribió una nueva etiqueta, añádela al array con `etiquetas.push()`.
-  3. Lee el separador elegido en el menú desplegable (por ejemplo `" - "`, `" | "` o `", "`).
-  4. Une todos los elementos con `etiquetas.join(separador)`.
-  5. Muestra el texto formateado resultante y el total de etiquetas.
+  Al hacer clic en el botón `#btnFormatear` (`type="button"`):
+  1. Si el usuario escribió una nueva etiqueta, añádela al array con `etiquetas.push()`.
+  2. Lee el separador elegido en el menú desplegable (por ejemplo `" - "`, `" | "` o `", "`).
+  3. Une todos los elementos con `etiquetas.join(separador)`.
+  4. Muestra el texto formateado resultante y el total de etiquetas.
 * **Pasos a realizar:**
   1. Declarar el array `etiquetas`.
-  2. Escuchar el evento `'submit'` en `#formEtiquetas`.
-  3. Insertar la nueva etiqueta si procede.
-  4. Ejecutar `etiquetas.join(separador)`.
-  5. Mostrar la cadena resultante en `#resultado`.
+  2. Apuntar a `#inputNuevaEtiqueta`, `#selectSeparador`, `#btnFormatear` y `#resultado`.
+  3. Escuchar el evento `'click'` en `#btnFormatear`.
+  4. Insertar la nueva etiqueta si procede.
+  5. Ejecutar `etiquetas.join(separador)`.
+  6. Mostrar la cadena resultante en `#resultado`.
 
 ---
 
 ### Ejercicio 10: Reto integrador de catálogo en array
-* **Archivos:** [`ejercicio_10/app.js`](./ejercicio_10/app.js) \| [Solución](soluciones/ejercicio_10/app.js)
+* **Archivos:** [`ejercicio_10/app.js`](./ejercicio_10/app.js) | [Solución](soluciones/ejercicio_10/app.js)
 * **Objetivo:** Integrar todas las operaciones fundamentales de arrays en un panel de control interactivo.
 * **Enunciado:**
   Partimos de un catálogo de productos: `let catalogo = ['manzana', 'pera', 'platano'];`.
@@ -418,18 +469,18 @@ while (i < palabras.length) { // 2. Condición de parada
 ---
 
 ### Ejercicio 11: Recorrer con `forEach()` (Método Recomendado)
-* **Archivos:** [`ejercicio_11/app.js`](./ejercicio_11/app.js) \| [Solución](soluciones/ejercicio_11/app.js)
+* **Archivos:** [`ejercicio_11/app.js`](./ejercicio_11/app.js) | [Solución](soluciones/ejercicio_11/app.js)
 * **Objetivo:** Dominar el método `forEach()`, el enfoque más limpio, directo y recomendado para recorrer arrays.
 * **Enunciado:**
   Dado un array con lenguajes de programación:
   `let lenguajes = ['JavaScript', 'Python', 'Java', 'PHP', 'TypeScript'];`.
-  1. Permite añadir nuevos lenguajes opcionalmente mediante el formulario con `push()`.
+  1. Permite añadir nuevos lenguajes pulsando el botón `#btnAgregar` (`type="button"`) con `push()`.
   2. Al pulsar el botón "Recorrer con forEach" (`#btnMostrar`), utiliza `lenguajes.forEach(function (lenguaje) { ... })` para acumular una lista con viñetas (`• [lenguaje]`).
   3. Muestra el listado completo y el total de elementos en `#resultado`.
 * **Pasos a realizar:**
   1. Declarar el array `lenguajes`.
-  2. Apuntar a los elementos del DOM.
-  3. Programar el formulario para añadir nuevos lenguajes con `push()`.
+  2. Apuntar a los elementos del DOM (`#inputLenguaje`, `#btnAgregar`, `#btnMostrar`, `#resultado`).
+  3. Escuchar el evento `'click'` en `#btnAgregar` para añadir nuevos lenguajes con `push()`.
   4. Escuchar `'click'` en `#btnMostrar`.
   5. Acumular los textos dentro de `lenguajes.forEach()`.
   6. Imprimir el listado en `#resultado`.
@@ -437,19 +488,20 @@ while (i < palabras.length) { // 2. Condición de parada
 ---
 
 ### Ejercicio 12: `forEach` con Elemento e Índice (`elemento, indice`)
-* **Archivos:** [`ejercicio_12/app.js`](./ejercicio_12/app.js) \| [Solución](soluciones/ejercicio_12/app.js)
+* **Archivos:** [`ejercicio_12/app.js`](./ejercicio_12/app.js) | [Solución](soluciones/ejercicio_12/app.js)
 * **Objetivo:** Utilizar el segundo parámetro de la función callback de `forEach()` para acceder a la posición de cada elemento.
 * **Enunciado:**
   Partimos de un listado de películas favoritas:
   `let peliculas = ['El Padrino', 'Pulp Fiction', 'Interestelar', 'Matrix', 'Origen'];`.
-  Al pulsar el botón "Generar Ranking" (`#btnRanking`):
-  1. Recorre el array utilizando dos parámetros en la función: `peliculas.forEach(function (pelicula, indice) { ... })`.
-  2. Construye una lista numerada sumándole 1 al índice para el ranking humano: `Puesto ${indice + 1}: ${pelicula}`.
-  3. Muestra el ranking completo en el div `#resultado`.
+  1. Permite añadir nuevas películas pulsando `#btnAgregar` (`type="button"`).
+  2. Al pulsar el botón "Generar Ranking" (`#btnRanking`):
+     - Recorre el array utilizando dos parámetros en la función: `peliculas.forEach(function (pelicula, indice) { ... })`.
+     - Construye una lista numerada sumándole 1 al índice para el ranking humano: `Puesto ${indice + 1}: ${pelicula}`.
+     - Muestra el ranking completo en el div `#resultado`.
 * **Pasos a realizar:**
   1. Declarar el array `peliculas`.
-  2. Apuntar a los elementos del DOM.
-  3. Programar el 'submit' para permitir añadir películas con `push()`.
+  2. Apuntar a los elementos del DOM (`#inputPelicula`, `#btnAgregar`, `#btnRanking`, `#resultado`).
+  3. Escuchar `'click'` en `#btnAgregar` para permitir añadir películas con `push()`.
   4. Escuchar `'click'` en `#btnRanking`.
   5. Acumular el puesto y título con `peliculas.forEach(function (pelicula, indice) { ... })`.
   6. Mostrar el ranking en `#resultado`.
@@ -457,39 +509,40 @@ while (i < palabras.length) { // 2. Condición de parada
 ---
 
 ### Ejercicio 13: Acumular valores numéricos con `forEach()`
-* **Archivos:** [`ejercicio_13/app.js`](./ejercicio_13/app.js) \| [Solución](soluciones/ejercicio_13/app.js)
+* **Archivos:** [`ejercicio_13/app.js`](./ejercicio_13/app.js) | [Solución](soluciones/ejercicio_13/app.js)
 * **Objetivo:** Aplicar `forEach()` a operaciones matemáticas de acumulación (suma total y media aritmética).
 * **Enunciado:**
   Array inicial de precios de artículos: `let precios = [12.50, 4.99, 25.00, 8.75, 15.30];`.
-  Al pulsar el botón "Calcular Total y Media" (`#btnCalcular`):
-  1. Inicializa un acumulador en cero: `let sumaTotal = 0;`.
-  2. Recorre con `precios.forEach(function (precio) { sumaTotal += precio; });`.
-  3. Calcula el precio medio dividiendo `sumaTotal / precios.length`.
-  4. Muestra en `#resultado` la cantidad de productos, la lista de precios, la suma total y la media formateadas a dos decimales con `.toFixed(2)`.
+  1. Permite añadir nuevos precios pulsando `#btnAgregar` (`type="button"`).
+  2. Al pulsar el botón "Calcular Total y Media" (`#btnCalcular`):
+     - Inicializa un acumulador en cero: `let sumaTotal = 0;`.
+     - Recorre con `precios.forEach(function (precio) { sumaTotal += precio; });`.
+     - Calcula el precio medio dividiendo `sumaTotal / precios.length`.
+     - Muestra en `#resultado` la cantidad de productos, la lista de precios, la suma total y la media formateadas a dos decimales con `.toFixed(2)`.
 * **Pasos a realizar:**
   1. Declarar el array `precios`.
-  2. Programar el formulario para insertar nuevos precios validados.
-  3. Escuchar el evento `'click'` en `#btnCalcular`.
-  4. Acumular la suma recorriendo con `forEach()`.
-  5. Calcular la media con `.length` y mostrar los resultados formateados en `#resultado`.
+  2. Apuntar a `#inputPrecio`, `#btnAgregar`, `#btnCalcular` y `#resultado`.
+  3. Escuchar el evento `'click'` en `#btnAgregar` para insertar nuevos precios validados.
+  4. Escuchar el evento `'click'` en `#btnCalcular`.
+  5. Acumular la suma recorriendo con `forEach()`.
+  6. Calcular la media con `.length` y mostrar los resultados formateados en `#resultado`.
 
 ---
 
 ### Ejercicio 14: Bucle `for` clásico con contador
-* **Archivos:** [`ejercicio_14/app.js`](./ejercicio_14/app.js) \| [Solución](soluciones/ejercicio_14/app.js)
+* **Archivos:** [`ejercicio_14/app.js`](./ejercicio_14/app.js) | [Solución](soluciones/ejercicio_14/app.js)
 * **Objetivo:** Conocer la estructura clásica de bucle con contador `i`, condición de parada e incremento.
 * **Enunciado:**
   Array de temperaturas registradas: `const temperaturas = [18, 22, 14, 25, 30, 11, 27];`.
-  Al enviar el formulario `#formFiltro`:
-  1. Evita la recarga con `e.preventDefault()`.
-  2. Obtén el umbral de temperatura introducido por el usuario.
-  3. Recorre el array con un bucle `for` tradicional: `for (let i = 0; i < temperaturas.length; i++)`.
-  4. Con un `if`, comprueba si `temperaturas[i] >= umbral`. Si se cumple, incrementa un contador y acumula la posición `i` y los grados.
-  5. Muestra en `#resultado` el total de temperaturas que superan el umbral y su detalle.
+  Al hacer clic en el botón `#btnFiltrar` (`type="button"`):
+  1. Obtén el umbral de temperatura introducido por el usuario.
+  2. Recorre el array con un bucle `for` tradicional: `for (let i = 0; i < temperaturas.length; i++)`.
+  3. Con un `if`, comprueba si `temperaturas[i] >= umbral`. Si se cumple, incrementa un contador y acumula la posición `i` y los grados.
+  4. Muestra en `#resultado` el total de temperaturas que superan el umbral y su detalle.
 * **Pasos a realizar:**
   1. Declarar el array `temperaturas`.
-  2. Apuntar a los elementos del DOM.
-  3. Escuchar `'submit'` en `#formFiltro`.
+  2. Apuntar a `#inputUmbral`, `#btnFiltrar` y `#resultado`.
+  3. Escuchar el evento `'click'` en `#btnFiltrar`.
   4. Construir el bucle `for` clásico con `(let i = 0; i < temperaturas.length; i++)`.
   5. Comparar cada elemento `temperaturas[i]` y mostrar el informe filtrado.
 

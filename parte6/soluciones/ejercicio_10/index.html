@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solución Ejercicio 10 - Reto integrador: Catálogo interactivo con filtros y cálculo de reservas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Solución Ejercicio 10 - Reto integrador: Catálogo interactivo con filtros y cálculo de reservas</h1>
+        <p class="descripcion">Proyecto integrador que combina querySelectorAll, forEach, exclusión mutua, atributos dataset, filtrado visual y cálculo acumulado de importes.</p>
+        <nav class="tabs-nav" id="filtrosCategoria">
+            <button type="button" class="tab-btn activo" data-filtro="todos">Todos</button>
+            <button type="button" class="tab-btn" data-filtro="frontend">Frontend</button>
+            <button type="button" class="tab-btn" data-filtro="backend">Backend</button>
+            <button type="button" class="tab-btn" data-filtro="diseno">Diseño</button>
+        </nav>
+        <div class="catalogo-cursos">
+            <div class="tarjeta-curso" data-categoria="frontend" data-precio="120">
+                <div>
+                    <h3>Master en JavaScript ES6+</h3>
+                    <div class="meta">Categoría: Frontend</div>
+                    <div class="precio">120 €</div>
+                </div>
+                <button type="button" class="btn-reservar">Seleccionar Curso</button>
+            </div>
+            <div class="tarjeta-curso" data-categoria="frontend" data-precio="140">
+                <div>
+                    <h3>Desarrollo con React & Hooks</h3>
+                    <div class="meta">Categoría: Frontend</div>
+                    <div class="precio">140 €</div>
+                </div>
+                <button type="button" class="btn-reservar">Seleccionar Curso</button>
+            </div>
+            <div class="tarjeta-curso" data-categoria="backend" data-precio="110">
+                <div>
+                    <h3>APIs REST con Node.js y Express</h3>
+                    <div class="meta">Categoría: Backend</div>
+                    <div class="precio">110 €</div>
+                </div>
+                <button type="button" class="btn-reservar">Seleccionar Curso</button>
+            </div>
+            <div class="tarjeta-curso" data-categoria="backend" data-precio="130">
+                <div>
+                    <h3>Bases de Datos SQL & NoSQL</h3>
+                    <div class="meta">Categoría: Backend</div>
+                    <div class="precio">130 €</div>
+                </div>
+                <button type="button" class="btn-reservar">Seleccionar Curso</button>
+            </div>
+            <div class="tarjeta-curso" data-categoria="diseno" data-precio="95">
+                <div>
+                    <h3>Diseño de Interfaces UI/UX con Figma</h3>
+                    <div class="meta">Categoría: Diseño</div>
+                    <div class="precio">95 €</div>
+                </div>
+                <button type="button" class="btn-reservar">Seleccionar Curso</button>
+            </div>
+            <div class="tarjeta-curso" data-categoria="diseno" data-precio="85">
+                <div>
+                    <h3>CSS Grid, Flexbox y Animaciones</h3>
+                    <div class="meta">Categoría: Diseño</div>
+                    <div class="precio">85 €</div>
+                </div>
+                <button type="button" class="btn-reservar">Seleccionar Curso</button>
+            </div>
+        </div>
+        <div class="grupo-botones">
+            <button type="button" id="btnVaciarCarrito" class="btn-peligro">Limpiar Selección</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Solución completa comprobada.</strong> Inspecciona el código de <strong>app.js</strong> para ver la implementación.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

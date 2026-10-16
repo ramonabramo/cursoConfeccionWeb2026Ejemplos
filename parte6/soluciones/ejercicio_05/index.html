@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solución Ejercicio 05 - Lectura y acumulación de múltiples inputs numéricos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Solución Ejercicio 05 - Lectura y acumulación de múltiples inputs numéricos</h1>
+        <p class="descripcion">Aprende a recorrer un conjunto de campos de entrada con querySelectorAll(), leer sus valores con .value, convertirlos a número y acumular cálculos de total y media.</p>
+        <p class="descripcion">Introduce los gastos diarios de la semana para calcular el presupuesto total y el gasto medio:</p>
+        <div class="lista-inputs-gastos">
+            <div class="fila-gasto">
+                <span>Lunes:</span>
+                <input type="number" class="input-gasto" min="0" step="0.01" value="12.50" placeholder="0.00 €">
+            </div>
+            <div class="fila-gasto">
+                <span>Martes:</span>
+                <input type="number" class="input-gasto" min="0" step="0.01" value="8.00" placeholder="0.00 €">
+            </div>
+            <div class="fila-gasto">
+                <span>Miércoles:</span>
+                <input type="number" class="input-gasto" min="0" step="0.01" value="24.30" placeholder="0.00 €">
+            </div>
+            <div class="fila-gasto">
+                <span>Jueves:</span>
+                <input type="number" class="input-gasto" min="0" step="0.01" value="15.00" placeholder="0.00 €">
+            </div>
+            <div class="fila-gasto">
+                <span>Viernes:</span>
+                <input type="number" class="input-gasto" min="0" step="0.01" value="30.20" placeholder="0.00 €">
+            </div>
+        </div>
+        <div class="grupo-botones">
+            <button type="button" id="btnCalcular" class="btn-exito">Calcular Total y Media</button>
+            <button type="button" id="btnLimpiar" class="btn-secundario">Vaciar Campos</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Solución completa comprobada.</strong> Inspecciona el código de <strong>app.js</strong> para ver la implementación.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

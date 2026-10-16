@@ -43,15 +43,13 @@
 let etiquetas = ['html', 'css', 'javascript', 'frontend'];
 
 // constantes al DOM que queremos escuchar
-const formEtiquetas = document.querySelector('#formEtiquetas');
+const btnFormatear = document.querySelector('#btnFormatear');
 const inputNuevaEtiqueta = document.querySelector('#inputNuevaEtiqueta');
 const selectorSeparador = document.querySelector('#selectorSeparador');
 const nodoResultado = document.querySelector('#resultado');
 
 // colocar escuchadores de eventos
-formEtiquetas.addEventListener('submit', function (e) {
-    // Evitamos la recarga de página
-    e.preventDefault();
+btnFormatear.addEventListener('click', function () {
 
     // entradas
     const nuevaEtiqueta = inputNuevaEtiqueta.value.trim().toLowerCase();

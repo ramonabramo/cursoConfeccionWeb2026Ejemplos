@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 04: Calculadora básica con 4 operaciones independientes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 4: Calculadora Básica</h1>
+        <form class="formulario">
+            <div class="campo">
+                <label for="numero1">Número 1:</label>
+                <input type="number" id="numero1" name="numero1" placeholder="Primer número">
+            </div>
+            <div class="campo">
+                <label for="numero2">Número 2:</label>
+                <input type="number" id="numero2" name="numero2" placeholder="Segundo número">
+            </div>
+            <div class="botones-operaciones">
+                <button type="button" id="botonSumar">Sumar (+)</button>
+                <button type="button" id="botonRestar">Restar (-)</button>
+                <button type="button" id="botonMultiplicar">Multiplicar (*)</button>
+                <button type="button" id="botonDividir">Dividir (/)</button>
+            </div>
+        </form>
+
+        <div class="panel-salida">
+            <span>Resultado:</span>
+            <div id="salida">-</div>
+        </div>
+    </main>
+
+  <!-- Script al final del body para garantizar que el DOM ya existe sin requerir defer -->
+  <script src="app.js"></script>
+</body>
+</html>

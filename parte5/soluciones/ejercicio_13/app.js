@@ -47,7 +47,7 @@
 let precios = [12.50, 4.99, 25.00, 8.75, 15.30];
 
 // constantes al DOM que queremos escuchar
-const formPrecio = document.querySelector('#formPrecio');
+const btnAgregar = document.querySelector('#btnAgregar');
 const inputPrecio = document.querySelector('#inputPrecio');
 const btnCalcular = document.querySelector('#btnCalcular');
 const nodoResultado = document.querySelector('#resultado');
@@ -55,8 +55,7 @@ const nodoResultado = document.querySelector('#resultado');
 // colocar escuchadores de eventos
 
 // 1. Permitir añadir nuevos precios
-formPrecio.addEventListener('submit', function (e) {
-    e.preventDefault();
+btnAgregar.addEventListener('click', function () {
     const nuevoPrecio = Number(inputPrecio.value);
 
     if (nuevoPrecio > 0) {

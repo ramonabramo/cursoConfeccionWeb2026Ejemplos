@@ -33,7 +33,7 @@
  * - 1 PASO: Declarar el array 'animales' con los 5 animales iniciales.
  * - 2 PASO: Crear constantes al DOM para #formAnimal, #inputAnimal y #resultado.
  * - 3 PASO: Escuchar 'submit' en el formulario pasando (e).
- * - 4 PASO: Llamar a e.preventDefault().
+ * - 4 PASO: Leer los datos del formulario directamente sin necesidad de preventDefault().
  * - 5 PASO: Localizar el índice con animales.indexOf(animal).
  * - 6 PASO: Si indice !== -1, ejecutar animales.splice(indice, 1) y mostrar el array actualizado.
  */
@@ -44,14 +44,12 @@
 let animales = ['perro', 'gato', 'loro', 'conejo', 'tortuga'];
 
 // constantes al DOM que queremos escuchar
-const formAnimal = document.querySelector('#formAnimal');
+const btnBorrar = document.querySelector('#btnBorrar');
 const inputAnimal = document.querySelector('#inputAnimal');
 const nodoResultado = document.querySelector('#resultado');
 
 // colocar escuchadores de eventos
-formAnimal.addEventListener('submit', function (e) {
-    // Evitamos la recarga de página
-    e.preventDefault();
+btnBorrar.addEventListener('click', function () {
 
     // entradas
     const animal = inputAnimal.value.trim().toLowerCase();

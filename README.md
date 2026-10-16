@@ -76,7 +76,8 @@ A lo largo de todo el curso se promueven los estándares de **JavaScript Moderno
 | [**`parte3/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte3/README.md) | Estructuras Condicionales (`if`) | Toma de decisiones, operadores relacionales (`===`, `!==`, `>`, `<`), operadores lógicos (`&&`, `||`, `!`). Doble enfoque: `sinEventos` y `eventos`. | 25 ejercicios (15 + 10) | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte3/README.md) |
 | [**`parte4/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte4/README.md) | El Objeto `event` (`e`) | Información de eventos, `e.type`, `e.preventDefault()`, teclado (`e.key`), ratón (`e.clientX/Y`), `e.shiftKey`, `e.target` vs `e.currentTarget`. | 11 ejercicios + 11 soluciones | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte4/README.md) |
 | [**`parte5/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte5/README.md) | Arrays de Datos y Recorridos | Listas indexadas, `.length`, mutadores (`push`, `pop`, `unshift`, `shift`, `splice`), búsquedas (`includes`, `indexOf`), `forEach`, `for`, `while`. | 15 ejercicios + 15 soluciones | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte5/README.md) |
-| **`parte6/`** *(Próximamente)* | Arrays de Nodos y `querySelectorAll` | Selección múltiple, `NodeList`, conversión a array con `Array.from()`, manipulación por lotes y eventos masivos. | *En preparación* | *Próximo módulo* |
+| [**`parte6/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte6/README.md) | Colecciones del DOM (`querySelectorAll`) | `querySelectorAll`, `NodeList`, `forEach` masivo, exclusión mutua (pestañas), checkboxes grupales, atributos `data-*` (`dataset`), `Array.from()`, filtros en tiempo real. | 10 ejercicios + 10 soluciones | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte6/README.md) |
+| [**`parte7/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte7/README.md) | Bucles y Repetición (`for`, `while`, `for...of`, `for...in`, `forEach`) | Anatomía de bucles, contador e incremento, parada temprana con `break`, iteración de valores con `for...of`, claves de objetos con `for...in`, arrays vs NodeLists. | 12 ejercicios (6 pares) + 12 soluciones | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte7/README.md) |
 
 ---
 
@@ -139,6 +140,7 @@ Capacidad de dotar al programa de lógica y bifurcaciones en base a condiciones 
 
 ### Módulo 4: [parte4/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte4/README.md) — El Objeto `event` (`e`) y Eventos Avanzados
 Profundización en la arquitectura de eventos del navegador:
+- **Evolución Metodológica (`const` frente a `let`)**: Paso de la regla de iniciación (`const` para DOM, `let` para primitivos) al estándar profesional ES6+ (inmutabilidad por defecto: `const` para todo dato leído que no se reasigna, reservando `let` estrictamente para variables mutables como contadores o acumuladores).
 - **¿Qué es el objeto `event`?**: Objeto autogenerado que contiene todos los metadatos de lo que acaba de suceder en el navegador.
 - **Propiedades y métodos esenciales**:
   - `e.type`: Identificación del tipo de evento disparado (`click`, `keydown`, `mousemove`, etc.).
@@ -153,6 +155,7 @@ Profundización en la arquitectura de eventos del navegador:
 
 ### Módulo 5: [parte5/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte5/README.md) — Arrays de Datos y Recorridos
 Manejo de colecciones de datos en memoria (preparación previa a colecciones del DOM):
+- **Convención de Formularios**: Uso pedagógico de `type="submit"` con `e.preventDefault()` en el Ejercicio 01 para explicar la intercepción del envío nativo, y adopción de `<button type="button">` con escuchadores `'click'` en los ejercicios 02 al 15 para un código de interfaz más limpio, directo y modular.
 - **Fundamentos de Arrays**:
   - Definición mediante corchetes `[]`.
   - Indexación base cero (el primer elemento está en el índice `0`).
@@ -172,14 +175,29 @@ Manejo de colecciones de datos en memoria (preparación previa a colecciones del
 
 ---
 
-### Próximo Módulo: `parte6/` — Arrays de Nodos y `querySelectorAll`
-*(En desarrollo)*
-Conectará los conocimientos de arrays adquiridos en la `parte5` con el DOM:
-- Selección múltiple de elementos HTML mediante `document.querySelectorAll('selector')`.
-- Comprensión de las colecciones de nodos (`NodeList`) y sus diferencias con los arrays de datos puros.
-- Conversión de `NodeList` a Array estándar usando `Array.from()` o el operador spread (`[...]`).
-- Modificación en bloque de estilos, clases CSS (`.classList.toggle`, `.classList.add`) y textos.
-- Asignación masiva de escuchadores de eventos a listas de botones o tarjetas mediante `forEach`.
+### Módulo 6: [parte6/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte6/README.md) — Colecciones del DOM (`querySelectorAll` y `NodeList`)
+Conexión definitiva entre las estructuras de listas y la interfaz gráfica web:
+- **`document.querySelector()` frente a `document.querySelectorAll()`**: Comprensión de cuándo capturar un único elemento y cuándo capturar una colección completa.
+- **La estructura `NodeList`**: Indexación base cero, propiedad `.length` y método integrado `.forEach()`.
+- **Diferencias críticas con los Arrays**: Por qué una `NodeList` no tiene `.filter()`, `.map()`, `.push()` o `.splice()`.
+- **Conversión a Array real**: Uso de `Array.from()` y el operador spread (`[...]`) para habilitar programación funcional en el DOM.
+- **Prevención del error clásico**: Explicación de por qué `nodeList.addEventListener()` falla y cómo registrar escuchadores iterando con `forEach`.
+- **Patrón de Exclusión Mutua**: Desactivación masiva y activación individual (pestañas, tabs, menús de navegación, filtros de catálogo).
+- **Atributos personalizados `data-*` (`dataset`)**: Asociación y lectura de metadatos técnicos en etiquetas HTML5.
+- **Buscador en tiempo real**: Filtrado dinámico con el evento `'input'` y alternancia de clases de visibilidad (`.oculto`).
+- **Contenido práctico**: 10 proyectos interactivos completos con sus 10 soluciones funcionales verificadas.
+
+---
+
+### Módulo 7: [parte7/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte7/README.md) — Bucles y Estructuras de Repetición (`for`, `while`, `for...of`, `for...in`, `forEach`)
+Dominio comparativo de todas las formas de iteración en JavaScript estructurado mediante metodología de **6 pares de aprendizaje** (1 teoría guiada + 1 práctica del alumno):
+- **Bucle `for` clásico**: Control estricto de contador numérico `for (let i = 0; i < len; i++)`, recorridos ascendentes, descendentes e inversos (`i--`), y saltos (`i += 2`). Efecto cebra en el DOM con operador módulo `% 2`.
+- **Bucle `while`**: Ciclo de vida condicional, inicialización previa e incremento manual interno para prevenir bloqueos por bucle infinito. Búsqueda lineal eficiente con parada anticipada (`break`).
+- **Bucle `for...of` (ES6)**: Sintaxis moderna para extraer directamente los valores de estructuras iterables (Arrays, NodeLists y cadenas de texto), eliminando la necesidad de índices numéricos.
+- **Bucle `for...in`**: Inspección de propiedades/claves en **Objetos literales**. Justificación técnica de por qué nunca debe usarse para recorrer arrays numéricos o NodeLists.
+- **Método `forEach()`**: Recorrido funcional y declarativo con los parámetros `(elemento, indice, arrayOriginal)` para rankings, acumulaciones y componentes interactivos como ratings por estrellas.
+- **Comparativa y selección estratégica**: Resolución del mismo problema con los 4 bucles principales y reto integrador de inventario con selección del bucle óptimo para cada tarea.
+- **Contenido práctico**: 12 ejercicios completos organizados por pares (6 guiados + 6 prácticos) con sus 12 soluciones comprobadas.
 
 ---
 

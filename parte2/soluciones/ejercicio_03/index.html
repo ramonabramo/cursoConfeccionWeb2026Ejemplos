@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 03: Múltiples inputs y salidas en lista HTML (Solución)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 3: Ficha de Registro</h1>
+        <form class="formulario">
+            <div class="campo">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Introduce tu nombre">
+            </div>
+            <div class="campo">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" placeholder="Introduce tu edad">
+            </div>
+            <div class="campo">
+                <label for="poblacion">Población:</label>
+                <input type="text" id="poblacion" placeholder="Introduce tu población">
+            </div>
+            <button type="button" id="boton">Registrar Datos</button>
+        </form>
+
+        <div class="panel-resultados">
+            <h2>Datos Registrados:</h2>
+            <ul>
+                <li id="liNombre"><strong>Nombre:</strong> -</li>
+                <li id="liEdad"><strong>Edad:</strong> -</li>
+                <li id="liPoblacion"><strong>Población:</strong> -</li>
+            </ul>
+        </div>
+    </main>
+
+  <!-- Script al final del body para garantizar que el DOM ya existe sin requerir defer -->
+  <script src="app.js"></script>
+</body>
+</html>
