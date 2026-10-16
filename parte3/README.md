@@ -278,51 +278,51 @@ btnCalcular.addEventListener('click', function () {
 ### 4.2. Ejercicios Con Eventos
 
 #### Ejercicio 01: Descuento en una compra
-* **Archivos:** [`eventos/ejercicio_01/app.js`](./eventos/ejercicio_01/app.js) | [`index.html`](./eventos/ejercicio_01/index.html)
+* **Archivos:** [`eventos/ejercicio_01/app.js`](./eventos/ejercicio_01/app.js) | [Solución](eventos/soluciones/ejercicio_01/app.js) | [`index.html`](./eventos/ejercicio_01/index.html)
 * **Enunciado:** El usuario introduce el importe de una compra en un formulario. Al pulsar el botón #btnCalcular: si el importe es >= 100 €, se aplican 10 € de descuento; si es menor, no hay descuento. Mostrar siempre el importe final.
 * **Evento:** `click` en `#btnCalcular`.
 
 #### Ejercicio 02: Aviso de temperatura bajo cero
-* **Archivos:** [`eventos/ejercicio_02/app.js`](./eventos/ejercicio_02/app.js) | [`index.html`](./eventos/ejercicio_02/index.html)
+* **Archivos:** [`eventos/ejercicio_02/app.js`](./eventos/ejercicio_02/app.js) | [Solución](eventos/soluciones/ejercicio_02/app.js) | [`index.html`](./eventos/ejercicio_02/index.html)
 * **Enunciado:** El usuario introduce una temperatura. Al pulsar el botón #btnComprobar: mostrar siempre la temperatura registrada, y si es menor que 0 °C añadir el texto "Temperatura bajo cero".
 * **Evento:** `click` en `#btnComprobar`.
 
 #### Ejercicio 03: Comprobación de mayoría de edad
-* **Archivos:** [`eventos/ejercicio_03/app.js`](./eventos/ejercicio_03/app.js) | [`index.html`](./eventos/ejercicio_03/index.html)
+* **Archivos:** [`eventos/ejercicio_03/app.js`](./eventos/ejercicio_03/app.js) | [Solución](eventos/soluciones/ejercicio_03/app.js) | [`index.html`](./eventos/ejercicio_03/index.html)
 * **Enunciado:** El usuario introduce su edad. Al pulsar el botón: si tiene 18 años o más, mostrar "Eres mayor de edad"; en caso contrario, mostrar "Eres menor de edad".
 * **Evento:** `click` en el botón de comprobación.
 
 #### Ejercicio 04: Número par o impar con operador módulo
-* **Archivos:** [`eventos/ejercicio_04/app.js`](./eventos/ejercicio_04/app.js) | [`index.html`](./eventos/ejercicio_04/index.html)
+* **Archivos:** [`eventos/ejercicio_04/app.js`](./eventos/ejercicio_04/app.js) | [Solución](eventos/soluciones/ejercicio_04/app.js) | [`index.html`](./eventos/ejercicio_04/index.html)
 * **Enunciado:** El usuario introduce un número entero. Al pulsar el botón: determinar si el resto de dividirlo entre 2 es 0 (`numero % 2 === 0`) para mostrar si es par o impar.
 * **Evento:** `click` en el botón.
 
 #### Ejercicio 05: Calificación de nota por tramos ascendentes
-* **Archivos:** [`eventos/ejercicio_05/app.js`](./eventos/ejercicio_05/app.js) | [`index.html`](./eventos/ejercicio_05/index.html)
+* **Archivos:** [`eventos/ejercicio_05/app.js`](./eventos/ejercicio_05/app.js) | [Solución](eventos/soluciones/ejercicio_05/app.js) | [`index.html`](./eventos/ejercicio_05/index.html)
 * **Enunciado:** El usuario introduce una nota (0 a 10). Al pulsar el botón: clasificar en Suspenso (<5), Aprobado (<7), Notable (<9) o Sobresaliente (>=9), evaluando en orden ascendente sin necesidad de `&&`.
 * **Evento:** `click` en el botón.
 
 #### Ejercicio 06: Clasificación de temperatura
-* **Archivos:** [`eventos/ejercicio_06/app.js`](./eventos/ejercicio_06/app.js) | [`index.html`](./eventos/ejercicio_06/index.html)
+* **Archivos:** [`eventos/ejercicio_06/app.js`](./eventos/ejercicio_06/app.js) | [Solución](eventos/soluciones/ejercicio_06/app.js) | [`index.html`](./eventos/ejercicio_06/index.html)
 * **Enunciado:** El usuario introduce los grados. Al pulsar el botón: clasificar en "Helada" (<0), "Mucho frío" (<10), "Fresco" (<20), "Temperatura agradable" (<30) o "Hace calor" (>=30), en orden ascendente.
 * **Evento:** `click` en el botón.
 
 #### Ejercicio 07: Precio de entrada según edad
-* **Archivos:** [`eventos/ejercicio_07/app.js`](./eventos/ejercicio_07/app.js) | [`index.html`](./eventos/ejercicio_07/index.html)
+* **Archivos:** [`eventos/ejercicio_07/app.js`](./eventos/ejercicio_07/app.js) | [Solución](eventos/soluciones/ejercicio_07/app.js) | [`index.html`](./eventos/ejercicio_07/index.html)
 * **Enunciado:** El visitante introduce su edad. Al pulsar el botón: calcular la tarifa (<6 años: gratis; <18: 5 €; <65: 10 €; >=65: 6 €).
 * **Evento:** `click` en el botón.
 
 #### Ejercicio 08: Acceso a atracción (if anidados)
-* **Archivos:** [`eventos/ejercicio_08/app.js`](./eventos/ejercicio_08/app.js) | [`index.html`](./eventos/ejercicio_08/index.html)
+* **Archivos:** [`eventos/ejercicio_08/app.js`](./eventos/ejercicio_08/app.js) | [Solución](eventos/soluciones/ejercicio_08/app.js) | [`index.html`](./eventos/ejercicio_08/index.html)
 * **Enunciado:** El usuario introduce su altura y edad. Al pulsar el botón: comprobar primero si mide al menos 120 cm. Si no llega, no puede subir; si llega, evaluar si tiene 12 años o más (puede subir solo) o menos de 12 (debe subir acompañado).
 * **Evento:** `click` en el botón.
 
 #### Ejercicio 09: Autenticación en 2 fases
-* **Archivos:** [`eventos/ejercicio_09/app.js`](./eventos/ejercicio_09/app.js) | [`index.html`](./eventos/ejercicio_09/index.html)
+* **Archivos:** [`eventos/ejercicio_09/app.js`](./eventos/ejercicio_09/app.js) | [Solución](eventos/soluciones/ejercicio_09/app.js) | [`index.html`](./eventos/ejercicio_09/index.html)
 * **Enunciado:** El usuario introduce nombre de usuario y contraseña. Al pulsar entrar: comprobar primero si el usuario es "alumno"; si es incorrecto, avisar de "Usuario no encontrado". Solo si el usuario es correcto, verificar si la contraseña es "javascript".
 * **Evento:** `click` en el botón.
 
 #### Ejercicio 10: Descuento combinado por socio y volumen
-* **Archivos:** [`eventos/ejercicio_10/app.js`](./eventos/ejercicio_10/app.js) | [`index.html`](./eventos/ejercicio_10/index.html)
+* **Archivos:** [`eventos/ejercicio_10/app.js`](./eventos/ejercicio_10/app.js) | [Solución](eventos/soluciones/ejercicio_10/app.js) | [`index.html`](./eventos/ejercicio_10/index.html)
 * **Enunciado:** El usuario introduce el importe y si es socio o no. Reglas para socios: compra < 100 € (5%), compra >= 100 € (15%). Reglas para no socios: compra < 200 € (0%), compra >= 200 € (5%). Calcular y mostrar descuento e importe final.
 * **Evento:** `click` en el botón.

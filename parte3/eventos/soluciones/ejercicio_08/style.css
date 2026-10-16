@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #eef4ff, #f8fbff);
+    color: #263238;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 650px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 12px 35px rgba(31, 68, 120, 0.14);
+    border: 1px solid #dce6f3;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #174a7c;
+    font-size: 2rem;
+}
+
+.descripcion {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #5b6773;
+    line-height: 1.6;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    margin-top: 8px;
+    font-weight: bold;
+    color: #334e68;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border: 1px solid #bcccdc;
+    border-radius: 9px;
+    background-color: #fbfdff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: #2f80ed;
+    box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.12);
+}
+
+button {
+    margin-top: 16px;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 9px;
+    background-color: #1769aa;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s, background-color 0.2s;
+}
+
+button:hover {
+    background-color: #12588f;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.resultado {
+    min-height: 58px;
+    margin-top: 24px;
+    padding: 16px 18px;
+    border-left: 5px solid #2f80ed;
+    border-radius: 9px;
+    background-color: #edf6ff;
+    color: #183b56;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.ayuda {
+    margin-top: 20px;
+    padding: 12px 14px;
+    border-radius: 9px;
+    background-color: #f5f8fc;
+    color: #607080;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}

@@ -41,18 +41,18 @@
 // colocar escuchadores de eventos
 // escuchar el evento 'click' del botón pasando el parámetro (e)
 
-    // estructura del programa dentro de la función
+// estructura del programa dentro de la función
 
-    // declaracion de variables y constantes
+// declaracion de variables y constantes
 
-    // constantes al DOM
-    // apuntar al div #resultado
+// constantes al DOM
+// apuntar al div #resultado
 
-    // entradas
-    // obtener e.type y e.target.tagName
+// entradas
+// obtener e.type y e.target.tagName
 
-    // procesamiento
-    // componer el mensaje explicativo
+// procesamiento
+// componer el mensaje explicativo
 
-    // salidas
-    // mostrar el mensaje en #resultado
+// salidas
+// mostrar el mensaje en #resultado
