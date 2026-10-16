@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solución Ejercicio 10 - Sistema de Filtrado Personalizado con Callbacks y HOF</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Solución Ejercicio 10 - Sistema de Filtrado Personalizado con Callbacks y HOF</h1>
+        <p class="descripcion">Aplica una Función de Orden Superior propia (miFiltroPersonalizado) que recibe un array y un callback predicado booleano para filtrar productos dinámicamente.</p>
+        <span class="tag-tipo tipo-practica">Práctica del Alumno</span>
+        <div class="codigo-preview">
+const inventario = [
+    { nombre: 'Ratón USB', precio: 15 },
+    { nombre: 'Monitor 4K', precio: 320 },
+    { nombre: 'Cable HDMI', precio: 8 },
+    { nombre: 'Portátil i7', precio: 850 },
+    { nombre: 'Funda Tablet', precio: 22 }
+];
+        </div>
+        <div class="grupo-botones">
+            <button type="button" id="btnBaratos" class="btn-exito">Productos Baratos (&lt;= 30 €)</button>
+            <button type="button" id="btnCaros" class="btn-peligro">Productos Premium (&gt; 100 €)</button>
+            <button type="button" id="btnEmpiezanPorC" class="btn-secundario">Empiezan por 'C'</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Solución completa comprobada.</strong> Inspecciona el código de <strong>app.js</strong> para ver la implementación.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

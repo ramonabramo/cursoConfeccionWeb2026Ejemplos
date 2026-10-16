@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 07 - IIFE y Aislamiento de Memoria (El Mensaje del Inspector Gadget)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 07 - IIFE y Aislamiento de Memoria (El Mensaje del Inspector Gadget)</h1>
+        <p class="descripcion">Comprende las Immediately Invoked Function Expressions (IIFE): funciones que se autoejecutan al instante para encapsular variables y no contaminar el objeto global window.</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+// IIFE clásica: Se ejecuta al instante y se autodestruye
+(function() {
+    const claveSecreta = "XYZ-9988"; // Inaccesible desde window.claveSecreta
+    console.log("Configuración secreta cargada.");
+})();
+        </div>
+        <div class="grupo-botones">
+            <button type="button" id="btnComprobarGlobales">Comprobar si existe fuga en window</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Ejemplo Teórico Guiado:</strong> Analiza el código de <strong>app.js</strong> y experimenta con la interfaz.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

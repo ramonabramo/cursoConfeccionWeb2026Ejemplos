@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solución Ejercicio 12 - Factoría de Monedero / Saldo Privado con Closure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Solución Ejercicio 12 - Factoría de Monedero / Saldo Privado con Closure</h1>
+        <p class="descripcion">Aplica el patrón Closure para construir una factoría de cuentas bancarias que expone métodos públicos (ingresar, gastar, consultarSaldo) protegiendo el saldo privado.</p>
+        <span class="tag-tipo tipo-practica">Práctica del Alumno</span>
+        <label for="inputCantidad">Cantidad para operar (€):</label>
+        <input type="number" id="inputCantidad" value="20" min="1" step="0.5">
+        <div class="grupo-botones">
+            <button type="button" id="btnIngresar" class="btn-exito">Ingresar Dinero</button>
+            <button type="button" id="btnGastar" class="btn-peligro">Gastar Dinero</button>
+            <button type="button" id="btnConsultar" class="btn-secundario">Consultar Saldo Privado</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Solución completa comprobada.</strong> Inspecciona el código de <strong>app.js</strong> para ver la implementación.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -78,6 +78,7 @@ A lo largo de todo el curso se promueven los estándares de **JavaScript Moderno
 | [**`parte5/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte5/README.md) | Arrays de Datos y Recorridos | Listas indexadas, `.length`, mutadores (`push`, `pop`, `unshift`, `shift`, `splice`), búsquedas (`includes`, `indexOf`), `forEach`, `for`, `while`. | 15 ejercicios + 15 soluciones | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte5/README.md) |
 | [**`parte6/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte6/README.md) | Colecciones del DOM (`querySelectorAll`) | `querySelectorAll`, `NodeList`, `forEach` masivo, exclusión mutua (pestañas), checkboxes grupales, atributos `data-*` (`dataset`), `Array.from()`, filtros en tiempo real. | 10 ejercicios + 10 soluciones | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte6/README.md) |
 | [**`parte7/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte7/README.md) | Bucles y Repetición (`for`, `while`, `for...of`, `for...in`, `forEach`) | Anatomía de bucles, contador e incremento, parada temprana con `break`, iteración de valores con `for...of`, claves de objetos con `for...in`, arrays vs NodeLists. | 12 ejercicios (6 pares) + 12 soluciones | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte7/README.md) |
+| [**`parte8/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte8/README.md) | Funciones en JavaScript (Fundamentos a Avanzado) | Function declaration, parámetros por defecto, rest (`...rest`), early return, scope, variable shadowing, call stack, hoisting, arrow functions con retorno implícito, IIFE, HOF, callbacks, closures, recursividad y funciones puras. | 14 ejercicios (7 pares) + 14 soluciones | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte8/README.md) |
 
 ---
 
@@ -198,6 +199,17 @@ Dominio comparativo de todas las formas de iteración en JavaScript estructurado
 - **Método `forEach()`**: Recorrido funcional y declarativo con los parámetros `(elemento, indice, arrayOriginal)` para rankings, acumulaciones y componentes interactivos como ratings por estrellas.
 - **Comparativa y selección estratégica**: Resolución del mismo problema con los 4 bucles principales y reto integrador de inventario con selección del bucle óptimo para cada tarea.
 - **Contenido práctico**: 12 ejercicios completos organizados por pares (6 guiados + 6 prácticos) con sus 12 soluciones comprobadas.
+
+---
+
+### Módulo 8: [parte8/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte8/README.md) — Funciones en JavaScript: De los Fundamentos al Ámbito Avanzado
+Tratamiento exhaustivo de funciones basado en especificación oficial ECMAScript (ECMA-262), MDN Web Docs y pedagogía terrenal con humor para el aula:
+- **Fundamentos y Anatomía**: Declaración formal vs invocación `()`, parámetros formales vs argumentos reales, parámetros por defecto (ES6), parámetros Rest (`...rest`: *el saco sin fondo de Papá Noel*), y control de flujo con Early Return y sentencia `return`.
+- **Ámbito y Memoria**: Ámbito léxico (*Lexical Scope*), ocultación de variables (*Variable Shadowing*), y estructura LIFO de la Pila de Llamadas (*Call Stack*).
+- **Tipología y Sintaxis Moderna**: Ciudadanos de primera clase, funciones anónimas y expresiones (*el sicario y el mote*), *Hoisting* completo en declaradas vs TDZ en expresiones (*el enchufado VIP vs el becario*), Funciones Flecha (*Arrow Functions*) con retorno implícito de primitivos y objetos `({})`, e IIFE (*el mensaje del Inspector Gadget*).
+- **Funciones de Orden Superior y Callbacks**: Higher-Order Functions (HOF), delegación de rutinas con callbacks síncronos y asíncronos.
+- **Conceptos Avanzados**: Clausuras (*Closures*: *el hijo que se lleva la llave de la despensa en la mochila secreta*), recursividad y caso base (*Inception / muñecas rusas* para evitar Stack Overflow), y funciones puras vs impuras (*el cirujano aséptico vs el cuñado en la cocina*).
+- **Contenido práctico**: 14 ejercicios estructurados en 7 pares de aprendizaje (7 guiados + 7 prácticos) con sus 14 soluciones verificadas.
 
 ---
 

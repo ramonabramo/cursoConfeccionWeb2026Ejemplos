@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 05 - Declaración vs Expresión y el Efecto Hoisting (El Enchufado vs El Becario)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 05 - Declaración vs Expresión y el Efecto Hoisting (El Enchufado vs El Becario)</h1>
+        <p class="descripcion">Comprende la diferencia crítica entre Funciones Declaradas (sujetas a Hoisting completo) y Expresiones de Función con const (sujetas a Temporal Dead Zone).</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+// 1. Función Declarada (Sube en ascensor VIP por Hoisting)
+saludoVIP(); // ✅ ¡Funciona aunque esté definida abajo!
+function saludoVIP() { return "¡Hola, soy VIP!"; }
+
+// 2. Expresión de Función con const (El becario debe fichar primero)
+// saludoBecario(); // ❌ ReferenceError: Cannot access before initialization
+const saludoBecario = function() { return "¡Hola, soy Becario!"; };
+        </div>
+        <div class="grupo-botones">
+            <button type="button" id="btnDeclarada">Probar Función Declarada (Hoisting)</button>
+            <button type="button" id="btnExpresada" class="btn-secundario">Probar Expresión de Función</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Ejemplo Teórico Guiado:</strong> Analiza el código de <strong>app.js</strong> y experimenta con la interfaz.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

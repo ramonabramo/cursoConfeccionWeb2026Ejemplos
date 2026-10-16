@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solución Ejercicio 02 - Calculadora de Gastos con Parámetros Rest (...gastos) y Early Return</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Solución Ejercicio 02 - Calculadora de Gastos con Parámetros Rest (...gastos) y Early Return</h1>
+        <p class="descripcion">Aplica el saco sin fondo de los Parámetros Rest (...precios) para recibir un número indefinido de argumentos como un Array real y procesarlos con Early Return.</p>
+        <span class="tag-tipo tipo-practica">Práctica del Alumno</span>
+        <label for="inputCategoria">Categoría del gasto (opcional, por defecto "General"):</label>
+        <input type="text" id="inputCategoria" placeholder="Ej: Oficina, Viajes, Software...">
+        <label for="inputPrecios">Lista de precios separados por comas:</label>
+        <input type="text" id="inputPrecios" value="12.50, 45.00, 8.20, 110.00" placeholder="10, 25.5, 30...">
+        <div class="grupo-botones">
+            <button type="button" id="btnCalcularRest" class="btn-exito">Calcular con Parámetros Rest (...gastos)</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Solución completa comprobada.</strong> Inspecciona el código de <strong>app.js</strong> para ver la implementación.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

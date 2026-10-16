@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solución Ejercicio 11 - Clausuras (Closures) y Variables Privadas (La Mochila Secreta)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Solución Ejercicio 11 - Clausuras (Closures) y Variables Privadas (La Mochila Secreta)</h1>
+        <p class="descripcion">Comprende el concepto oficial de Closure (MDN): cómo una función interna retiene acceso a su entorno léxico original incluso después de que la función creadora haya terminado.</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+function crearContador(nombreContador) {
+    let cuenta = 0; // Variable privada protegida en la "mochila" léxica
+    return function() {
+        cuenta++;
+        return `[${nombreContador}] cuenta: ${cuenta}`;
+    };
+}
+const contadorA = crearContador("Alpha");
+const contadorB = crearContador("Beta"); // Estado independiente
+        </div>
+        <div class="grupo-botones">
+            <button type="button" id="btnIncrementarA">Incrementar Contador A (Alpha)</button>
+            <button type="button" id="btnIncrementarB" class="btn-acento">Incrementar Contador B (Beta)</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Solución completa comprobada.</strong> Inspecciona el código de <strong>app.js</strong> para ver la implementación.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solución Ejercicio 03 - Ámbito Léxico (Scope), Ocultación (Shadowing) y Call Stack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Solución Ejercicio 03 - Ámbito Léxico (Scope), Ocultación (Shadowing) y Call Stack</h1>
+        <p class="descripcion">Comprende el Ámbito Léxico (Lexical Scope), el fenómeno de ocultación de variables (Shadowing) y la Pila de Ejecución (Call Stack LIFO) del motor de JavaScript.</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+// Ámbito Global
+const usuario = "Global";
+
+function funcionA() {
+    // Contexto funcionA apilado
+    function funcionB() {
+        // Variable local que oculta la global (Shadowing)
+        const usuario = "Local de B";
+        return usuario;
+    }
+    return funcionB();
+}
+        </div>
+        <div class="grupo-botones">
+            <button type="button" id="btnSimularStack">Simular Pila de Llamadas (Call Stack)</button>
+        </div>
+        <label>Pila de Ejecución (Call Stack LIFO):</label>
+        <div id="visualStack" class="pila-visual">
+            <div class="marco-stack">[Global Execution Context]</div>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Solución completa comprobada.</strong> Inspecciona el código de <strong>app.js</strong> para ver la implementación.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

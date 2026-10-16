@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solución Ejercicio 04 - Resolución de Variables en Cascada (Scope Chain) y Shadowing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Solución Ejercicio 04 - Resolución de Variables en Cascada (Scope Chain) y Shadowing</h1>
+        <p class="descripcion">Aplica la cadena de ámbitos (Scope Chain) y la ocultación de variables (Shadowing) para proteger variables locales sin colisionar con variables globales.</p>
+        <span class="tag-tipo tipo-practica">Práctica del Alumno</span>
+        <p class="descripcion">Demuestra cómo una función interna accede a su propio entorno local sin alterar ni contaminar la variable del mismo nombre existente en el ámbito global:</p>
+        <div class="grupo-botones">
+            <button type="button" id="btnConsultarGlobal" class="btn-secundario">Consultar Variable Global</button>
+            <button type="button" id="btnEjecutarLocal" class="btn-exito">Ejecutar Función con Shadowing</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Solución completa comprobada.</strong> Inspecciona el código de <strong>app.js</strong> para ver la implementación.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

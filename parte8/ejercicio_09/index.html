@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 09 - Funciones de Orden Superior (HOF) y Callbacks Síncronos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 09 - Funciones de Orden Superior (HOF) y Callbacks Síncronos</h1>
+        <p class="descripcion">Comprende las Funciones de Orden Superior (Higher-Order Functions) que reciben funciones callback como argumentos para delegar tareas de formateo y procesamiento.</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+// HOF: Recibe un dato y una función de transformación (callback)
+function transformarTexto(cadena, callbackTransformador) {
+    const limpio = cadena.trim();
+    return callbackTransformador(limpio); // Ejecuta la función recibida
+}
+        </div>
+        <label for="inputTextoHof">Texto a procesar:</label>
+        <input type="text" id="inputTextoHof" value="  desarrollo web frontend  ">
+        <div class="grupo-botones">
+            <button type="button" id="btnHofMayus">Transformar con Callback Mayúsculas</button>
+            <button type="button" id="btnHofSlug" class="btn-secundario">Transformar con Callback Slug (kebab-case)</button>
+            <button type="button" id="btnHofInvertir" class="btn-acento">Transformar con Callback Invertir</button>
+        </div>
+        <div id="resultado" class="resultado">Selecciona una acción para ver el resultado...</div>
+        <p class="ayuda">
+            <strong>Ejemplo Teórico Guiado:</strong> Analiza el código de <strong>app.js</strong> y experimenta con la interfaz.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
