@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 03 - Cronómetro Digital Deportivo (setInterval y clearInterval)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 03 - Cronómetro Digital Deportivo (setInterval y clearInterval)</h1>
+        <p class="descripcion">Domina la repetición periódica con setInterval(), la detención controlada con clearInterval() y la prevención del error clásico de solapamiento de intervalos.</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+// 1. Evitar lanzar múltiples intervalos si ya está corriendo
+if (intervalId !== null) return;
+
+// 2. Iniciar el intervalo que se repite cada 100ms
+intervalId = setInterval(() => {
+    decimas++;
+    actualizarPantalla();
+}, 100);
+
+// 3. Detenerlo con clearInterval
+clearInterval(intervalId);
+intervalId = null;
+        </div>
+        
+        <p class="instruccion">Controla el cronómetro con los botones. Observa cómo el código protege el sistema para que pulsar "Iniciar" repetidas veces <strong>no acelere el cronómetro</strong>.</p>
+        
+        <div class="cronometro-contenedor">
+            <div id="displayTiempo" class="cronometro-display">00:00.0</div>
+            <div id="badgeEstadoCronometro" class="badge-estado badge-detenido">DETENIDO</div>
+        </div>
+
+        <div class="grupo-botones">
+            <button type="button" id="btnIniciar" class="btn-exito">▶️ Iniciar</button>
+            <button type="button" id="btnPausar" class="btn-secundario">⏸️ Pausar</button>
+            <button type="button" id="btnReiniciar" class="btn-peligro">🔄 Reiniciar</button>
+        </div>
+
+        <div id="resultado" class="resultado">Cronómetro preparado. Pulsa Iniciar.</div>
+    
+        <p class="ayuda">
+            <strong>Ejemplo Teórico Guiado:</strong> Analiza el código de <strong>app.js</strong>, sigue las instrucciones y experimenta con la interfaz.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

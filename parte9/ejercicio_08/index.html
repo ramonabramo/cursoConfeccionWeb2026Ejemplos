@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 08 - Simulador de Carga de Batería Inteligente (Colores e Intervalos)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 08 - Simulador de Carga de Batería Inteligente (Colores e Intervalos)</h1>
+        <p class="descripcion">Diseña un simulador interactivo de batería que aumente su carga periódicamente y varíe de color dinámicamente según el nivel alcanzado.</p>
+        <span class="tag-tipo tipo-practica">Práctica para el Alumno</span>
+        <div class="codigo-preview">
+// Reto para el alumno:
+// 1. Cada 80ms incrementar bateria en 1%.
+// 2. Si bateria < 20% -> color rojo (#ef4444)
+// 3. Si bateria < 80% -> color naranja (#f59e0b)
+// 4. Si bateria >= 80% -> color verde (#10b981)
+// 5. Al llegar a 100%, detener con clearInterval().
+        </div>
+        
+        <p class="instruccion">Conecta el cargador para iniciar la recarga. La batería cambiará de color dinámicamente (rojo &lt;20%, naranja &lt;80%, verde &ge;80%) y se detendrá al 100%.</p>
+        
+        <div class="bateria-wrapper">
+            <div class="bateria-cuerpo">
+                <div id="bateriaRelleno" class="bateria-relleno" style="width: 15%;"></div>
+            </div>
+            <div class="bateria-borne"></div>
+            <div id="bateriaTexto" class="bateria-porcentaje-texto">15%</div>
+        </div>
+
+        <div class="grupo-botones">
+            <button type="button" id="btnConectarCargador" class="btn-exito">⚡ Enchufar Cargador</button>
+            <button type="button" id="btnDesconectarCargador" class="btn-secundario" disabled>🔌 Desenchufar</button>
+        </div>
+
+        <div id="resultado" class="resultado">Batería baja (15%). Conecta el cargador para comenzar.</div>
+    
+        <p class="ayuda">
+            <strong>Práctica para el Alumno:</strong> Completa la lógica en <strong>app.js</strong> siguiendo los comentarios guiados paso a paso.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

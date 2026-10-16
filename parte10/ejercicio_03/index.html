@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 03 - Paso por Referencia (Heap vs Stack) y Object.freeze()</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 03 - Paso por Referencia (Heap vs Stack) y Object.freeze()</h1>
+        <p class="descripcion">Demuestra empíricamente por qué asignar un objeto a otra variable comparte el mismo puntero en memoria (Heap) y cómo Object.freeze() impide mutar sus propiedades.</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+const original = { nombre: 'Original' };
+const alias = original; // ⚠️ Mismo puntero en el Heap
+alias.nombre = 'Mutado';
+
+console.log(original.nombre); // 'Mutado' (¡ambos cambiaron!)
+
+// Para evitarlo: clonación con spread {...}
+const copiaReal = { ...original };
+
+// Para blindar: Object.freeze()
+Object.freeze(original);
+        </div>
+        
+        <p class="instruccion">Observa cómo mutar el <strong>alias</strong> altera automáticamente al <strong>original</strong> porque ambas variables apuntan a la misma dirección física en el <strong>Heap</strong>. Compara con la clonación independiente y la protección de <code>Object.freeze()</code>.</p>
+        
+        <div class="comparador-memoria">
+            <div class="caja-memoria" id="cajaOriginal">
+                <h3>Objeto A (original)</h3>
+                <div class="puntero-badge">Dirección: #0x4A1F (Heap)</div>
+                <div id="valorOriginalNombre" class="dato-clave-valor">Nombre: <strong>Ana</strong></div>
+                <div id="valorOriginalRol" class="dato-clave-valor">Rol: <strong>Developer</strong></div>
+            </div>
+
+            <div class="conector-puntero" id="conectorVisual">
+                <span id="textoConector">➡️ Mismo Puntero ⬅️</span>
+            </div>
+
+            <div class="caja-memoria" id="cajaAlias">
+                <h3>Variable B (alias / copia)</h3>
+                <div id="punteroAliasBadge" class="puntero-badge">Dirección: #0x4A1F (Heap)</div>
+                <div id="valorAliasNombre" class="dato-clave-valor">Nombre: <strong>Ana</strong></div>
+                <div id="valorAliasRol" class="dato-clave-valor">Rol: <strong>Developer</strong></div>
+            </div>
+        </div>
+
+        <div class="grupo-botones">
+            <button type="button" id="btnMutarAlias" class="btn-peligro">⚠️ Mutar alias.nombre = 'Carlos'</button>
+            <button type="button" id="btnClonarSpread" class="btn-acento">✨ Crear Copia Independiente ({...})</button>
+            <button type="button" id="btnCongelar" class="btn-info">🧊 Congelar con Object.freeze()</button>
+            <button type="button" id="btnResetearMemoria" class="btn-secundario">🔄 Restaurar Estado</button>
+        </div>
+
+        <div id="resultado" class="resultado">Selecciona una acción para ver el impacto en la memoria del navegador.</div>
+    
+        <p class="ayuda">
+            <strong>Ejemplo Teórico Guiado:</strong> Analiza el código de <strong>app.js</strong>, sigue las instrucciones y experimenta con la interfaz.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

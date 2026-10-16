@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 05 - Reloj Digital en Vivo con Fecha y Segundero (setInterval + Date)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 05 - Reloj Digital en Vivo con Fecha y Segundero (setInterval + Date)</h1>
+        <p class="descripcion">Aprende a consultar la hora del sistema con new Date() en tiempo real cada 1000ms mediante setInterval(), formateando con padStart(2, "0").</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+// Leer y formatear la hora cada 1000ms
+setInterval(() => {
+    const ahora = new Date();
+    const hh = String(ahora.getHours()).padStart(2, '0');
+    const mm = String(ahora.getMinutes()).padStart(2, '0');
+    const ss = String(ahora.getSeconds()).padStart(2, '0');
+    display.textContent = `${hh}:${mm}:${ss}`;
+}, 1000);
+        </div>
+        
+        <p class="instruccion">Reloj digital en tiempo real sincronizado con el reloj interno del sistema operativo. Puedes pausar o reanudar el segundero con el botón.</p>
+        
+        <div class="reloj-marco">
+            <div id="relojFecha" class="reloj-fecha">Cargando fecha...</div>
+            <div class="reloj-pantalla">
+                <span id="relojHoras">00</span>
+                <span class="separador-dos-puntos">:</span>
+                <span id="relojMinutos">00</span>
+                <span class="separador-dos-puntos">:</span>
+                <span id="relojSegundos">00</span>
+            </div>
+            <div id="relojBadge" class="badge-reloj">EN VIVO</div>
+        </div>
+
+        <div class="grupo-botones">
+            <button type="button" id="btnToggleReloj" class="btn-info">⏸️ Pausar Reloj</button>
+        </div>
+
+        <div id="resultado" class="resultado">El reloj se actualiza automáticamente cada 1 segundo (1000ms).</div>
+    
+        <p class="ayuda">
+            <strong>Ejemplo Teórico Guiado:</strong> Analiza el código de <strong>app.js</strong>, sigue las instrucciones y experimenta con la interfaz.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

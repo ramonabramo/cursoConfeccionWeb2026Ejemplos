@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 08 - Clase Tarea con Estado y Métodos de Instancia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 08 - Clase Tarea con Estado y Métodos de Instancia</h1>
+        <p class="descripcion">Diseña la clase Tarea mediante constructor() y métodos de instancia para alternar su estado entre pendiente y completada, gestionando una colección de instancias.</p>
+        <span class="tag-tipo tipo-practica">Práctica para el Alumno</span>
+        <div class="codigo-preview">
+// Reto para el alumno:
+// 1. Declarar class Tarea { constructor(titulo, responsable, duracion) { ... } }
+// 2. Método conmutarEstado().
+// 3. Instanciar dinámicamente con new Tarea(...) al pulsar el botón.
+        </div>
+        
+        <p class="instruccion">Crea instancias de la clase <code>Tarea</code> con el formulario. Cada tarjeta representará un objeto instanciado con <strong>new</strong> y sus propios métodos.</p>
+        
+        <div class="formulario-edicion">
+            <label for="inputTituloTarea">Título de la tarea:</label>
+            <input type="text" id="inputTituloTarea" placeholder="Ej: Maquetar panel de administración">
+
+            <label for="inputResponsable">Responsable:</label>
+            <input type="text" id="inputResponsable" placeholder="Ej: Elena Pastor">
+
+            <label for="inputHoras">Horas estimadas:</label>
+            <input type="number" id="inputHoras" value="3" min="1" max="50">
+
+            <div class="grupo-botones">
+                <button type="button" id="btnCrearTarea" class="btn-exito">📋 Instanciar Tarea (new Tarea)</button>
+            </div>
+        </div>
+
+        <h3>Listado de Instancias Tarea</h3>
+        <div id="contenedorTareas" class="grid-tareas"></div>
+
+        <div id="resultado" class="resultado">En espera de crear tareas con la clase.</div>
+    
+        <p class="ayuda">
+            <strong>Práctica para el Alumno:</strong> Completa la lógica en <strong>app.js</strong> siguiendo los comentarios guiados paso a paso.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

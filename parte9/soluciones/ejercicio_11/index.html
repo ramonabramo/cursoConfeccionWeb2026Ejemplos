@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11 - Demostración Empírica del Event Loop (setTimeout con 0 Milisegundos)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 11 - Demostración Empírica del Event Loop (setTimeout con 0 Milisegundos)</h1>
+        <p class="descripcion">Comprende por qué setTimeout(fn, 0) NUNCA se ejecuta de inmediato: el viaje por las Web APIs, la Cola de Tareas (Task Queue) y la regla de oro del Event Loop.</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+console.log("1. Síncrono inicio");
+
+setTimeout(() => {
+    console.log("2. setTimeout con 0ms"); // ¿Se ejecuta aquí? ¡NO! Va a la Task Queue
+}, 0);
+
+console.log("3. Síncrono final");
+
+// Resultado en consola: 1 -> 3 -> 2
+        </div>
+        
+        <p class="instruccion">¿Se ejecuta un <code>setTimeout(fn, 0)</code> antes que el código siguiente? Pulsa el botón y compruébalo empíricamente con tus propios ojos.</p>
+        
+        <div class="grupo-botones">
+            <button type="button" id="btnEjecutarPrueba" class="btn-acento">🧪 Lanzar Prueba de Asincronía (0ms)</button>
+            <button type="button" id="btnLimpiarConsola" class="btn-secundario">🧹 Limpiar Consola</button>
+        </div>
+
+        <div class="consola-simulada">
+            <div class="consola-cabecera">Terminal / Call Stack &amp; Task Queue Inspector</div>
+            <div id="cuerpoConsola" class="consola-cuerpo">
+                <div class="linea-consola linea-info">// Pulsa "Lanzar Prueba de Asincronía" para inspeccionar el orden de ejecución...</div>
+            </div>
+        </div>
+
+        <div class="panel-explicacion-eventloop">
+            <h3>🔍 ¿Por qué el mensaje 3 se imprime después del 2 a pesar de tener 0 milisegundos?</h3>
+            <ol>
+                <li><strong>Call Stack (Pila de Ejecución):</strong> El motor de JS ejecuta primero todo el código síncrono línea por línea sin interrupción.</li>
+                <li><strong>Web APIs:</strong> Al ver <code>setTimeout(..., 0)</code>, JavaScript no lo ejecuta; se lo delega al navegador, que inicia el cronómetro.</li>
+                <li><strong>Task Queue (Cola de Macrotareas):</strong> Al vencer los 0ms, la función callback entra en la cola de espera.</li>
+                <li><strong>Event Loop:</strong> Vigila incansablemente. Solo cuando la Pila de Ejecución está <em>completamente vacía</em> (después del último console.log síncrono), transfiere la tarea de la cola a la pila.</li>
+            </ol>
+        </div>
+
+        <div id="resultado" class="resultado">En espera de prueba.</div>
+    
+        <p class="ayuda">
+            <strong>Ejemplo Teórico Guiado:</strong> Analiza el código de <strong>app.js</strong>, sigue las instrucciones y experimenta con la interfaz.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

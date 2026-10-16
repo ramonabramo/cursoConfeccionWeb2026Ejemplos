@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 04 - Configurador de Tema con Clonación y Protección de Fábrica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 04 - Configurador de Tema con Clonación y Protección de Fábrica</h1>
+        <p class="descripcion">Aplica clonación de objetos para permitir personalizar el tema visual de una interfaz protegiendo el tema original con Object.freeze().</p>
+        <span class="tag-tipo tipo-practica">Práctica para el Alumno</span>
+        <div class="codigo-preview">
+// Reto para el alumno:
+// 1. Congelar temaOriginal con Object.freeze().
+// 2. Crear temaUsuario clonando con { ...temaOriginal }.
+// 3. Modificar propiedades en temaUsuario sin alterar temaOriginal.
+        </div>
+        
+        <p class="instruccion">Personaliza el tema visual. El perfil por defecto de fábrica está blindado con <code>Object.freeze()</code> para evitar que se corrompa por error.</p>
+        
+        <div id="cajaPrevisualizacionTema" class="previsualizacion-tema">
+            <h3>Caja de Previsualización</h3>
+            <p>Este bloque refleja en tiempo real los valores de <code>temaUsuario</code>.</p>
+        </div>
+
+        <div class="formulario-edicion">
+            <label for="inputColorBg">Color de fondo:</label>
+            <input type="color" id="inputColorBg" value="#ffffff">
+
+            <label for="inputColorTexto">Color de texto:</label>
+            <input type="color" id="inputColorTexto" value="#1e293b">
+
+            <label for="selectTamano">Tamaño de fuente:</label>
+            <select id="selectTamano">
+                <option value="14px">Compacto (14px)</option>
+                <option value="16px" selected>Normal (16px)</option>
+                <option value="20px">Grande (20px)</option>
+            </select>
+
+            <div class="grupo-botones">
+                <button type="button" id="btnAplicarCambios" class="btn-exito">🎨 Aplicar a Tema Usuario</button>
+                <button type="button" id="btnIntentarMutarFabrica" class="btn-peligro">⚠️ Intentar Sobrescribir Fábrica</button>
+                <button type="button" id="btnRestaurarFabrica" class="btn-secundario">🔄 Restaurar Valores de Fábrica</button>
+            </div>
+        </div>
+
+        <div id="resultado" class="resultado">Tema listo para configurar.</div>
+    
+        <p class="ayuda">
+            <strong>Práctica para el Alumno:</strong> Completa la lógica en <strong>app.js</strong> siguiendo los comentarios guiados paso a paso.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

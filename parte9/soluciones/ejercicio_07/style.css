@@ -1,0 +1,738 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #f0fdf4, #f8fafc);
+    color: #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 760px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e2e8f0;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 6px;
+    color: #0f172a;
+    font-size: 1.65rem;
+}
+
+.tag-tipo {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.tipo-teoria {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+}
+
+.tipo-practica {
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+}
+
+.descripcion {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.instruccion {
+    background-color: #f1f5f9;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 4px solid #6366f1;
+    color: #334155;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #334155;
+    font-size: 0.95rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background-color: #f8fafc;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 10px;
+}
+
+input:focus, select:focus {
+    border-color: #059669;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.14);
+}
+
+button {
+    margin-top: 8px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 9px;
+    background-color: #059669;
+    color: white;
+    font-size: 0.98rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s, background-color 0.2s, opacity 0.2s;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.grupo-botones {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.grupo-botones button {
+    margin-top: 0;
+    flex: 1 1 calc(33.333% - 10px);
+    min-width: 140px;
+}
+
+.btn-exito { background-color: #059669; }
+.btn-exito:hover:not(:disabled) { background-color: #047857; }
+.btn-secundario { background-color: #475569; }
+.btn-secundario:hover:not(:disabled) { background-color: #334155; }
+.btn-peligro { background-color: #e11d48; }
+.btn-peligro:hover:not(:disabled) { background-color: #be123c; }
+.btn-acento { background-color: #6366f1; }
+.btn-acento:hover:not(:disabled) { background-color: #4f46e5; }
+.btn-info { background-color: #0284c7; }
+.btn-info:hover:not(:disabled) { background-color: #0369a1; }
+
+.resultado {
+    min-height: 54px;
+    margin-top: 22px;
+    padding: 16px 18px;
+    border-left: 5px solid #059669;
+    border-radius: 9px;
+    background-color: #f0fdf4;
+    color: #064e3b;
+    font-weight: 500;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.alerta-exito {
+    border-left-color: #10b981;
+    background-color: #ecfdf5;
+    color: #065f46;
+}
+
+.alerta-espera {
+    border-left-color: #6366f1;
+    background-color: #eef2ff;
+    color: #3730a3;
+}
+
+.alerta-peligro {
+    border-left-color: #ef4444;
+    background-color: #fef2f2;
+    color: #991b1b;
+}
+
+.ayuda {
+    margin-top: 20px;
+    padding: 12px 14px;
+    border-radius: 9px;
+    background-color: #f8fafc;
+    color: #64748b;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    border: 1px solid #e2e8f0;
+}
+
+.codigo-preview {
+    padding: 14px 16px;
+    background-color: #0f172a;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.90rem;
+    color: #38bdf8;
+    overflow-x: auto;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   COMPONENTES ESPECÍFICOS DE PARTE 9 (ASINCRONÍA Y TEMPORIZADORES)
+   ========================================================================== */
+
+/* 1. Toast Notification */
+.toast-box {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #1e293b;
+    color: #f8fafc;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.toast-box.oculto {
+    display: none;
+}
+
+.toast-contenido {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.toast-icono {
+    font-size: 1.8rem;
+}
+
+.toast-tiempo {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+.barra-tiempo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.barra-tiempo-relleno {
+    height: 100%;
+    width: 100%;
+    background-color: #ef4444;
+    transition: width 0.95s linear;
+}
+
+/* 2. Tarjetas Informativas / Estados */
+.tarjeta-info {
+    text-align: center;
+    padding: 24px;
+    margin: 20px 0;
+    background-color: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 14px;
+}
+
+.icono-grande {
+    font-size: 3rem;
+    margin-bottom: 8px;
+}
+
+.texto-destacado {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* 3. Cronómetro */
+.cronometro-contenedor {
+    text-align: center;
+    background-color: #0f172a;
+    color: #38bdf8;
+    padding: 24px;
+    border-radius: 16px;
+    margin: 20px 0;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.cronometro-display {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.badge-estado {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.badge-activo { background-color: #10b981; color: white; }
+.badge-pausado { background-color: #f59e0b; color: white; }
+.badge-detenido { background-color: #64748b; color: white; }
+
+/* 4. Cuenta Regresiva */
+.temporizador-contenedor {
+    text-align: center;
+    padding: 25px;
+    margin: 20px 0;
+    background: linear-gradient(135deg, #1e1e2f, #27273f);
+    border-radius: 16px;
+    color: white;
+}
+
+.cuenta-regresiva-display {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #fbbf24;
+}
+
+.cuenta-regresiva-subtexto {
+    font-size: 1rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.texto-parpadeo-alerta {
+    animation: parpadeo 0.6s infinite alternate;
+    color: #ef4444 !important;
+}
+
+@keyframes parpadeo {
+    from { opacity: 1; }
+    to { opacity: 0.3; }
+}
+
+/* 5. Reloj Digital */
+.reloj-marco {
+    background: #0f172a;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    color: #f8fafc;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.4);
+    margin: 20px 0;
+}
+
+.reloj-fecha {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.reloj-pantalla {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #34d399;
+}
+
+.separador-dos-puntos {
+    animation: titilar 1s infinite;
+}
+
+@keyframes titilar {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0.2; }
+}
+
+.sufijo-ampm {
+    font-size: 1.5rem;
+    color: #fbbf24;
+    margin-left: 10px;
+}
+
+.badge-reloj {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.badge-reloj-vivo { background-color: #10b981; color: white; }
+.badge-reloj-pausado { background-color: #e11d48; color: white; }
+
+/* 6. Barra de Progreso */
+.caja-progreso {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.cabecera-progreso {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: #334155;
+    margin-bottom: 10px;
+}
+
+.porcentaje-numero {
+    color: #059669;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+.barra-exterior {
+    width: 100%;
+    height: 18px;
+    background-color: #e2e8f0;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.barra-interior {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #059669);
+    border-radius: 9px;
+    transition: width 0.05s ease-out;
+}
+
+/* 7. Batería */
+.bateria-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.bateria-cuerpo {
+    width: 220px;
+    height: 90px;
+    border: 4px solid #1e293b;
+    border-radius: 14px;
+    padding: 4px;
+    background-color: #f8fafc;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.bateria-relleno {
+    height: 100%;
+    background-color: #ef4444;
+    border-radius: 8px;
+    transition: width 0.1s linear, background-color 0.3s ease;
+}
+
+.bateria-borne {
+    width: 10px;
+    height: 36px;
+    background-color: #1e293b;
+    border-radius: 0 4px 4px 0;
+}
+
+.bateria-porcentaje-texto {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1e293b;
+    font-family: monospace;
+    min-width: 80px;
+}
+
+/* 8. Carrusel / Slider */
+.carrusel-marco {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #f8fafc;
+    border-radius: 16px;
+    padding: 24px;
+    margin: 20px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: border-color 0.2s;
+    border: 2px solid transparent;
+}
+
+.carrusel-marco:hover {
+    border-color: #38bdf8;
+}
+
+.carrusel-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.badge-autoplay {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    font-weight: bold;
+}
+
+.contador-slide {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    font-family: monospace;
+}
+
+.slide-tarjeta {
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+.slide-avatar {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.slide-cita {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #e2e8f0;
+    line-height: 1.5;
+}
+
+.slide-autor {
+    font-size: 0.9rem;
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+.carrusel-controles {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    gap: 10px;
+}
+
+/* 9. Ticker Noticias */
+.ticker-marco {
+    background-color: #0f172a;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: white;
+    cursor: pointer;
+    border: 2px solid #334155;
+    transition: border-color 0.2s;
+}
+
+.ticker-marco:hover {
+    border-color: #e11d48;
+}
+
+.ticker-etiqueta-vivo {
+    background-color: #e11d48;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.punto-rojo-vivo {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    animation: pulso 1s infinite alternate;
+}
+
+@keyframes pulso {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0.3; transform: scale(1.3); }
+}
+
+.ticker-contenido {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.badge-categoria {
+    background-color: #1e293b;
+    color: #38bdf8;
+    border: 1px solid #38bdf8;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.ticker-titular {
+    font-size: 0.98rem;
+    color: #f1f5f9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+}
+
+.ticker-hora {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-family: monospace;
+    white-space: nowrap;
+}
+
+/* 10. Consola Simulada / Event Loop */
+.consola-simulada {
+    background-color: #0b1120;
+    border-radius: 12px;
+    border: 1px solid #1e293b;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.consola-cabecera {
+    background-color: #1e293b;
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    color: #94a3b8;
+    font-family: monospace;
+}
+
+.consola-cuerpo {
+    padding: 16px;
+    min-height: 140px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.88rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.linea-consola {
+    line-height: 1.4;
+}
+
+.linea-sincrono { color: #38bdf8; }
+.linea-asincrono { color: #f43f5e; font-weight: bold; }
+.linea-info { color: #64748b; }
+.linea-separador { color: #e2e8f0; font-weight: bold; margin-top: 6px; border-bottom: 1px dashed #334155; padding-bottom: 4px; }
+
+.panel-explicacion-eventloop {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 18px;
+    margin-top: 15px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.panel-explicacion-eventloop h3 {
+    margin-top: 0;
+    color: #0f172a;
+    font-size: 1rem;
+}
+
+.panel-explicacion-eventloop ol {
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+
+/* 11. Semáforo / Minijuego Reflejos */
+.zona-reflejos {
+    margin: 25px 0;
+    padding: 40px 20px;
+    border-radius: 16px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.15s, transform 0.1s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.zona-reflejos:active {
+    transform: scale(0.99);
+}
+
+.icono-reflejos {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.texto-reflejos {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.semaforo-inactivo {
+    background-color: #334155;
+    color: #94a3b8;
+}
+
+.semaforo-rojo {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+.semaforo-verde {
+    background-color: #16a34a;
+    color: #ffffff;
+}
+
+.semaforo-fallo {
+    background-color: #d97706;
+    color: #ffffff;
+}
+
+.semaforo-completado {
+    background-color: #4f46e5;
+    color: #ffffff;
+}

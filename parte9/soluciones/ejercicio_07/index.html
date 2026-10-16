@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 07 - Barra de Progreso y Porcentaje de Carga (Animación con setInterval)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 07 - Barra de Progreso y Porcentaje de Carga (Animación con setInterval)</h1>
+        <p class="descripcion">Aprende a modificar dinámicamente propiedades CSS (style.width) con setInterval() para crear animaciones fluidas de carga con autolimpieza al 100%.</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+// Incrementar el ancho de la barra CSS cada 40ms
+intervaloId = setInterval(() => {
+    progreso++;
+    barra.style.width = progreso + '%';
+    texto.textContent = progreso + '%';
+
+    if (progreso >= 100) {
+        clearInterval(intervaloId); // Autolimpieza
+    }
+}, 40);
+        </div>
+        
+        <p class="instruccion">Pulsa <strong>Iniciar Instalación</strong> para observar el incremento gradual del ancho CSS (0% a 100%) mediante <strong>setInterval()</strong> y su parada automática.</p>
+        
+        <div class="caja-progreso">
+            <div class="cabecera-progreso">
+                <span id="textoFase">Listo para instalar</span>
+                <span id="porcentajeTexto" class="porcentaje-numero">0%</span>
+            </div>
+            <div class="barra-exterior">
+                <div id="barraInterior" class="barra-interior"></div>
+            </div>
+        </div>
+
+        <div class="grupo-botones">
+            <button type="button" id="btnIniciarInstalacion" class="btn-exito">🚀 Iniciar Instalación</button>
+            <button type="button" id="btnCancelarInstalacion" class="btn-peligro" disabled>🛑 Cancelar</button>
+            <button type="button" id="btnResetearInstalacion" class="btn-secundario">🔄 Resetear</button>
+        </div>
+
+        <div id="resultado" class="resultado">En espera. Pulsa Iniciar Instalación para comenzar.</div>
+    
+        <p class="ayuda">
+            <strong>Ejemplo Teórico Guiado:</strong> Analiza el código de <strong>app.js</strong>, sigue las instrucciones y experimenta con la interfaz.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

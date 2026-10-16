@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 05 - Objetos JS vs Formato JSON (JSON.stringify y JSON.parse)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 05 - Objetos JS vs Formato JSON (JSON.stringify y JSON.parse)</h1>
+        <p class="descripcion">Comprende qué es el formato JSON, sus diferencias con los objetos de JavaScript (desaparición de métodos, comillas dobles obligatorias) y su conversión con JSON.stringify() y JSON.parse().</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+// Objeto nativo de JavaScript (admite métodos)
+const dev = { nombre: 'Ana', saludar() { return 'Hola'; } };
+
+// 1. Serializar a texto JSON (¡el método saludar desaparece!)
+const jsonString = JSON.stringify(dev, null, 2);
+
+// 2. Deserializar de texto JSON a objeto JS
+const objetoReconstruido = JSON.parse(jsonString);
+        </div>
+        
+        <p class="instruccion">Experimenta con la serialización (Objeto a JSON) y deserialización (JSON a Objeto). Observa cómo las funciones y métodos <strong>no existen en JSON</strong> y cómo las claves exigen obligatoriamente comillas dobles <code>"clave"</code>.</p>
+        
+        <div class="comparador-json">
+            <div class="columna-codigo">
+                <h3>Objeto JavaScript Nativo</h3>
+                <pre id="codigoObjetoJs" class="bloque-codigo">
+const empleado = {
+  id: 104,
+  nombre: "Lucía Méndez",
+  habilidades: ["JS", "React", "Node"],
+  sueldo: 35000,
+  calcularBono() { 
+    return this.sueldo * 0.15; 
+  }
+};</pre>
+            </div>
+
+            <div class="columna-codigo">
+                <h3>Texto en Formato JSON</h3>
+                <textarea id="textareaJson" class="editor-json" rows="9" placeholder="Pulsa 'Convertir a JSON' para serializar..."></textarea>
+            </div>
+        </div>
+
+        <div class="grupo-botones">
+            <button type="button" id="btnStringify" class="btn-acento">📤 Convertir a JSON (JSON.stringify)</button>
+            <button type="button" id="btnParse" class="btn-exito">📥 Restaurar a Objeto (JSON.parse)</button>
+            <button type="button" id="btnProbarErrorJson" class="btn-peligro">⚠️ Inyectar JSON Inválido (Probar try/catch)</button>
+        </div>
+
+        <div id="resultado" class="resultado">En espera de conversión.</div>
+    
+        <p class="ayuda">
+            <strong>Ejemplo Teórico Guiado:</strong> Analiza el código de <strong>app.js</strong>, sigue las instrucciones y experimenta con la interfaz.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

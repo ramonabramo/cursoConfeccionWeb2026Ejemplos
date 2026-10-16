@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 07 - Clases en ES6 (Constructor, Operador new e Instancias)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 07 - Clases en ES6 (Constructor, Operador new e Instancias)</h1>
+        <p class="descripcion">Aprende a definir una clase formal con la palabra reservada class, inicializar propiedades en el constructor() mediante this y crear instancias independientes con new.</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+// Definición formal de Clase (Syntactic Sugar de prototipos)
+class Coche {
+    constructor(marca, modelo, velocidadMax) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.velocidadMax = velocidadMax;
+        this.velocidadActual = 0;
+    }
+
+    acelerar(km = 10) {
+        this.velocidadActual = Math.min(this.velocidadActual + km, this.velocidadMax);
+    }
+}
+
+// Instanciación con 'new'
+const coche1 = new Coche('Seat', 'Ibiza', 180);
+const coche2 = new Coche('Tesla', 'Model 3', 225);
+        </div>
+        
+        <p class="instruccion">Dos instancias creadas a partir de la misma plantilla <code>class Coche</code>. Cada objeto mantiene su propio estado de velocidad sin afectar al otro.</p>
+        
+        <div class="comparador-coches">
+            <!-- Coche 1 -->
+            <div class="coche-tarjeta" id="tarjetaCoche1">
+                <div class="coche-icono">🚗</div>
+                <h3>Seat Ibiza</h3>
+                <div class="velocimetro-valor" id="velCoche1">0 km/h</div>
+                <div class="texto-secundario">Vel. Máx: 180 km/h</div>
+                <div class="grupo-botones-coche">
+                    <button type="button" id="btnAcelerarCoche1" class="btn-exito">⚡ Acelerar (+20)</button>
+                    <button type="button" id="btnFrenarCoche1" class="btn-peligro">🛑 Frenar (-20)</button>
+                </div>
+            </div>
+
+            <!-- Coche 2 -->
+            <div class="coche-tarjeta" id="tarjetaCoche2">
+                <div class="coche-icono">🏎️</div>
+                <h3>Tesla Model 3</h3>
+                <div class="velocimetro-valor" id="velCoche2">0 km/h</div>
+                <div class="texto-secundario">Vel. Máx: 225 km/h</div>
+                <div class="grupo-botones-coche">
+                    <button type="button" id="btnAcelerarCoche2" class="btn-exito">⚡ Acelerar (+30)</button>
+                    <button type="button" id="btnFrenarCoche2" class="btn-peligro">🛑 Frenar (-30)</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultado" class="resultado">Instancias creadas con el operador 'new'. Prueba a acelerar cada una.</div>
+    
+        <p class="ayuda">
+            <strong>Ejemplo Teórico Guiado:</strong> Analiza el código de <strong>app.js</strong>, sigue las instrucciones y experimenta con la interfaz.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

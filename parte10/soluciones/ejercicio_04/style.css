@@ -1,0 +1,616 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #f0fdf4, #f8fafc);
+    color: #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 780px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e2e8f0;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 6px;
+    color: #0f172a;
+    font-size: 1.65rem;
+}
+
+.tag-tipo {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.tipo-teoria {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+}
+
+.tipo-practica {
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+}
+
+.descripcion {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.instruccion {
+    background-color: #f1f5f9;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 4px solid #6366f1;
+    color: #334155;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #334155;
+    font-size: 0.95rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background-color: #f8fafc;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 10px;
+    font-family: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #059669;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.14);
+}
+
+button {
+    margin-top: 8px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 9px;
+    background-color: #059669;
+    color: white;
+    font-size: 0.98rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s, background-color 0.2s;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.grupo-botones {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.grupo-botones button {
+    margin-top: 0;
+    flex: 1 1 calc(33.333% - 10px);
+    min-width: 140px;
+}
+
+.btn-exito { background-color: #059669; }
+.btn-exito:hover { background-color: #047857; }
+.btn-secundario { background-color: #475569; }
+.btn-secundario:hover { background-color: #334155; }
+.btn-peligro { background-color: #e11d48; }
+.btn-peligro:hover { background-color: #be123c; }
+.btn-acento { background-color: #6366f1; }
+.btn-acento:hover { background-color: #4f46e5; }
+.btn-info { background-color: #0284c7; }
+.btn-info:hover { background-color: #0369a1; }
+
+.resultado {
+    min-height: 54px;
+    margin-top: 22px;
+    padding: 16px 18px;
+    border-left: 5px solid #059669;
+    border-radius: 9px;
+    background-color: #f0fdf4;
+    color: #064e3b;
+    font-weight: 500;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.alerta-exito { border-left-color: #10b981; background-color: #ecfdf5; color: #065f46; }
+.alerta-espera { border-left-color: #6366f1; background-color: #eef2ff; color: #3730a3; }
+.alerta-peligro { border-left-color: #ef4444; background-color: #fef2f2; color: #991b1b; }
+
+.ayuda {
+    margin-top: 20px;
+    padding: 12px 14px;
+    border-radius: 9px;
+    background-color: #f8fafc;
+    color: #64748b;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    border: 1px solid #e2e8f0;
+}
+
+.codigo-preview {
+    padding: 14px 16px;
+    background-color: #0f172a;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.90rem;
+    color: #38bdf8;
+    overflow-x: auto;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   COMPONENTES DE PARTE 10 (OBJETOS Y CLASES)
+   ========================================================================== */
+
+/* 1. Tarjetas de Objeto y Perfil */
+.tarjeta-objeto-wrapper {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 20px;
+    margin: 20px 0;
+    align-items: start;
+}
+
+@media (max-width: 650px) {
+    .tarjeta-objeto-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tarjeta-objeto {
+    background: #0f172a;
+    color: white;
+    padding: 24px 16px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.tarjeta-avatar {
+    font-size: 3rem;
+    margin-bottom: 8px;
+}
+
+.tarjeta-objeto h2 {
+    margin: 0 0 6px 0;
+    font-size: 1.25rem;
+}
+
+.badge-rol {
+    display: inline-block;
+    background-color: #1e293b;
+    color: #38bdf8;
+    border: 1px solid #38bdf8;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.texto-secundario {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin: 6px 0;
+}
+
+.badge-estado {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.badge-activo { background-color: #10b981; color: white; }
+.badge-inactivo { background-color: #ef4444; color: white; }
+
+.precio-destacado {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #34d399;
+    margin: 10px 0;
+}
+
+/* 2. Comparador de Memoria (Stack vs Heap) */
+.comparador-memoria {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    background-color: #f8fafc;
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid #cbd5e1;
+}
+
+@media (max-width: 600px) {
+    .comparador-memoria {
+        flex-direction: column;
+    }
+}
+
+.caja-memoria {
+    flex: 1;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.caja-memoria h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #0f172a;
+}
+
+.puntero-badge {
+    background-color: #6366f1;
+    color: white;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.dato-clave-valor {
+    font-size: 0.95rem;
+    margin: 4px 0;
+}
+
+.conector-puntero {
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* 3. Previsualizador de Tema */
+.previsualizacion-tema {
+    padding: 24px;
+    border-radius: 12px;
+    border: 2px dashed #94a3b8;
+    margin: 20px 0;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+/* 4. Comparador JSON */
+.comparador-json {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+}
+
+@media (max-width: 600px) {
+    .comparador-json {
+        grid-template-columns: 1fr;
+    }
+}
+
+.columna-codigo h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+.bloque-codigo {
+    background-color: #0f172a;
+    color: #38bdf8;
+    padding: 14px;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    overflow-x: auto;
+    margin: 0;
+    min-height: 180px;
+}
+
+.editor-json {
+    background-color: #1e293b;
+    color: #a5f3fc;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 180px;
+    margin-bottom: 0;
+}
+
+.lista-notas {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 180px;
+}
+
+.tarjeta-nota-item {
+    background: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border-left: 4px solid #6366f1;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge-prioridad {
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+}
+
+.badge-prioridad-alta { background-color: #fee2e2; color: #b91c1c; }
+.badge-prioridad-media { background-color: #fef3c7; color: #b45309; }
+.badge-prioridad-baja { background-color: #e0f2fe; color: #0369a1; }
+
+/* 5. Coches / Instancias */
+.comparador-coches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+}
+
+@media (max-width: 550px) {
+    .comparador-coches {
+        grid-template-columns: 1fr;
+    }
+}
+
+.coche-tarjeta {
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.coche-tarjeta h3 {
+    margin: 6px 0;
+}
+
+.coche-icono {
+    font-size: 2.5rem;
+}
+
+.velocimetro-valor {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #38bdf8;
+    margin: 8px 0;
+}
+
+.grupo-botones-coche {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.grupo-botones-coche button {
+    flex: 1;
+    padding: 8px;
+    font-size: 0.85rem;
+}
+
+/* 6. Grid Tareas */
+.grid-tareas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.tarjeta-tarea {
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.tarjeta-tarea h4 {
+    margin: 0 0 6px 0;
+    font-size: 1rem;
+}
+
+.tarea-completada {
+    opacity: 0.6;
+    border-left: 5px solid #10b981;
+    background-color: #f0fdf4;
+    text-decoration: line-through;
+}
+
+.tarea-pendiente {
+    border-left: 5px solid #f59e0b;
+}
+
+.btn-conmutar-tarea {
+    margin-top: 10px;
+    padding: 6px 12px;
+    font-size: 0.82rem;
+    width: 100%;
+}
+
+/* 7. Cuenta Bancaria (Encapsulamiento) */
+.caja-banco {
+    background: #0f172a;
+    color: white;
+    padding: 24px;
+    border-radius: 16px;
+    margin: 20px 0;
+}
+
+.cabecera-cuenta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.icono-banco {
+    font-size: 3rem;
+}
+
+.saldo-destacado {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.6rem;
+    font-weight: bold;
+    color: #34d399;
+}
+
+.badge-privado {
+    background-color: #334155;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 6px;
+}
+
+/* 8. Termostato */
+.caja-termostato {
+    background: #0f172a;
+    color: white;
+    padding: 24px;
+    border-radius: 16px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.termostato-display {
+    padding: 20px;
+    background-color: #1e293b;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.temp-celsius {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+.temp-fahrenheit {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+.badge-clima {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.clima-frio { background-color: #0284c7; color: white; }
+.clima-confort { background-color: #10b981; color: white; }
+.clima-calor { background-color: #ea580c; color: white; }
+
+/* 9. Comparador Herencia */
+.comparador-herencia {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+}
+
+@media (max-width: 600px) {
+    .comparador-herencia {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tarjeta-herencia {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tarjeta-herencia h3 {
+    margin: 8px 0;
+    color: #0f172a;
+}
+
+.badge-herencia {
+    background-color: #e2e8f0;
+    color: #475569;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+.badge-hija {
+    background-color: #ede9fe;
+    color: #6d28d9;
+}

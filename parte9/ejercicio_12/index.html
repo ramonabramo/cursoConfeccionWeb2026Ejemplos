@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12 - Minijuego de Reflejos / Semáforo Asíncrono (Retardo Aleatorio)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 12 - Minijuego de Reflejos / Semáforo Asíncrono (Retardo Aleatorio)</h1>
+        <p class="descripcion">Crea un juego de reflejos con retraso aleatorio usando setTimeout(..., Math.random()), cancelando clics prematuros (clearTimeout) y midiendo los ms con Date.now().</p>
+        <span class="tag-tipo tipo-practica">Práctica para el Alumno</span>
+        <div class="codigo-preview">
+// Reto para el alumno:
+// 1. Al pulsar "Iniciar", la caja se pone en Rojo ("Espera a verde...").
+// 2. Retardo aleatorio entre 2000ms y 5000ms con Math.random().
+// 3. Cuando vence, caja pasa a Verde y guardamos tiempoInicio = Date.now().
+// 4. Si el usuario pulsa en verde, tiempo = Date.now() - tiempoInicio.
+// 5. Si hace clic antes de tiempo en rojo -> anular con clearTimeout() y avisar de trampa!
+        </div>
+        
+        <p class="instruccion">Test de velocidad de reacción humana. Pulsa <strong>Iniciar Test</strong>, espera a que el semáforo cambie a <strong>VERDE</strong> y haz clic lo más rápido posible. ¡Cuidado: si haces clic mientras esté rojo, serás descalificado!</p>
+        
+        <div id="cajaSemaforo" class="zona-reflejos semaforo-inactivo">
+            <div id="iconoReflejos" class="icono-reflejos">🛑</div>
+            <div id="textoReflejos" class="texto-reflejos">Pulsa "Iniciar Test" para jugar</div>
+        </div>
+
+        <div class="grupo-botones">
+            <button type="button" id="btnIniciarJuego" class="btn-exito">🎯 Iniciar Test de Reflejos</button>
+        </div>
+
+        <div id="resultado" class="resultado">Esperando inicio de partida. Pon a prueba tus reflejos.</div>
+    
+        <p class="ayuda">
+            <strong>Práctica para el Alumno:</strong> Completa la lógica en <strong>app.js</strong> siguiendo los comentarios guiados paso a paso.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

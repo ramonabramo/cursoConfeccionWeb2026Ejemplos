@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 06 - Gestor de Notas con Exportación e Importación JSON</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 06 - Gestor de Notas con Exportación e Importación JSON</h1>
+        <p class="descripcion">Diseña una aplicación de notas rápidas que permita exportar la lista de objetos a texto JSON y reimportarla validando con try/catch.</p>
+        <span class="tag-tipo tipo-practica">Práctica para el Alumno</span>
+        <div class="codigo-preview">
+// Reto para el alumno:
+// 1. Array de objetos notas: [{ id, texto, prioridad }, ...].
+// 2. Exportar con JSON.stringify(listaNotas).
+// 3. Importar con JSON.parse(texto) dentro de un bloque try / catch.
+        </div>
+        
+        <p class="instruccion">Agrega notas rápidas, exporta tu lista completa a una cadena JSON para compartirla o guardarla, y restaura notas desde texto importado.</p>
+        
+        <div class="formulario-edicion">
+            <label for="inputNotaTexto">Texto de la nota:</label>
+            <input type="text" id="inputNotaTexto" placeholder="Ej: Repasar getters y setters de ES6">
+
+            <label for="selectPrioridad">Prioridad:</label>
+            <select id="selectPrioridad">
+                <option value="Alta">Alta</option>
+                <option value="Media" selected>Media</option>
+                <option value="Baja">Baja</option>
+            </select>
+
+            <div class="grupo-botones">
+                <button type="button" id="btnAgregarNota" class="btn-exito">➕ Añadir Nota</button>
+                <button type="button" id="btnExportarJson" class="btn-acento">📤 Exportar a JSON</button>
+                <button type="button" id="btnImportarJson" class="btn-secundario">📥 Importar desde JSON</button>
+            </div>
+        </div>
+
+        <div class="comparador-json">
+            <div class="columna-codigo">
+                <h3>Notas en Pantalla</h3>
+                <div id="listaNotasContenedor" class="lista-notas"></div>
+            </div>
+
+            <div class="columna-codigo">
+                <h3>Buffer JSON (Exportar / Importar)</h3>
+                <textarea id="textareaNotasJson" class="editor-json" rows="8" placeholder="Aquí aparecerá el JSON exportado o pega aquí un JSON para importar..."></textarea>
+            </div>
+        </div>
+
+        <div id="resultado" class="resultado">Gestor de notas listo.</div>
+    
+        <p class="ayuda">
+            <strong>Práctica para el Alumno:</strong> Completa la lógica en <strong>app.js</strong> siguiendo los comentarios guiados paso a paso.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -79,6 +79,8 @@ A lo largo de todo el curso se promueven los estándares de **JavaScript Moderno
 | [**`parte6/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte6/README.md) | Colecciones del DOM (`querySelectorAll`) | `querySelectorAll`, `NodeList`, `forEach` masivo, exclusión mutua (pestañas), checkboxes grupales, atributos `data-*` (`dataset`), `Array.from()`, filtros en tiempo real. | 10 ejercicios + 10 soluciones | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte6/README.md) |
 | [**`parte7/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte7/README.md) | Bucles y Repetición (`for`, `while`, `for...of`, `for...in`, `forEach`) | Anatomía de bucles, contador e incremento, parada temprana con `break`, iteración de valores con `for...of`, claves de objetos con `for...in`, arrays vs NodeLists. | 12 ejercicios (6 pares) + 12 soluciones | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte7/README.md) |
 | [**`parte8/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte8/README.md) | Funciones en JavaScript (Fundamentos a Avanzado) | Function declaration, parámetros por defecto, rest (`...rest`), early return, scope, variable shadowing, call stack, hoisting, arrow functions con retorno implícito, IIFE, HOF, callbacks, closures, recursividad y funciones puras. | 14 ejercicios (7 pares) + 14 soluciones | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte8/README.md) |
+| [**`parte9/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte9/README.md) | Asincronía, Temporizadores y Event Loop | Arquitectura asíncrona, Single Thread, Call Stack, Web APIs, Task Queue, Event Loop, `setTimeout`, `clearTimeout`, `setInterval`, `clearInterval`, prevención de solapamientos, relojes en tiempo real, barras de progreso, carruseles con pausa al hover y minijuegos de reflejos. | 12 ejercicios (6 pares) + 12 soluciones | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte9/README.md) |
+| [**`parte10/`**](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte10/README.md) | Objetos y Clases en JavaScript (ES6+) | Modelado formal, memoria Heap vs Stack, mutabilidad por referencia, `Object.freeze()`, diferencias con JSON (`JSON.stringify` / `JSON.parse`), clases modernas (`class`, `constructor`, `new`), métodos estáticos, campos privados con `#`, getters/setters, y herencia con `extends` y `super()`. | 12 ejercicios (6 pares) + 12 soluciones | [Ver README](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte10/README.md) |
 
 ---
 
@@ -210,6 +212,37 @@ Tratamiento exhaustivo de funciones basado en especificación oficial ECMAScript
 - **Funciones de Orden Superior y Callbacks**: Higher-Order Functions (HOF), delegación de rutinas con callbacks síncronos y asíncronos.
 - **Conceptos Avanzados**: Clausuras (*Closures*: *el hijo que se lleva la llave de la despensa en la mochila secreta*), recursividad y caso base (*Inception / muñecas rusas* para evitar Stack Overflow), y funciones puras vs impuras (*el cirujano aséptico vs el cuñado en la cocina*).
 - **Contenido práctico**: 14 ejercicios estructurados en 7 pares de aprendizaje (7 guiados + 7 prácticos) con sus 14 soluciones verificadas.
+
+---
+
+### Módulo 9: [parte9/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte9/README.md) — Asincronía en JavaScript: Temporizadores (`setTimeout`, `setInterval`) y el Event Loop
+Comprensión profunda de la arquitectura no bloqueante de JavaScript, temporizadores y el bucle de eventos, estructurado mediante **6 pares de aprendizaje** (1 teoría guiada + 1 práctica del alumno):
+- **La Arquitectura Asíncrona**: El modelo de un solo hilo (*Single-Threaded*), la Pila de Ejecución (*Call Stack*), las Web APIs del navegador, la Cola de Tareas (*Task Queue*) y el Bucle de Eventos (*Event Loop*).
+- **El Misterio de `setTimeout(..., 0)`**: Demostración empírica de por qué un temporizador con 0 milisegundos se ejecuta siempre después de todo el código síncrono del Call Stack.
+- **`setTimeout()` y `clearTimeout()`**: Postergación de acciones y cancelación preventiva antes de que venza el plazo para evitar ejecuciones no deseadas.
+- **`setInterval()` y `clearInterval()`**: Repetición cíclica continua, prevención crítica de acumulación y solapamiento de intervalos (*memory leaks*), y parada/reinicio limpios.
+- **Componentes Prácticos Interactivos**:
+  - *Notificaciones Toast*: Mensajes temporales con barra regresiva y botón "Deshacer".
+  - *Descargas Seguras*: Espera simulada con antivirus y cancelación previa.
+  - *Cronómetro Deportivo*: Iniciar, Pausar y Reiniciar con precisión de décimas.
+  - *Temporizador de Cuenta Atrás*: Cuenta regresiva configurable con alarma sonora y visual.
+  - *Relojes Digitales en Vivo*: Sincronización con `new Date()`, formato de fecha completa, y conmutador 24H vs 12H con AM/PM.
+  - *Barras de Progreso Dinámicas*: Animaciones fluidas modificando `style.width` en tiempo real y simulador de carga de batería con estados de color.
+  - *Carruseles y Marquesinas*: Autoplay periódico pausado automáticamente al posar el cursor (`mouseenter` / `mouseleave`).
+  - *Minijuego de Reflejos*: Semáforo con retardo aleatorio, detección de clics tempranos (trampa/falso arranque) y cálculo milimétrico de tiempo de reacción con `Date.now()`.
+- **Contenido práctico**: 12 ejercicios estructurados en 6 pares de aprendizaje (6 guiados + 6 prácticos) con sus 12 soluciones verificadas.
+
+---
+
+### Módulo 10: [parte10/](file:///c:/Users/Ramón/Desktop/confeccion2026/js/ejemplos/parte10/README.md) — Objetos y Clases en JavaScript (ES6+): De los Literales a la POO Moderna
+Dominio completo de la Programación Orientada a Objetos en JavaScript moderno, estructurado mediante **6 pares de aprendizaje** (1 teoría guiada + 1 práctica del alumno):
+- **Objetos Literales**: Creación de estructuras asociativas clave-valor, notación de punto vs notación de corchetes dinámicos, e invocación de métodos con contexto `this`.
+- **Memoria y Referencias (Heap vs. Stack)**: Paso por valor en tipos primitivos vs paso por referencia en objetos, el peligro de mutaciones colaterales en punteros compartidos, clonación superficial independiente (*Spread Operator* `{ ...obj }`) y protección estricta con `Object.freeze()`.
+- **Objetos JS vs Formato JSON**: Justificación de JSON como estándar mundial de texto plano, desaparición de funciones/métodos en la serialización, y conversión segura con `JSON.stringify(obj, null, 2)` y `JSON.parse()` blindado con `try ... catch`.
+- **Clases en ES6 (Syntactic Sugar de Prototipos)**: Explicación de la cadena de prototipos de JavaScript y cómo la sintaxis `class` aporta una capa limpia sobre constructores y métodos sin necesidad de manipular `.prototype` a mano. Creación de instancias aisladas con `new`.
+- **Encapsulamiento Moderno**: Campos y métodos estrictamente privados mediante el prefijo `#` (y desmitificación de la vieja convención `_variable`), junto a descriptores de acceso `get` y `set` con validaciones de límites en tiempo de ejecución.
+- **Herencia y Polimorfismo**: Extensión de clases con `extends`, la regla de oro de invocar obligatoriamente `super()` antes de acceder a `this`, sobrescritura de métodos (*Method Overriding*) con `super.metodo()` y polimorfismo adaptativo.
+- **Contenido práctico**: 12 ejercicios estructurados en 6 pares de aprendizaje (6 guiados + 6 prácticos) con sus 12 soluciones verificadas.
 
 ---
 

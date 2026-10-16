@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10 - Teletipo de Noticias de Última Hora en Vivo (Ticker con Pausa al Hover)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 10 - Teletipo de Noticias de Última Hora en Vivo (Ticker con Pausa al Hover)</h1>
+        <p class="descripcion">Crea una barra de noticias rotativas en vivo que cambie de titular cada 2.5 segundos y se detenga automáticamente al posar el ratón encima.</p>
+        <span class="tag-tipo tipo-practica">Práctica para el Alumno</span>
+        <div class="codigo-preview">
+// Reto para el alumno:
+// 1. Array de noticias con titular, categoría y hora.
+// 2. setInterval cada 2500ms para rotar noticias.
+// 3. mouseenter -> pausar con clearInterval.
+// 4. mouseleave -> reanudar con nuevo setInterval.
+        </div>
+        
+        <p class="instruccion">Marquesina de noticias en tiempo real. Rota cada <strong>2.5 segundos</strong> y se congela al colocar el ratón para permitir leer con comodidad.</p>
+        
+        <div id="cajaTicker" class="ticker-marco">
+            <div class="ticker-etiqueta-vivo">
+                <span class="punto-rojo-vivo"></span> ÚLTIMA HORA
+            </div>
+            <div class="ticker-contenido">
+                <span id="categoriaNoticia" class="badge-categoria">TECNOLOGÍA</span>
+                <span id="titularNoticia" class="ticker-titular">Cargando titular informativo...</span>
+                <span id="horaNoticia" class="ticker-hora">18:00</span>
+            </div>
+        </div>
+
+        <div class="grupo-botones">
+            <button type="button" id="btnSiguienteNoticia" class="btn-secundario">⏩ Siguiente Noticia</button>
+            <button type="button" id="btnToggleTicker" class="btn-info">⏸️ Pausa Manual</button>
+        </div>
+
+        <div id="resultado" class="resultado">Teletipo emitiendo en directo. Pasa el cursor sobre la noticia para pausar la lectura.</div>
+    
+        <p class="ayuda">
+            <strong>Práctica para el Alumno:</strong> Completa la lógica en <strong>app.js</strong> siguiendo los comentarios guiados paso a paso.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

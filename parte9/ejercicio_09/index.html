@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 09 - Carrusel de Testimonios con Rotación Automática y Pausa al Hover</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 09 - Carrusel de Testimonios con Rotación Automática y Pausa al Hover</h1>
+        <p class="descripcion">Implementa el patrón rey de la web moderna: autoplay con setInterval(), pausa con mouseenter (clearInterval) y reanudación con mouseleave.</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+// Patrón universal de carruseles interactivos:
+carrusel.addEventListener('mouseenter', () => {
+    clearInterval(intervaloId); // Pausa al pasar el ratón
+});
+
+carrusel.addEventListener('mouseleave', () => {
+    iniciarAutoPlay(); // Reanuda al retirar el ratón
+});
+        </div>
+        
+        <p class="instruccion">Este carrusel rota automáticamente cada <strong>3 segundos</strong>. Pasa el ratón por encima del marco para <strong>pausar la rotación</strong> y retíralo para que continúe.</p>
+        
+        <div id="contenedorCarrusel" class="carrusel-marco">
+            <div class="carrusel-cabecera">
+                <span id="badgeCarrusel" class="badge-autoplay">AUTOPLAY ACTIVO</span>
+                <span id="contadorSlide" class="contador-slide">1 / 3</span>
+            </div>
+            <div id="cuerpoSlide" class="slide-tarjeta">
+                <div id="slideIcono" class="slide-avatar">🌟</div>
+                <blockquote id="slideCita" class="slide-cita">"JavaScript ha transformado por completo la forma en que construimos aplicaciones web interactivas."</blockquote>
+                <div id="slideAutor" class="slide-autor">— Carmen Gómez, Ingeniera Frontend</div>
+            </div>
+            <div class="carrusel-controles">
+                <button type="button" id="btnSlideAnterior" class="btn-secundario">◀ Anterior</button>
+                <button type="button" id="btnSlideSiguiente" class="btn-secundario">Siguiente ▶</button>
+            </div>
+        </div>
+
+        <div id="resultado" class="resultado">Autoplay en marcha (cambio cada 3000ms). Prueba a colocar el cursor encima del carrusel.</div>
+    
+        <p class="ayuda">
+            <strong>Ejemplo Teórico Guiado:</strong> Analiza el código de <strong>app.js</strong>, sigue las instrucciones y experimenta con la interfaz.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

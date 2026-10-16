@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11 - Herencia y Polimorfismo (extends, super y Method Overriding)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 11 - Herencia y Polimorfismo (extends, super y Method Overriding)</h1>
+        <p class="descripcion">Conecta clases padre e hijo con extends, domina la llamada obligatoria a super() antes de usar this y sobrescribe métodos para lograr polimorfismo.</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+class Empleado {
+    constructor(nombre, sueldo) {
+        this.nombre = nombre;
+        this.sueldo = sueldo;
+    }
+    trabajar() { return `${this.nombre} realiza tareas generales.`; }
+}
+
+class Desarrollador extends Empleado {
+    constructor(nombre, sueldo, lenguaje) {
+        super(nombre, sueldo); // ⚠️ OBLIGATORIO antes de 'this'
+        this.lenguaje = lenguaje;
+    }
+    trabajar() { // Method Overriding
+        return `${super.trabajar()} Específicamente programa en ${this.lenguaje}.`;
+    }
+}
+        </div>
+        
+        <p class="instruccion">Compara la clase base <code>Empleado</code> con la clase hija <code>Desarrollador</code>. Observa la invocación obligatoria a <code>super()</code> en el constructor y la sobrescritura de métodos (Method Overriding).</p>
+        
+        <div class="comparador-herencia">
+            <div class="tarjeta-herencia" id="tarjetaPadre">
+                <span class="badge-herencia">Clase Padre (Empleado)</span>
+                <h3>Elena Fuentes</h3>
+                <p class="texto-secundario">Sueldo Base: 2,500.00 €</p>
+                <div class="grupo-botones">
+                    <button type="button" id="btnTrabajarPadre" class="btn-secundario">💼 Ejecutar trabajar()</button>
+                    <button type="button" id="btnCobrarPadre" class="btn-exito">💶 Calcular Sueldo Neto</button>
+                </div>
+            </div>
+
+            <div class="tarjeta-herencia" id="tarjetaHija">
+                <span class="badge-herencia badge-hija">Clase Hija extends Empleado</span>
+                <h3>Marcos Gil</h3>
+                <p class="texto-secundario">Sueldo Base: 3,200.00 € | Lenguaje: <strong>TypeScript</strong></p>
+                <div class="grupo-botones">
+                    <button type="button" id="btnTrabajarHija" class="btn-acento">💻 Ejecutar trabajar() (Sobrescrito)</button>
+                    <button type="button" id="btnCobrarHija" class="btn-exito">💶 Calcular Sueldo Neto (+Bono)</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultado" class="resultado">Selecciona una acción para comprobar el comportamiento polimórfico.</div>
+    
+        <p class="ayuda">
+            <strong>Ejemplo Teórico Guiado:</strong> Analiza el código de <strong>app.js</strong>, sigue las instrucciones y experimenta con la interfaz.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

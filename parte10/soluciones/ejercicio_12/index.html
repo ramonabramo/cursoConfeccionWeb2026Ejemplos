@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12 - Jerarquía de Vehículos: Vehiculo y VehiculoElectrico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 12 - Jerarquía de Vehículos: Vehiculo y VehiculoElectrico</h1>
+        <p class="descripcion">Diseña la clase base Vehiculo y extiéndela con VehiculoElectrico, agregando autonomía por batería y sobrescribiendo el coste por kilómetro.</p>
+        <span class="tag-tipo tipo-practica">Práctica para el Alumno</span>
+        <div class="codigo-preview">
+// Reto para el alumno:
+// 1. class Vehiculo { constructor(marca, modelo, consumo100km) { ... } }
+// 2. class VehiculoElectrico extends Vehiculo {
+//       constructor(marca, modelo, kwh100km) {
+//          super(marca, modelo, ...);
+//          this.kwh100km = kwh100km;
+//       }
+//    }
+        </div>
+        
+        <p class="instruccion">Calcula el coste de un viaje de <strong>100 km</strong>. Compara un vehículo de gasolina convencional frente a un vehículo 100% eléctrico gracias a la herencia y sobrescritura de métodos.</p>
+        
+        <div class="comparador-herencia">
+            <div class="tarjeta-herencia">
+                <span class="badge-herencia">Vehículo Convencional (Gasolina)</span>
+                <h3>Volkswagen Golf 1.5 TSI</h3>
+                <p class="texto-secundario">Consumo: 6.5 L / 100 km (Gasolina: 1.65 €/L)</p>
+                <button type="button" id="btnCalcularGasolina" class="btn-secundario">⛽ Calcular Coste 100 km</button>
+            </div>
+
+            <div class="tarjeta-herencia">
+                <span class="badge-herencia badge-hija">VehiculoElectrico extends Vehiculo</span>
+                <h3>Tesla Model Y</h3>
+                <p class="texto-secundario">Consumo: 15 kWh / 100 km (Luz: 0.20 €/kWh)</p>
+                <button type="button" id="btnCalcularElectrico" class="btn-exito">⚡ Calcular Coste 100 km</button>
+            </div>
+        </div>
+
+        <div id="resultado" class="resultado">Pulsa un botón para calcular el coste comparativo del trayecto.</div>
+    
+        <p class="ayuda">
+            <strong>Práctica para el Alumno:</strong> Completa la lógica en <strong>app.js</strong> siguiendo los comentarios guiados paso a paso.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

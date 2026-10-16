@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 06 - Reloj Digital con Conmutador de Formato 12H / 24H (AM/PM)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 06 - Reloj Digital con Conmutador de Formato 12H / 24H (AM/PM)</h1>
+        <p class="descripcion">Construye un reloj digital continuo que permita al usuario alternar entre el formato de 24 horas y el de 12 horas con indicador AM o PM.</p>
+        <span class="tag-tipo tipo-practica">Práctica para el Alumno</span>
+        <div class="codigo-preview">
+// Reto para el alumno:
+// 1. Mantener el reloj actualizándose con setInterval cada 1000ms.
+// 2. Si esFormato12h es true:
+//    - horas = horas % 12 || 12;
+//    - sufijo = horasOriginales >= 12 ? 'PM' : 'AM';
+        </div>
+        
+        <p class="instruccion">Reloj con cambio dinámico de formato. Conmuta entre <strong>24 Horas</strong> (formato militar/europeo) y <strong>12 Horas con AM/PM</strong> (formato anglosajón).</p>
+        
+        <div class="reloj-marco">
+            <div id="indicadorModo" class="reloj-fecha">MODO: 24 HORAS</div>
+            <div class="reloj-pantalla">
+                <span id="relojDisplay12o24">12:00:00</span>
+                <span id="sufijoAmPm" class="sufijo-ampm"></span>
+            </div>
+        </div>
+
+        <div class="grupo-botones">
+            <button type="button" id="btnCambiarFormato" class="btn-acento">🔄 Cambiar a Formato 12 Horas (AM/PM)</button>
+        </div>
+
+        <div id="resultado" class="resultado">El reloj funciona en segundo plano mediante setInterval().</div>
+    
+        <p class="ayuda">
+            <strong>Práctica para el Alumno:</strong> Completa la lógica en <strong>app.js</strong> siguiendo los comentarios guiados paso a paso.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

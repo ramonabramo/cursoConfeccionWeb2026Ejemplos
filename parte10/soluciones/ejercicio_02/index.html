@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 02 - Ficha de Producto con Métodos y Cálculo de IVA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 02 - Ficha de Producto con Métodos y Cálculo de IVA</h1>
+        <p class="descripcion">Diseña un objeto literal que represente un artículo de inventario, con métodos para calcular el precio final con IVA y reducir unidades del stock.</p>
+        <span class="tag-tipo tipo-practica">Práctica para el Alumno</span>
+        <div class="codigo-preview">
+// Reto para el alumno:
+// 1. Objeto producto con nombre, precioBase, stock.
+// 2. Método calcularPrecioConIva(porcentaje).
+// 3. Método venderUnidades(cantidad).
+        </div>
+        
+        <p class="instruccion">Gestiona el inventario del producto mediante su objeto literal. Vende unidades comprobando que el stock sea suficiente y recalcula el precio con el IVA elegido.</p>
+        
+        <div class="tarjeta-objeto-wrapper">
+            <div class="tarjeta-objeto">
+                <div class="tarjeta-avatar">⌨️</div>
+                <h2 id="productoNombreVisual">Teclado Mecánico RGB</h2>
+                <div id="productoPrecioVisual" class="precio-destacado">79.99 €</div>
+                <p id="productoStockVisual" class="texto-secundario">Stock disponible: 15 uds</p>
+                <div id="productoIvaVisual" class="badge-rol">IVA aplicado: 21% (96.79 €)</div>
+            </div>
+
+            <div class="formulario-edicion">
+                <label for="inputCantidadVenta">Unidades a vender:</label>
+                <input type="number" id="inputCantidadVenta" value="1" min="1" max="50">
+
+                <label for="selectIva">Tipo de IVA (%):</label>
+                <select id="selectIva">
+                    <option value="21">General (21%)</option>
+                    <option value="10">Reducido (10%)</option>
+                    <option value="4">Superreducido (4%)</option>
+                </select>
+
+                <div class="grupo-botones">
+                    <button type="button" id="btnVender" class="btn-exito">🛒 Vender Unidades</button>
+                    <button type="button" id="btnRecalcularIva" class="btn-acento">💶 Calcular Precio Final</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultado" class="resultado">Ficha de producto lista para operar.</div>
+    
+        <p class="ayuda">
+            <strong>Práctica para el Alumno:</strong> Completa la lógica en <strong>app.js</strong> siguiendo los comentarios guiados paso a paso.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

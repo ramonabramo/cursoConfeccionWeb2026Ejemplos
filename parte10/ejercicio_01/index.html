@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 01 - Objetos Literales, Propiedades y Métodos (this)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 01 - Objetos Literales, Propiedades y Métodos (this)</h1>
+        <p class="descripcion">Aprende a estructurar datos asociativos clave-valor mediante sintaxis literal, accediendo con notación de punto y corchetes, e invocando métodos de instancia mediante this.</p>
+        <span class="tag-tipo tipo-teoria">Ejemplo Teórico Guiado</span>
+        <div class="codigo-preview">
+// Objeto literal con propiedades y método
+const usuario = {
+    nombre: 'Carlos Ruiz',
+    rol: 'Frontend Dev',
+    activo: true,
+    saludar() {
+        return `Hola, soy ${this.nombre} y trabajo como ${this.rol}.`;
+    }
+};
+
+// Notación de punto vs notación de corchetes
+console.log(usuario.nombre);     // 'Carlos Ruiz'
+console.log(usuario['rol']);      // 'Frontend Dev'
+        </div>
+        
+        <p class="instruccion">Modifica las propiedades del objeto literal <code>usuario</code> desde los controles. Observa cómo el método interno <code>obtenerFichaTecnica()</code> accede a sus datos usando <strong>this</strong>.</p>
+        
+        <div class="tarjeta-objeto-wrapper">
+            <div class="tarjeta-objeto">
+                <div class="tarjeta-avatar" id="avatarVisual">👨‍💻</div>
+                <h2 id="nombreVisual">Carlos Ruiz</h2>
+                <div id="rolVisual" class="badge-rol">Frontend Developer</div>
+                <p id="experienciaVisual" class="texto-secundario">4 años de experiencia</p>
+                <div id="estadoVisual" class="badge-estado badge-activo">DISPONIBLE</div>
+            </div>
+
+            <div class="formulario-edicion">
+                <label for="inputNombre">Nombre completo (notación punto: usuario.nombre):</label>
+                <input type="text" id="inputNombre" value="Carlos Ruiz">
+
+                <label for="selectRol">Rol profesional (notación corchetes: usuario['rol']):</label>
+                <select id="selectRol">
+                    <option value="Frontend Developer">Frontend Developer</option>
+                    <option value="Backend Developer">Backend Developer</option>
+                    <option value="Tech Lead">Tech Lead</option>
+                    <option value="UI/UX Designer">UI/UX Designer</option>
+                </select>
+
+                <label for="inputAnos">Años de experiencia:</label>
+                <input type="number" id="inputAnos" value="4" min="0" max="40">
+
+                <div class="grupo-botones">
+                    <button type="button" id="btnActualizar" class="btn-exito">💾 Actualizar Objeto</button>
+                    <button type="button" id="btnInvocarMetodo" class="btn-acento">📢 Invocar método saludar()</button>
+                    <button type="button" id="btnToggleEstado" class="btn-secundario">🔄 Conmutar Estado</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultado" class="resultado">Objeto inicializado en memoria. Pulsa una acción.</div>
+    
+        <p class="ayuda">
+            <strong>Ejemplo Teórico Guiado:</strong> Analiza el código de <strong>app.js</strong>, sigue las instrucciones y experimenta con la interfaz.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

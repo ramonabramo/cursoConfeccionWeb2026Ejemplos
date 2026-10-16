@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 04 - Temporizador de Cuenta Regresiva con Alarma (setInterval y clearInterval)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 04 - Temporizador de Cuenta Regresiva con Alarma (setInterval y clearInterval)</h1>
+        <p class="descripcion">Diseña un temporizador que descuente segundos periódicamente y se detenga automáticamente al llegar a cero con clearInterval().</p>
+        <span class="tag-tipo tipo-practica">Práctica para el Alumno</span>
+        <div class="codigo-preview">
+// Reto para el alumno:
+// 1. Leer los segundos iniciales de un input.
+// 2. Iniciar un setInterval cada 1000ms restando 1 segundo.
+// 3. Cuando segundos === 0, ejecutar clearInterval() y emitir alerta sonora/visual.
+        </div>
+        
+        <p class="instruccion">Introduce los segundos para el temporizador y pulsa <strong>Comenzar Cuenta Atrás</strong>. El intervalo debe autolimpiarse al llegar a cero.</p>
+        
+        <label for="inputSegundos">Segundos iniciales (1 a 60):</label>
+        <input type="number" id="inputSegundos" value="10" min="1" max="60">
+
+        <div class="temporizador-contenedor">
+            <div id="displayCuentaRegresiva" class="cuenta-regresiva-display">10</div>
+            <div id="subtextoCuenta" class="cuenta-regresiva-subtexto">segundos restantes</div>
+        </div>
+
+        <div class="grupo-botones">
+            <button type="button" id="btnComenzarCuenta" class="btn-acento">⏳ Comenzar Cuenta Atrás</button>
+            <button type="button" id="btnAbortarCuenta" class="btn-peligro">🛑 Abortar / Detener</button>
+        </div>
+
+        <div id="resultado" class="resultado">Configura los segundos y pulsa comenzar.</div>
+    
+        <p class="ayuda">
+            <strong>Práctica para el Alumno:</strong> Completa la lógica en <strong>app.js</strong> siguiendo los comentarios guiados paso a paso.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 02 - Simulador de Descarga Segura con Cancelación (clearTimeout)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 02 - Simulador de Descarga Segura con Cancelación (clearTimeout)</h1>
+        <p class="descripcion">Aplica setTimeout() y clearTimeout() para programar la descarga de un archivo con 5 segundos de espera y permitir al usuario revocarla antes de iniciarse.</p>
+        <span class="tag-tipo tipo-practica">Práctica para el Alumno</span>
+        <div class="codigo-preview">
+// Reto para el alumno:
+// 1. Programar un setTimeout de 5000ms al pulsar "Iniciar Descarga".
+// 2. Si el usuario pulsa "Cancelar Descarga", abortar el temporizador con clearTimeout().
+        </div>
+        
+        <p class="instruccion">Pulsa <strong>Iniciar Descarga</strong>. El sistema esperará <strong>5 segundos</strong> para validar el antivirus antes de entregar el archivo. Puedes pulsar <strong>Cancelar Descarga</strong> en cualquier momento.</p>
+        
+        <div class="grupo-botones">
+            <button type="button" id="btnDescargar" class="btn-acento">📥 Iniciar Descarga Segura (PDF)</button>
+            <button type="button" id="btnCancelarDescarga" class="btn-secundario" disabled>⛔ Cancelar Descarga</button>
+        </div>
+
+        <div id="cajaEstadoDescarga" class="tarjeta-info">
+            <div id="iconoEstado" class="icono-grande">📁</div>
+            <div id="textoEstadoDescarga" class="texto-destacado">Listo para iniciar la descarga.</div>
+        </div>
+
+        <div id="resultado" class="resultado">Pulsa "Iniciar Descarga Segura" para comenzar.</div>
+    
+        <p class="ayuda">
+            <strong>Práctica para el Alumno:</strong> Completa la lógica en <strong>app.js</strong> siguiendo los comentarios guiados paso a paso.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
