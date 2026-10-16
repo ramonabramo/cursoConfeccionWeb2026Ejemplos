@@ -1,0 +1,248 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #eef4ff, #f8fbff);
+    color: #263238;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 650px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 12px 35px rgba(31, 68, 120, 0.14);
+    border: 1px solid #dce6f3;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #174a7c;
+    font-size: 1.8rem;
+}
+
+.descripcion {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #5b6773;
+    line-height: 1.6;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    margin-top: 8px;
+    font-weight: bold;
+    color: #334e68;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border: 1px solid #bcccdc;
+    border-radius: 9px;
+    background-color: #fbfdff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: #2f80ed;
+    box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.12);
+}
+
+button {
+    margin-top: 16px;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 9px;
+    background-color: #1769aa;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s, background-color 0.2s;
+}
+
+button:hover {
+    background-color: #12588f;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.grupo-botones {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.grupo-botones button {
+    margin-top: 0;
+    flex: 1;
+}
+
+.btn-secundario {
+    background-color: #546e7a;
+}
+
+.btn-secundario:hover {
+    background-color: #37474f;
+}
+
+.btn-peligro {
+    background-color: #d32f2f;
+}
+
+.btn-peligro:hover {
+    background-color: #b71c1c;
+}
+
+.panel-botones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.panel-botones button {
+    margin-top: 0;
+}
+
+.zona-interactiva {
+    width: 100%;
+    height: 160px;
+    background-color: #f0f6ff;
+    border: 2px dashed #2f80ed;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: crosshair;
+    font-weight: bold;
+    color: #174a7c;
+    user-select: none;
+    transition: background-color 0.2s, border-color 0.2s;
+    text-align: center;
+    padding: 15px;
+}
+
+.zona-interactiva:hover {
+    background-color: #e3effd;
+    border-color: #12588f;
+}
+
+.lista-avisos {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lista-avisos li {
+    background: #fbfdff;
+    border: 1px solid #dce6f3;
+    padding: 12px 16px;
+    border-radius: 9px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #263238;
+}
+
+.btn-borrar {
+    margin-top: 0;
+    padding: 7px 14px;
+    font-size: 0.85rem;
+    background-color: #d32f2f;
+    border-radius: 7px;
+}
+
+.btn-borrar:hover {
+    background-color: #b71c1c;
+}
+
+.resultado {
+    min-height: 58px;
+    margin-top: 24px;
+    padding: 16px 18px;
+    border-left: 5px solid #2f80ed;
+    border-radius: 9px;
+    background-color: #edf6ff;
+    color: #183b56;
+    font-weight: bold;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.ayuda {
+    margin-top: 20px;
+    padding: 12px 14px;
+    border-radius: 9px;
+    background-color: #f5f8fc;
+    color: #607080;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.tarjeta-demo {
+    background-color: #f8fbff;
+    border: 2px solid #b8d5f8;
+    border-radius: 14px;
+    padding: 24px;
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
+    user-select: none;
+}
+
+.tarjeta-demo:hover {
+    transform: translateY(-2px);
+    border-color: #2f80ed;
+    box-shadow: 0 8px 20px rgba(47, 128, 237, 0.12);
+}
+
+.badge {
+    display: inline-block;
+    background-color: #2f80ed;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.tarjeta-titulo {
+    margin: 6px 0 10px 0;
+    color: #174a7c;
+    font-size: 1.3rem;
+}
+
+.tarjeta-texto {
+    margin: 0;
+    color: #486581;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}

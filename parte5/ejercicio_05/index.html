@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 - Modificar un elemento por su índice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 5 - Modificar un elemento por su índice</h1>
+        <p class="descripcion">Actualiza la puntuación de un jugador modificando directamente su posición en el array.</p>
+        <form id="formPuntuacion">
+            <label for="inputPosicion">Posición a modificar (índice de 0 a 4):</label>
+            <input type="number" id="inputPosicion" min="0" max="4" placeholder="Índice del 0 al 4" required>
+            
+            <label for="inputValor">Nueva puntuación:</label>
+            <input type="number" id="inputValor" placeholder="Ej: 95" required>
+
+            <button type="submit" id="btnActualizar">Actualizar Puntuación</button>
+        </form>
+        <div id="resultado" class="resultado">Puntuaciones iniciales: [85, 92, 78, 64, 90]</div>
+        <p class="ayuda">
+            Completa el archivo <strong>app.js</strong> siguiendo los pasos indicados en sus comentarios.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

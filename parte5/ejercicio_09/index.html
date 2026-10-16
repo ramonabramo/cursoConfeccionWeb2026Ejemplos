@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9 - Unir y formatear elementos con join()</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 9 - Unir y formatear elementos con join()</h1>
+        <p class="descripcion">Transforma los elementos de un array de etiquetas en un texto continuo usando diferentes separadores con join().</p>
+        <form id="formEtiquetas">
+            <label for="inputNuevaEtiqueta">Añadir nueva etiqueta (opcional):</label>
+            <input type="text" id="inputNuevaEtiqueta" placeholder="Ej: react, nodejs, python...">
+
+            <label for="selectorSeparador">Elige cómo separar las etiquetas:</label>
+            <select id="selectorSeparador">
+                <option value=" - ">Guion (" - ")</option>
+                <option value=" | ">Barra (" | ")</option>
+                <option value=", ">Coma (", ")</option>
+                <option value=" / ">Barra inclinada (" / ")</option>
+            </select>
+
+            <button type="submit" id="btnFormatear">Formatear Etiquetas</button>
+        </form>
+        <div id="resultado" class="resultado">Etiquetas actuales: html - css - javascript - frontend</div>
+        <p class="ayuda">
+            Completa el archivo <strong>app.js</strong> siguiendo los pasos indicados en sus comentarios.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

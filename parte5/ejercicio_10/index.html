@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10 - Reto integrador: Gestor de catálogo en array</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 10 - Reto integrador: Gestor de catálogo en array</h1>
+        <p class="descripcion">Gestiona un catálogo completo de artículos aplicando push(), includes(), indexOf() y splice().</p>
+        <form id="formCatalogo">
+            <label for="inputArticulo">Nombre del producto:</label>
+            <input type="text" id="inputArticulo" placeholder="Escribe un producto...">
+
+            <div class="grupo-botones">
+                <button type="button" id="btnAgregar" class="btn-exito">Añadir (push)</button>
+                <button type="button" id="btnBuscar" class="btn-secundario">Buscar (indexOf)</button>
+                <button type="button" id="btnEliminar" class="btn-peligro">Eliminar (splice)</button>
+                <button type="button" id="btnMostrar">Ver Catálogo (join)</button>
+            </div>
+        </form>
+        <div id="resultado" class="resultado">Catálogo inicial: [manzana, pera, platano] (Total: 3 productos)</div>
+        <p class="ayuda">
+            Completa el archivo <strong>app.js</strong> siguiendo los pasos indicados en sus comentarios.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

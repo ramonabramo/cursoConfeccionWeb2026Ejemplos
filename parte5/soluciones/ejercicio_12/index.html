@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12 - forEach con Elemento e Índice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 12 - forEach con Elemento e Índice</h1>
+        <p class="descripcion">Genera un ranking numerado de películas utilizando tanto el elemento como su índice numérico dentro de forEach().</p>
+        <form id="formPelicula">
+            <label for="inputPelicula">Añadir película a la lista:</label>
+            <input type="text" id="inputPelicula" placeholder="Ej: Titanic, Gladiator...">
+            <div class="grupo-botones">
+                <button type="submit" id="btnAgregar" class="btn-exito">Añadir al Final</button>
+                <button type="button" id="btnRanking">Generar Ranking (forEach)</button>
+            </div>
+        </form>
+        <div id="resultado" class="resultado" style="white-space: pre-line;">Pulsa "Generar Ranking" para ver la lista numerada...</div>
+        <p class="ayuda">
+            Completa el archivo <strong>app.js</strong> siguiendo los pasos indicados en sus comentarios.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

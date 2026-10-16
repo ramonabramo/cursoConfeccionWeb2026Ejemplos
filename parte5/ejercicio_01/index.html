@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Creación y acceso por índice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 1 - Creación y acceso por índice</h1>
+        <p class="descripcion">Consulta los elementos de un array de días de la semana introduciendo su posición numérica (índice de 0 a 6).</p>
+        <form id="formulario">
+            <label for="inputIndice">Introduce un índice numérico (0 al 6):</label>
+            <input type="number" id="inputIndice" min="0" max="6" placeholder="Ej: 0 para el primer día" required>
+            <button type="submit" id="btnConsultar">Consultar Elemento</button>
+        </form>
+        <div id="resultado" class="resultado">Introduce un índice para consultar el elemento...</div>
+        <p class="ayuda">
+            Completa el archivo <strong>app.js</strong> siguiendo los pasos indicados en sus comentarios.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

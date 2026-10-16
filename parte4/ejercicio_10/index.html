@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10 - Reto integrador con el objeto event</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 10 - Reto integrador con el objeto event</h1>
+        <p class="descripcion">Añade avisos a la lista y utiliza e.target para eliminar únicamente el aviso cuyo botón 'Borrar' sea pulsado.</p>
+        <form id="formAviso">
+            <label for="inputAviso">Nuevo aviso o recordatorio:</label>
+            <input type="text" id="inputAviso" placeholder="Escribe un recordatorio...">
+            <button type="submit" id="btnAgregar">Añadir Aviso</button>
+        </form>
+        <ul id="listaAvisos" class="lista-avisos"></ul>
+        <div id="resultado" class="resultado">Añade tu primer aviso a la lista...</div>
+        <p class="ayuda">
+            Completa el archivo <strong>app.js</strong> siguiendo los pasos indicados en sus comentarios.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

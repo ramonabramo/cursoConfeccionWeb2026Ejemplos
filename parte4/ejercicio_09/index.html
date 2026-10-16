@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9 - Delegación de eventos con e.target</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 9 - Delegación de eventos con e.target</h1>
+        <p class="descripcion">Elige un color en la paleta. Un único escuchador en el contenedor detecta qué botón has pulsado gracias a e.target.</p>
+        <label>Selecciona un color de la paleta:</label>
+        <div id="paletaColores" class="panel-botones">
+            <button type="button" data-color="Rojo">Color Rojo</button>
+            <button type="button" data-color="Verde">Color Verde</button>
+            <button type="button" data-color="Azul">Color Azul</button>
+            <button type="button" data-color="Amarillo">Color Amarillo</button>
+        </div>
+        <div id="resultado" class="resultado">Ningún color seleccionado todavía...</div>
+        <p class="ayuda">
+            Completa el archivo <strong>app.js</strong> siguiendo los pasos indicados en sus comentarios.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

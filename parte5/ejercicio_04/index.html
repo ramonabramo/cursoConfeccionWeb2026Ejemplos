@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 - Añadir y quitar al inicio con unshift() y shift()</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 4 - Añadir y quitar al inicio con unshift() y shift()</h1>
+        <p class="descripcion">Gestiona una cola de clientes añadiendo urgencias al principio (unshift) o atendiendo al primer cliente (shift).</p>
+        <form id="formCola">
+            <label for="inputCliente">Nombre del cliente:</label>
+            <input type="text" id="inputCliente" placeholder="Nombre para añadir como prioritario...">
+            <div class="grupo-botones">
+                <button type="button" id="btnPrioritario" class="btn-exito">Añadir al Principio (unshift)</button>
+                <button type="button" id="btnAtender" class="btn-secundario">Atender Primero (shift)</button>
+            </div>
+        </form>
+        <div id="resultado" class="resultado">Cola inicial: [Carlos, Ana, Beatriz] (Total: 3 clientes)</div>
+        <p class="ayuda">
+            Completa el archivo <strong>app.js</strong> siguiendo los pasos indicados en sus comentarios.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

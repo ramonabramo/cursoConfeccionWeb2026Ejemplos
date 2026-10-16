@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13 - Acumular valores numéricos con forEach</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="contenedor">
+        <h1>Ejercicio 13 - Acumular valores numéricos con forEach</h1>
+        <p class="descripcion">Calcula el importe total y la media de una cesta de la compra sumando los valores del array con forEach().</p>
+        <form id="formPrecio">
+            <label for="inputPrecio">Añadir precio de producto (€):</label>
+            <input type="number" id="inputPrecio" step="0.01" min="0.01" placeholder="Ej: 19.99">
+            <div class="grupo-botones">
+                <button type="submit" id="btnAgregar" class="btn-exito">Añadir Precio</button>
+                <button type="button" id="btnCalcular">Calcular Total y Media (forEach)</button>
+            </div>
+        </form>
+        <div id="resultado" class="resultado" style="white-space: pre-line;">Precios actuales: [12.50, 4.99, 25.00, 8.75, 15.30]</div>
+        <p class="ayuda">
+            Completa el archivo <strong>app.js</strong> siguiendo los pasos indicados en sus comentarios.
+        </p>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
