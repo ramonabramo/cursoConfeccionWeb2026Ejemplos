@@ -83,7 +83,7 @@ if (altura >= 120) {
 | `>=` | Mayor o igual que | `5 >= 5` | `true` |
 | `<=` | Menor o igual que | `4 <= 5` | `true` |
 | `&&` | Operador AND (ambas condiciones deben ser `true`) | `edad >= 18 && carnet === true` | `true` solo si cumple ambas |
-| `||` | Operador OR (al menos una condición debe ser `true`) | `dia === 'Sábado' || dia === 'Domingo'` | `true` si es fin de semana |
+| <code>&#124;&#124;</code> | Operador OR (al menos una condición debe ser `true`) | <code>dia === 'Sábado' &#124;&#124; dia === 'Domingo'</code> | `true` si es fin de semana |
 | `!` | Operador NOT (invierte el valor de verdad) | `!esSocio` | `true` si `esSocio` es `false` |
 
 ---
