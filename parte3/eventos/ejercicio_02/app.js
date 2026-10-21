@@ -58,14 +58,32 @@
 
 // declaracion de variables y constantes
 
-// constantes al DOM
-
 // gestion de eventos
 // constantes al DOM que queremos escuchar
 // apuntar al botón #btnComprobar
 
+
 // colocar escuchadores de eventos
 // escuchar el evento click del botón
+
+    // variables y constantes locales
+    
+
+    // constantes al DOM
+    
+
+    // entradas
+    
+
+    // procesamiento
+    
+
+    
+
+    // salidas
+    
+
+
 
 // entradas
 

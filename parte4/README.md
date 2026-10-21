@@ -207,22 +207,30 @@ En el desarrollo real, el criterio para elegir entre `const` y `let` no depende 
 ---
 
 ### Ejercicio 02: Identificar el elemento con `e.target`
-* **Archivos:** [`ejercicio_02/app.js`](./ejercicio_02/app.js) \| [Solución](soluciones/ejercicio_02/app.js)
+* **Archivos:** [`ejercicio_02/app.js`](./ejercicio_02/app.js) (`app_v2.js`, `app_v3.js`) \| [Solución](soluciones/ejercicio_02/app.js) (`soluciones/ejercicio_02/app_v2.js`, `soluciones/ejercicio_02/app_v3.js`)
 * **Objetivo:** Comprender que `e.target` es el elemento HTML exacto sobre el que se hizo la interacción.
 * **Enunciado:**
   Tenemos dos botones: `#btnAceptar` ("Aceptar Solicitud") y `#btnCancelar` ("Cancelar Solicitud"). Al pulsar cualquiera de ellos:
   1. Lee el ID del botón pulsado mediante `e.target.id`.
   2. Lee el texto del botón mediante `e.target.textContent`.
-  3. Usa un `if / else if` para comprobar qué botón se pulsó:
+  3. Muestra un mensaje según el botón pulsado:
      - Si es `'btnAceptar'`: añadir `"Acción: Solicitud confirmada con éxito."`.
      - Si es `'btnCancelar'`: añadir `"Acción: Operación cancelada por el usuario."`.
   4. Muestra la información completa en `#resultado`.
-* **Pasos a realizar:**
-  1. Crear constantes al DOM para `#btnAceptar`, `#btnCancelar` y `#resultado`.
-  2. Crear la función `gestionarClick(e)`.
-  3. Obtener `e.target.id` y `e.target.textContent`.
-  4. Evaluar con `if` según el id y componer el texto final.
-  5. Asociar la función al `'click'` de ambos botones.
+
+> [!NOTE]
+> **Tres enfoques didácticos disponibles para este ejercicio:**
+>
+> 1. **Versión 1 (Recomendada en esta unidad - Sin funciones declaradas):**
+>    Se colocan dos escuchadores independientes `addEventListener('click', function (e) { ... })` con funciones anónimas directas en `#btnAceptar` y `#btnCancelar`. Mantiene la progresión curricular sin adelantarse a la Parte 8.
+>
+> 2. **Versión 2 (Enfoque de reutilización - Con función declarada):**
+>    Se define una única función `function gestionarClick(e) { ... }` y se asocia a ambos botones (`btnAceptar.addEventListener('click', gestionarClick)` y `btnCancelar.addEventListener('click', gestionarClick)`). Permite entender la ventaja de reutilizar código apoyándose en `e.target.id` para distinguir quién disparó el suceso.
+>
+> 3. **Versión 3 (Delegación de eventos en el contenedor padre):**
+>    Se asocia un único escuchador al contenedor `.grupo-botones`. Al hacer clic, `e.target.id` nos indica qué elemento hijo recibió el clic y, mediante un `if / else if`, seleccionamos y procesamos la acción correspondiente.
+>
+> Los tres enfoques se encuentran incluidos y documentados tanto en los archivos `app.js` principales como en los archivos complementarios `app_v2.js` y `app_v3.js`.
 
 ---
 
