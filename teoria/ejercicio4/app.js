@@ -15,13 +15,12 @@ function mostrar(eventito) {
 
 
 // 3 parrafos con escuchador
-const parrafo1 = document.querySelector("#parrafo1");
-const parrafo2 = document.querySelector("#parrafo2");
-const parrafo3 = document.querySelector("#parrafo3");
+const parrafos = document.querySelectorAll('p');
 
 
-parrafo1.addEventListener("click", mostrar);
-parrafo2.addEventListener("click", mostrar);
-parrafo3.addEventListener("click", mostrar);
+parrafos[0].addEventListener("click", mostrar);
+parrafos[1].addEventListener("click", mostrar);
+parrafos[2].addEventListener("click", mostrar);
+
 
 
