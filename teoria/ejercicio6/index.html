@@ -5,20 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Numeros</title>
+   
 </head>
 
 <body>
-    <div>
+    <div class="tarjeta">
         <form>
-            <div>
+            <div class="grupo-control">
                 <label for="numero">Numero</label>
                 <input type="number" id="numero">
             </div>
-            <div>
+            <div class="grupo-control">
                 <button type="button">Añadir</button>
             </div>
         </form>
+        <div id="resultados" class="oculto">
+            <p>Números guardados: <span id="lista-numeros"></span></p>
+            <p><strong>Suma Total: <span id="suma-total">0</span></strong></p>
+        </div>
     </div>
 </body>
 <script src="app.js"></script>
+
 </html>
