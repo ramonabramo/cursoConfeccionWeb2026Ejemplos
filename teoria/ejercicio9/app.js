@@ -11,3 +11,4 @@
       del array para decirle cuántos pisos (elementos) tiene su hamburguesa.
    ============================================================================== */
 
+const hamburguesa = ['🍞 Pan '];

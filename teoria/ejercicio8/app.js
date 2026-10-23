@@ -1,21 +1,27 @@
 // ==========================================
-// 1. VARIABLES GLOBALES
+// 1. FUNCIONES DE PROCESAMIENTO Y SALIDAS
+// ==========================================
+
+
+// ==========================================
+// 2. VARIABLES GLOBALES
 // ==========================================
 // Nuestro array de 1 dimensión (el tren)
 const trenMonstruoso = ["👾", "👻", "👽"];
 
 // ==========================================
-// 2. REFERENCIAS AL DOM
+// 3. REFERENCIAS AL DOM
 // ==========================================
 const inputMonstruo = document.querySelector("#inputMonstruo");
 const btnSubir = document.querySelector("#btnSubir");
 const btnContar = document.querySelector("#btnContar");
 const divResultado = document.querySelector("#resultado");
 
+
 // ==========================================
-// 3. FUNCIONES DE PROCESAMIENTO Y SALIDAS
+// 4. EVENTOS (LISTENERS)
 // ==========================================
-function subirPasajero() {
+btnSubir.addEventListener("click", function () {
     // A. Entradas
     const nuevoPasajero = inputMonstruo.value;
 
@@ -37,9 +43,9 @@ function subirPasajero() {
 
     // C. Salida
     divResultado.textContent = mensajeSalida;
-}
+});
 
-function contarVagones() {
+btnContar.addEventListener("click", function () {
     // B. Procesamiento
     // Usamos .length para saber cuántos elementos hay en total
     const totalPasajeros = trenMonstruoso.length;
@@ -47,10 +53,4 @@ function contarVagones() {
 
     // C. Salida
     divResultado.textContent = mensajeSalida;
-}
-
-// ==========================================
-// 4. EVENTOS (LISTENERS)
-// ==========================================
-btnSubir.addEventListener("click", subirPasajero);
-btnContar.addEventListener("click", contarVagones);
+});
