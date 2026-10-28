@@ -21,13 +21,13 @@ const destello = "✨";
 
 // constantes al DOM
 // TAREA: Captura el input del año de inicio (inputInicio).
-const inputInicio = document.querySelector("#inputInicio");
+
 // TAREA: Captura el input del año de fin (inputFin).
-const inputFin = document.querySelector("#inputFin");
+
 // TAREA: Captura el botón de viajar (btnViajar).
-const btnViajar = document.querySelector("#btnViajar");
+
 // TAREA: Captura el div de la pantalla (pantallaViaje).
-const pantallaViaje = document.querySelector("#pantallaViaje");
+
 
 // eventos
 // constantes para apuntar a los elementos del dom que quiero controlar los eventos
@@ -38,18 +38,18 @@ btnViajar.addEventListener("click", () => {
 
     // constantes y variables locales
     // TAREA: Crea tu variable acumuladora inicializada vacía (ej: let bitacora = "";).
-    let bitacora = "";
+
     // TAREA: Crea una variable para el mensaje final.
-    let mensajeFinal = "";
+
 
     // constantes al DOM
     // (Vacío en este caso porque ya hemos capturado todo globalmente)
 
     // entradas
     // TAREA: Lee el valor de inputInicio y conviértelo a número entero con Number() o parseInt().
-    const inicio = Number(inputInicio.value);
+
     // TAREA: Lee el valor de inputFin y conviértelo a número entero con Number() o parseInt().
-    const fin = Number(inputFin.value);
+
 
     // procesamiento
     // TAREA: Crea un 'if' para comprobar que el año de inicio es MENOR O IGUAL (<=) al año de fin.
@@ -62,20 +62,20 @@ btnViajar.addEventListener("click", () => {
         for (let i = inicio; i <= fin; i++) {
 
             // TAREA: En cada vuelta, concatena a la bitácora el año por el que pasas.
-            bitacora += `${i} ${destello} `;
+
         }
-        mensajeFinal = bitacora;
+
 
     } else {
         // TAREA: Crea el 'else' del 'if'. Si han puesto un inicio menor que el fin, advierte de la paradoja temporal.
         // en caso de que el año de inicio sea mayor que el de fin
         // almaceno en mensaje Final el mensaje correspondiente
         // ¡Cuidado con las paradojas temporales!
-        mensajeFinal = "La paradoja temporal ha ocurrido";
+
     }
 
     // salidas
     // TAREA: Vuelca de golpe todo el registro temporal (tu variable con el mensaje final) en la propiedad textContent de la pantalla.
-    pantallaViaje.textContent = mensajeFinal;
+
 
 });

@@ -1,0 +1,17 @@
+table{
+    margin:10px auto;
+    width: 50%;
+
+}
+
+tr,td{
+    border:1px solid black;
+    height:50px;
+    line-height:50px;
+}
+
+td{
+    width: 50px;
+    vertical-align: middle;
+    text-align: center;
+}
