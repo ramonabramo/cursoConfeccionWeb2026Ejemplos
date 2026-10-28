@@ -1,0 +1,127 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.contenedor {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 620px;
+    width: 90%;
+    border-top: 6px solid #27ae60;
+}
+
+h1 {
+    color: #27ae60;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.descripcion {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.panel-array {
+    background-color: #f4f6f7;
+    border: 2px dashed #bdc3c7;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.etiqueta-array {
+    display: block;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.panel-array code {
+    color: #2c3e50;
+    font-size: 1.05em;
+    font-weight: bold;
+}
+
+.panel-botones {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.btn {
+    border: none;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+    flex: 1 1 auto;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-verde {
+    background-color: #27ae60;
+}
+.btn-verde:hover {
+    background-color: #219150;
+}
+
+.btn-azul {
+    background-color: #2980b9;
+}
+.btn-azul:hover {
+    background-color: #1f618d;
+}
+
+.btn-gris {
+    background-color: #7f8c8d;
+}
+.btn-gris:hover {
+    background-color: #616a6b;
+}
+
+.salida {
+    margin-top: 15px;
+    background-color: #2c3e50;
+    padding: 20px;
+    border-radius: 8px;
+    color: #f1c40f;
+    font-size: 1.15em;
+    font-weight: bold;
+    min-height: 55px;
+    border-left: 6px solid #27ae60;
+    text-align: left;
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+.firma {
+    margin-top: 25px;
+    font-size: 0.9em;
+    color: #95a5a6;
+    font-style: italic;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
