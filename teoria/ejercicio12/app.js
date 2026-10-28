@@ -10,5 +10,8 @@
    2. Añadir el addEventListener a cada botón
    3. En la función del evento, capturar qué botón exacto se pulsó usando el chivato 
       (evento.target.textContent), meterlo en el array con .push() y mostrarlo.
+
+      El mensaje a mostrar seria
+      🛒 Carrito (5 productos): 🍎 Manzana, 🍕 Pizza, 🍦 Helado, 🥩 Chuletón, 🥑 Aguacate
    ============================================================================== */
 
