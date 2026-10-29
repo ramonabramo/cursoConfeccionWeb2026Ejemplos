@@ -38,16 +38,14 @@ const pantallaCarrito = document.querySelector("#pantallaCarrito");
 const estanteria = document.querySelector(".estanteria");
 
 // 3. Asignamos UN SOLO escuchador al contenedor padre (Delegación de eventos)
-estanteria.addEventListener("click", function (evento) {
-    // Comprobamos si el clic se ha realizado sobre un botón de producto
-    if (evento.target.classList.contains("btn-producto")) {
-        // Capturamos el texto del botón pulsado
-        const producto = evento.target.textContent;
 
-        // Añadimos el producto al array del carrito
-        carrito.push(producto);
+estanteria.addEventListener("click", function (e) {
+   const elementoPulsado = e.target;
+   // if (elementoPulsado.tagName == 'BUTTON') {
+   if (elementoPulsado.classList.contains("btn-producto")) {
+      const producto = elementoPulsado.textContent;
+      carrito.push(producto);
+      pantallaCarrito.textContent = `🛒 Carrito (${carrito.length} productos): ${carrito.join(", ")}`;
+   }
 
-        // Mostramos el carrito actualizado en la pantalla
-        pantallaCarrito.textContent = `🛒 Carrito (${carrito.length} productos): ${carrito.join(", ")}`;
-    }
 });
