@@ -15,3 +15,20 @@
       🛒 Carrito (5 productos): 🍎 Manzana, 🍕 Pizza, 🍦 Helado, 🥩 Chuletón, 🥑 Aguacate
    ============================================================================== */
 
+const carrito = [];
+
+const botones = document.querySelectorAll(".btn-producto");
+
+for (let boton = 0; boton < botones.length; boton++) {
+   botones[boton].addEventListener("click", function (e) {
+      const pantallaCarrito = document.querySelector("#pantallaCarrito");
+      const botonPulsado = e.target;
+      const textoBoton = botonPulsado.textContent;
+
+      carrito.push(textoBoton);
+
+      pantallaCarrito.innerHTML = `🛒 Carrito (${carrito.length} productos): <br> ${carrito.join('<br>')}`;
+   });
+
+}
+

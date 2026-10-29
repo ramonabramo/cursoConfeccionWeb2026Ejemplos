@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ Studio: Master Playlist 🎧 (Solución Completa)</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="estudio-contenedor">
+        <!-- Cabecera -->
+        <header class="estudio-header">
+            <span class="badge-en-vivo">● EN VIVO</span>
+            <h1>🎧 DJ Studio: Master Playlist (Solución)</h1>
+            <p class="subtitulo-app">Taller de repaso: Arrays, métodos de adición y eliminación, búsqueda con indexOf/includes, escuchadores múltiples y funciones declaradas.</p>
+        </header>
+
+        <!-- Mesa de mezclas: Colección de pistas (Varios elementos con listeners) -->
+        <section class="seccion-estudio">
+            <h2 class="titulo-seccion">🎛️ Mesa de Sonido (Pistas disponibles)</h2>
+            <div class="rejilla-pistas">
+                <button class="btn-tema" data-tema="🎸 Rock Clásico">🎸 Rock Clásico</button>
+                <button class="btn-tema" data-tema="🎷 Smooth Jazz">🎷 Smooth Jazz</button>
+                <button class="btn-tema" data-tema="🎹 Lo-Fi Piano">🎹 Lo-Fi Piano</button>
+                <button class="btn-tema" data-tema="🥁 Hip-Hop 90s">🥁 Hip-Hop 90s</button>
+                <button class="btn-tema" data-tema="🎧 Techno Rave">🎧 Techno Rave</button>
+                <button class="btn-tema" data-tema="🎺 Funk Groovy">🎺 Funk Groovy</button>
+            </div>
+        </section>
+
+        <!-- Panel de control: Búsqueda y pista personalizada -->
+        <section class="seccion-estudio">
+            <h2 class="titulo-seccion">🔍 Buscador y Pistas Personalizadas</h2>
+            <div class="panel-formulario">
+                <input type="text" id="inputPista" placeholder="Escribe el nombre o busca una pista..." autocomplete="off">
+                <div class="grupo-botones-form">
+                    <button id="btnBuscar" class="btn-accion btn-buscar">🔎 Buscar Pista</button>
+                    <button id="btnAgregarInicio" class="btn-accion btn-secundario">⏮️ Añadir al Inicio (.unshift)</button>
+                    <button id="btnAgregarFinal" class="btn-accion btn-primario">⏭️ Añadir al Final (.push)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visualizador de la Playlist en directo -->
+        <section class="seccion-estudio">
+            <div class="cabecera-playlist">
+                <h2 class="titulo-seccion">📋 Cola de Reproducción en Vivo</h2>
+                <span id="badgeContadorPistas" class="contador-pistas">0 pistas cargadas</span>
+            </div>
+            
+            <div id="pantallaPlaylist" class="pantalla-playlist vacia">
+                🎵 Tu playlist está vacía. Añade pistas desde la mesa de sonido o escribe una personalizada.
+            </div>
+
+            <!-- Panel de Notificaciones y Feedback -->
+            <div id="pantallaMensaje" class="pantalla-mensaje">
+                💡 Consejo: Selecciona una pista o escribe en el buscador para empezar tu sesión.
+            </div>
+
+            <!-- Botones de Gestión y Eliminación -->
+            <div class="panel-acciones-playlist">
+                <button id="btnQuitarPrimero" class="btn-control btn-aviso">⏪ Quitar Primera (.shift)</button>
+                <button id="btnQuitarUltimo" class="btn-control btn-aviso">⏩ Quitar Última (.pop)</button>
+                <button id="btnVaciar" class="btn-control btn-peligro">🗑️ Vaciar Playlist</button>
+            </div>
+        </section>
+
+        <!-- Firma de autoría -->
+        <footer class="firma-estudio">
+            Alpe Formación - Realizado por Ramón Abramo
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

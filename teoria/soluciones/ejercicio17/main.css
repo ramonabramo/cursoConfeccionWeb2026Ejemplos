@@ -1,0 +1,170 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 25px 0;
+}
+
+.contenedor {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 680px;
+    width: 90%;
+    border-top: 6px solid #4f46e5;
+}
+
+h1 {
+    color: #4f46e5;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.descripcion {
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.descripcion code {
+    background-color: #e0e7ff;
+    color: #3730a3;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+}
+
+.subtitulo {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin: 20px 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Pantalla de escritura */
+.pantalla {
+    min-height: 120px;
+    background-color: #f8fafc;
+    border: 2px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 16px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 1.15rem;
+    color: #1e293b;
+    text-align: left;
+    white-space: pre-wrap;
+    word-break: break-word;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    line-height: 1.6;
+}
+
+.pantalla.vacia {
+    color: #94a3b8;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Panel de estado y badges */
+.panel-estado {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0 20px 0;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.badge-inactivo {
+    background-color: #e2e8f0;
+    color: #475569;
+}
+
+.badge-activo {
+    background-color: #dcfce7;
+    color: #15803d;
+    border: 1px solid #86efac;
+}
+
+.badge-info {
+    background-color: #e0e7ff;
+    color: #3730a3;
+}
+
+/* Panel de controles y botones */
+.panel-controles {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 15px 0 25px 0;
+}
+
+.btn-accion {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+.btn-accion:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-azul {
+    background-color: #4f46e5;
+    color: #ffffff;
+}
+
+.btn-azul:hover {
+    background-color: #4338ca;
+}
+
+.btn-azul.activo {
+    background-color: #16a34a;
+}
+
+.btn-azul.activo:hover {
+    background-color: #15803d;
+}
+
+.btn-rojo {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+.btn-rojo:hover {
+    background-color: #dc2626;
+}
+
+/* Firma */
+.firma {
+    margin-top: 25px;
+    font-size: 0.85em;
+    color: #95a5a6;
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 15px;
+}
