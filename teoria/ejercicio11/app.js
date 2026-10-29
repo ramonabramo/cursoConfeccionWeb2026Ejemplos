@@ -27,20 +27,3 @@ for (let i = 0; i < parrafos.length; i++) {
 }
 
 // coloco los escuchadores a las celdas
-for (let celda = 0; celda < celdas.length; celda++) {
-    celdas[celda].addEventListener("click", function (e) {
-
-        const pantalla = document.querySelector("#pantalla");
-
-        const celdaDondePincho = e.target;
-        const contenidoCelda = celdaDondePincho.textContent;
-
-        pantalla.textContent += contenidoCelda;
-
-    });
-
-}
-
-
-
-
