@@ -1,6 +1,6 @@
 /* ==============================================================================
    EJERCICIO 13: La Pizzería del Chef 🍕
-   
+
    OBJETIVO:
    Gestionar la preparación de una pizza personalizada utilizando un array en memoria.
    Practicaremos la combinación de:
@@ -14,37 +14,37 @@
 
 /**
  * PASO A PASO:
- * 
+ *
  * Paso 1: Crear un array vacío global llamado 'ingredientes' para almacenar los ingredientes seleccionados.
- * 
+ *
  * Paso 2: Usar document.querySelector() para capturar:
  *         - La pantalla de salida: #pantallaPizza
  *         - El distintivo contador: #contador
  *         - El botón para quitar el último ingrediente: #btnQuitar
  *         - El botón para vaciar la pizza: #btnVaciar
  *         - El botón para hornear: #btnHornear
- * 
+ *
  * Paso 3: Usar document.querySelectorAll('.btn-ingrediente') para capturar TODOS los botones de ingredientes.
- * 
+ *
  * Paso 4: Con un bucle 'for', recorrer la lista de botones de ingredientes y colocar un addEventListener('click', ...)
  *         a cada uno. Dentro de la función del evento:
  *         a) Capturar el texto del botón pulsado usando: eventito.target.textContent
  *         b) Meter ese ingrediente en el array usando ingredientes.push()
  *         c) Actualizar el texto de #pantallaPizza mostrando el contenido del array (ej: ingredientes.join(' + '))
  *         d) Actualizar el texto de #contador usando la propiedad ingredientes.length
- * 
+ *
  * Paso 5: Programar el evento 'click' del botón #btnQuitar:
  *         a) Comprobar si hay ingredientes en el array (ingredientes.length > 0).
  *         b) Si los hay, extraer el último con ingredientes.pop().
  *         c) Si aún quedan ingredientes en el array, mostrarlos; si el array quedó vacío,
  *            mostrar el mensaje original: "Tu pizza está vacía. ¡Añade ingredientes de la mesa!".
  *         d) Actualizar el contador con ingredientes.length.
- * 
+ *
  * Paso 6: Programar el evento 'click' del botón #btnVaciar:
  *         a) Vaciar el array (ingredientes.length = 0).
  *         b) Restaurar el mensaje inicial en #pantallaPizza.
  *         c) Actualizar el contador a 0.
- * 
+ *
  * Paso 7: Programar el evento 'click' del botón #btnHornear:
  *         a) Si ingredientes.length es 0, mostrar en #pantallaPizza un aviso de que no se puede hornear una pizza vacía.
  *         b) Si tiene ingredientes, mostrar un mensaje de éxito indicando que la pizza está en el horno con
