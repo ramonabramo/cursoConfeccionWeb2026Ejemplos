@@ -23,3 +23,25 @@ numeros.forEach(function (numero, c) {
  * Mostrar las palabras en pantalla solo con foreach
  */
 const palabras = ['sol', 'mar', 'montaña', 'bosque', 'rio'];
+
+palabras.forEach(function (palabra, c) {
+    divSalida.innerHTML += `<p>indice:${c} - ${palabra}</p>`;
+});
+
+/***
+ * Colocar un escuchador a cada elemento de la lista
+ * 
+ */
+const enlaces = document.querySelectorAll("#menuPrincipal a");
+
+for (let c = 0;c<enlaces.length;c++) {
+    enlaces[c].addEventListener("click", function (e) {
+        alert(e.target.textContent);
+    })
+}
+
+enlaces.forEach(function (enlace) {
+    enlace.addEventListener("click", function (e) {
+        alert(e.target.textContent);
+    })
+});
