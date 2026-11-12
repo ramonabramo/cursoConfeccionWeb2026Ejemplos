@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 04 - Caja que crece hasta un límite · Ramón Abramo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="card">
+        <header>
+            <span class="badge">⏱️ Ejemplo de Referencia 04</span>
+            <h1>Animación con setInterval: Caja Creciente</h1>
+            <p class="subtitle">Modificación progresiva del DOM estilo por estilo (<code>style.width</code>) cada 50 ms y frenado automático con <code>clearInterval()</code> al llegar a 300px.</p>
+        </header>
+
+        <section class="escenario-caja">
+            <div class="regla-ancho">
+                <span>0px</span>
+                <span>150px</span>
+                <span>300px (Límite)</span>
+            </div>
+            <div class="carril">
+                <div id="caja" class="caja-animada">50px</div>
+            </div>
+            <p id="infoEstado" class="estado">Ancho inicial: 50px. Pulsa «Hacer crecer la caja».</p>
+        </section>
+
+        <footer class="controles">
+            <button id="btnCrecer" class="btn btn-primario">🚀 Hacer crecer la caja</button>
+            <button id="btnReiniciar" class="btn btn-secundario" disabled>🔄 Restaurar caja</button>
+        </footer>
+
+        <aside class="nota-docente">
+            <strong>🍳 Explicación en pizarra:</strong> Antes de existir las animaciones modernas de CSS (<code>@keyframes</code>), el dinamismo visual se programaba cambiando propiedades numéricas dentro de un <code>setInterval()</code> a alta frecuencia (ej. cada 50 ms = 20 fotogramas por segundo).
+        </aside>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

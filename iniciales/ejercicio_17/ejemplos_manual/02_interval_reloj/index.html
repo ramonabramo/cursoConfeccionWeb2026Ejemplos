@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 02 - setInterval y clearInterval · Ramón Abramo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="card">
+        <header>
+            <span class="badge">⏱️ Ejemplo de Referencia 02</span>
+            <h1>Metrónomo / Reloj Repetitivo</h1>
+            <p class="subtitle">Uso de <code>setInterval()</code> para repetir una acción periódica y <code>clearInterval()</code> para frenarla automáticamente tras N vueltas.</p>
+        </header>
+
+        <section class="pantalla-reloj">
+            <div class="marcador-vuelta">
+                <span class="label">VUELTAS (Máx. 5)</span>
+                <span id="contadorVueltas" class="numero">0</span>
+            </div>
+            <div id="visuadorPulsos" class="pulsos">
+                <span class="pulso" data-i="1">1</span>
+                <span class="pulso" data-i="2">2</span>
+                <span class="pulso" data-i="3">3</span>
+                <span class="pulso" data-i="4">4</span>
+                <span class="pulso" data-i="5">5</span>
+            </div>
+            <p id="mensajeEstado" class="estado">Reloj detenido. Pulsa «Iniciar metrónomo».</p>
+        </section>
+
+        <footer class="controles">
+            <button id="btnIniciar" class="btn btn-exito">▶ Iniciar metrónomo (1s)</button>
+            <button id="btnDetener" class="btn btn-peligro" disabled>⏹ Detener ahora</button>
+        </footer>
+
+        <aside class="nota-docente">
+            <strong>🍳 Analogía de pizarra:</strong> Funciona igual que un metrónomo musical: emite un pulso regular cada 1000 ms. Si no le indicamos una condición de parada (<code>vueltas === 5</code>) o pulsamos el botón de detener, continuará funcionando indefinidamente.
+        </aside>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 06 - Cuenta Atrás Mixta (Interval + Timeout) · Ramón Abramo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="card">
+        <header>
+            <span class="badge">⏱️ Ejemplo de Referencia 06</span>
+            <h1>Cuenta Atrás Combinada</h1>
+            <p class="subtitle">Uso coordinado de <code>setInterval()</code> para actualizar el visor segundo a segundo y <code>setTimeout()</code> para auto-ocultar el aviso tras concluir.</p>
+        </header>
+
+        <section class="pantalla-cuenta">
+            <div id="cajaVisor" class="visor">Listo para comenzar</div>
+            <div class="indicador-segundos">
+                <span id="numeroSegundos" class="numero">5</span>
+                <span class="txt">segundos</span>
+            </div>
+        </section>
+
+        <footer class="controles">
+            <button id="btnCuentaAtras" class="btn btn-primario">🚀 Iniciar cuenta atrás (5s)</button>
+        </footer>
+
+        <aside class="nota-docente">
+            <strong>💡 Patrón arquitectónico en frontend:</strong> Un <code>setInterval()</code> gestiona el bucle interactivo visible y, cuando termina, un <code>setTimeout()</code> programa la limpieza temporal o reseteo diferido sin necesidad de que el usuario pulse nada más.
+        </aside>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

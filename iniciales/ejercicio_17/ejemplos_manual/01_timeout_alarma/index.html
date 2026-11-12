@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 01 - setTimeout y clearTimeout · Ramón Abramo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="card">
+        <header>
+            <span class="badge">⏱️ Ejemplo de Referencia 01</span>
+            <h1>Alarma con Temporizador Único</h1>
+            <p class="subtitle">Uso de <code>setTimeout()</code> para diferir una acción y <code>clearTimeout()</code> para cancelarla antes de que suene.</p>
+        </header>
+
+        <section class="pantalla-alarma">
+            <div id="icono" class="icono">⏰</div>
+            <p id="mensaje" class="mensaje">Alarma apagada. Pulsa «Activar alarma».</p>
+            <div id="progresoContenedor" class="progreso-contenedor oculta">
+                <div id="barraProgreso" class="progreso-barra"></div>
+            </div>
+        </section>
+
+        <footer class="controles">
+            <button id="btnActivar" class="btn btn-primario">▶ Activar alarma (3s)</button>
+            <button id="btnCancelar" class="btn btn-peligro" disabled>⏹ Cancelar alarma</button>
+        </footer>
+
+        <aside class="nota-docente">
+            <strong>🍳 Analogía de pizarra:</strong> Funciona igual que la alarma de un horno: la programas para dentro de 3 segundos y, cuando suena, se apaga sola. Si pulsas cancelar antes, debes tener guardado el <code>idAlarma</code> para abortarla.
+        </aside>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

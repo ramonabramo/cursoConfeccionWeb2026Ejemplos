@@ -1,0 +1,141 @@
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --border: #334155;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --accent: #a855f7;
+    --success: #22c55e;
+    --danger: #ef4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(168, 85, 247, 0.15);
+    color: var(--accent);
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; color: #fff; }
+.subtitle { color: var(--muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px; }
+code { background: rgba(255, 255, 255, 0.1); padding: 2px 6px; border-radius: 4px; color: var(--accent); font-family: 'Fira Code', monospace; }
+
+.pantalla-reloj {
+    background: rgba(15, 23, 42, 0.7);
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.marcador-vuelta .label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.marcador-vuelta .numero {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.pulsos {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 18px 0;
+}
+
+.pulso {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #334155;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.pulso.activo {
+    background: var(--accent);
+    color: #fff;
+    transform: scale(1.15);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+}
+
+.estado {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    min-height: 24px;
+}
+
+.controles {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px 18px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.btn:active:not(:disabled) { transform: scale(0.98); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-exito { background: var(--success); color: #052e16; }
+.btn-peligro { background: var(--danger); color: #fff; }
+
+.nota-docente {
+    background: rgba(245, 158, 11, 0.1);
+    border-left: 4px solid #f59e0b;
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #fef3c7;
+    line-height: 1.5;
+}

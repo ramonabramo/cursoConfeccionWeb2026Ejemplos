@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Prácticas Guiadas: Temporizadores en JavaScript - Ramón Abramo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&display=swap');
+  
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #0f172a;
+    background: #ffffff;
+    font-size: 8.5pt;
+    line-height: 1.36;
+  }
+  
+  .page {
+    width: 210mm;
+    height: 297mm;
+    position: relative;
+    padding: 10mm 14mm 8mm 14mm;
+    page-break-after: always;
+    background: #ffffff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Portada Dedicada Exclusiva (Página 1) */
+  .page.cover-page {
+    padding: 16mm 18mm 14mm 18mm;
+    background: linear-gradient(145deg, #090e17 0%, #0f172a 45%, #1e293b 100%);
+    color: #ffffff;
+  }
+
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid rgba(56, 189, 248, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+  }
+
+  .cover-top .institution {
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #38bdf8;
+    text-transform: uppercase;
+  }
+
+  .cover-top .tag-edition {
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    color: #4ade80;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-size: 7.2pt;
+    font-weight: 800;
+  }
+
+  .cover-hero {
+    margin-bottom: 20px;
+  }
+
+  .cover-badge-category {
+    display: inline-block;
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid #16a34a;
+    color: #4ade80;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .cover-title {
+    font-size: 26pt;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.15;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.8px;
+  }
+
+  .cover-title span {
+    color: #38bdf8;
+  }
+
+  .cover-desc {
+    font-size: 10.5pt;
+    color: #cbd5e1;
+    line-height: 1.5;
+    max-width: 92%;
+    margin-bottom: 24px;
+  }
+
+  .cover-grid-practicas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+
+  .cover-card-p {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1.5px solid rgba(51, 65, 85, 0.8);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+
+  .cover-card-p h4 {
+    margin: 0 0 6px 0;
+    font-size: 10pt;
+    color: #38bdf8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cover-card-p p {
+    margin: 0;
+    font-size: 8pt;
+    color: #94a3b8;
+    line-height: 1.45;
+  }
+
+  .cover-card-p .meta-tech {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 6.8pt;
+    font-weight: 700;
+    margin-top: 8px;
+    font-family: 'Fira Code', monospace;
+  }
+
+  .cover-footer-box {
+    border-top: 1px solid rgba(51, 65, 85, 0.8);
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cover-author h3 {
+    margin: 0 0 2px 0;
+    font-size: 11pt;
+    color: #ffffff;
+  }
+
+  .cover-author p {
+    margin: 0;
+    font-size: 8pt;
+    color: #94a3b8;
+  }
+
+  .cover-meta {
+    text-align: right;
+    font-size: 7.8pt;
+    color: #64748b;
+  }
+  
+  /* Encabezados y pies de página estándar */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.2pt;
+    font-weight: 700;
+    color: #475569;
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid #cbd5e1;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .badge-header {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 6.8pt;
+    font-weight: 800;
+  }
+  
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.2pt;
+    color: #64748b;
+    padding-top: 5px;
+    border-top: 1.5px solid #cbd5e1;
+    margin-top: 5px;
+  }
+  
+  .content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Tipografía */
+  h2 {
+    font-size: 11pt;
+    color: #0369a1;
+    margin: 5px 0 4px 0;
+    font-weight: 800;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  h3 {
+    font-size: 9pt;
+    color: #0f172a;
+    margin: 4px 0 3px 0;
+    font-weight: 700;
+  }
+  
+  p {
+    margin: 0 0 5px 0;
+    text-align: justify;
+  }
+
+  /* Índice de Contenidos Interactivo */
+  .toc-box {
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 9px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+  }
+
+  .toc-title {
+    font-size: 9.5pt;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 14px;
+  }
+
+  .toc-item {
+    font-size: 7.8pt;
+    line-height: 1.35;
+  }
+
+  .toc-link {
+    text-decoration: none;
+    color: #1e293b;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px dotted #cbd5e1;
+    padding-bottom: 1px;
+    transition: color 0.15s;
+  }
+
+  .toc-link:hover {
+    color: #0284c7;
+    font-weight: 700;
+  }
+
+  .toc-page {
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    color: #0284c7;
+    font-size: 7.4pt;
+    margin-left: 6px;
+  }
+  
+  /* Tablas de estilo profesional */
+  table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0 6px 0;
+    font-size: 7.4pt;
+  }
+  
+  table.custom-table th, table.custom-table td {
+    border: 1px solid #cbd5e1;
+    padding: 4px 7px;
+    text-align: left;
+    vertical-align: middle;
+  }
+  
+  table.custom-table th {
+    background: #0f172a;
+    color: #38bdf8;
+    font-weight: 700;
+    font-size: 7.1pt;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  
+  table.custom-table tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+  
+  /* Bloques destacados */
+  .box-pizarra {
+    background: #f0f9ff;
+    border: 1.5px dashed #0284c7;
+    border-radius: 7px;
+    padding: 6px 10px;
+    margin-bottom: 6px;
+  }
+  
+  .box-pizarra-title {
+    font-weight: 800;
+    font-size: 8pt;
+    color: #0284c7;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+  }
+  
+  .box-tip {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-left: 3.5px solid #16a34a;
+    border-radius: 6px;
+    padding: 5px 9px;
+    margin-bottom: 6px;
+  }
+  
+  .box-tip .box-title {
+    color: #15803d;
+    font-weight: 700;
+    font-size: 8pt;
+    margin-bottom: 2px;
+  }
+  
+  .box-alert {
+    background: #fffbeb;
+    border: 1px solid #fef3c7;
+    border-left: 3.5px solid #d97706;
+    border-radius: 6px;
+    padding: 5px 9px;
+    margin-bottom: 6px;
+  }
+  
+  .box-alert .box-title {
+    color: #b45309;
+    font-weight: 700;
+    font-size: 8pt;
+    margin-bottom: 2px;
+  }
+  
+  /* Código con sintaxis destacada */
+  pre {
+    background: #090d16;
+    color: #f8fafc;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 7.1pt;
+    line-height: 1.3;
+    margin: 3px 0 5px 0;
+    overflow: hidden;
+    border: 1px solid #1e293b;
+  }
+  
+  code {
+    font-family: 'Fira Code', monospace;
+    font-size: 7.4pt;
+    background: #f1f5f9;
+    color: #0f172a;
+    padding: 1px 3px;
+    border-radius: 3px;
+    border: 1px solid #e2e8f0;
+  }
+  
+  pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+  
+  .kw { color: #f472b6; font-weight: 600; }
+  .fn { color: #38bdf8; font-weight: 600; }
+  .str { color: #a3e635; }
+  .num { color: #fbbf24; }
+  .cm { color: #94a3b8; font-style: italic; }
+  .var { color: #e2e8f0; }
+
+  .paso-num {
+    display: inline-block;
+    background: #0284c7;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 6.8pt;
+    padding: 1px 6px;
+    border-radius: 9999px;
+    margin-right: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ======================================================================= -->
+<!-- PÁGINA 1: PORTADA DEDICADA DE GRAN IMPACTO -->
+<!-- ======================================================================= -->
+<div class="page cover-page" id="portada">
+  <div class="cover-top">
+    <div class="institution">CURSO DE CONFECCIÓN Y PUBLICACIÓN DE PÁGINAS WEB · RAMÓN ABRAMO</div>
+    <div class="tag-edition">EJERCICIO 17 · PRÁCTICAS GUIADAS</div>
+  </div>
+
+  <div class="cover-hero">
+    <div class="cover-badge-category">🎯 DESARROLLO WEB EN ENTORNO CLIENTE · PROYECTOS DE AULA</div>
+    <h1 class="cover-title">⏱️ PRÁCTICAS GUIADAS: <span>TEMPORIZADORES</span></h1>
+    <div class="cover-desc">
+      Cuaderno de aula con dos proyectos interactivos completos sobre plantillas HTML/CSS preconstruidas: desarrollo paso a paso, código de solución oficial, arquitectura de control de estados y verificación cruzada de resultados.
+    </div>
+  </div>
+
+  <div class="cover-grid-practicas">
+    <div class="cover-card-p">
+      <h4>🚀 Práctica 1: Lanzamiento de Cohete</h4>
+      <p>Panel de control de misión espacial con cuenta atrás de 10 a 0, abortado de emergencia en seco y restauración diferida del sistema a los 3 segundos.</p>
+      <div class="meta-tech">setInterval() + clearInterval() + setTimeout()</div>
+    </div>
+    <div class="cover-card-p">
+      <h4>🔋 Práctica 2: Simulador de Batería</h4>
+      <p>Indicador de carga interactivo del 0% al 100% con botón de desconexión / pausa, alerta temporal diferida y cancelación segura ante reinicios.</p>
+      <div class="meta-tech">setInterval() + clearInterval() + setTimeout() + clearTimeout()</div>
+    </div>
+  </div>
+
+  <div class="cover-footer-box">
+    <div class="cover-author">
+      <h3>👨‍🏫 Ramón Abramo</h3>
+      <p>Profesor especialista con más de 25 años de experiencia docente</p>
+    </div>
+    <div class="cover-meta">
+      <strong>Módulo Inicial · Prácticas de Aula</strong><br>
+      Santander / Confección Web 2026
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- PÁGINA 2: ÍNDICE GENERAL NAVEGABLE & INSTRUCCIONES DE AULA -->
+<!-- ======================================================================= -->
+<div class="page" id="indice">
+  <div class="page-header">
+    <span>DESARROLLO WEB EN ENTORNO CLIENTE · PRÁCTICAS DE AULA · RAMÓN ABRAMO</span>
+    <span class="badge-header">ÍNDICE E INSTRUCCIONES</span>
+  </div>
+
+  <div class="content-area">
+    <!-- ÍNDICE INTERACTIVO CON HIPERVÍNCULOS -->
+    <div class="toc-box">
+      <div class="toc-title">
+        <span>📑 Índice General de las Prácticas (Haz clic para saltar)</span>
+        <span style="font-size:7pt; color:#64748b; font-weight:normal;">Prácticas Guiadas</span>
+      </div>
+      <ul class="toc-list">
+        <li class="toc-item"><a href="#sec-instrucciones" class="toc-link"><span>📋 Instrucciones Generales para el Alumno</span><span class="toc-page">Pág 2</span></a></li>
+        <li class="toc-item"><a href="#sec-p1-enunciado" class="toc-link"><span>🚀 Práctica 1: Enunciado y Misión Espacial</span><span class="toc-page">Pág 3</span></a></li>
+        <li class="toc-item"><a href="#sec-p1-html" class="toc-link"><span>🧱 Práctica 1: Código Base HTML y CSS</span><span class="toc-page">Pág 3</span></a></li>
+        <li class="toc-item"><a href="#sec-p1-pasos" class="toc-link"><span>🧭 Práctica 1: Guía de Desarrollo Paso a Paso</span><span class="toc-page">Pág 4</span></a></li>
+        <li class="toc-item"><a href="#sec-p1-solucion" class="toc-link"><span>💻 Práctica 1: Solución Oficial Comentada</span><span class="toc-page">Pág 4</span></a></li>
+        <li class="toc-item"><a href="#sec-p2-enunciado" class="toc-link"><span>🔋 Práctica 2: Enunciado del Simulador de Batería</span><span class="toc-page">Pág 5</span></a></li>
+        <li class="toc-item"><a href="#sec-p2-html" class="toc-link"><span>🧱 Práctica 2: Código Base HTML y CSS</span><span class="toc-page">Pág 5</span></a></li>
+        <li class="toc-item"><a href="#sec-p2-pasos" class="toc-link"><span>🧭 Práctica 2: Guía de Desarrollo Paso a Paso</span><span class="toc-page">Pág 6</span></a></li>
+        <li class="toc-item"><a href="#sec-p2-solucion" class="toc-link"><span>💻 Práctica 2: Solución Oficial Comentada</span><span class="toc-page">Pág 6</span></a></li>
+        <li class="toc-item"><a href="#sec-tabla-verificacion" class="toc-link"><span>📊 Gran Tabla de Verificación y Autoevaluación</span><span class="toc-page">Pág 6</span></a></li>
+      </ul>
+    </div>
+
+    <h2 id="sec-instrucciones">📋 Instrucciones Generales para el Alumnado</h2>
+    <div class="box-tip">
+      <div class="box-title">💡 Metodología de Trabajo en el Aula</div>
+      <p style="margin:0;">En ambas prácticas se entrega todo el código HTML y CSS finalizado y estilizado. <strong>Tu tarea consiste exclusivamente en programar la lógica en el archivo <code>app.js</code></strong> siguiendo los pasos ordenados y aplicando lo aprendido en clase. <strong>No modifiques los atributos <code>id</code> ni las clases CSS</strong> del documento base para no quebrar las capturas del DOM.</p>
+    </div>
+
+    <div class="box-pizarra">
+      <div class="box-pizarra-title">🛠️ Configuración del Entorno de Desarrollo</div>
+      <ol style="margin:0 0 4px 18px; padding:0; font-size:7.4pt; line-height:1.4;">
+        <li>Abre la carpeta de la práctica en Visual Studio Code u otro editor web profesional.</li>
+        <li>Inicia el servidor local (extensión <em>Live Server</em>) o haz doble clic sobre <code>index.html</code>.</li>
+        <li>Pulsa <kbd>F12</kbd> en el navegador y abre la pestaña <strong>Consola</strong>. Allí se reportan al instante los errores de sintaxis y excepciones.</li>
+      </ol>
+    </div>
+
+    <div class="box-alert">
+      <div class="box-title">⚠️ Regla de Oro Contra Intervalos Descontrolados</div>
+      <p style="margin:0; font-size:7.4pt;">Nunca lances un <code>setInterval</code> sin haber guardado previamente su identificador en una variable (<code>idIntervalo = setInterval(...)</code>) y sin validar si ya existía una ejecución activa en marcha. De lo contrario, cada pulsación del usuario multiplicará la velocidad de ejecución exponencialmente.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Prácticas Guiadas · Temporizadores en JavaScript · Ramón Abramo</span>
+    <span>Página 2 de 6</span>
+  </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- PÁGINA 3: PRÁCTICA 1 · ENUNCIADO Y CÓDIGO BASE -->
+<!-- ======================================================================= -->
+<div class="page">
+  <div class="page-header">
+    <span>DESARROLLO WEB EN ENTORNO CLIENTE · PRÁCTICAS DE AULA · RAMÓN ABRAMO</span>
+    <span class="badge-header">PRÁCTICA 1 · COHETE ESPACIAL</span>
+  </div>
+
+  <div class="content-area">
+    <h2 id="sec-p1-enunciado">🚀 Práctica 1: Panel de Lanzamiento de Cohete con Abortado</h2>
+    <div class="box-pizarra">
+      <div class="box-pizarra-title">🎯 Datos Técnicos de la Práctica</div>
+      <p style="margin:0;"><strong>Funciones a utilizar:</strong> <code>setInterval()</code>, <code>clearInterval()</code> y <code>setTimeout()</code> · <strong>Carpeta alumno:</strong> <code>practicas/practica_01_cohete/</code></p>
+    </div>
+
+    <h3>📖 Enunciado de la Misión Espacial</h3>
+    <p>Debes programar el panel de control de lanzamiento de un cohete espacial con las siguientes especificaciones:</p>
+    <ol style="margin:0 0 6px 18px; padding:0; line-height:1.4;">
+      <li>Al pulsar el botón <strong>«Iniciar cuenta atrás»</strong>, el marcador descontará segundos desde <strong>10 hasta 0</strong> (restando 1 segundo en cada ciclo de 1000 ms).</li>
+      <li>Mientras la cuenta atrás esté en marcha, el botón de iniciar quedará deshabilitado (<code>disabled = true</code>) y se habilitará el botón <strong>«Abortar lanzamiento»</strong> (<code>disabled = false</code>).</li>
+      <li>Si el usuario pulsa <strong>«Abortar lanzamiento»</strong> antes de llegar a cero, la cuenta atrás se detendrá en seco y aparecerá un aviso de cancelación en pantalla.</li>
+      <li>Si la cuenta llega a <strong>0</strong>, el cohete despega con éxito, se detiene el intervalo y, <strong>3 segundos después del despegue</strong> (mediante <code>setTimeout</code>), el panel vuelve automáticamente a su estado original listo para una nueva misión.</li>
+    </ol>
+
+    <h2 id="sec-p1-html">🧱 Código Base Entregado (HTML y CSS de Práctica 1)</h2>
+<pre><code><span class="cm">&lt;!-- 🚀 Estructura HTML de index.html entregada al alumno --&gt;</span>
+&lt;<span class="kw">div</span> <span class="var">class</span>=<span class="str">"panel"</span>&gt;
+    &lt;<span class="kw">h2</span>&gt;🚀 Control de Misión&lt;/<span class="kw">h2</span>&gt;
+    &lt;<span class="kw">div</span> <span class="var">id</span>=<span class="str">"pantalla"</span>&gt;10&lt;/<span class="kw">div</span>&gt;
+    &lt;<span class="kw">p</span> <span class="var">id</span>=<span class="str">"mensaje"</span>&gt;Sistemas preparados.&lt;/<span class="kw">p</span>&gt;
+    &lt;<span class="kw">button</span> <span class="var">id</span>=<span class="str">"btnIniciar"</span>&gt;Iniciar cuenta atrás&lt;/<span class="kw">button</span>&gt;
+    &lt;<span class="kw">button</span> <span class="var">id</span>=<span class="str">"btnAbortar"</span> <span class="var">disabled</span>&gt;Abortar lanzamiento&lt;/<span class="kw">button</span>&gt;
+&lt;/<span class="kw">div</span>&gt;</code></pre>
+
+    <div class="box-alert">
+      <div class="box-title">🧭 Estados Funcionales del Panel</div>
+      <p style="margin:0; font-size:7.4pt;"><strong>1. Inicial:</strong> Pantalla «10» | Mensaje «Sistemas preparados» | Iniciar habilitado | Abortar bloqueado.<br>
+      <strong>2. Conteo:</strong> Pantalla descendente | Mensaje «Cuenta atrás en curso» | Iniciar bloqueado | Abortar activo.<br>
+      <strong>3. Despegue:</strong> Pantalla «0» | Mensaje «Despegue realizado» ➔ <code>setTimeout</code> 3s ➔ Vuelta al Estado 1.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Prácticas Guiadas · Temporizadores en JavaScript · Ramón Abramo</span>
+    <span>Página 3 de 6</span>
+  </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- PÁGINA 4: PRÁCTICA 1 · PASO A PASO Y SOLUCIÓN OFICIAL -->
+<!-- ======================================================================= -->
+<div class="page">
+  <div class="page-header">
+    <span>DESARROLLO WEB EN ENTORNO CLIENTE · PRÁCTICAS DE AULA · RAMÓN ABRAMO</span>
+    <span class="badge-header">PRÁCTICA 1 · PASO A PASO Y SOLUCIÓN</span>
+  </div>
+
+  <div class="content-area">
+    <h2 id="sec-p1-pasos">🧭 Guía de Desarrollo Paso a Paso (app.js)</h2>
+    <p><span class="paso-num">1</span> <strong>Paso 1 · Referencias al DOM:</strong> Captura con <code>document.getElementById()</code>: <code>pantalla</code>, <code>mensaje</code>, <code>btnIniciar</code> y <code>btnAbortar</code>.</p>
+    <p><span class="paso-num">2</span> <strong>Paso 2 · Variables mutables:</strong> Declara con <code>let</code> en el ámbito superior: <code>segundos = 10;</code> y <code>idIntervalo = null;</code>.</p>
+    <p><span class="paso-num">3</span> <strong>Paso 3 · Escuchador de arranque:</strong> Al pulsar Iniciar, valida duplicados, actualiza textos, alterna <code>disabled</code> e inicia <code>setInterval</code> cada 1000 ms. Al llegar a 0, detén con <code>clearInterval</code> y dispara <code>setTimeout</code> de 3000 ms para restaurar.</p>
+    <p><span class="paso-num">4</span> <strong>Paso 4 · Escuchador de abortado:</strong> Al pulsar Abortar, frena con <code>clearInterval(idIntervalo)</code>, limpia el ID a <code>null</code>, muestra aviso y restaura botones.</p>
+
+    <h2 id="sec-p1-solucion">💻 Solución Oficial Comentada (app.js)</h2>
+<pre><code><span class="cm">// 🎯 PASO 1: Constantes de captura al DOM</span>
+<span class="kw">const</span> <span class="var">pantalla</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"pantalla"</span>);
+<span class="kw">const</span> <span class="var">mensaje</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"mensaje"</span>);
+<span class="kw">const</span> <span class="var">btnIniciar</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"btnIniciar"</span>);
+<span class="kw">const</span> <span class="var">btnAbortar</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"btnAbortar"</span>);
+
+<span class="cm">// 🧠 PASO 2: Variables de estado en memoria</span>
+<span class="kw">let</span> <span class="var">segundos</span> = <span class="num">10</span>;
+<span class="kw">let</span> <span class="var">idIntervalo</span> = <span class="kw">null</span>;
+
+<span class="cm">// 🚀 PASO 3: Escuchador del botón Iniciar</span>
+<span class="var">btnIniciar</span>.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, () => {
+    <span class="kw">if</span> (<span class="var">idIntervalo</span> !== <span class="kw">null</span>) <span class="kw">return</span>; <span class="cm">// 🛡️ Evitar duplicar intervalos</span>
+
+    <span class="var">segundos</span> = <span class="num">10</span>;
+    <span class="var">pantalla</span>.<span class="var">textContent</span> = <span class="var">segundos</span>;
+    <span class="var">mensaje</span>.<span class="var">textContent</span> = <span class="str">"⏳ Cuenta atrás en curso..."</span>;
+    <span class="var">btnIniciar</span>.<span class="var">disabled</span> = <span class="kw">true</span>;
+    <span class="var">btnAbortar</span>.<span class="var">disabled</span> = <span class="kw">false</span>;
+
+    <span class="cm">// ⏱️ Iniciar cuenta atrás repetitiva cada 1000 ms</span>
+    <span class="var">idIntervalo</span> = <span class="fn">setInterval</span>(() => {
+        <span class="var">segundos</span>--;
+        <span class="var">pantalla</span>.<span class="var">textContent</span> = <span class="var">segundos</span>;
+
+        <span class="kw">if</span> (<span class="var">segundos</span> === <span class="num">0</span>) {
+            <span class="fn">clearInterval</span>(<span class="var">idIntervalo</span>); <span class="cm">// 🛑 Frenar el bucle</span>
+            <span class="var">idIntervalo</span> = <span class="kw">null</span>;
+            <span class="var">mensaje</span>.<span class="var">textContent</span> = <span class="str">"🔥 ¡Despegue realizado con éxito!"</span>;
+            <span class="var">btnAbortar</span>.<span class="var">disabled</span> = <span class="kw">true</span>;
+
+            <span class="cm">// ⏳ Restauración diferida a los 3 segundos</span>
+            <span class="fn">setTimeout</span>(() => {
+                <span class="var">pantalla</span>.<span class="var">textContent</span> = <span class="str">"10"</span>;
+                <span class="var">mensaje</span>.<span class="var">textContent</span> = <span class="str">"Sistemas preparados."</span>;
+                <span class="var">btnIniciar</span>.<span class="var">disabled</span> = <span class="kw">false</span>;
+            }, <span class="num">3000</span>);
+        }
+    }, <span class="num">1000</span>);
+});
+
+<span class="cm">// 🛑 PASO 4: Escuchador del botón Abortar</span>
+<span class="var">btnAbortar</span>.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, () => {
+    <span class="kw">if</span> (<span class="var">idIntervalo</span> !== <span class="kw">null</span>) {
+        <span class="fn">clearInterval</span>(<span class="var">idIntervalo</span>);
+        <span class="var">idIntervalo</span> = <span class="kw">null</span>;
+        <span class="var">mensaje</span>.<span class="var">textContent</span> = <span class="str">"🛑 Lanzamiento abortado por el usuario."</span>;
+        <span class="var">btnAbortar</span>.<span class="var">disabled</span> = <span class="kw">true</span>;
+        <span class="var">btnIniciar</span>.<span class="var">disabled</span> = <span class="kw">false</span>;
+    }
+});</code></pre>
+  </div>
+
+  <div class="page-footer">
+    <span>Prácticas Guiadas · Temporizadores en JavaScript · Ramón Abramo</span>
+    <span>Página 4 de 6</span>
+  </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- PÁGINA 5: PRÁCTICA 2 · ENUNCIADO Y CÓDIGO BASE -->
+<!-- ======================================================================= -->
+<div class="page">
+  <div class="page-header">
+    <span>DESARROLLO WEB EN ENTORNO CLIENTE · PRÁCTICAS DE AULA · RAMÓN ABRAMO</span>
+    <span class="badge-header">PRÁCTICA 2 · SIMULADOR DE BATERÍA</span>
+  </div>
+
+  <div class="content-area">
+    <h2 id="sec-p2-enunciado">🔋 Práctica 2: Simulador de Carga de Batería y Alerta Temporal</h2>
+    <div class="box-pizarra">
+      <div class="box-pizarra-title">🎯 Datos Técnicos de la Práctica</div>
+      <p style="margin:0;"><strong>Funciones:</strong> <code>setInterval()</code>, <code>clearInterval()</code>, <code>setTimeout()</code> y <code>clearTimeout()</code> · <strong>Carpeta:</strong> <code>practicas/practica_02_bateria/</code></p>
+    </div>
+
+    <h3>📖 Enunciado del Proyecto</h3>
+    <p>Vas a programar el indicador interactivo de carga de una batería con las siguientes características técnicas:</p>
+    <ol style="margin:0 0 6px 18px; padding:0; line-height:1.4;">
+      <li>Al pulsar <strong>«Conectar cargador»</strong>, la barra verde crece de <strong>5% en 5% cada 200 milisegundos</strong> hasta alcanzar el 100%. Se debe prevenir duplicar intervalos si ya está cargando o ya está completa.</li>
+      <li>En cualquier momento se puede pulsar <strong>«Desconectar»</strong> para pausar la carga en el porcentaje actual sin perder el progreso acumulado.</li>
+      <li>Al llegar al <strong>100%</strong>, se detiene el intervalo y aparece el aviso <em>«✅ ¡Batería completa al 100%!»</em>, el cual se auto-eliminará tras <strong>4 segundos</strong> usando <code>setTimeout()</code>.</li>
+      <li>Al pulsar <strong>«Reiniciar batería»</strong>, se restaura todo a 0% y, si había un temporizador de aviso de 4 segundos pendiente, debe cancelarse de inmediato mediante <code>clearTimeout()</code>.</li>
+    </ol>
+
+    <h2 id="sec-p2-html">🧱 Código Base Entregado (HTML de Práctica 2)</h2>
+<pre><code><span class="cm">&lt;!-- 🔋 Estructura HTML de la tarjeta de batería --&gt;</span>
+&lt;<span class="kw">div</span> <span class="var">class</span>=<span class="str">"tarjeta"</span>&gt;
+    &lt;<span class="kw">h2</span>&gt;🔋 Estado de Carga&lt;/<span class="kw">h2</span>&gt;
+    &lt;<span class="kw">div</span> <span class="var">class</span>=<span class="str">"carcasa-bateria"</span>&gt;
+        &lt;<span class="kw">div</span> <span class="var">id</span>=<span class="str">"barraNivel"</span>&gt;0%&lt;/<span class="kw">div</span>&gt;
+    &lt;/<span class="kw">div</span>&gt;
+    &lt;<span class="kw">p</span> <span class="var">id</span>=<span class="str">"infoAviso"</span>&gt;Cargador desconectado.&lt;/<span class="kw">p</span>&gt;
+    &lt;<span class="kw">button</span> <span class="var">id</span>=<span class="str">"btnCargar"</span>&gt;Conectar cargador&lt;/<span class="kw">button</span>&gt;
+    &lt;<span class="kw">button</span> <span class="var">id</span>=<span class="str">"btnPausar"</span>&gt;Desconectar&lt;/<span class="kw">button</span>&gt;
+    &lt;<span class="kw">button</span> <span class="var">id</span>=<span class="str">"btnReiniciar"</span>&gt;Reiniciar batería&lt;/<span class="kw">button</span>&gt;
+&lt;/<span class="kw">div</span>&gt;</code></pre>
+
+    <div class="box-tip">
+      <div class="box-title">💡 El Doble Reseteo de Reiniciar</div>
+      <p style="margin:0; font-size:7.4pt;">Un reinicio limpio debe apagar dos cosas: el intervalo de subida (<code>clearInterval(idCarga)</code>) y el aviso diferido si estaba en curso (<code>clearTimeout(idAvisoFinal)</code>). ¡Si olvidas cancelar el timeout, el mensaje se borrará de forma inesperada más tarde!</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Prácticas Guiadas · Temporizadores en JavaScript · Ramón Abramo</span>
+    <span>Página 5 de 6</span>
+  </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- PÁGINA 6: PRÁCTICA 2 · SOLUCIÓN OFICIAL Y TABLA DE VERIFICACIÓN -->
+<!-- ======================================================================= -->
+<div class="page">
+  <div class="page-header">
+    <span>DESARROLLO WEB EN ENTORNO CLIENTE · PRÁCTICAS DE AULA · RAMÓN ABRAMO</span>
+    <span class="badge-header">SOLUCIÓN P2 Y VERIFICACIÓN</span>
+  </div>
+
+  <div class="content-area">
+    <h2 id="sec-p2-solucion">💻 Solución Oficial Comentada (app.js)</h2>
+<pre><code><span class="cm">// 🎯 PASO 1: Constantes de referencia al DOM</span>
+<span class="kw">const</span> <span class="var">barraNivel</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"barraNivel"</span>);
+<span class="kw">const</span> <span class="var">infoAviso</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"infoAviso"</span>);
+<span class="kw">const</span> <span class="var">btnCargar</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"btnCargar"</span>);
+<span class="kw">const</span> <span class="var">btnPausar</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"btnPausar"</span>);
+<span class="kw">const</span> <span class="var">btnReiniciar</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"btnReiniciar"</span>);
+
+<span class="cm">// 🧠 PASO 2: Variables de control de estado</span>
+<span class="kw">let</span> <span class="var">porcentaje</span> = <span class="num">0</span>;
+<span class="kw">let</span> <span class="var">idCarga</span> = <span class="kw">null</span>;
+<span class="kw">let</span> <span class="var">idAvisoFinal</span> = <span class="kw">null</span>;
+
+<span class="cm">// ⚡ PASO 3: Escuchador para conectar el cargador</span>
+<span class="var">btnCargar</span>.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, () => {
+    <span class="kw">if</span> (<span class="var">idCarga</span> !== <span class="kw">null</span> || <span class="var">porcentaje</span> >= <span class="num">100</span>) <span class="kw">return</span>;
+    <span class="var">infoAviso</span>.<span class="var">textContent</span> = <span class="str">"⚡ Cargando batería..."</span>;
+
+    <span class="var">idCarga</span> = <span class="fn">setInterval</span>(() => {
+        <span class="var">porcentaje</span> += <span class="num">5</span>;
+        <span class="var">barraNivel</span>.<span class="var">style</span>.<span class="var">width</span> = <span class="var">porcentaje</span> + <span class="str">"%"</span>;
+        <span class="var">barraNivel</span>.<span class="var">textContent</span> = <span class="var">porcentaje</span> + <span class="str">"%"</span>;
+
+        <span class="kw">if</span> (<span class="var">porcentaje</span> >= <span class="num">100</span>) {
+            <span class="fn">clearInterval</span>(<span class="var">idCarga</span>);
+            <span class="var">idCarga</span> = <span class="kw">null</span>;
+            <span class="var">infoAviso</span>.<span class="var">textContent</span> = <span class="str">"✅ ¡Batería completa al 100%!"</span>;
+
+            <span class="cm">// ⏳ Borrado diferido tras 4 segundos</span>
+            <span class="var">idAvisoFinal</span> = <span class="fn">setTimeout</span>(() => {
+                <span class="var">infoAviso</span>.<span class="var">textContent</span> = <span class="str">"Cargador desconectado."</span>;
+                <span class="var">idAvisoFinal</span> = <span class="kw">null</span>;
+            }, <span class="num">4000</span>);
+        }
+    }, <span class="num">200</span>);
+});
+
+<span class="cm">// ⏸️ PASO 4: Escuchador para pausar la carga</span>
+<span class="var">btnPausar</span>.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, () => {
+    <span class="kw">if</span> (<span class="var">idCarga</span> !== <span class="kw">null</span>) {
+        <span class="fn">clearInterval</span>(<span class="var">idCarga</span>);
+        <span class="var">idCarga</span> = <span class="kw">null</span>;
+        <span class="var">infoAviso</span>.<span class="var">textContent</span> = <span class="str">"⏸️ Carga pausada."</span>;
+    }
+});
+
+<span class="cm">// 🔄 PASO 5: Escuchador para reiniciar</span>
+<span class="var">btnReiniciar</span>.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, () => {
+    <span class="kw">if</span> (<span class="var">idCarga</span> !== <span class="kw">null</span>) { <span class="fn">clearInterval</span>(<span class="var">idCarga</span>); <span class="var">idCarga</span> = <span class="kw">null</span>; }
+    <span class="kw">if</span> (<span class="var">idAvisoFinal</span> !== <span class="kw">null</span>) { <span class="fn">clearTimeout</span>(<span class="var">idAvisoFinal</span>); <span class="var">idAvisoFinal</span> = <span class="kw">null</span>; }
+    <span class="var">porcentaje</span> = <span class="num">0</span>;
+    <span class="var">barraNivel</span>.<span class="var">style</span>.<span class="var">width</span> = <span class="str">"0%"</span>;
+    <span class="var">barraNivel</span>.<span class="var">textContent</span> = <span class="str">"0%"</span>;
+    <span class="var">infoAviso</span>.<span class="var">textContent</span> = <span class="str">"Cargador desconectado."</span>;
+});</code></pre>
+
+    <h2 id="sec-tabla-verificacion">📊 Gran Tabla de Verificación y Autoevaluación</h2>
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th style="width:25%;">Criterio</th>
+          <th style="width:37%;">Práctica 1 (Cohete Espacial)</th>
+          <th style="width:38%;">Práctica 2 (Simulador de Batería)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Control de duplicados</strong></td>
+          <td><code>btnIniciar.disabled = true;</code> impide clics mientras corre.</td>
+          <td><code>if (idCarga !== null || porcentaje >= 100) return;</code> al inicio.</td>
+        </tr>
+        <tr>
+          <td><strong>Parada manual</strong></td>
+          <td><code>clearInterval(idIntervalo)</code> detiene la cuenta al abortar.</td>
+          <td><code>clearInterval(idCarga)</code> congela el porcentaje al pausar.</td>
+        </tr>
+        <tr>
+          <td><strong>Acción diferida única</strong></td>
+          <td><code>setTimeout(..., 3000)</code> restaura a los 3s del despegue.</td>
+          <td><code>setTimeout(..., 4000)</code> borra el mensaje de batería llena.</td>
+        </tr>
+        <tr>
+          <td><strong>Cancelación con clearTimeout</strong></td>
+          <td>No se precisa (se autogestiona tras 3s).</td>
+          <td><code>clearTimeout(idAvisoFinal)</code> aborta el borrado si se reinicia antes.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span>Prácticas Guiadas · Temporizadores en JavaScript · Ramón Abramo</span>
+    <span>Página 6 de 6</span>
+  </div>
+</div>
+
+</body>
+</html>

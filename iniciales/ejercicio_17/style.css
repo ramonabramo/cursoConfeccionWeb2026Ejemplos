@@ -1,0 +1,307 @@
+:root {
+    --bg: #090d16;
+    --card: #131c2e;
+    --border: #22324b;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    padding: 30px 20px;
+}
+
+.contenedor-principal {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.badge-curso {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 4px 10px;
+    border-radius: 9999px;
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+}
+
+.lead {
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    margin-bottom: 16px;
+}
+
+.autor-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+    color: #cbd5e1;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+code {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+}
+
+.grid-teoria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.tarjeta-teoria {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tag {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    align-self: flex-start;
+    margin-bottom: 8px;
+}
+
+.tag-timeout { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+.tag-cleartimeout { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+.tag-interval { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+.tag-clearinterval { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+
+.tarjeta-teoria h3 {
+    font-size: 1.05rem;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.tarjeta-teoria p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 12px;
+    flex: 1;
+}
+
+.analogia {
+    background: rgba(15, 23, 42, 0.6);
+    border-left: 3px solid var(--accent);
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #e2e8f0;
+}
+
+.seccion-bloque {
+    margin-bottom: 36px;
+}
+
+.seccion-bloque h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.grid-enlaces {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+}
+
+.tarjeta-enlace {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s, border-color 0.15s;
+}
+
+.tarjeta-enlace:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.icono-enlace {
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.tarjeta-enlace strong {
+    color: #ffffff;
+    font-size: 1.05rem;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.tarjeta-enlace p {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.grid-ejemplos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 14px;
+}
+
+.demo-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s, border-color 0.15s;
+}
+
+.demo-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.demo-num {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--accent);
+    background: rgba(56, 189, 248, 0.1);
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.demo-body h4 {
+    color: #ffffff;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.demo-body p {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.grid-practicas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 18px;
+}
+
+.card-practica {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.p-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--success);
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.card-practica h3 {
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.card-practica p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.practica-links {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-p {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: opacity 0.2s;
+}
+
+.btn-p:hover { opacity: 0.9; }
+.btn-alumno { background: #334155; color: #f8fafc; }
+.btn-solucion { background: var(--success); color: #052e16; }
+
+.pie-ejercicio {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+}

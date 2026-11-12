@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 03 - Aviso Retardado Cancelable · Ramón Abramo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="card">
+        <header>
+            <span class="badge">⏱️ Ejemplo de Referencia 03</span>
+            <h1>Aviso de Envío con Deshacer</h1>
+            <p class="subtitle">Simula un cliente de correo con botón «Deshacer envío» durante 4 segundos mediante <code>setTimeout()</code> y <code>clearTimeout()</code>.</p>
+        </header>
+
+        <section class="pantalla-envio">
+            <div id="iconoBuzon" class="icono">✉️</div>
+            <p id="estado" class="estado">Bandeja lista. Escribe o pulsa enviar.</p>
+            <div id="cuentaRegresiva" class="cuenta oculta">
+                <span>Tiempo para cancelar: <strong id="segundosRestantes">4</strong>s</span>
+                <div class="barra-timer"><div id="barraTimer" class="relleno"></div></div>
+            </div>
+        </section>
+
+        <footer class="controles">
+            <button id="btnEnviar" class="btn btn-primario">📤 Enviar mensaje (4s)</button>
+            <button id="btnCancelar" class="btn btn-peligro" disabled>↩ Deshacer envío</button>
+        </footer>
+
+        <aside class="nota-docente">
+            <strong>💡 Buenas prácticas de aula:</strong> Declara <code>let temporizadorEnvio = null;</code> en el ámbito superior para que ambos botones compartan la misma referencia al identificador.
+        </aside>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

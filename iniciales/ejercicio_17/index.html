@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 17: Temporizadores en JavaScript · Ramón Abramo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+        <!-- Portada y Encabezado -->
+        <header class="hero">
+            <div class="badge-curso">CONFECCIÓN Y PUBLICACIÓN DE PÁGINAS WEB · MÓDULO INICIAL</div>
+            <h1>⏱️ Ejercicio 17: Temporizadores en JavaScript</h1>
+            <p class="lead">
+                Aprende a dominar el tiempo en el navegador: <code>setTimeout</code>, <code>clearTimeout</code>, <code>setInterval</code> y <code>clearInterval</code>.
+            </p>
+            <div class="autor-badge">Profesor: Ramón Abramo · Más de 25 años de experiencia docente</div>
+        </header>
+
+        <!-- Bloque de Teoría Rápida y Analogías -->
+        <section class="grid-teoria">
+            <div class="tarjeta-teoria">
+                <div class="tag tag-timeout">EJECUCIÓN ÚNICA</div>
+                <h3>⏳ setTimeout(fn, ms)</h3>
+                <p>Espera el tiempo indicado y ejecuta la función <strong>una sola vez</strong>. Devuelve un <code>id</code> numérico único.</p>
+                <div class="analogia">🍳 <strong>Analogía:</strong> Alarma del horno o cuenta atrás de un microondas.</div>
+            </div>
+
+            <div class="tarjeta-teoria">
+                <div class="tag tag-cleartimeout">CANCELACIÓN ÚNICA</div>
+                <h3>🛑 clearTimeout(id)</h3>
+                <p>Cancela un temporizador pendiente programado con <code>setTimeout()</code> antes de que llegue a sonar.</p>
+                <div class="analogia">✋ <strong>Analogía:</strong> Abrir la puerta del horno antes de que pite.</div>
+            </div>
+
+            <div class="tarjeta-teoria">
+                <div class="tag tag-interval">EJECUCIÓN REPETITIVA</div>
+                <h3>🔄 setInterval(fn, ms)</h3>
+                <p>Ejecuta la función <strong>periódicamente</strong> cada vez que transcurren los milisegundos indicados.</p>
+                <div class="analogia">🎵 <strong>Analogía:</strong> El tic-tac de un reloj o un metrónomo musical.</div>
+            </div>
+
+            <div class="tarjeta-teoria">
+                <div class="tag tag-clearinterval">PARADA DEFINITIVA</div>
+                <h3>⏹️ clearInterval(id)</h3>
+                <p>Detiene un bucle periódico iniciado con <code>setInterval()</code> en seco y para siempre.</p>
+                <div class="analogia">🚦 <strong>Analogía:</strong> Pisar el freno o pulsar el botón de parada.</div>
+            </div>
+        </section>
+
+        <!-- Acceso a Documentación PDF Mejorada -->
+        <section class="seccion-bloque">
+            <h2>📚 Documentación Oficial y Guías PDF</h2>
+            <div class="grid-enlaces">
+                <a href="Manual de Referencia Rápida - Temporizadores en JavaScript.pdf" target="_blank" class="tarjeta-enlace doc-pdf">
+                    <span class="icono-enlace">📄</span>
+                    <div>
+                        <strong>Manual de Referencia Rápida (PDF)</strong>
+                        <p>Teoría completa, anatomía de temporizadores, 4 prácticas del manual y tabla de errores frecuentes.</p>
+                    </div>
+                </a>
+                <a href="Prácticas Guiadas - Temporizadores en JavaScript.pdf" target="_blank" class="tarjeta-enlace doc-pdf">
+                    <span class="icono-enlace">📑</span>
+                    <div>
+                        <strong>Prácticas Guiadas de Aula (PDF)</strong>
+                        <p>Enunciados paso a paso para el panel de cohete espacial y simulador de carga de batería.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Ejemplos del Manual de Referencia -->
+        <section class="seccion-bloque">
+            <h2>🧪 Ejemplos del Manual de Referencia (6 Demos en Vivo)</h2>
+            <div class="grid-ejemplos">
+                <a href="ejemplos_manual/01_timeout_alarma/index.html" class="demo-card">
+                    <span class="demo-num">01</span>
+                    <div class="demo-body">
+                        <h4>Alarma con setTimeout</h4>
+                        <p>Disparo diferido tras 3s y cancelación con clearTimeout.</p>
+                    </div>
+                </a>
+
+                <a href="ejemplos_manual/02_interval_reloj/index.html" class="demo-card">
+                    <span class="demo-num">02</span>
+                    <div class="demo-body">
+                        <h4>Metrónomo con setInterval</h4>
+                        <p>Bucle periódico con parada automática al llegar a 5 vueltas.</p>
+                    </div>
+                </a>
+
+                <a href="ejemplos_manual/03_aviso_cancelable/index.html" class="demo-card">
+                    <span class="demo-num">03</span>
+                    <div class="demo-body">
+                        <h4>Aviso con botón «Deshacer»</h4>
+                        <p>Simulador de cliente de correo con ventana de cancelación de 4s.</p>
+                    </div>
+                </a>
+
+                <a href="ejemplos_manual/04_caja_creciente/index.html" class="demo-card">
+                    <span class="demo-num">04</span>
+                    <div class="demo-body">
+                        <h4>Animación de Caja Creciente</h4>
+                        <p>Modificación del DOM en vivo hasta un tope de 300px.</p>
+                    </div>
+                </a>
+
+                <a href="ejemplos_manual/05_contador_interactivo/index.html" class="demo-card">
+                    <span class="demo-num">05</span>
+                    <div class="demo-body">
+                        <h4>Cronómetro de Tres Estados</h4>
+                        <p>Arrancar, Pausar y Reiniciar con guardia anti-duplicados.</p>
+                    </div>
+                </a>
+
+                <a href="ejemplos_manual/06_cuenta_atras_mixta/index.html" class="demo-card">
+                    <span class="demo-num">06</span>
+                    <div class="demo-body">
+                        <h4>Cuenta Atrás Combinada</h4>
+                        <p>Interval de 5 a 0 coordinado con timeout de reseteo a los 2s.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Prácticas de Aula y Soluciones -->
+        <section class="seccion-bloque">
+            <h2>🎯 Prácticas Guiadas para el Alumno y Soluciones</h2>
+            <div class="grid-practicas">
+                <!-- Practica 1 -->
+                <div class="card-practica">
+                    <div class="practica-header">
+                        <span class="p-badge">PRÁCTICA 1</span>
+                        <h3>🚀 Panel de Lanzamiento de Cohete</h3>
+                    </div>
+                    <p>Cuenta atrás de 10 a 0 con control de abortado de emergencia y restauración automática diferida a los 3 segundos.</p>
+                    <div class="practica-links">
+                        <a href="practicas/practica_01_cohete/index.html" class="btn-p btn-alumno">Plantilla Alumno</a>
+                        <a href="practicas/soluciones/practica_01_cohete/index.html" class="btn-p btn-solucion">Solución Oficial</a>
+                    </div>
+                </div>
+
+                <!-- Practica 2 -->
+                <div class="card-practica">
+                    <div class="practica-header">
+                        <span class="p-badge">PRÁCTICA 2</span>
+                        <h3>🔋 Simulador de Carga de Batería</h3>
+                    </div>
+                    <p>Indicador visual de progreso del 0% al 100%, botón de pausa, alerta de carga completa y reseteo seguro con clearTimeout.</p>
+                    <div class="practica-links">
+                        <a href="practicas/practica_02_bateria/index.html" class="btn-p btn-alumno">Plantilla Alumno</a>
+                        <a href="practicas/soluciones/practica_02_bateria/index.html" class="btn-p btn-solucion">Solución Oficial</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="pie-ejercicio">
+            <p>Curso de Confección y Publicación de Páginas Web · Ejercicio 17 · Impartido por <strong>Ramón Abramo</strong></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

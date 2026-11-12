@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 05 - Contador / Cronómetro Interactivo · Ramón Abramo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="card">
+        <header>
+            <span class="badge">⏱️ Ejemplo de Referencia 05</span>
+            <h1>Cronómetro Interactivo de Tres Estados</h1>
+            <p class="subtitle">Control del ciclo de vida con <strong>Arrancar</strong>, <strong>Parar</strong> y <strong>Reiniciar</strong>, previniendo intervalos acelerados por pulsaciones duplicadas.</p>
+        </header>
+
+        <section class="pantalla-cronometro">
+            <div class="display-digital">
+                <span id="pantallaContador" class="segundos">0</span>
+                <span class="unidad">segundos</span>
+            </div>
+            <div id="indicadorEstado" class="indicador detenido">DETENIDO</div>
+        </section>
+
+        <footer class="controles">
+            <button id="btnArrancar" class="btn btn-exito">▶ Arrancar</button>
+            <button id="btnParar" class="btn btn-aviso">⏸ Pausar</button>
+            <button id="btnReiniciar" class="btn btn-secundario">🔄 Reiniciar</button>
+        </footer>
+
+        <aside class="nota-docente">
+            <strong>🛑 Trampa común de examen:</strong> Si el alumno no comprueba <code>if (idCronometro !== null) return;</code> al pulsar «Arrancar», cada clic creará un nuevo intervalo superpuesto y el contador empezará a correr al doble o triple de velocidad.
+        </aside>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

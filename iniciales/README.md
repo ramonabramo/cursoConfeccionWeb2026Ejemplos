@@ -334,3 +334,24 @@ El navegador lee y procesa el código HTML en orden secuencial: **de arriba haci
   1. Apuntar al input desde JavaScript.
   2. Leer su contenido utilizando la propiedad `.value` (nunca `.textContent`).
   3. Escribir dicho valor dentro del contenedor `<div id="salida">` usando `.textContent`.
+
+---
+
+### Ejercicio 17: Gestión de Temporizadores en JavaScript (`setTimeout`, `setInterval`, `clearTimeout`, `clearInterval`)
+* **Portal del Ejercicio:** [`ejercicio_17/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/index.html)
+* **Manual de Referencia Rápida (PDF):** [`ejercicio_17/Manual de Referencia Rápida - Temporizadores en JavaScript.pdf`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/Manual%20de%20Referencia%20R%C3%A1pida%20-%20Temporizadores%20en%20JavaScript.pdf)
+* **Prácticas Guiadas (PDF):** [`ejercicio_17/Prácticas Guiadas - Temporizadores en JavaScript.pdf`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/Pr%C3%A1cticas%20Guiadas%20-%20Temporizadores%20en%20JavaScript.pdf)
+* **Demos del Manual (6 Ejemplos):** [`ejercicio_17/ejemplos_manual/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/ejemplos_manual/README.md)
+* **Prácticas Alumno:**
+  - Práctica 1 (Cohete): [`ejercicio_17/practicas/practica_01_cohete/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/practicas/practica_01_cohete/index.html)
+  - Práctica 2 (Batería): [`ejercicio_17/practicas/practica_02_bateria/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/practicas/practica_02_bateria/index.html)
+* **Soluciones Oficiales:**
+  - Solución Práctica 1: [`soluciones/ejercicio_17/practica_01_cohete/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/soluciones/ejercicio_17/practica_01_cohete/app.js)
+  - Solución Práctica 2: [`soluciones/ejercicio_17/practica_02_bateria/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/soluciones/ejercicio_17/practica_02_bateria/app.js)
+* **Objetivo:**
+  Comprender y aplicar la ejecución asíncrona basada en tiempo en el navegador:
+  1. Ejecución diferida única con `setTimeout(fn, ms)` y su cancelación mediante `clearTimeout(id)`.
+  2. Ejecución repetitiva continua con `setInterval(fn, ms)` y su detención en seco con `clearInterval(id)`.
+  3. Control riguroso de variables de estado (`idIntervalo !== null`) para prevenir intervalos acelerados por pulsaciones duplicadas.
+  4. Coordinación de ambos temporizadores en interfaces dinámicas (cuenta atrás con reseteo diferido).
+

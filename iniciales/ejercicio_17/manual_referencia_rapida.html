@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Manual de Referencia Rápida: Temporizadores en JavaScript - Ramón Abramo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&display=swap');
+  
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #0f172a;
+    background: #ffffff;
+    font-size: 8.5pt;
+    line-height: 1.36;
+  }
+  
+  .page {
+    width: 210mm;
+    height: 297mm;
+    position: relative;
+    padding: 10mm 14mm 8mm 14mm;
+    page-break-after: always;
+    background: #ffffff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Portada Dedicada Exclusiva (Página 1) */
+  .page.cover-page {
+    padding: 16mm 18mm 14mm 18mm;
+    background: linear-gradient(145deg, #080d1a 0%, #0f172a 40%, #1e293b 100%);
+    color: #ffffff;
+  }
+
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid rgba(56, 189, 248, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+  }
+
+  .cover-top .institution {
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #38bdf8;
+    text-transform: uppercase;
+  }
+
+  .cover-top .tag-edition {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-size: 7.2pt;
+    font-weight: 800;
+  }
+
+  .cover-hero {
+    margin-bottom: 20px;
+  }
+
+  .cover-badge-category {
+    display: inline-block;
+    background: rgba(14, 165, 233, 0.2);
+    border: 1px solid #0284c7;
+    color: #38bdf8;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .cover-title {
+    font-size: 26pt;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.15;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.8px;
+  }
+
+  .cover-title span {
+    color: #38bdf8;
+  }
+
+  .cover-desc {
+    font-size: 10.5pt;
+    color: #cbd5e1;
+    line-height: 1.5;
+    max-width: 90%;
+    margin-bottom: 22px;
+  }
+
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .cover-card-mini {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(51, 65, 85, 0.8);
+    border-radius: 9px;
+    padding: 12px 14px;
+  }
+
+  .cover-card-mini h4 {
+    margin: 0 0 4px 0;
+    font-size: 9.5pt;
+    color: #38bdf8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cover-card-mini p {
+    margin: 0;
+    font-size: 7.8pt;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+  .cover-footer-box {
+    border-top: 1px solid rgba(51, 65, 85, 0.8);
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cover-author h3 {
+    margin: 0 0 2px 0;
+    font-size: 11pt;
+    color: #ffffff;
+  }
+
+  .cover-author p {
+    margin: 0;
+    font-size: 8pt;
+    color: #94a3b8;
+  }
+
+  .cover-meta {
+    text-align: right;
+    font-size: 7.8pt;
+    color: #64748b;
+  }
+  
+  /* Encabezados y pies de página estándar */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.2pt;
+    font-weight: 700;
+    color: #475569;
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid #cbd5e1;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .badge-header {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 6.8pt;
+    font-weight: 800;
+  }
+  
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.2pt;
+    color: #64748b;
+    padding-top: 5px;
+    border-top: 1.5px solid #cbd5e1;
+    margin-top: 5px;
+  }
+  
+  .content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Tipografía */
+  h2 {
+    font-size: 11pt;
+    color: #0369a1;
+    margin: 5px 0 4px 0;
+    font-weight: 800;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  h3 {
+    font-size: 9pt;
+    color: #0f172a;
+    margin: 4px 0 3px 0;
+    font-weight: 700;
+  }
+  
+  p {
+    margin: 0 0 5px 0;
+    text-align: justify;
+  }
+
+  /* Índice de Contenidos Interactivo */
+  .toc-box {
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 9px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+  }
+
+  .toc-title {
+    font-size: 9.5pt;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 14px;
+  }
+
+  .toc-item {
+    font-size: 7.8pt;
+    line-height: 1.35;
+  }
+
+  .toc-link {
+    text-decoration: none;
+    color: #1e293b;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px dotted #cbd5e1;
+    padding-bottom: 1px;
+    transition: color 0.15s;
+  }
+
+  .toc-link:hover {
+    color: #0284c7;
+    font-weight: 700;
+  }
+
+  .toc-page {
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    color: #0284c7;
+    font-size: 7.4pt;
+    margin-left: 6px;
+  }
+  
+  /* Tablas de estilo profesional */
+  table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0 6px 0;
+    font-size: 7.4pt;
+  }
+  
+  table.custom-table th, table.custom-table td {
+    border: 1px solid #cbd5e1;
+    padding: 4px 7px;
+    text-align: left;
+    vertical-align: middle;
+  }
+  
+  table.custom-table th {
+    background: #0f172a;
+    color: #38bdf8;
+    font-weight: 700;
+    font-size: 7.1pt;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  
+  table.custom-table tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+  
+  /* Bloques destacados de pizarra */
+  .box-pizarra {
+    background: #f0f9ff;
+    border: 1.5px dashed #0284c7;
+    border-radius: 7px;
+    padding: 6px 10px;
+    margin-bottom: 6px;
+  }
+  
+  .box-pizarra-title {
+    font-weight: 800;
+    font-size: 8pt;
+    color: #0284c7;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+  }
+  
+  .box-tip {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-left: 3.5px solid #16a34a;
+    border-radius: 6px;
+    padding: 5px 9px;
+    margin-bottom: 6px;
+  }
+  
+  .box-tip .box-title {
+    color: #15803d;
+    font-weight: 700;
+    font-size: 8pt;
+    margin-bottom: 2px;
+  }
+  
+  .box-alert {
+    background: #fffbeb;
+    border: 1px solid #fef3c7;
+    border-left: 3.5px solid #d97706;
+    border-radius: 6px;
+    padding: 5px 9px;
+    margin-bottom: 6px;
+  }
+  
+  .box-alert .box-title {
+    color: #b45309;
+    font-weight: 700;
+    font-size: 8pt;
+    margin-bottom: 2px;
+  }
+  
+  .box-analogia {
+    background: #fff7ed;
+    border: 1px solid #ffedd5;
+    border-left: 3.5px solid #ea580c;
+    border-radius: 6px;
+    padding: 5px 9px;
+    margin-bottom: 6px;
+  }
+  
+  .box-analogia .box-title {
+    color: #c2410c;
+    font-weight: 700;
+    font-size: 8pt;
+    margin-bottom: 2px;
+  }
+
+  .box-error {
+    background: #fef2f2;
+    border: 1px solid #fee2e2;
+    border-left: 3.5px solid #ef4444;
+    border-radius: 6px;
+    padding: 5px 9px;
+    margin-bottom: 6px;
+  }
+
+  .box-error .box-title {
+    color: #b91c1c;
+    font-weight: 700;
+    font-size: 8pt;
+    margin-bottom: 2px;
+  }
+  
+  /* Cajitas de memoria */
+  .cajitas-container {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    margin: 5px 0 6px 0;
+  }
+  
+  .cajita {
+    flex: 1;
+    background: #ffffff;
+    border: 2px solid #ef4444;
+    border-radius: 6px;
+    padding: 4px 6px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.08);
+  }
+  
+  .cajita.azul { border-color: #0284c7; }
+  .cajita.verde { border-color: #16a34a; }
+  .cajita.purpura { border-color: #9333ea; }
+  
+  .cajita-titulo {
+    font-size: 6.8pt;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 1px;
+  }
+  
+  .cajita-valor {
+    font-family: 'Fira Code', monospace;
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #dc2626;
+  }
+  
+  .cajita.azul .cajita-valor { color: #0284c7; }
+  .cajita.verde .cajita-valor { color: #16a34a; }
+  .cajita.purpura .cajita-valor { color: #9333ea; }
+  
+  /* Código con sintaxis destacada */
+  pre {
+    background: #090d16;
+    color: #f8fafc;
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 7.1pt;
+    line-height: 1.3;
+    margin: 3px 0 5px 0;
+    overflow: hidden;
+    border: 1px solid #1e293b;
+  }
+  
+  code {
+    font-family: 'Fira Code', monospace;
+    font-size: 7.4pt;
+    background: #f1f5f9;
+    color: #0f172a;
+    padding: 1px 3px;
+    border-radius: 3px;
+    border: 1px solid #e2e8f0;
+  }
+  
+  pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+  
+  .kw { color: #f472b6; font-weight: 600; }
+  .fn { color: #38bdf8; font-weight: 600; }
+  .str { color: #a3e635; }
+  .num { color: #fbbf24; }
+  .cm { color: #94a3b8; font-style: italic; }
+  .var { color: #e2e8f0; }
+  
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .pill {
+    display: inline-block;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 6.8pt;
+    text-transform: uppercase;
+  }
+  .pill-timeout { background: #e0f2fe; color: #0369a1; }
+  .pill-interval { background: #f3e8ff; color: #7e22ce; }
+  .pill-clear { background: #fee2e2; color: #b91c1c; }
+</style>
+</head>
+<body>
+
+<!-- ======================================================================= -->
+<!-- PÁGINA 1: PORTADA DEDICADA DE GRAN IMPACTO -->
+<!-- ======================================================================= -->
+<div class="page cover-page" id="portada">
+  <div class="cover-top">
+    <div class="institution">CURSO DE CONFECCIÓN Y PUBLICACIÓN DE PÁGINAS WEB · RAMÓN ABRAMO</div>
+    <div class="tag-edition">EJERCICIO 17 · MANUAL OFICIAL</div>
+  </div>
+
+  <div class="cover-hero">
+    <div class="cover-badge-category">⚡ RECURSO DIDÁCTICO DE ALTO RENDIMIENTO · JAVASCRIPT CLIENTE</div>
+    <h1 class="cover-title">⏱️ TEMPORIZADORES EN <span>JAVASCRIPT</span></h1>
+    <div class="cover-desc">
+      Manual de referencia rápida y arquitectura asíncrona: domina el control del tiempo en el navegador mediante <code>setTimeout()</code>, <code>clearTimeout()</code>, <code>setInterval()</code> y <code>clearInterval()</code> con analogías de aula, cajitas de memoria y patrones profesionales.
+    </div>
+  </div>
+
+  <div class="cover-grid">
+    <div class="cover-card-mini">
+      <h4>⏳ setTimeout()</h4>
+      <p>Ejecución diferida de una sola vez tras un plazo de milisegundos. Ideal para avisos temporales y retrasos calculados.</p>
+    </div>
+    <div class="cover-card-mini">
+      <h4>🛑 clearTimeout()</h4>
+      <p>Cancelación segura de cuentas atrás pendientes antes de su vencimiento utilizando su ticket identificador.</p>
+    </div>
+    <div class="cover-card-mini">
+      <h4>🔄 setInterval()</h4>
+      <p>Bucle periódico repetitivo a intervalos regulares. Base para cronómetros, relojes y animaciones frame a frame.</p>
+    </div>
+    <div class="cover-card-mini">
+      <h4>⏹️ clearInterval()</h4>
+      <p>Detención definitiva del ciclo repetitivo evitando consumos de memoria y bucles infinitos en el navegador.</p>
+    </div>
+  </div>
+
+  <div class="cover-footer-box">
+    <div class="cover-author">
+      <h3>👨‍🏫 Ramón Abramo</h3>
+      <p>Profesor especialista con más de 25 años de experiencia docente</p>
+    </div>
+    <div class="cover-meta">
+      <strong>Módulo Inicial · Guía Técnica</strong><br>
+      Santander / Confección Web 2026
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- PÁGINA 2: ÍNDICE GENERAL NAVEGABLE & FUNDAMENTOS DEL TIEMPO -->
+<!-- ======================================================================= -->
+<div class="page" id="indice">
+  <div class="page-header">
+    <span>CONFECCIÓN Y PUBLICACIÓN DE PÁGINAS WEB · RAMÓN ABRAMO</span>
+    <span class="badge-header">ÍNDICE Y FUNDAMENTOS</span>
+  </div>
+
+  <div class="content-area">
+    <!-- ÍNDICE INTERACTIVO CON HIPERVÍNCULOS -->
+    <div class="toc-box">
+      <div class="toc-title">
+        <span>📑 Índice General de Contenidos (Haz clic para saltar)</span>
+        <span style="font-size:7pt; color:#64748b; font-weight:normal;">Manual de Referencia Rápida</span>
+      </div>
+      <ul class="toc-list">
+        <li class="toc-item"><a href="#sec-fundamentos" class="toc-link"><span>1. ¿Cómo controla el tiempo el navegador?</span><span class="toc-page">Pág 2</span></a></li>
+        <li class="toc-item"><a href="#sec-tabla" class="toc-link"><span>2. Las 4 Funciones Fundamentales</span><span class="toc-page">Pág 2</span></a></li>
+        <li class="toc-item"><a href="#sec-cajitas" class="toc-link"><span>3. Pizarra de Memoria y Tickets ID</span><span class="toc-page">Pág 3</span></a></li>
+        <li class="toc-item"><a href="#sec-anatomia-timeout" class="toc-link"><span>4. Anatomía de setTimeout y clearTimeout</span><span class="toc-page">Pág 3</span></a></li>
+        <li class="toc-item"><a href="#sec-anatomia-interval" class="toc-link"><span>5. Anatomía de setInterval y clearInterval</span><span class="toc-page">Pág 3</span></a></li>
+        <li class="toc-item"><a href="#sec-ref1" class="toc-link"><span>6. Práctica 1: Aviso Retardado con Cancelación</span><span class="toc-page">Pág 4</span></a></li>
+        <li class="toc-item"><a href="#sec-ref2" class="toc-link"><span>7. Práctica 2: Caja Creciente (Animación DOM)</span><span class="toc-page">Pág 5</span></a></li>
+        <li class="toc-item"><a href="#sec-ref3" class="toc-link"><span>8. Práctica 3: Cronómetro Interactivo 3 Estados</span><span class="toc-page">Pág 6</span></a></li>
+        <li class="toc-item"><a href="#sec-ref4" class="toc-link"><span>9. Práctica 4: Cuenta Atrás Coordinada</span><span class="toc-page">Pág 7</span></a></li>
+        <li class="toc-item"><a href="#sec-errores" class="toc-link"><span>10. Top 5 Errores Frecuentes y Soluciones</span><span class="toc-page">Pág 7</span></a></li>
+      </ul>
+    </div>
+
+    <h2 id="sec-fundamentos">⏱️ 1. ¿Cómo controla el tiempo el navegador?</h2>
+    <p>Por defecto, JavaScript es un lenguaje síncrono que ejecuta las instrucciones una detrás de otra de manera inmediata en un único hilo. Sin embargo, en el desarrollo web moderno necesitamos programar eventos que ocurran en el futuro o se repitan periódicamente: avisos emergentes, cronómetros o animaciones. Para lograrlo, el navegador nos ofrece cuatro funciones asíncronas nativas mediante las Web APIs.</p>
+
+    <div class="box-pizarra">
+      <div class="box-pizarra-title">📏 La Regla de Oro de los Milisegundos (ms)</div>
+      <p style="margin:0;">Todas las funciones de temporización en JavaScript miden el tiempo en <strong>milisegundos</strong> (<code>ms</code>). Un segundo equivale exactamente a <strong>1.000 milisegundos</strong> (<code>1s = 1000ms</code>, <code>2s = 2000ms</code>, <code>500ms = 0.5s</code>). ¡Escribir <code>5</code> significa 5 milisegundos (casi instantáneo), nunca 5 segundos!</p>
+    </div>
+
+    <h2 id="sec-tabla">📊 2. Las 4 Funciones Fundamentales: Tabla Comparativa</h2>
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th style="width:23%;">Función</th>
+          <th style="width:28%;">Comportamiento</th>
+          <th style="width:22%;">¿Qué devuelve?</th>
+          <th style="width:27%;">¿Cómo se detiene?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pill pill-timeout">setTimeout(fn, ms)</span></td>
+          <td>Espera <code>ms</code> y ejecuta la función <strong>una sola vez</strong>.</td>
+          <td>Un número entero (<strong>ID</strong> identificador).</td>
+          <td>Con <code>clearTimeout(id)</code> antes de cumplirse el plazo.</td>
+        </tr>
+        <tr>
+          <td><span class="pill pill-clear">clearTimeout(id)</span></td>
+          <td>Cancela la alarma diferida de un <code>setTimeout</code>.</td>
+          <td>Nada (<code>undefined</code>).</td>
+          <td>No aplica (es la función destructora).</td>
+        </tr>
+        <tr>
+          <td><span class="pill pill-interval">setInterval(fn, ms)</span></td>
+          <td>Ejecuta la función <strong>repetidamente</strong> cada <code>ms</code>.</td>
+          <td>Un número entero (<strong>ID</strong> de intervalo).</td>
+          <td>Con <code>clearInterval(id)</code> en cualquier momento.</td>
+        </tr>
+        <tr>
+          <td><span class="pill pill-clear">clearInterval(id)</span></td>
+          <td>Frena el bucle repetitivo de un <code>setInterval</code>.</td>
+          <td>Nada (<code>undefined</code>).</td>
+          <td>No aplica (es la función de parada).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span>Manual de Referencia Rápida · Temporizadores en JavaScript · Ramón Abramo</span>
+    <span>Página 2 de 7</span>
+  </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- PÁGINA 3: CAJITAS DE MEMORIA & ANATOMÍA PASO A PASO -->
+<!-- ======================================================================= -->
+<div class="page">
+  <div class="page-header">
+    <span>CONFECCIÓN Y PUBLICACIÓN DE PÁGINAS WEB · RAMÓN ABRAMO</span>
+    <span class="badge-header">CAJITAS DE MEMORIA Y ANATOMÍA</span>
+  </div>
+
+  <div class="content-area">
+    <h2 id="sec-cajitas">🧠 3. La Pizarra de Memoria: ¿Qué es el Identificador (ID)?</h2>
+    <p>Cuando solicitas al navegador un temporizador, este no te devuelve la función ni el tiempo; te entrega un <strong>número de ticket único (ID)</strong> (por ejemplo: <code>1</code>, <code>2</code>, <code>3</code>...). Si no guardas ese ticket en una variable de control, perderás la referencia y ya no podrás cancelarlo.</p>
+
+    <div class="cajitas-container">
+      <div class="cajita azul">
+        <div class="cajita-titulo">Variable en Memoria</div>
+        <div class="cajita-valor">let idAlarma</div>
+      </div>
+      <div class="cajita">
+        <div class="cajita-titulo">Ticket del Navegador</div>
+        <div class="cajita-valor">ID: 1 (Timeout)</div>
+      </div>
+      <div class="cajita purpura">
+        <div class="cajita-titulo">Variable en Memoria</div>
+        <div class="cajita-valor">let idReloj</div>
+      </div>
+      <div class="cajita verde">
+        <div class="cajita-titulo">Ticket del Navegador</div>
+        <div class="cajita-valor">ID: 2 (Interval)</div>
+      </div>
+    </div>
+
+    <h2 id="sec-anatomia-timeout">⏳ 4. Anatomía de la Ejecución Única: setTimeout() y clearTimeout()</h2>
+    <div class="box-analogia">
+      <div class="box-title">🍳 Analogía de Pizarra: La Alarma del Horno</div>
+      <p style="margin:0;">Programas el horno para dentro de 3 segundos: cuando el tiempo se cumple, suena un pitido y se apaga solo. Si decides cancelar antes de que suene porque vas a salir de casa, necesitas pulsar el botón de parada usando el identificador guardado.</p>
+    </div>
+
+<pre><code><span class="cm">// ⏱️ PASO 1: Programamos la acción diferida y guardamos su ID en una variable</span>
+<span class="kw">const</span> <span class="var">idAlarma</span> = <span class="fn">setTimeout</span>(() => {
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"🔔 ¡Han pasado 3 segundos! Acción ejecutada una sola vez."</span>);
+}, <span class="num">3000</span>);
+
+<span class="cm">// 🛑 PASO 2 (Opcional): Si queremos abortarla antes de cumplirse los 3 segundos</span>
+<span class="fn">clearTimeout</span>(<span class="var">idAlarma</span>);
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"🛑 Alarma abortada a tiempo. La función nunca llegará a ejecutarse."</span>);</code></pre>
+
+    <h2 id="sec-anatomia-interval">🔄 5. Anatomía de la Ejecución Periódica: setInterval() y clearInterval()</h2>
+    <div class="box-analogia">
+      <div class="box-title">🎵 Analogía de Pizarra: El Metrónomo Musical</div>
+      <p style="margin:0;">Funciona exactamente igual que un segundero o un metrónomo: cada vez que transcurre el intervalo configurado vuelve a sonar de forma indefinida hasta que le apliquemos un freno explícito mediante <code>clearInterval()</code>.</p>
+    </div>
+
+<pre><code><span class="cm">// 🔄 PASO 1: Iniciamos la repetición periódica cada 1000 ms (1 segundo)</span>
+<span class="kw">let</span> <span class="var">vueltas</span> = <span class="num">0</span>;
+<span class="kw">const</span> <span class="var">idReloj</span> = <span class="fn">setInterval</span>(() => {
+    <span class="var">vueltas</span>++;
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"⏱️ Vuelta número: "</span> + <span class="var">vueltas</span>);
+
+    <span class="cm">// 🛑 PASO 2: Condición de parada para evitar un bucle infinito en memoria</span>
+    <span class="kw">if</span> (<span class="var">vueltas</span> === <span class="num">5</span>) {
+        <span class="fn">clearInterval</span>(<span class="var">idReloj</span>);
+        <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"🏁 Meta alcanzada: Intervalo detenido automáticamente."</span>);
+    }
+}, <span class="num">1000</span>);</code></pre>
+  </div>
+
+  <div class="page-footer">
+    <span>Manual de Referencia Rápida · Temporizadores en JavaScript · Ramón Abramo</span>
+    <span>Página 3 de 7</span>
+  </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- PÁGINA 4: PRÁCTICA DEL MANUAL 1 (AVISO CANCELABLE) -->
+<!-- ======================================================================= -->
+<div class="page">
+  <div class="page-header">
+    <span>CONFECCIÓN Y PUBLICACIÓN DE PÁGINAS WEB · RAMÓN ABRAMO</span>
+    <span class="badge-header">PRÁCTICA DEL MANUAL 1</span>
+  </div>
+
+  <div class="content-area">
+    <h2 id="sec-ref1">✉️ 6. Práctica de Referencia 1: Aviso Retardado con Cancelación</h2>
+    <div class="box-pizarra">
+      <div class="box-pizarra-title">🎯 Objetivo y Funciones Empleadas</div>
+      <p style="margin:0;"><strong>Funciones:</strong> <code>setTimeout()</code> + <code>clearTimeout()</code> · <strong>Reto:</strong> Simular el sistema de envío de un correo que ofrece una ventana de 4 segundos al usuario para pulsar «Cancelar / Deshacer envío» antes de que el mensaje parta definitivamente.</p>
+    </div>
+
+    <h3>Estructura HTML y Preparación</h3>
+<pre><code><span class="cm">&lt;!-- 🧱 Estructura HTML de la Práctica 1 --&gt;</span>
+&lt;<span class="kw">button</span> <span class="var">id</span>=<span class="str">"btnEnviar"</span>&gt;📤 Enviar mensaje (4s)&lt;/<span class="kw">button</span>&gt;
+&lt;<span class="kw">button</span> <span class="var">id</span>=<span class="str">"btnCancelar"</span> <span class="var">disabled</span>&gt;🛑 Cancelar envío&lt;/<span class="kw">button</span>&gt;
+&lt;<span class="kw">p</span> <span class="var">id</span>=<span class="str">"estado"</span>&gt;Esperando acción...&lt;/<span class="kw">p</span>&gt;</code></pre>
+
+    <h3>Código JavaScript Comentado Paso a Paso</h3>
+<pre><code><span class="cm">// 🎯 PASO 1: Capturamos los elementos del DOM</span>
+<span class="kw">const</span> <span class="var">btnEnviar</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"btnEnviar"</span>);
+<span class="kw">const</span> <span class="var">btnCancelar</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"btnCancelar"</span>);
+<span class="kw">const</span> <span class="var">estado</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"estado"</span>);
+
+<span class="cm">// 🧠 PASO 2: Variable global en el ámbito superior para compartir el ID</span>
+<span class="kw">let</span> <span class="var">temporizadorEnvio</span> = <span class="kw">null</span>;
+
+<span class="cm">// 🚀 PASO 3: Escuchador para iniciar el envío diferido</span>
+<span class="var">btnEnviar</span>.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, () => {
+    <span class="var">estado</span>.<span class="var">textContent</span> = <span class="str">"⏳ Enviando en 4 segundos... Puedes cancelar."</span>;
+    <span class="var">btnEnviar</span>.<span class="var">disabled</span> = <span class="kw">true</span>;
+    <span class="var">btnCancelar</span>.<span class="var">disabled</span> = <span class="kw">false</span>;
+
+    <span class="cm">// Programamos la acción diferida tras 4000 ms</span>
+    <span class="var">temporizadorEnvio</span> = <span class="fn">setTimeout</span>(() => {
+        <span class="var">estado</span>.<span class="var">textContent</span> = <span class="str">"✅ ¡Mensaje enviado con éxito al servidor!"</span>;
+        <span class="var">btnCancelar</span>.<span class="var">disabled</span> = <span class="kw">true</span>;
+        <span class="var">btnEnviar</span>.<span class="var">disabled</span> = <span class="kw">false</span>;
+        <span class="var">temporizadorEnvio</span> = <span class="kw">null</span>;
+    }, <span class="num">4000</span>);
+});
+
+<span class="cm">// 🛑 PASO 4: Escuchador para cancelar el envío antes de que se cumpla el tiempo</span>
+<span class="var">btnCancelar</span>.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, () => {
+    <span class="cm">// Detenemos el setTimeout antes de que se cumpla el tiempo</span>
+    <span class="fn">clearTimeout</span>(<span class="var">temporizadorEnvio</span>);
+    <span class="var">temporizadorEnvio</span> = <span class="kw">null</span>;
+
+    <span class="var">estado</span>.<span class="var">textContent</span> = <span class="str">"🛑 Envío cancelado por el usuario. Permanece en borradores."</span>;
+    <span class="var">btnCancelar</span>.<span class="var">disabled</span> = <span class="kw">true</span>;
+    <span class="var">btnEnviar</span>.<span class="var">disabled</span> = <span class="kw">false</span>;
+});</code></pre>
+
+    <div class="box-tip">
+      <div class="box-title">💡 Buena Práctica de Interfaz (UX en el Aula)</div>
+      <p style="margin:0; font-size:7.4pt;">Alternar la propiedad <code>disabled</code> de los botones impide que el alumno haga doble clic y garantiza que solo se pueda cancelar cuando realmente haya una cuenta atrás activa en marcha.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Manual de Referencia Rápida · Temporizadores en JavaScript · Ramón Abramo</span>
+    <span>Página 4 de 7</span>
+  </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- PÁGINA 5: PRÁCTICA DEL MANUAL 2 (CAJA CRECIENTE) -->
+<!-- ======================================================================= -->
+<div class="page">
+  <div class="page-header">
+    <span>CONFECCIÓN Y PUBLICACIÓN DE PÁGINAS WEB · RAMÓN ABRAMO</span>
+    <span class="badge-header">PRÁCTICA DEL MANUAL 2</span>
+  </div>
+
+  <div class="content-area">
+    <h2 id="sec-ref2">📦 7. Práctica de Referencia 2: Animación de Caja Creciente</h2>
+    <div class="box-pizarra">
+      <div class="box-pizarra-title">🎯 Objetivo y Funciones Empleadas</div>
+      <p style="margin:0;"><strong>Funciones:</strong> <code>setInterval()</code> + <code>clearInterval()</code> · <strong>Reto:</strong> Animar progresivamente el ancho de un elemento HTML sumando 5 píxeles cada 50 milisegundos y frenar automáticamente al alcanzar un límite de 300px.</p>
+    </div>
+
+    <div class="box-analogia">
+      <div class="box-title">🍳 Para Entenderlo: La Técnica Tradicional de Animación</div>
+      <p style="margin:0;">Antes del estándar CSS3 (<code>transitions</code> y <code>@keyframes</code>), todo movimiento dinámico en pantalla se lograba modificando propiedades del DOM dentro de un <code>setInterval</code> a alta velocidad (20 a 60 veces por segundo).</p>
+    </div>
+
+    <h3>Estructura HTML y CSS</h3>
+<pre><code><span class="cm">&lt;!-- 🧱 Elementos HTML con estilos en línea --&gt;</span>
+&lt;<span class="kw">button</span> <span class="var">id</span>=<span class="str">"btnCrecer"</span>&gt;🚀 Hacer crecer la caja&lt;/<span class="kw">button</span>&gt;
+&lt;<span class="kw">div</span> <span class="var">id</span>=<span class="str">"caja"</span> <span class="var">style</span>=<span class="str">"width:50px; height:36px; background:#0284c7; color:#fff;
+     text-align:center; line-height:36px; font-weight:bold; margin-top:8px;"</span>&gt;50px&lt;/<span class="kw">div</span>&gt;</code></pre>
+
+    <h3>Código JavaScript de la Animación</h3>
+<pre><code><span class="kw">const</span> <span class="var">btnCrecer</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"btnCrecer"</span>);
+<span class="kw">const</span> <span class="var">caja</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"caja"</span>);
+
+<span class="var">btnCrecer</span>.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, () => {
+    <span class="var">btnCrecer</span>.<span class="var">disabled</span> = <span class="kw">true</span>;
+    <span class="kw">let</span> <span class="var">anchoActual</span> = <span class="num">50</span>;
+
+    <span class="cm">// ⏱️ Cada 50 ms aumentamos el ancho en 5 píxeles (20 fotogramas por segundo)</span>
+    <span class="kw">const</span> <span class="var">idAnimacion</span> = <span class="fn">setInterval</span>(() => {
+        <span class="var">anchoActual</span> += <span class="num">5</span>;
+        
+        <span class="cm">// 🎨 Modificamos directamente el estilo en línea del DOM</span>
+        <span class="var">caja</span>.<span class="var">style</span>.<span class="var">width</span> = <span class="var">anchoActual</span> + <span class="str">"px"</span>;
+        <span class="var">caja</span>.<span class="var">textContent</span> = <span class="var">anchoActual</span> + <span class="str">"px"</span>;
+
+        <span class="cm">// 🛑 Freno automático: cuando alcanza o supera los 300px</span>
+        <span class="kw">if</span> (<span class="var">anchoActual</span> >= <span class="num">300</span>) {
+            <span class="fn">clearInterval</span>(<span class="var">idAnimacion</span>);
+            <span class="var">caja</span>.<span class="var">style</span>.<span class="var">background</span> = <span class="str">"#047857"</span>;
+            <span class="var">caja</span>.<span class="var">textContent</span> = <span class="str">"¡Completado (300px)!"</span>;
+        }
+    }, <span class="num">50</span>);
+});</code></pre>
+
+    <div class="box-alert">
+      <div class="box-title">⚠️ Regla de Parada Segura (>= en vez de ===)</div>
+      <p style="margin:0; font-size:7.4pt;">Utiliza siempre el operador <code>>=</code> en lugar de <code>===</code> para condiciones de parada de intervalos numéricos. Si por algún incremento el valor saltase a 302px, un <code>===</code> jamás se cumpliría y el bucle continuaría indefinidamente.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Manual de Referencia Rápida · Temporizadores en JavaScript · Ramón Abramo</span>
+    <span>Página 5 de 7</span>
+  </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- PÁGINA 6: PRÁCTICA DEL MANUAL 3 (CRONÓMETRO INTERACTIVO) -->
+<!-- ======================================================================= -->
+<div class="page">
+  <div class="page-header">
+    <span>CONFECCIÓN Y PUBLICACIÓN DE PÁGINAS WEB · RAMÓN ABRAMO</span>
+    <span class="badge-header">PRÁCTICA DEL MANUAL 3</span>
+  </div>
+
+  <div class="content-area">
+    <h2 id="sec-ref3">⏱️ 8. Práctica de Referencia 3: Cronómetro Interactivo de Tres Estados</h2>
+    <div class="box-pizarra">
+      <div class="box-pizarra-title">🎯 Objetivo y Funciones Empleadas</div>
+      <p style="margin:0;"><strong>Funciones:</strong> <code>setInterval()</code> + <code>clearInterval()</code> · <strong>Reto:</strong> Controlar el ciclo de vida de un cronómetro mediante tres botones: <em>Arrancar</em>, <em>Pausar</em> y <em>Reiniciar</em>, blindando el código contra clics duplicados.</p>
+    </div>
+
+    <div class="box-error">
+      <div class="box-title">🛑 La Trampa Más Frecuente en Exámenes de Programación</div>
+      <p style="margin:0;">Si el usuario pulsa <em>Arrancar</em> tres veces seguidas, se crearán tres intervalos paralelos. El contador aumentará a triple velocidad y la variable <code>idCronometro</code> solo recordará el último ID, dejando los dos anteriores huérfanos e imparables. ¡Para evitarlo, comprueba siempre <code>if (idCronometro !== null) return;</code>!</p>
+    </div>
+
+    <h3>Estructura HTML y Código JavaScript Completo</h3>
+<pre><code><span class="cm">&lt;!-- 🧱 Botonera de control del cronómetro --&gt;</span>
+&lt;<span class="kw">h3</span>&gt;Segundos: &lt;<span class="kw">span</span> <span class="var">id</span>=<span class="str">"pantallaContador"</span>&gt;0&lt;/<span class="kw">span</span>&gt;s&lt;/<span class="kw">h3</span>&gt;
+&lt;<span class="kw">button</span> <span class="var">id</span>=<span class="str">"btnArrancar"</span>&gt;▶ Arrancar&lt;/<span class="kw">button</span>&gt;
+&lt;<span class="kw">button</span> <span class="var">id</span>=<span class="str">"btnParar"</span>&gt;⏸ Parar&lt;/<span class="kw">button</span>&gt;
+&lt;<span class="kw">button</span> <span class="var">id</span>=<span class="str">"btnReiniciar"</span>&gt;🔄 Reiniciar&lt;/<span class="kw">button</span>&gt;</code></pre>
+
+<pre><code><span class="kw">const</span> <span class="var">pantalla</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"pantallaContador"</span>);
+<span class="kw">const</span> <span class="var">btnArrancar</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"btnArrancar"</span>);
+<span class="kw">const</span> <span class="var">btnParar</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"btnParar"</span>);
+<span class="kw">const</span> <span class="var">btnReiniciar</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"btnReiniciar"</span>);
+
+<span class="kw">let</span> <span class="var">segundos</span> = <span class="num">0</span>;
+<span class="kw">let</span> <span class="var">idCronometro</span> = <span class="kw">null</span>; <span class="cm">// null indica que el reloj está detenido</span>
+
+<span class="var">btnArrancar</span>.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, () => {
+    <span class="cm">// 🛡️ SEGURIDAD ANTI-DUPLICADOS: Salimos si ya hay un reloj en marcha</span>
+    <span class="kw">if</span> (<span class="var">idCronometro</span> !== <span class="kw">null</span>) <span class="kw">return</span>;
+
+    <span class="var">idCronometro</span> = <span class="fn">setInterval</span>(() => {
+        <span class="var">segundos</span>++;
+        <span class="var">pantalla</span>.<span class="var">textContent</span> = <span class="var">segundos</span>;
+    }, <span class="num">1000</span>);
+});
+
+<span class="var">btnParar</span>.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, () => {
+    <span class="fn">clearInterval</span>(<span class="var">idCronometro</span>);
+    <span class="var">idCronometro</span> = <span class="kw">null</span>; <span class="cm">// 🔓 Crucial: Liberamos la variable para permitir reanudar</span>
+});
+
+<span class="var">btnReiniciar</span>.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, () => {
+    <span class="fn">clearInterval</span>(<span class="var">idCronometro</span>);
+    <span class="var">idCronometro</span> = <span class="kw">null</span>;
+    <span class="var">segundos</span> = <span class="num">0</span>;
+    <span class="var">pantalla</span>.<span class="var">textContent</span> = <span class="str">"0"</span>;
+});</code></pre>
+  </div>
+
+  <div class="page-footer">
+    <span>Manual de Referencia Rápida · Temporizadores en JavaScript · Ramón Abramo</span>
+    <span>Página 6 de 7</span>
+  </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- PÁGINA 7: PRÁCTICA DEL MANUAL 4 & TOP 5 ERRORES FRECUENTES -->
+<!-- ======================================================================= -->
+<div class="page">
+  <div class="page-header">
+    <span>CONFECCIÓN Y PUBLICACIÓN DE PÁGINAS WEB · RAMÓN ABRAMO</span>
+    <span class="badge-header">PRÁCTICA 4 Y ERRORES COMUNES</span>
+  </div>
+
+  <div class="content-area">
+    <h2 id="sec-ref4">🚀 9. Práctica de Referencia 4: Cuenta Atrás Coordinada</h2>
+    <p>En aplicaciones profesionales es habitual coordinar ambos temporizadores: un <code>setInterval</code> descuenta los segundos y, cuando llega a cero, un <code>setTimeout</code> programa el reseteo automático diferido:</p>
+
+<pre><code><span class="kw">const</span> <span class="var">btnCuenta</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"btnCuentaAtras"</span>);
+<span class="kw">const</span> <span class="var">visor</span> = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">"visorCuenta"</span>);
+
+<span class="var">btnCuenta</span>.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, () => {
+    <span class="var">btnCuenta</span>.<span class="var">disabled</span> = <span class="kw">true</span>;
+    <span class="kw">let</span> <span class="var">restante</span> = <span class="num">5</span>;
+    <span class="var">visor</span>.<span class="var">textContent</span> = <span class="str">"⏳ Tiempo restante: "</span> + <span class="var">restante</span> + <span class="str">"s"</span>;
+
+    <span class="kw">const</span> <span class="var">idCuenta</span> = <span class="fn">setInterval</span>(() => {
+        <span class="var">restante</span>--;
+        <span class="kw">if</span> (<span class="var">restante</span> > <span class="num">0</span>) {
+            <span class="var">visor</span>.<span class="var">textContent</span> = <span class="str">"⏳ Tiempo restante: "</span> + <span class="var">restante</span> + <span class="str">"s"</span>;
+        } <span class="kw">else</span> {
+            <span class="cm">// 🛑 1. Frenamos el bucle repetitivo</span>
+            <span class="fn">clearInterval</span>(<span class="var">idCuenta</span>);
+            <span class="var">visor</span>.<span class="var">textContent</span> = <span class="str">"🚨 ¡TIEMPO AGOTADO!"</span>;
+
+            <span class="cm">// ⏳ 2. Programamos el reseteo único diferido a los 2 segundos</span>
+            <span class="fn">setTimeout</span>(() => {
+                <span class="var">visor</span>.<span class="var">textContent</span> = <span class="str">"Listo para comenzar"</span>;
+                <span class="var">btnCuenta</span>.<span class="var">disabled</span> = <span class="kw">false</span>;
+            }, <span class="num">2000</span>);
+        }
+    }, <span class="num">1000</span>);
+});</code></pre>
+
+    <h2 id="sec-errores">🛑 10. Top 5 Errores Frecuentes y Soluciones de Aula</h2>
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th style="width:28%;">Error Habitual</th>
+          <th style="width:36%;">¿Por qué ocurre?</th>
+          <th style="width:36%;">Solución Recomendada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Ejecutar la función al pasarla</strong><br><code>setTimeout(saludar(), 1000)</code></td>
+          <td>Al escribir los paréntesis <code>()</code>, la función se ejecuta de inmediato sin esperar el tiempo.</td>
+          <td>Pasar solo el nombre de la función <code>setTimeout(saludar, 1000)</code> o una flecha <code>() => saludar()</code>.</td>
+        </tr>
+        <tr>
+          <td><strong>Intervalos acelerados</strong><br>(Pulsar varias veces Arrancar)</td>
+          <td>Cada clic añade un nuevo <code>setInterval</code> concurrente; todos suman segundos a la vez.</td>
+          <td>Guardar el ID en una variable y validar <code>if (id !== null) return;</code> antes de iniciar otro.</td>
+        </tr>
+        <tr>
+          <td><strong>Olvidar guardar el ID</strong><br><code>setInterval(fn, 1000);</code></td>
+          <td>Si no asignas el resultado numérico, pierdes la referencia y no podrás frenarlo.</td>
+          <td>Asignar siempre a variable: <code>const id = setInterval(...)</code> o <code>idReloj = ...</code>.</td>
+        </tr>
+        <tr>
+          <td><strong>Confundir segundos con ms</strong><br><code>setTimeout(fn, 5)</code></td>
+          <td>El parámetro espera milisegundos. <code>5</code> representa 5 ms (casi instantáneo), no 5 segundos.</td>
+          <td>Multiplicar siempre los segundos por 1.000: <code>5 * 1000 = 5000</code>.</td>
+        </tr>
+        <tr>
+          <td><strong>No poner id = null tras clearInterval</strong></td>
+          <td><code>clearInterval(id)</code> detiene el reloj pero no limpia el valor numérico de la variable.</td>
+          <td>Añadir siempre <code>id = null;</code> justo después de <code>clearInterval(id);</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span>Manual de Referencia Rápida · Temporizadores en JavaScript · Ramón Abramo</span>
+    <span>Página 7 de 7</span>
+  </div>
+</div>
+
+</body>
+</html>

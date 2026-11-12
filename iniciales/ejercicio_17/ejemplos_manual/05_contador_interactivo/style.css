@@ -1,0 +1,127 @@
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --border: #334155;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --success: #22c55e;
+    --warning: #f59e0b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+h1 { font-size: 1.55rem; font-weight: 800; margin-bottom: 8px; color: #fff; }
+.subtitle { color: var(--muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px; }
+code { background: rgba(255, 255, 255, 0.1); padding: 2px 6px; border-radius: 4px; color: #38bdf8; font-family: 'Fira Code', monospace; }
+
+.pantalla-cronometro {
+    background: #090d16;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.display-digital {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.segundos {
+    font-size: 4.8rem;
+    font-weight: 900;
+    font-family: 'Fira Code', monospace;
+    color: var(--accent);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.unidad {
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.indicador {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+    border-radius: 9999px;
+}
+
+.indicador.detenido { background: rgba(148, 163, 184, 0.15); color: #94a3b8; }
+.indicador.corriendo { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+.indicador.pausado { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+
+.controles {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px 14px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.btn:active { transform: scale(0.98); }
+.btn-exito { background: var(--success); color: #052e16; }
+.btn-aviso { background: var(--warning); color: #451a03; }
+.btn-secundario { background: #334155; color: #f8fafc; }
+
+.nota-docente {
+    background: rgba(239, 68, 68, 0.1);
+    border-left: 4px solid #ef4444;
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #fecaca;
+    line-height: 1.5;
+}
