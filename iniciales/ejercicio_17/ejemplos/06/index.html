@@ -7,9 +7,30 @@
     <title>Document</title>
     <style>
         #barra {
-            width: 10px;
-            height: 20px;
-            background-color: gray;
+            width: 0px;
+            height: 100px;
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            transition: width 0.1s linear;
+            border-radius: 10px;
+        }
+
+        .contenedor {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        button {
+            padding: 0.65rem 1.4rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: white;
+            background: #3b82f6;
         }
     </style>
 </head>
@@ -18,10 +39,11 @@
     <div id="barra">
 
     </div>
-    <button type="button" id="iniciar">Iniciar</button>
-    <button type="button" id="parar">Parar</button>
-    <button type="button" id="reiniciar">Reiniciar</button>
-
+    <div class="contenedor">
+        <button type="button" id="iniciar">Iniciar</button>
+        <button type="button" id="parar">Parar</button>
+        <button type="button" id="reiniciar">Reiniciar</button>
+    </div>
 </body>
 <script src="app.js"></script>
 

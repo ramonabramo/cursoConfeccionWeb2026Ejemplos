@@ -3,7 +3,7 @@
 
 Bienvenido a la carpeta de **ejercicios iniciales** del curso de JavaScript. En este bloque formativo se sientan los cimientos esenciales para cualquier desarrollador web: la interacción entre los tres lenguajes del frontend (**HTML, CSS y JavaScript**), cómo el navegador procesa y representa una página mediante el **DOM**, y cómo cargar los scripts de forma eficiente y segura.
 
-Todos los ejercicios están organizados en carpetas individuales con plantillas comentadas para el alumno (`ejercicio_01/` a `ejercicio_16/`) y sus correspondientes soluciones en `soluciones/`.
+Todos los ejercicios están organizados en carpetas individuales con plantillas comentadas para el alumno (`ejercicio_01/` a `ejercicio_17/`) y sus correspondientes soluciones en `soluciones/`.
 
 ---
 
@@ -338,20 +338,36 @@ El navegador lee y procesa el código HTML en orden secuencial: **de arriba haci
 ---
 
 ### Ejercicio 17: Gestión de Temporizadores en JavaScript (`setTimeout`, `setInterval`, `clearTimeout`, `clearInterval`)
-* **Portal del Ejercicio:** [`ejercicio_17/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/index.html)
-* **Manual de Referencia Rápida (PDF):** [`ejercicio_17/Manual de Referencia Rápida - Temporizadores en JavaScript.pdf`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/Manual%20de%20Referencia%20R%C3%A1pida%20-%20Temporizadores%20en%20JavaScript.pdf)
-* **Prácticas Guiadas (PDF):** [`ejercicio_17/Prácticas Guiadas - Temporizadores en JavaScript.pdf`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/Pr%C3%A1cticas%20Guiadas%20-%20Temporizadores%20en%20JavaScript.pdf)
-* **Demos del Manual (6 Ejemplos):** [`ejercicio_17/ejemplos_manual/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/ejemplos_manual/README.md)
-* **Prácticas Alumno:**
-  - Práctica 1 (Cohete): [`ejercicio_17/practicas/practica_01_cohete/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/practicas/practica_01_cohete/index.html)
-  - Práctica 2 (Batería): [`ejercicio_17/practicas/practica_02_bateria/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/practicas/practica_02_bateria/index.html)
-* **Soluciones Oficiales:**
+* **Documentación Completa del Ejercicio:** [`ejercicio_17/README.md`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/README.md)
+* **Portal Interactivo del Ejercicio:** [`ejercicio_17/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/index.html)
+* **Manual de Referencia Rápida (PDF):** [`ejercicio_17/Manual de Referencia Rápida - Temporizadores en JavaScript.pdf`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/Manual%20de%20Referencia%20R%C3%A1pida%20-%20Temporizadores%20en%20JavaScript.pdf) *(7 págs con portada, índice interactivo y marcadores)*
+* **Prácticas Guiadas de Aula (PDF):** [`ejercicio_17/Prácticas Guiadas - Temporizadores en JavaScript.pdf`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/Pr%C3%A1cticas%20Guiadas%20-%20Temporizadores%20en%20JavaScript.pdf) *(6 págs con portada, índice interactivo y marcadores)*
+* **Ejemplos Desarrollados en Clase (7 Ejemplos):** [`ejercicio_17/ejemplos/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/ejemplos/README.md)
+  - `01/` Alarma diferida con `setTimeout()` y botón de cancelación con `clearTimeout()`.
+  - `02/` Metrónomo continuo con `setInterval()` y botón de parada con `clearInterval()`.
+  - `03/` Contador de segundos con bandera booleana (`ejecutandose`) anti-duplicados.
+  - `04/` Contador optimizado con guardia directa del ticket (`idIntervalo == null`).
+  - `05/` Cronómetro de 3 estados (*Detenido*, *Corriendo*, *Pausado*) con alternancia de clases CSS (`.ocultar`).
+  - `06/` Barra de carga animada (modificación dinámica de `style.width` en píxeles).
+  - `07/` Carrusel de imágenes con Array y rotación periódica con `setInterval()`, botón para parar y reiniciar.
+* **Demos del Manual de Referencia (6 Demos):** [`ejercicio_17/ejemplos_manual/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/ejemplos_manual/README.md)
+  - `01_timeout_alarma/` Alarma con temporizador único y barra visual.
+  - `02_interval_reloj/` Reloj periódico con pulsadores luminosos y parada a 5 vueltas.
+  - `03_aviso_cancelable/` Simulación de cliente de correo con ventana de 4s para *«Deshacer envío»*.
+  - `04_caja_creciente/` Animación de crecimiento de caja hasta un límite de 300px.
+  - `05_contador_interactivo/` Cronómetro con pantalla digital interactiva.
+  - `06_cuenta_atras_mixta/` Cuenta regresiva de 5 a 0 coordinada con reseteo diferido a los 2s.
+* **Prácticas Guiadas para el Alumno:**
+  - Práctica 1 (Cohete Espacial): [`ejercicio_17/practicas/practica_01_cohete/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/practicas/practica_01_cohete/index.html)
+  - Práctica 2 (Simulador de Batería): [`ejercicio_17/practicas/practica_02_bateria/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_17/practicas/practica_02_bateria/index.html)
+* **Soluciones Oficiales Resueltas:**
   - Solución Práctica 1: [`soluciones/ejercicio_17/practica_01_cohete/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/soluciones/ejercicio_17/practica_01_cohete/app.js)
   - Solución Práctica 2: [`soluciones/ejercicio_17/practica_02_bateria/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/soluciones/ejercicio_17/practica_02_bateria/app.js)
-* **Objetivo:**
-  Comprender y aplicar la ejecución asíncrona basada en tiempo en el navegador:
-  1. Ejecución diferida única con `setTimeout(fn, ms)` y su cancelación mediante `clearTimeout(id)`.
-  2. Ejecución repetitiva continua con `setInterval(fn, ms)` y su detención en seco con `clearInterval(id)`.
-  3. Control riguroso de variables de estado (`idIntervalo !== null`) para prevenir intervalos acelerados por pulsaciones duplicadas.
-  4. Coordinación de ambos temporizadores en interfaces dinámicas (cuenta atrás con reseteo diferido).
+* **Objetivos de Aprendizaje:**
+  1. Comprender la naturaleza asíncrona no bloqueante de JavaScript en el navegador.
+  2. Manejar con precisión la regla de los milisegundos (`1000 ms = 1 segundo`).
+  3. Diferenciar ejecución diferida única (`setTimeout`) frente a ejecución cíclica periódica (`setInterval`).
+  4. Almacenar los identificadores numéricos (`ID`) devueltos por el navegador para abortar temporizadores con `clearTimeout()` y `clearInterval()`.
+  5. Dominar los patrones de guardia (`idIntervalo == null`) para prevenir intervalos duplicados acelerados.
+  6. Coordinar temporizadores con manipulación visual del DOM y transiciones de interfaz (UX).
 

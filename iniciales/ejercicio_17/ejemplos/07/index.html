@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 07 - Carrusel de Imágenes con Temporizador · Ramón Abramo</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --border: #334155;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --accent: #38bdf8;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .carrusel-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 26px;
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 0.05em;
+        }
+
+        h1 {
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 0.88rem;
+            color: var(--muted);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .visor-marco {
+            background: #090d16;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+        }
+
+        .visor-marco img {
+            max-width: 100%;
+            height: 190px;
+            object-fit: contain;
+            border-radius: 8px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .contador-info {
+            margin-top: 10px;
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .estado-texto {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #cbd5e1;
+            min-height: 24px;
+            margin-bottom: 16px;
+        }
+
+        .controles {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        button {
+            flex: 1;
+            padding: 11px 14px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+
+        button:active:not(:disabled) {
+            transform: scale(0.98);
+        }
+
+        button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        #iniciar {
+            background: var(--success);
+            color: #052e16;
+        }
+
+        #parar {
+            background: var(--danger);
+            color: #ffffff;
+        }
+
+        #reiniciar {
+            background: var(--warning);
+            color: #451a03;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carrusel-card">
+        <span class="badge">⏱️ Ejemplo de Clase 07</span>
+        <h1>Carrusel de Imágenes con Temporizador</h1>
+        <p class="subtitle">Array de imágenes rotando automáticamente cada 2 segundos mediante <code>setInterval()</code>, con botones para pausar y reiniciar.</p>
+
+        <div class="visor-marco">
+            <img id="foto" src="imgs/01_programacion_codigo.png" alt="Imagen del carrusel">
+            <div id="indicador" class="contador-info">Imagen 1 de 10</div>
+        </div>
+
+        <p id="mensajeEstado" class="estado-texto">Carrusel detenido. Pulsa «Iniciar» para comenzar.</p>
+
+        <div class="controles">
+            <button type="button" id="iniciar">▶ Iniciar</button>
+            <button type="button" id="parar">⏸ Parar</button>
+            <button type="button" id="reiniciar">🔄 Reiniciar</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
