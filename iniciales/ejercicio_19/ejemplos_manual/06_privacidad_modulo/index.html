@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 6 · Privacidad y Patrón Módulo - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Ejemplo 06 · Privacidad y Clausuras</span>
+      <h1>🔐 Privacidad en Notación Literal y Patrón Módulo</h1>
+      <p class="subtitulo">Compara la convención visual con guion bajo (<code>_pin</code>) frente a la privacidad REAL que ofrecen las clausuras mediante una IIFE.</p>
+    </header>
+
+    <div class="panel-grid">
+      <!-- Caso A: Convención de Privado -->
+      <section class="tarjeta-caja">
+        <div class="header-caja">
+          <span class="tag-caso vulnerable">⚠️ CASO A: Convención _ (Falsa Privacidad)</span>
+          <h2>Objeto Literal Directo</h2>
+        </div>
+        <p class="desc">Las propiedades con <code>_</code> son solo una advertencia para otros desarrolladores. Cualquier script puede leerlas o alterarlas directamente.</p>
+
+        <div class="datos-caja">
+          <p><strong>Titular:</strong> Marta</p>
+          <p><strong>PIN Secreto:</strong> <span id="pinCasoA" class="mono">1234</span></p>
+          <p><strong>Saldo Interno:</strong> <span id="saldoCasoA" class="mono verde">500 €</span></p>
+        </div>
+
+        <div class="acciones-caja">
+          <button id="btnHackearA" class="btn-peligro">🚨 Hackear: Modificar _pinSecreto desde fuera</button>
+          <p id="msgA" class="log-caja"></p>
+        </div>
+      </section>
+
+      <!-- Caso B: Privacidad Real con IIFE -->
+      <section class="tarjeta-caja">
+        <div class="header-caja">
+          <span class="tag-caso blindada">🛡️ CASO B: Clausura (Privacidad Real)</span>
+          <h2>Caja Fuerte con Patrón Módulo</h2>
+        </div>
+        <p class="desc">Las variables <code>let _pin</code> y <code>let _dinero</code> viven dentro de la IIFE. Desde el exterior devuelven <code>undefined</code>. Solo se accede con el método público.</p>
+
+        <div class="datos-caja">
+          <p><strong>cajaFuerte._dinero:</strong> <span id="valBlindadoDinero" class="mono purpura">undefined</span></p>
+          <p><strong>cajaFuerte._pinSecreto:</strong> <span id="valBlindadoPin" class="mono purpura">undefined</span></p>
+        </div>
+
+        <div class="formulario-seguro">
+          <label for="inpPinSeguro">Introduce el PIN de acceso:</label>
+          <div class="input-btn">
+            <input type="password" id="inpPinSeguro" placeholder="Prueba con 9876">
+            <button id="btnConsultarSeguro" class="btn-seguro">Consultar Saldo</button>
+          </div>
+          <p id="msgB" class="log-caja"></p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Pizarra de Conceptos -->
+    <section class="pizarra-comparativa">
+      <h3>📋 Resumen de Reglas de Privacidad en JavaScript</h3>
+      <table class="tabla-didactica">
+        <thead>
+          <tr>
+            <th>Técnica</th>
+            <th>¿Es realmente privado?</th>
+            <th>¿Cómo se declara?</th>
+            <th>Ámbito de uso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Convención <code>_variable</code></strong></td>
+            <td>❌ No (accesible públicamente)</td>
+            <td><code>{ _secreto: "123" }</code></td>
+            <td>Objetos literales directos</td>
+          </tr>
+          <tr>
+            <td><strong>Clausura / IIFE (Módulo)</strong></td>
+            <td>✔ Sí (100% privado en memoria)</td>
+            <td><code>(() => { let _sec; return { ... }; })()</code></td>
+            <td>Objetos con seguridad real</td>
+          </tr>
+          <tr>
+            <td><strong>Campos con almohadilla <code>#privado</code></strong></td>
+            <td>✔ Sí (nativo de ES2022)</td>
+            <td><code>class Cuenta { #saldo; }</code></td>
+            <td>Solo dentro de <code>class</code>, nunca en objetos literales</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al índice general del Ejercicio 18</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

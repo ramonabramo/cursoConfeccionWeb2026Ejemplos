@@ -1,0 +1,320 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #0f172a;
+  color: #f8fafc;
+  min-height: 100vh;
+  padding: 24px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 900px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.cabecera {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 16px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid #0284c7;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: 1.7rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.subtitulo {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.subtitulo code {
+  color: #38bdf8;
+  background: #0f172a;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .panel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tarjeta-cuenta {
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+  border: 2px solid #3b82f6;
+  border-radius: 12px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chip-banco {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #93c5fd;
+  margin-bottom: 20px;
+}
+
+.titular-caja {
+  margin-bottom: 16px;
+}
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.titular-caja h3 {
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+.cifra-saldo {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+#txtSaldo {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #4ade80;
+  font-family: monospace;
+}
+
+.euro {
+  font-size: 1.5rem;
+  color: #86efac;
+}
+
+.aviso-movimiento {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+}
+
+.aviso-movimiento.exito {
+  border-color: #22c55e;
+  background: rgba(34, 197, 94, 0.15);
+  color: #86efac;
+}
+
+.aviso-movimiento.error {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+}
+
+.panel-operaciones {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 1.15rem;
+  color: #38bdf8;
+  margin-bottom: 16px;
+}
+
+.formulario-operacion {
+  margin-bottom: 20px;
+}
+
+.formulario-operacion label {
+  display: block;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #38bdf8;
+}
+
+.botones-operacion {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.btn-ingreso {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.btn-ingreso:hover {
+  background: #15803d;
+}
+
+.btn-reintegro {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.btn-reintegro:hover {
+  background: #dc2626;
+}
+
+.historial-bloque {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.historial-bloque h3 {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+}
+
+ul {
+  list-style: none;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+li {
+  font-size: 0.82rem;
+  padding: 6px 8px;
+  border-bottom: 1px solid #334155;
+  display: flex;
+  justify-content: space-between;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+.log-ingreso {
+  color: #86efac;
+}
+
+.log-reintegro {
+  color: #cbd5e1;
+}
+
+.log-denegado {
+  color: #fca5a5;
+}
+
+.pizarra-didactica {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-left: 4px solid #38bdf8;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.pizarra-didactica h3 {
+  font-size: 0.95rem;
+  color: #38bdf8;
+  margin-bottom: 10px;
+}
+
+pre {
+  background: #090d16;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 12px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+  line-height: 1.4;
+  overflow-x: auto;
+}
+
+.kw { color: #f472b6; }
+.fn { color: #38bdf8; }
+.str { color: #a3e635; }
+.num { color: #fbbf24; }
+.cm { color: #94a3b8; font-style: italic; }
+
+.pie {
+  margin-top: 24px;
+  border-top: 1px solid #334155;
+  padding-top: 16px;
+  text-align: center;
+}
+
+.enlace-volver {
+  color: #38bdf8;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.enlace-volver:hover {
+  text-decoration: underline;
+}

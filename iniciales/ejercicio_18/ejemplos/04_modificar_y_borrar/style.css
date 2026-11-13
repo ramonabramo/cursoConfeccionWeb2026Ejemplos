@@ -1,0 +1,79 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #0f172a;
+  color: #f8fafc;
+  min-height: 100vh;
+  padding: 24px 16px;
+  display: flex;
+  justify-content: center;
+}
+.contenedor {
+  width: 100%;
+  max-width: 860px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+.cabecera { margin-bottom: 20px; border-bottom: 1px solid #334155; padding-bottom: 14px; }
+.badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid #0284c7;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+h1 { font-size: 1.6rem; color: #ffffff; margin-bottom: 6px; }
+.subtitulo { color: #94a3b8; font-size: 0.92rem; }
+.panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 768px) { .panel-grid { grid-template-columns: 1fr; } }
+.tarjeta-visual, .tarjeta-consola {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 18px;
+}
+h2 { font-size: 1.1rem; color: #38bdf8; margin-bottom: 14px; }
+.botones-accion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+.btn-sm { background: #0284c7; color: #ffffff; }
+.btn-sm:hover { background: #0369a1; }
+.btn-peligro { background: #ef4444; color: #ffffff; }
+.btn-peligro:hover { background: #dc2626; }
+.btn-freeze { background: #0284c7; color: #e0f2fe; border: 1px solid #38bdf8; }
+.btn-freeze:hover { background: #0369a1; }
+pre {
+  background: #080d1a;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 12px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: #38bdf8;
+  line-height: 1.45;
+  min-height: 140px;
+  white-space: pre-wrap;
+}
+.pie { margin-top: 20px; border-top: 1px solid #334155; padding-top: 14px; text-align: center; }
+.enlace-volver { color: #38bdf8; text-decoration: none; font-size: 0.85rem; }
+.enlace-volver:hover { text-decoration: underline; }

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 18: Objetos Literales en JavaScript · Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor-principal">
+    <!-- Hero Header -->
+    <header class="hero">
+      <div class="badge-curso">CONFECCIÓN Y PUBLICACIÓN DE PÁGINAS WEB · MÓDULO INICIAL</div>
+      <h1>📦 Ejercicio 18: Objetos Literales en JavaScript</h1>
+      <p class="lead">
+        Aprende a estructurar entidades coherentes con notación literal <code>{ clave: valor }</code>, métodos con <code>this</code>, estructuras complejas anidadas, colecciones y serialización con formato <strong>JSON</strong>.
+      </p>
+      <div class="autor-badge">Profesor: Ramón Abramo · Más de 25 años de experiencia docente</div>
+    </header>
+
+    <!-- Grid de Pilares Teóricos -->
+    <section class="grid-teoria">
+      <div class="tarjeta-teoria">
+        <div class="tag tag-sintaxis">SINTAXIS DIRECTA</div>
+        <h3>🏷️ Objeto Literal { }</h3>
+        <p>Agrupa pares <code>clave: valor</code> para representar una entidad autónoma sin necesidad de clases.</p>
+        <div class="analogia">📁 <strong>Analogía:</strong> Una ficha de expediente con casillas etiquetadas.</div>
+      </div>
+
+      <div class="tarjeta-teoria">
+        <div class="tag tag-metodo">COMPORTAMIENTO</div>
+        <h3>💳 Métodos y 'this'</h3>
+        <p>Funciones que viven dentro del objeto y acceden a su estado interno mediante la palabra reservada <code>this</code>.</p>
+        <div class="analogia">🕹️ <strong>Analogía:</strong> Los botones de un reproductor que operan sobre su propia cinta.</div>
+      </div>
+
+      <div class="tarjeta-teoria">
+        <div class="tag tag-coleccion">COLECCIONES</div>
+        <h3>🛍️ Arrays de Objetos</h3>
+        <p>El estándar web para listas y catálogos, sustituyendo al antipatrón de arrays paralelos desincronizados.</p>
+        <div class="analogia">📚 <strong>Analogía:</strong> Una estantería de libros donde cada tomo tiene título y precio.</div>
+      </div>
+
+      <div class="tarjeta-teoria">
+        <div class="tag tag-json">INTERCAMBIO</div>
+        <h3>🌐 Formato JSON</h3>
+        <p>Serialización con <code>JSON.stringify()</code> y reconstrucción con <code>JSON.parse()</code> para servidores y localStorage.</p>
+        <div class="analogia">📦 <strong>Analogía:</strong> Empaquetar un mueble en una caja de cartón para enviarlo.</div>
+      </div>
+    </section>
+
+    <!-- Documentación Oficial y PDFs -->
+    <section class="seccion-bloque">
+      <h2>📚 Documentación Oficial y Cuadernos PDF</h2>
+      <p class="seccion-sub">Manuales interactivos de alta calidad con portada, índice con hipervínculos internos y marcadores PDF nativos.</p>
+      <div class="grid-enlaces">
+        <a href="Manual de Referencia Rápida - Objetos Literales en JavaScript.pdf" target="_blank" class="tarjeta-enlace doc-pdf">
+          <span class="icono-enlace">📄</span>
+          <div>
+            <strong>Manual de Referencia Rápida (PDF · 7 Págs)</strong>
+            <p>Sintaxis completa, miembros públicos, privacidad, 5 ejemplos explicados y top errores frecuentes.</p>
+          </div>
+        </a>
+
+        <a href="Prácticas Guiadas - Objetos Literales en JavaScript.pdf" target="_blank" class="tarjeta-enlace doc-pdf">
+          <span class="icono-enlace">🛠️</span>
+          <div>
+            <strong>Prácticas Guiadas de Aula (PDF · 6 Págs)</strong>
+            <p>Guion paso a paso de Ficha de Personaje y Carrito de la Compra, código base y rúbrica.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Infografías de Estudio -->
+    <section class="seccion-bloque">
+      <h2>🖼️ Infografías Visuales de Estudio</h2>
+      <div class="grid-infografias">
+        <div class="tarjeta-info">
+          <h3>Infografía 1: Objetos en Notación Literal</h3>
+          <p>Estructura, propiedades y acceso a miembros.</p>
+          <img src="infografias/objetosLiteral.jpg" alt="Infografía Objetos Literales" class="img-preview" onclick="window.open(this.src)">
+        </div>
+
+        <div class="tarjeta-info">
+          <h3>Infografía 2: Objetos y Formato JSON</h3>
+          <p>Diferencias clave entre objeto JavaScript y cadena JSON.</p>
+          <img src="infografias/objetosJSON.jpg" alt="Infografía JSON" class="img-preview" onclick="window.open(this.src)">
+        </div>
+      </div>
+    </section>
+
+    <!-- Ejemplos del Manual Interactivos -->
+    <section class="seccion-bloque">
+      <h2>🚀 Demostraciones Prácticas del Manual (6 Aplicaciones)</h2>
+      <p class="seccion-sub">Cada sección teórica cuenta con su propio entorno de pruebas interactivo con código comentado.</p>
+      
+      <div class="grid-demos">
+        <div class="tarjeta-demo">
+          <div class="demo-num">01</div>
+          <h3>🏷️ Objeto Producto Básico</h3>
+          <p>Sintaxis literal, lectura por punto y corchetes, adición dinámica y borrado con <code>delete</code>.</p>
+          <a href="ejemplos_manual/01_producto_basico/index.html" class="btn-demo">Abrir Demostración ↗</a>
+        </div>
+
+        <div class="tarjeta-demo">
+          <div class="demo-num">02</div>
+          <h3>💳 Cuenta Bancaria y 'this'</h3>
+          <p>Métodos que modifican <code>this.saldo</code>, validación de saldo suficiente y registro de operaciones.</p>
+          <a href="ejemplos_manual/02_cuenta_bancaria/index.html" class="btn-demo">Abrir Demostración ↗</a>
+        </div>
+
+        <div class="tarjeta-demo">
+          <div class="demo-num">03</div>
+          <h3>🎓 Expediente del Estudiante</h3>
+          <p>Objetos anidados (dirección), arrays internos (notas) y cálculo de media con <code>this</code>.</p>
+          <a href="ejemplos_manual/03_estudiante_anidado/index.html" class="btn-demo">Abrir Demostración ↗</a>
+        </div>
+
+        <div class="tarjeta-demo">
+          <div class="demo-num">04</div>
+          <h3>🛍️ Catálogo: Arrays de Objetos</h3>
+          <p>Colección de productos, filtrado reactivo por disponibilidad y ordenación por precio.</p>
+          <a href="ejemplos_manual/04_catalogo_arrays/index.html" class="btn-demo">Abrir Demostración ↗</a>
+        </div>
+
+        <div class="tarjeta-demo">
+          <div class="demo-num">05</div>
+          <h3>🔤 Inspección y Serialización JSON</h3>
+          <p>Uso de <code>Object.keys()</code>, <code>Object.values()</code>, <code>JSON.stringify</code> y <code>localStorage</code>.</p>
+          <a href="ejemplos_manual/05_claves_y_json/index.html" class="btn-demo">Abrir Demostración ↗</a>
+        </div>
+
+        <div class="tarjeta-demo">
+          <div class="demo-num">06</div>
+          <h3>🔐 Privacidad y Patrón Módulo</h3>
+          <p>Falsa privacidad de <code>_prop</code> frente a clausuras reales (IIFE) que devuelven un objeto literal.</p>
+          <a href="ejemplos_manual/06_privacidad_modulo/index.html" class="btn-demo">Abrir Demostración ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prácticas Guiadas del Alumno -->
+    <section class="seccion-bloque">
+      <h2>🛠️ Prácticas de Aula y Soluciones Oficiales</h2>
+      <div class="grid-practicas">
+        <!-- Práctica 1 -->
+        <div class="tarjeta-practica">
+          <span class="badge-practica">PRÁCTICA 1</span>
+          <h3>🎮 Ficha de Personaje (Videojuego)</h3>
+          <p>Encapsula los datos de un héroe (Valeria, Exploradora) y métodos con <code>this</code> para recibir daño, curarse y subir de nivel.</p>
+          <div class="acciones-practica">
+            <a href="practicas/practica_01_personaje/index.html" class="btn-trabajo">Plantilla Alumno ✍️</a>
+            <a href="practicas/soluciones/practica_01_personaje/index.html" class="btn-solucion">Solución Profesor ✔️</a>
+          </div>
+        </div>
+
+        <!-- Práctica 2 -->
+        <div class="tarjeta-practica">
+          <span class="badge-practica">PRÁCTICA 2</span>
+          <h3>🛒 Cesta de la Compra con Objetos</h3>
+          <p>Gestiona los artículos de una cesta en un único array de objetos con método <code>subtotal()</code> y cálculo total reactivo.</p>
+          <div class="acciones-practica">
+            <a href="practicas/practica_02_carrito/index.html" class="btn-trabajo">Plantilla Alumno ✍️</a>
+            <a href="practicas/soluciones/practica_02_carrito/index.html" class="btn-solucion">Solución Profesor ✔️</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Laboratorio Interactivo Rápido -->
+    <section class="seccion-bloque lab-box">
+      <h2>🧪 Laboratorio Rápido en Vivo: Prueba de Objetos Literales</h2>
+      <p class="seccion-sub">Experimenta en tiempo real modificando un objeto en vivo desde la página.</p>
+      
+      <div class="grid-lab">
+        <div class="lab-col">
+          <label for="labNombre">Nombre del objeto:</label>
+          <input type="text" id="labNombre" value="Portátil Ultraligero">
+          
+          <label for="labPrecio">Precio (€):</label>
+          <input type="number" id="labPrecio" value="899.95">
+          
+          <div class="chk-fila">
+            <input type="checkbox" id="labStock" checked>
+            <label for="labStock">En Stock</label>
+          </div>
+        </div>
+
+        <div class="lab-col">
+          <label>Objeto Literal resultante en JavaScript:</label>
+          <pre id="labSalida"></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pie-general">
+      <p>Curso de Confección y Publicación de Páginas Web · Profesor Ramón Abramo</p>
+      <a href="../README.md" class="enlace-volver-raiz">⬅️ Volver al índice general del curso (ejemplos/iniciales)</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

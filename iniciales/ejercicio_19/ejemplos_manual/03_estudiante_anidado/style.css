@@ -1,0 +1,306 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #0f172a;
+  color: #f8fafc;
+  min-height: 100vh;
+  padding: 24px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 900px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.cabecera {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 16px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid #0284c7;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: 1.7rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.subtitulo {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.subtitulo code {
+  color: #38bdf8;
+  background: #0f172a;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .panel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tarjeta-estudiante, .panel-interaccion {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.header-alumno {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #1e293b;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  font-size: 2.2rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-alumno h2 {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.tag-curso {
+  font-size: 0.8rem;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.seccion-anidada {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.seccion-anidada h3 {
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  margin-bottom: 2px;
+}
+
+.acceso-codigo {
+  font-size: 0.72rem;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.acceso-codigo code {
+  color: #38bdf8;
+}
+
+.datos-direccion p {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  color: #94a3b8;
+}
+
+.datos-direccion span {
+  color: #f1f5f9;
+}
+
+.chips-notas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.chip-nota {
+  background: #0f172a;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: monospace;
+  font-size: 0.88rem;
+  color: #38bdf8;
+}
+
+.bloque-media {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #0f172a;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.cifra-media {
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-family: monospace;
+  color: #4ade80;
+}
+
+.badge-calificacion {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.aprobado { background: #166534; color: #bbf7d0; }
+.notable { background: #1e40af; color: #bfdbfe; }
+.sobresaliente { background: #6b21a8; color: #f3e8ff; }
+
+.caja-accion {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.caja-accion h3 {
+  font-size: 0.9rem;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.ayuda {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+.ayuda code {
+  color: #38bdf8;
+}
+
+.grupo-input {
+  display: flex;
+  gap: 8px;
+}
+
+input {
+  flex: 1;
+  background: #0f172a;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #38bdf8;
+}
+
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.85rem;
+}
+
+.btn-primario {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.btn-primario:hover {
+  background: #0369a1;
+}
+
+.btn-secundario {
+  background: #334155;
+  color: #f1f5f9;
+}
+
+.btn-secundario:hover {
+  background: #475569;
+}
+
+.caja-consola {
+  background: #090d16;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.caja-consola h3 {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+pre {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: #38bdf8;
+  line-height: 1.35;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.pie {
+  margin-top: 24px;
+  border-top: 1px solid #334155;
+  padding-top: 16px;
+  text-align: center;
+}
+
+.enlace-volver {
+  color: #38bdf8;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.enlace-volver:hover {
+  text-decoration: underline;
+}

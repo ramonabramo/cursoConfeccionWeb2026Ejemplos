@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 3 · Objetos Anidados y Arrays - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Ejemplo 03 · Estructuras Anidadas</span>
+      <h1>🎓 Expediente del Estudiante</h1>
+      <p class="subtitulo">Aprende a navegar por propiedades anidadas (<code>estudiante.direccion.ciudad</code>), listas internas (<code>estudiante.calificaciones[0]</code>) y métodos de cálculo con <code>this</code>.</p>
+    </header>
+
+    <div class="panel-grid">
+      <!-- Tarjeta del Estudiante -->
+      <section class="tarjeta-estudiante">
+        <div class="header-alumno">
+          <div class="avatar">👨‍💻</div>
+          <div>
+            <h2 id="txtNombre">-</h2>
+            <span id="txtCurso" class="tag-curso">-</span>
+          </div>
+        </div>
+
+        <div class="seccion-anidada">
+          <h3>📍 Dirección (Objeto Anidado)</h3>
+          <p class="acceso-codigo">Acceso JS: <code>estudiante.direccion.campo</code></p>
+          <div class="datos-direccion">
+            <p><strong>Calle:</strong> <span id="txtCalle">-</span></p>
+            <p><strong>Ciudad:</strong> <span id="txtCiudad">-</span></p>
+            <p><strong>C. Postal:</strong> <span id="txtCP">-</span></p>
+          </div>
+        </div>
+
+        <div class="seccion-anidada">
+          <h3>📊 Calificaciones (Array Interno)</h3>
+          <p class="acceso-codigo">Acceso JS: <code>estudiante.calificaciones</code></p>
+          <div id="contenedorNotas" class="chips-notas"></div>
+
+          <div class="bloque-media">
+            <span>Nota Media:</span>
+            <span id="txtMedia" class="cifra-media">-</span>
+            <span id="badgeEstado" class="badge-calificacion">-</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel de Interacción -->
+      <section class="panel-interaccion">
+        <h2>🛠️ Modificar Estructuras Internas</h2>
+
+        <div class="caja-accion">
+          <h3>1. Añadir nueva nota al array interno</h3>
+          <p class="ayuda">Ejecutará <code>this.calificaciones.push(...)</code> y recalculará la media.</p>
+          <div class="grupo-input">
+            <input type="number" id="inpNuevaNota" min="0" max="10" step="0.1" placeholder="Nota de 0 a 10" value="8.5">
+            <button id="btnAgregarNota" class="btn-primario">➕ Añadir Calificación</button>
+          </div>
+        </div>
+
+        <div class="caja-accion">
+          <h3>2. Modificar propiedad anidada</h3>
+          <p class="ayuda">Actualizará <code>estudiante.direccion.ciudad</code>.</p>
+          <div class="grupo-input">
+            <input type="text" id="inpNuevaCiudad" placeholder="Nueva ciudad (ej: Madrid)">
+            <button id="btnCambiarCiudad" class="btn-secundario">Cambiar Ciudad</button>
+          </div>
+        </div>
+
+        <div class="caja-consola">
+          <h3>💻 Estructura viva en memoria</h3>
+          <pre id="codigoJSON"></pre>
+        </div>
+      </section>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al índice general del Ejercicio 18</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

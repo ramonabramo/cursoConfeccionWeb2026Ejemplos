@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 12 · JSON y Persistencia Local - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Tema 12 · Serialización y Almacenamiento</span>
+      <h1>💾 Serialización JSON y Persistencia en LocalStorage</h1>
+      <p class="subtitulo">Transformación bidireccional entre memoria y texto, límites de JSON y almacenamiento en el navegador.</p>
+    </header>
+
+    <div class="panel-grid">
+      <div class="tarjeta-visual">
+        <h2>🎛️ Operaciones JSON y LocalStorage</h2>
+        <div class="botones-accion">
+          <button id="btnStringify" class="btn-sm">1. JSON.stringify()</button>
+          <button id="btnParse" class="btn-sm">2. JSON.parse()</button>
+          <button id="btnLimites" class="btn-sm">3. Pérdida de Datos en JSON</button>
+          <button id="btnGuardarLocal" class="btn-sm">4. Guardar en LocalStorage</button>
+          <button id="btnCargarLocal" class="btn-sm">5. Cargar de LocalStorage</button>
+          <button id="btnBorrarLocal" class="btn-sm">6. Limpiar LocalStorage</button>
+        </div>
+        <div id="cajaResultado" class="caja-resultado"></div>
+      </div>
+
+      <div class="tarjeta-consola">
+        <h2>💻 Salida en Consola</h2>
+        <pre id="salidaConsola"></pre>
+      </div>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al menú de ejemplos</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

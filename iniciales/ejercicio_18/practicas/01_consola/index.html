@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 1 · Primeros Pasos con Objetos Literales - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Práctica 01 · Consola</span>
+      <h1>📖 Primeros Pasos con Objetos Literales</h1>
+      <p class="subtitulo">Aprende a crear, leer, modificar, añadir y borrar propiedades, y definir métodos con <code>this</code>.</p>
+    </header>
+
+    <div class="panel-guion">
+      <h2>📋 Guion de Trabajo</h2>
+      <ol class="lista-pasos">
+        <li><strong>Paso 1:</strong> Crea el objeto literal <code>libro</code> con <code>titulo</code>, <code>autor</code>, <code>paginas</code> y <code>leido</code>.</li>
+        <li><strong>Paso 2:</strong> Muestra en la consola el título (notación de punto) y el autor (notación de corchetes).</li>
+        <li><strong>Paso 3:</strong> Modifica <code>leido</code> a <code>true</code>, añade <code>genero: "Novela"</code> y borra <code>paginas</code> con <code>delete</code>.</li>
+        <li><strong>Paso 4:</strong> Comprueba con el operador <code>in</code> si <code>paginas</code> sigue existiendo.</li>
+        <li><strong>Paso 5:</strong> Añade el método <code>resumen()</code> que utilice <code>this</code>.</li>
+        <li><strong>Paso 6:</strong> Muestra con <code>Object.keys(libro)</code> la lista de claves del objeto.</li>
+      </ol>
+
+      <div class="caja-instrucciones">
+        <p>💡 <em>Abre la consola del navegador con <kbd>F12</kbd> o <kbd>Ctrl + Shift + I</kbd> para ver la salida de <code>console.log</code>. También se mostrará reflejada en el visor inferior:</em></p>
+      </div>
+
+      <div class="consola-visual">
+        <div class="consola-header">
+          <span>💻 Salida de la Consola del Navegador</span>
+          <button id="btnEjecutar" class="btn-recargar">🔄 Reejecutar Script</button>
+        </div>
+        <pre id="salidaConsola"></pre>
+      </div>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al menú de prácticas</a>
+    </footer>
+  </div>
+
+  <!-- El alumno edita app.js. Para probar la solución, enlaza appSolucion.js -->
+  <script src="app.js"></script>
+</body>
+</html>

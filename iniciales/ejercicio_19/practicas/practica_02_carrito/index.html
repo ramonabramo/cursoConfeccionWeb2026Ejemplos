@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 2 · Carrito con Objetos Literales - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor-practica">
+    <div class="caja-carrito">
+      <h2>🛒 Cesta de la Compra</h2>
+
+      <div class="fila-inputs">
+        <input type="text" id="inpNombre" placeholder="Producto (ej: Teclado)" autofocus>
+        <input type="number" id="inpPrecio" placeholder="Precio (€)" min="0.1" step="0.5">
+        <input type="number" id="inpCantidad" placeholder="Uds." min="1" value="1">
+      </div>
+
+      <button id="btnAgregar" class="btn-agregar">➕ Añadir al carrito</button>
+
+      <ul id="listaCarrito" class="lista-items">
+        <!-- Los elementos del array de objetos se pintarán aquí -->
+        <li class="item-vacio">El carrito está vacío. Añade algún producto.</li>
+      </ul>
+
+      <div class="bloque-total">
+        <span>Total a pagar:</span>
+        <span class="cifra-total"><strong id="txtTotal">0.00</strong> €</span>
+      </div>
+    </div>
+
+    <footer class="pie-nav">
+      <a href="../index.html">⬅️ Volver al menú de prácticas</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

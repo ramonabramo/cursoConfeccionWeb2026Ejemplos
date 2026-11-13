@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 11 · Getters, Setters y Privacidad - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Tema 11 · Encapsulamiento y Control</span>
+      <h1>🛡️ Getters, Setters y Privacidad en Objetos</h1>
+      <p class="subtitulo">Propiedades computadas, validación en tiempo de asignación y patrones de privacidad con clausuras (closures).</p>
+    </header>
+
+    <div class="panel-grid">
+      <div class="tarjeta-visual">
+        <h2>🧪 Simulador de Control de Acceso</h2>
+        <div class="botones-accion">
+          <button id="btnGetters" class="btn-sm">1. Getters Computados</button>
+          <button id="btnSettersValidos" class="btn-sm">2. Setter con Validación</button>
+          <button id="btnSetterInvalido" class="btn-sm">3. Forzar Error en Setter</button>
+          <button id="btnClausuraPrivada" class="btn-sm">4. Privacidad Real (Clausura)</button>
+          <button id="btnObjectFreeze" class="btn-sm">5. Object.freeze()</button>
+        </div>
+        <div id="cajaResultado" class="caja-resultado"></div>
+      </div>
+
+      <div class="tarjeta-consola">
+        <h2>💻 Salida en Consola</h2>
+        <pre id="salidaConsola"></pre>
+      </div>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al menú de ejemplos</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

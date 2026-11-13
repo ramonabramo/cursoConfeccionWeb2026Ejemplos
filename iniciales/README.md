@@ -3,7 +3,7 @@
 
 Bienvenido a la carpeta de **ejercicios iniciales** del curso de JavaScript. En este bloque formativo se sientan los cimientos esenciales para cualquier desarrollador web: la interacción entre los tres lenguajes del frontend (**HTML, CSS y JavaScript**), cómo el navegador procesa y representa una página mediante el **DOM**, y cómo cargar los scripts de forma eficiente y segura.
 
-Todos los ejercicios están organizados en carpetas individuales con plantillas comentadas para el alumno (`ejercicio_01/` a `ejercicio_17/`) y sus correspondientes soluciones en `soluciones/`.
+Todos los ejercicios están organizados en carpetas individuales con plantillas comentadas para el alumno (`ejercicio_01/` a `ejercicio_19/`) y sus correspondientes soluciones en `soluciones/` y en las propias carpetas de prácticas.
 
 ---
 
@@ -370,4 +370,69 @@ El navegador lee y procesa el código HTML en orden secuencial: **de arriba haci
   4. Almacenar los identificadores numéricos (`ID`) devueltos por el navegador para abortar temporizadores con `clearTimeout()` y `clearInterval()`.
   5. Dominar los patrones de guardia (`idIntervalo == null`) para prevenir intervalos duplicados acelerados.
   6. Coordinar temporizadores con manipulación visual del DOM y transiciones de interfaz (UX).
+
+---
+
+### Ejercicio 18: Objetos Literales en JavaScript (Propiedades, Métodos con `this`, Estructuras Anidadas y JSON)
+* **Documentación Completa del Ejercicio:** [`ejercicio_18/README.md`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_18/README.md)
+* **Portal Interactivo del Ejercicio:** [`ejercicio_18/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_18/index.html)
+* **Manual de Referencia Rápida (PDF):** [`ejercicio_18/Manual de Referencia Rápida - Objetos Literales en JavaScript.pdf`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_18/Manual%20de%20Referencia%20R%C3%A1pida%20-%20Objetos%20Literales%20en%20JavaScript.pdf) *(7 págs con portada, índice interactivo y marcadores)*
+* **Prácticas Guiadas de Aula (PDF):** [`ejercicio_18/Prácticas Guiadas - Objetos Literales en JavaScript.pdf`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_18/Pr%C3%A1cticas%20Guiadas%20-%20Objetos%20Literales%20en%20JavaScript.pdf) *(6 págs con portada, índice interactivo y marcadores)*
+* **Demos del Manual de Referencia (6 Demos):** [`ejercicio_18/ejemplos_manual/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_18/ejemplos_manual/README.md)
+  - `01_producto_basico/` Creación literal, acceso por punto vs corchetes, adición y borrado con `delete`.
+  - `02_cuenta_bancaria/` Métodos y palabra reservada `this`, validación de fondos y control de saldo.
+  - `03_estudiante_anidado/` Estructuras anidadas (dirección, notas en array y método `calcularMedia()`).
+  - `04_catalogo_arrays/` Arrays de objetos literales, bucles `for...of`, filtrado dinámico y ordenación.
+  - `05_claves_y_json/` Inspección de propiedades con `Object.keys()`, `Object.values()`, serialización `JSON.stringify()`, `JSON.parse()` y persistencia con `localStorage`.
+  - `06_privacidad_modulo/` Falsa privacidad de `_prop` vs Privacidad REAL mediante clausuras e IIFE (Patrón Módulo).
+* **Prácticas Guiadas para el Alumno:**
+  - Práctica 1 (Ficha de Personaje): [`ejercicio_18/practicas/practica_01_personaje/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_18/practicas/practica_01_personaje/index.html)
+  - Práctica 2 (Carrito de la Compra): [`ejercicio_18/practicas/practica_02_carrito/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_18/practicas/practica_02_carrito/index.html)
+* **Soluciones Oficiales Resueltas:**
+  - Solución Práctica 1: [`soluciones/ejercicio_18/practica_01_personaje/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/soluciones/ejercicio_18/practica_01_personaje/app.js)
+  - Solución Práctica 2: [`soluciones/ejercicio_18/practica_02_carrito/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/soluciones/ejercicio_18/practica_02_carrito/app.js)
+* **Objetivos de Aprendizaje:**
+  1. Comprender la estructura de pares `clave: valor` para modelar entidades reales en JavaScript.
+  2. Dominar el uso de la palabra reservada `this` para acceder a propiedades internas desde métodos del propio objeto.
+  3. Trabajar con estructuras complejas anidadas (objetos dentro de objetos y arrays de datos).
+  4. Sustituir el antipatrón de arrays paralelos por un único array de objetos literales homogéneos.
+  5. Conocer los mecanismos de privacidad en objetos literales (convención `_` vs Patrón Módulo con IIFE).
+  6. Dominar el intercambio de datos entre objetos JS y formato texto con `JSON.stringify()` y `JSON.parse()`.
+
+---
+
+### Ejercicio 19: Objetos en Notación Literal en JavaScript (Avanzado: Referencias, Desestructuración, Getters/Setters, JSON y Clausuras Privadas)
+* **Documentación Completa del Ejercicio:** [`ejercicio_19/README.md`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_19/README.md)
+* **Portal Interactivo del Ejercicio:** [`ejercicio_19/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_19/index.html)
+* **Manual Teórico Oficial (PDF):** [`ejercicio_19/files/Manual_Objetos_Literales_JavaScript.pdf`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_19/files/Manual_Objetos_Literales_JavaScript.pdf) *(27 págs con teoría exhaustiva y ejemplos)*
+* **Prácticas Guiadas Oficiales (PDF):** [`ejercicio_19/files/Practicas_Guiadas_Objetos_Literales_JavaScript.pdf`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_19/files/Practicas_Guiadas_Objetos_Literales_JavaScript.pdf) *(19 págs con 4 prácticas guiadas y 1 reto final)*
+* **Demos y Ejemplos Interactivos del Manual (12 Ejemplos con HTML, CSS y JS):** [`ejercicio_19/ejemplos/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_19/ejemplos/README.md)
+  - `01_creacion_y_anatomia/` Creación literal `{...}`, pares clave-valor y tipos admitidos.
+  - `02_tipos_y_claves/` Identificadores estándar vs claves especiales con espacios o guiones.
+  - `03_lectura_y_acceso/` Notación de punto (`.`), corchetes (`[]`), claves dinámicas y encadenamiento opcional (`?.`).
+  - `04_modificar_y_borrar/` Añadir propiedades en caliente, reasignación y operador `delete`.
+  - `05_metodos_y_this/` Métodos de objeto, enlace contextual de `this` y comportamiento de las funciones flecha.
+  - `06_objetos_anidados/` Estructuras jerárquicas multinivel y prevención de `TypeError`.
+  - `07_arrays_de_objetos/` Modelado de catálogos y colecciones, manipulación con `.map()`, `.filter()`, `.find()`.
+  - `08_recorrer_objetos/` Introspección con `for...in`, `Object.keys()`, `Object.values()`, `Object.entries()`.
+  - `09_referencias_y_copias/` Asignación por referencia (`b = a`), copia superficial (`{ ...a }`) y copia profunda (`structuredClone()`).
+  - `10_desestructuracion_spread/` Extracción ES6+ `{ a, b }`, alias, valores por defecto, operador rest y fusión de objetos.
+  - `11_getters_setters_privacidad/` Propiedades dinámicas con `get`, validación con `set`, verdadero blindaje con Closures y `Object.freeze()`.
+  - `12_json_y_localstorage/` Serialización con `JSON.stringify()`, deserialización con `JSON.parse()` y persistencia real en `localStorage`.
+* **Prácticas Guiadas para el Alumno (HTML + CSS + app.js con TODOs + appSolucion.js resuelta):** [`ejercicio_19/practicas/`](file:///d:/Ramon/www/confeccion2026/ejemplos/iniciales/ejercicio_19/practicas/README.md)
+  - `01_consola/` **Práctica 1:** Primeros pasos con objeto `libro`, lectura, mutación, borrado con `delete`, operador `in`, método con `this` y `Object.keys()`.
+  - `02_personaje/` **Práctica 2:** Ficha interactiva de personaje de videojuego con métodos `recibirDanio`, `curar` y `subirNivel` vinculados al DOM.
+  - `03_carrito/` **Práctica 3:** Carrito de la compra con colección de productos, método propio `subtotal()`, eliminación y cálculo automático del total.
+  - `04_agenda/` **Práctica 4:** Agenda completa de contactos con serialización JSON, persistencia en `localStorage`, buscador en vivo y borrado.
+  - `05_reto/` **Reto Avanzado:** Cuenta bancaria con saldo privado y clausuras (IIFE), protección contra manipulación directa y registro de transacciones.
+* **Objetivos de Aprendizaje:**
+  1. Comprender el modelado de datos en JavaScript mediante la notación de objetos literales.
+  2. Aplicar correctamente la notación de corchetes cuando las propiedades son dinámicas o no siguen la sintaxis de identificadores válidos.
+  3. Manejar con seguridad el contexto `this` dentro de los métodos del objeto y entender las restricciones de las funciones flecha.
+  4. Reconocer los peligros de la mutación no deseada por referencia en memoria y aplicar las estrategias adecuadas de copia (superficial vs profunda).
+  5. Escribir código moderno y expresivo mediante la desestructuración de objetos y el operador spread.
+  6. Blindar la integridad de los datos mediante setters con validación y clausuras léxicas para crear campos verdaderamente privados.
+  7. Implementar persistencia de estado en aplicaciones web cliente mediante la API LocalStorage y el formato JSON.
+
+
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 04 · Modificar, Añadir y Borrar - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Tema 04 · Dinamismo en Objetos</span>
+      <h1>✂️ Modificar, Añadir y Borrar Propiedades</h1>
+      <p class="subtitulo">Descubre la mutabilidad de los objetos, el operador <code>delete</code>, la comprobación con <code>in</code> y la protección con <code>Object.freeze()</code>.</p>
+    </header>
+
+    <div class="panel-grid">
+      <div class="tarjeta-visual">
+        <h2>📦 Estado Actual del Producto</h2>
+        <pre id="estadoProducto"></pre>
+        <div class="botones-accion">
+          <button id="btnModificar" class="btn-sm">Cambiar Precio a 49.95€</button>
+          <button id="btnAgregar" class="btn-sm">Añadir Categoría</button>
+          <button id="btnBorrar" class="btn-peligro">delete producto.codigo</button>
+          <button id="btnCongelar" class="btn-freeze">❄️ Object.freeze(producto)</button>
+        </div>
+      </div>
+
+      <div class="tarjeta-consola">
+        <h2>💻 Salida en Consola</h2>
+        <pre id="salidaConsola"></pre>
+      </div>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al menú de ejemplos</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

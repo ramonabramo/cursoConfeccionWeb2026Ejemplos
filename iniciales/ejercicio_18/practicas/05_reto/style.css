@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #0f172a;
+  color: #f8fafc;
+  min-height: 100vh;
+  padding: 24px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 800px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.cabecera {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 14px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid #9333ea;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.subtitulo {
+  color: #94a3b8;
+  font-size: 0.92rem;
+}
+
+.subtitulo code {
+  color: #c084fc;
+  background: #0f172a;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.panel-guion {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 1.15rem;
+  color: #c084fc;
+  margin-bottom: 14px;
+}
+
+.lista-requisitos {
+  margin-left: 20px;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.lista-requisitos code {
+  color: #38bdf8;
+  font-family: monospace;
+}
+
+.consola-visual {
+  background: #080d1a;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.consola-header {
+  background: #1e293b;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  border-bottom: 1px solid #334155;
+}
+
+.btn-recargar {
+  background: #9333ea;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.btn-recargar:hover {
+  background: #7e22ce;
+}
+
+pre {
+  padding: 14px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.82rem;
+  color: #a855f7;
+  line-height: 1.5;
+  min-height: 150px;
+  white-space: pre-wrap;
+}
+
+.pie {
+  margin-top: 20px;
+  border-top: 1px solid #334155;
+  padding-top: 14px;
+  text-align: center;
+}
+
+.enlace-volver {
+  color: #38bdf8;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.enlace-volver:hover {
+  text-decoration: underline;
+}

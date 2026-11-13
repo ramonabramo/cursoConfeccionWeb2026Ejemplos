@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 4 · Catálogo y Arrays de Objetos - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Ejemplo 04 · Colecciones y Bucles</span>
+      <h1>🛍️ Catálogo: Arrays de Objetos Literales</h1>
+      <p class="subtitulo">Aprende el patrón estándar de la web: una colección de objetos donde cada elemento comparte la misma estructura de claves.</p>
+    </header>
+
+    <!-- Barra de Filtros y Control -->
+    <section class="barra-filtros">
+      <div class="grupo-filtro">
+        <label for="selFiltro">Filtrar por estado:</label>
+        <select id="selFiltro">
+          <option value="todos">Todos los artículos</option>
+          <option value="disponibles">Solo disponibles (en stock)</option>
+          <option value="agotados">Agotados</option>
+        </select>
+      </div>
+
+      <div class="grupo-filtro">
+        <label for="selOrden">Ordenar por precio:</label>
+        <select id="selOrden">
+          <option value="defecto">Por defecto (ID)</option>
+          <option value="asc">Precio: de menor a mayor</option>
+          <option value="desc">Precio: de mayor a menor</option>
+        </select>
+      </div>
+
+      <div class="grupo-filtro buscador">
+        <label for="inpBuscar">Buscar por título:</label>
+        <input type="text" id="inpBuscar" placeholder="Ej: Ratón, Monitor...">
+      </div>
+    </section>
+
+    <!-- Grid de Productos -->
+    <section class="grid-productos" id="contenedorCatalogo">
+      <!-- Generado dinámicamente -->
+    </section>
+
+    <!-- Resumen de Métricas -->
+    <section class="panel-metricas">
+      <div class="metrica">
+        <span class="metrica-num" id="totalArticulos">0</span>
+        <span class="metrica-lbl">Artículos en catálogo</span>
+      </div>
+      <div class="metrica">
+        <span class="metrica-num" id="totalDisponibles">0</span>
+        <span class="metrica-lbl">Disponibles</span>
+      </div>
+      <div class="metrica">
+        <span class="metrica-num" id="precioMedio">0.00 €</span>
+        <span class="metrica-lbl">Precio medio</span>
+      </div>
+    </section>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al índice general del Ejercicio 18</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

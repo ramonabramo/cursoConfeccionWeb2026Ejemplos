@@ -1,0 +1,259 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #0f172a;
+  color: #f8fafc;
+  min-height: 100vh;
+  padding: 24px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 920px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.cabecera {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 16px;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid #0284c7;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: 1.7rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.subtitulo {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.subtitulo code {
+  color: #38bdf8;
+  background: #0f172a;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .panel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tarjeta-caja {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header-caja {
+  margin-bottom: 12px;
+}
+
+.tag-caso {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.tag-caso.vulnerable {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid #ef4444;
+}
+
+.tag-caso.blindada {
+  background: rgba(34, 197, 94, 0.15);
+  color: #86efac;
+  border: 1px solid #22c55e;
+}
+
+h2 {
+  font-size: 1.15rem;
+  color: #ffffff;
+}
+
+.desc {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.desc code {
+  color: #38bdf8;
+}
+
+.datos-caja {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+.datos-caja p {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.datos-caja p:last-child {
+  margin-bottom: 0;
+}
+
+.mono {
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.mono.verde { color: #4ade80; }
+.mono.purpura { color: #c084fc; }
+
+.input-btn {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+input {
+  flex: 1;
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  padding: 8px 10px;
+  color: #ffffff;
+  font-size: 0.85rem;
+}
+
+button {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-peligro {
+  width: 100%;
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.btn-peligro:hover {
+  background: #dc2626;
+}
+
+.btn-seguro {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.btn-seguro:hover {
+  background: #15803d;
+}
+
+.log-caja {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  min-height: 20px;
+}
+
+.pizarra-comparativa {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.pizarra-comparativa h3 {
+  font-size: 0.95rem;
+  color: #38bdf8;
+  margin-bottom: 12px;
+}
+
+.tabla-didactica {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.tabla-didactica th, .tabla-didactica td {
+  border: 1px solid #334155;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.tabla-didactica th {
+  background: #1e293b;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.tabla-didactica code {
+  color: #38bdf8;
+  font-family: monospace;
+}
+
+.pie {
+  margin-top: 24px;
+  border-top: 1px solid #334155;
+  padding-top: 16px;
+  text-align: center;
+}
+
+.enlace-volver {
+  color: #38bdf8;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.enlace-volver:hover {
+  text-decoration: underline;
+}

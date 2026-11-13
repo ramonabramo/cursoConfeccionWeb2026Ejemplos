@@ -50,14 +50,72 @@ const botonIniciar = document.querySelector('#iniciar');
 const botonParar = document.querySelector('#parar');
 const botonReiniciar = document.querySelector('#reiniciar');
 
-// 4. Función auxiliar para refrescar la interfaz con la imagen actual
 
+
+// 4. Función auxiliar para refrescar la interfaz con la imagen actual
+// function renderImagen() {
+//     // mostrar la imagen
+//     foto.src = imagenes[indice];
+//     // colocar el texto del indicador de la imagen
+//     indicador.textContent = `Imagen ${indice + 1} de ${imagenes.length}`;
+// }
+
+const renderImagen = () => {
+    // colocar la clase con animación
+    foto.classList.add('movimiento');
+
+    // mostrar la imagen
+    foto.src = imagenes[indice];
+    // colocar el texto del indicador de la imagen
+    indicador.textContent = `Imagen ${indice + 1} de ${imagenes.length}`;
+
+    // quito la clase de animacion pero con un timeout
+    setTimeout(() => {
+        foto.classList.remove('movimiento');
+    }, 500);
+
+}
 
 // 5. Escuchador: Iniciar la reproducción automática
+botonIniciar.addEventListener('click', () => {
+    // control de seguridad para evitar pulsar varias veces el botón de iniciar
+    if (idIntervalo === null) {
+        mensajeEstado.textContent = 'Reproduciendo...';
+        idIntervalo = setInterval(() => {
+            // apuntar a la siguiente imagen
+            indice++;
 
+            // comprobar si hemos llegado al final
+            // opcion 1
+            if (indice >= imagenes.length) {
+                // colocar el indice apuntando a la primera imagen
+                indice = 0;
+            }
+            // opcion 2
+            // indice = indice % imagenes.length;
+
+            // mostrar la imagen
+            renderImagen();
+
+            // colocar el mensaje de estado
+            mensajeEstado.textContent = 'Carrousel reiniciado.'
+        }, 2000);
+    }
+});
 
 // 6. Escuchador: Pausar el carrusel en la imagen actual
 
+botonParar.addEventListener('click', () => {
+    clearInterval(idIntervalo);
+    idIntervalo = null;
+    mensajeEstado.textContent = 'Pausado';
+})
 
 // 7. Escuchador: Reiniciar al principio de la colección
-
+botonReiniciar.addEventListener('click', () => {
+    clearInterval(idIntervalo);
+    idIntervalo = null;
+    indice = 0;
+    // mostrar la primera foto
+    renderImagen()
+})

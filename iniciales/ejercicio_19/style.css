@@ -1,0 +1,452 @@
+:root {
+  --bg: #090d16;
+  --card: #131c2e;
+  --border: #22324b;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 30px 20px;
+}
+
+.contenedor-principal {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.badge-curso {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.lead {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  max-width: 850px;
+  margin-bottom: 16px;
+}
+
+.lead code {
+  color: var(--accent);
+  background: rgba(15, 23, 42, 0.8);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.autor-badge {
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 12px;
+  display: inline-block;
+}
+
+/* Grid Teoría */
+.grid-teoria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.tarjeta-teoria {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.tag-sintaxis { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+.tag-metodo { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+.tag-coleccion { background: rgba(34, 197, 94, 0.15); color: #4ade80; }
+.tag-json { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+
+.tarjeta-teoria h3 {
+  font-size: 1.05rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.tarjeta-teoria p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.analogia {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+}
+
+/* Secciones Generales */
+.seccion-bloque {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.seccion-bloque h2 {
+  font-size: 1.35rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.seccion-sub {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+/* Enlaces PDF */
+.grid-enlaces {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .grid-enlaces { grid-template-columns: 1fr; }
+}
+
+.tarjeta-enlace {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #0d1524;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+}
+
+.tarjeta-enlace:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  background: #111d33;
+}
+
+.icono-enlace {
+  font-size: 2rem;
+}
+
+.tarjeta-enlace strong {
+  display: block;
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.tarjeta-enlace p {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* Infografías */
+.grid-infografias {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .grid-infografias { grid-template-columns: 1fr; }
+}
+
+.tarjeta-info {
+  background: #0d1524;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.tarjeta-info h3 {
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.tarjeta-info p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.img-preview {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.img-preview:hover {
+  opacity: 0.85;
+}
+
+/* Grid Demos */
+.grid-demos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.tarjeta-demo {
+  background: #0d1524;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+
+.tarjeta-demo:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.demo-num {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: rgba(56, 189, 248, 0.4);
+  font-family: monospace;
+}
+
+.tarjeta-demo h3 {
+  font-size: 1.05rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+  padding-right: 30px;
+}
+
+.tarjeta-demo p {
+  font-size: 0.83rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.btn-demo {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.btn-demo:hover {
+  background: var(--accent);
+  color: #090d16;
+}
+
+/* Prácticas Grid */
+.grid-practicas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .grid-practicas { grid-template-columns: 1fr; }
+}
+
+.tarjeta-practica {
+  background: #0d1524;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.badge-practica {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #4ade80;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+
+.tarjeta-practica h3 {
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.tarjeta-practica p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.acciones-practica {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-trabajo, .btn-solucion {
+  flex: 1;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.btn-trabajo {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.btn-trabajo:hover { background: #0369a1; }
+
+.btn-solucion {
+  background: #166534;
+  color: #bbf7d0;
+  border: 1px solid #22c55e;
+}
+
+.btn-solucion:hover { background: #15803d; color: #ffffff; }
+
+/* Lab */
+.grid-lab {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .grid-lab { grid-template-columns: 1fr; }
+}
+
+.lab-col label {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.lab-col input[type="text"], .lab-col input[type="number"] {
+  width: 100%;
+  background: #0d1524;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.chk-fila {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+}
+
+pre#labSalida {
+  background: #090d16;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--accent);
+  min-height: 120px;
+}
+
+/* Footer */
+.pie-general {
+  text-align: center;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  margin-top: 28px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.enlace-volver-raiz {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.enlace-volver-raiz:hover {
+  text-decoration: underline;
+}

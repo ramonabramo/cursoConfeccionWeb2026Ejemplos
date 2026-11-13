@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 08 · Recorrer Objetos - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Tema 08 · Iteración de Objetos</span>
+      <h1>🔄 Métodos Object y Bucle for...in</h1>
+      <p class="subtitulo">Aprende a iterar sobre las propiedades de un objeto con <code>Object.keys()</code>, <code>Object.values()</code>, <code>Object.entries()</code> y <code>for...in</code>.</p>
+    </header>
+
+    <div class="panel-grid">
+      <div class="tarjeta-visual">
+        <h2>🛠️ Métodos Estáticos de Object</h2>
+        <div class="botones-accion">
+          <button id="btnKeys" class="btn-sm">Object.keys(obj)</button>
+          <button id="btnValues" class="btn-sm">Object.values(obj)</button>
+          <button id="btnEntries" class="btn-sm">Object.entries(obj)</button>
+          <button id="btnForIn" class="btn-sm">Bucle for...in</button>
+        </div>
+        <div id="cajaResultado" class="caja-resultado"></div>
+      </div>
+
+      <div class="tarjeta-consola">
+        <h2>💻 Salida en Consola</h2>
+        <pre id="salidaConsola"></pre>
+      </div>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al menú de ejemplos</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

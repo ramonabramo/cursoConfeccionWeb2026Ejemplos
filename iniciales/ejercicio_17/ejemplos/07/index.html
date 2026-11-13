@@ -149,6 +149,36 @@
             background: var(--warning);
             color: #451a03;
         }
+
+        @keyframes aparecer {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+                filter: blur(4px);
+            }
+
+            40% {
+                opacity: 0.4;
+                transform: scale(1.1);
+                filter: blur(2px);
+            }
+
+            80% {
+                opacity: 0.8;
+                transform: scale(1.1);
+                filter: blur(2px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .movimiento {
+            animation: aparecer 0.8s ease-out forwards;
+        }
     </style>
 </head>
 
@@ -156,7 +186,9 @@
     <div class="carrusel-card">
         <span class="badge">⏱️ Ejemplo de Clase 07</span>
         <h1>Carrusel de Imágenes con Temporizador</h1>
-        <p class="subtitle">Array de imágenes rotando automáticamente cada 2 segundos mediante <code>setInterval()</code>, con botones para pausar y reiniciar.</p>
+        <p class="subtitle">Array de imágenes rotando automáticamente cada 2 segundos mediante
+            <code>setInterval()</code>, con botones para pausar y reiniciar.
+        </p>
 
         <div class="visor-marco">
             <img id="foto" src="imgs/01_programacion_codigo.png" alt="Imagen del carrusel">

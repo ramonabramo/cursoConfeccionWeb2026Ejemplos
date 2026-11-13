@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 09 · Referencias y Copias - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Tema 09 · Mutabilidad en Memoria</span>
+      <h1>🧬 Referencias frente a Copias de Objetos</h1>
+      <p class="subtitulo">Descubre por qué <code>b = a</code> no copia nada, qué copia <code>{ ...a }</code> y cómo hacer copias profundas con <code>structuredClone()</code>.</p>
+    </header>
+
+    <div class="panel-grid">
+      <div class="tarjeta-visual">
+        <h2>🧪 Simulador de Modificación</h2>
+        <div class="botones-accion">
+          <button id="btnReferencia" class="btn-sm">1. Asignar por Referencia (b = a)</button>
+          <button id="btnSpread" class="btn-sm">2. Copia Superficial ({ ...a })</button>
+          <button id="btnClone" class="btn-sm">3. Copia Profunda (structuredClone)</button>
+        </div>
+        <div id="cajaResultado" class="caja-resultado"></div>
+      </div>
+
+      <div class="tarjeta-consola">
+        <h2>💻 Salida en Consola</h2>
+        <pre id="salidaConsola"></pre>
+      </div>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al menú de ejemplos</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

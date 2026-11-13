@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 5 · Métodos Object y Conversión JSON - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Ejemplo 05 · Inspección y JSON</span>
+      <h1>🔤 Claves de Objeto e Intercambio JSON</h1>
+      <p class="subtitulo">Aprende a inspeccionar objetos con <code>Object.keys()</code>, <code>Object.values()</code>, <code>Object.entries()</code> y serializarlos con <code>JSON.stringify()</code> y <code>JSON.parse()</code>.</p>
+    </header>
+
+    <div class="panel-grid">
+      <!-- Objeto Vivo y Configuración -->
+      <section class="seccion-bloque">
+        <h2>⚙️ 1. Objeto de Configuración en Memoria</h2>
+        <div class="formulario-config">
+          <div class="fila-control">
+            <label for="selTema">Tema visual:</label>
+            <select id="selTema">
+              <option value="oscuro">Oscuro (Dark)</option>
+              <option value="claro">Claro (Light)</option>
+              <option value="cyberpunk">Cyberpunk Neón</option>
+            </select>
+          </div>
+
+          <div class="fila-control">
+            <label for="selIdioma">Idioma preferido:</label>
+            <select id="selIdioma">
+              <option value="es">Español (es)</option>
+              <option value="en">English (en)</option>
+              <option value="fr">Français (fr)</option>
+            </select>
+          </div>
+
+          <div class="fila-control-check">
+            <input type="checkbox" id="chkNotificaciones" checked>
+            <label for="chkNotificaciones">Notificaciones del sistema activadas</label>
+          </div>
+
+          <div class="fila-control">
+            <label for="inpVolumen">Nivel de volumen (0-100):</label>
+            <input type="range" id="inpVolumen" min="0" max="100" value="80">
+            <span id="txtVolumen" class="mono">80%</span>
+          </div>
+        </div>
+
+        <div class="visualizador-memoria">
+          <h3>🧠 Objeto JS Activo:</h3>
+          <pre id="preObjetoVivo"></pre>
+        </div>
+      </section>
+
+      <!-- Métodos Object y JSON -->
+      <section class="seccion-bloque">
+        <h2>🔍 2. Inspección con Métodos Estáticos de Object</h2>
+
+        <div class="bloque-metodo">
+          <div class="header-metodo">
+            <code>Object.keys(configuracion)</code>
+            <span class="tipo-retorno">Array de Claves</span>
+          </div>
+          <div id="cajaKeys" class="chips-resultado"></div>
+        </div>
+
+        <div class="bloque-metodo">
+          <div class="header-metodo">
+            <code>Object.values(configuracion)</code>
+            <span class="tipo-retorno">Array de Valores</span>
+          </div>
+          <div id="cajaValues" class="chips-resultado"></div>
+        </div>
+
+        <h2>📦 3. Serialización JSON</h2>
+
+        <div class="bloque-json">
+          <div class="header-metodo">
+            <code>JSON.stringify(configuracion)</code>
+            <span class="tipo-retorno">String JSON</span>
+          </div>
+          <div class="caja-texto-json" id="cajaStringify"></div>
+          <div class="acciones-json">
+            <button id="btnGuardarStorage" class="btn-sm">💾 Guardar en localStorage</button>
+            <button id="btnCargarStorage" class="btn-sm">📂 Cargar de localStorage (JSON.parse)</button>
+          </div>
+          <p id="msgStorage" class="msg-status"></p>
+        </div>
+      </section>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al índice general del Ejercicio 18</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

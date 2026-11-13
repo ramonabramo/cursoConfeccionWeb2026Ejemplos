@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 03 · Lectura y Acceso - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Tema 03 · Lectura y Acceso</span>
+      <h1>🔍 Notación de Punto, Corchetes y ?.</h1>
+      <p class="subtitulo">Aprende la diferencia entre <code>obj.clave</code>, <code>obj[variable]</code> y el encadenamiento opcional <code>obj?.a?.b</code>.</p>
+    </header>
+
+    <div class="panel-grid">
+      <div class="tarjeta-visual">
+        <h2>🏷️ Consultor de Propiedades</h2>
+        <div class="grupo-input">
+          <label for="selPropiedad">Selecciona una propiedad:</label>
+          <select id="selPropiedad">
+            <option value="titulo">titulo</option>
+            <option value="autor">autor</option>
+            <option value="año">año</option>
+            <option value="editorial">editorial (no existe -> undefined)</option>
+          </select>
+          <button id="btnConsultar" class="btn-accion">Consultar con obj[clave]</button>
+        </div>
+        <div id="cajaResultado" class="caja-resultado"></div>
+      </div>
+
+      <div class="tarjeta-consola">
+        <h2>💻 Salida en Consola</h2>
+        <pre id="salidaConsola"></pre>
+      </div>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al menú de ejemplos</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

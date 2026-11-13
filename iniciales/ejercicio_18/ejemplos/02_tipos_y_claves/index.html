@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 02 · Tipos y Claves - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Tema 02 · Valores y Claves</span>
+      <h1>🔑 Tipos de Valores y Nombres de Clave</h1>
+      <p class="subtitulo">Aprende qué tipos puede almacenar una propiedad, cuándo usar comillas y cómo definir claves calculadas dinámicamente.</p>
+    </header>
+
+    <div class="panel-grid">
+      <div class="tarjeta-visual">
+        <h2>🛠️ Prueba de Claves Dinámicas</h2>
+        <div class="grupo-input">
+          <label for="inpPrefijo">Prefijo de la clave:</label>
+          <input type="text" id="inpPrefijo" value="usuario">
+          <button id="btnGenerar" class="btn-accion">Generar Clave Calculada</button>
+        </div>
+        <div id="resultadoClave" class="caja-resultado"></div>
+      </div>
+
+      <div class="tarjeta-consola">
+        <h2>💻 Salida en Consola</h2>
+        <pre id="salidaConsola"></pre>
+      </div>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al menú de ejemplos</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

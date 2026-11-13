@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reto Final · Cuenta Bancaria con Saldo Privado - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Reto Final · Clausuras y Privacidad</span>
+      <h1>🔐 Cuenta Bancaria con Saldo Privado</h1>
+      <p class="subtitulo">Aprende a proteger datos mediante una clausura (función autoejecutable IIFE) de forma que <code>cuenta.saldo</code> devuelva <code>undefined</code>.</p>
+    </header>
+
+    <div class="panel-guion">
+      <h2>📋 Requisitos del Reto</h2>
+      <ul class="lista-requisitos">
+        <li><strong>titular:</strong> Propiedad pública con valor <code>"Lucía Navarro"</code>.</li>
+        <li><strong>ingresar(importe):</strong> Suma al saldo privado y devuelve <code>"Saldo: 300€"</code> (rechaza importes &le; 0).</li>
+        <li><strong>retirar(importe):</strong> Resta del saldo y devuelve <code>"Saldo: 200€"</code> (devuelve <code>"Operación denegada"</code> si es &le; 0 o supera el saldo).</li>
+        <li><strong>consultarSaldo():</strong> Devuelve el número del saldo actual.</li>
+        <li><strong>historial():</strong> Devuelve un array con el registro textual de cada movimiento.</li>
+        <li><strong>Seguridad:</strong> <code>cuenta.saldo</code> debe ser <code>undefined</code>.</li>
+      </ul>
+
+      <div class="consola-visual">
+        <div class="consola-header">
+          <span>💻 Salida de las Pruebas en Consola (F12)</span>
+          <button id="btnEjecutar" class="btn-recargar">🔄 Ejecutar Pruebas</button>
+        </div>
+        <pre id="salidaConsola"></pre>
+      </div>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al menú de prácticas</a>
+    </footer>
+  </div>
+
+  <!-- El alumno trabaja sobre app.js. Solución disponible en appSolucion.js -->
+  <script src="app.js"></script>
+</body>
+</html>

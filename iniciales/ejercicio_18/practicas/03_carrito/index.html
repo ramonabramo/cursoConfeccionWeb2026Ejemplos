@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 3 · Carrito de la Compra - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor-practica">
+    <div class="caja-carrito">
+      <h2>Cesta de la Compra</h2>
+
+      <div class="fila-inputs">
+        <input type="text" id="inpNombre" placeholder="Producto (ej. Teclado)">
+        <input type="number" id="inpPrecio" placeholder="Precio (€)" step="0.01">
+        <input type="number" id="inpCantidad" value="1" min="1">
+      </div>
+
+      <button id="btnAgregar" class="btn-agregar">Añadir al carrito</button>
+
+      <ul id="listaCarrito" class="lista-productos"></ul>
+
+      <div class="fila-total">
+        <span>Total: </span><strong id="txtTotal">0.00</strong><strong> €</strong>
+      </div>
+    </div>
+
+    <footer class="pie-nav">
+      <a href="../index.html">⬅️ Volver al menú de prácticas</a>
+    </footer>
+  </div>
+
+  <!-- El alumno trabaja sobre app.js. Solución disponible en appSolucion.js -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 05 · Métodos y 'this' - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Tema 05 · Funciones y 'this'</span>
+      <h1>🎮 Métodos y la Palabra Reservada 'this'</h1>
+      <p class="subtitulo">Aprende cómo los métodos acceden a sus propiedades con <code>this</code> y por qué nunca debes usar funciones flecha como métodos.</p>
+    </header>
+
+    <div class="panel-grid">
+      <div class="tarjeta-visual">
+        <h2>🛡️ Personaje Interactivo</h2>
+        <div class="ficha-datos">
+          <p><strong>Héroe:</strong> <span id="txtNombre">Valeria</span></p>
+          <p><strong>Vida:</strong> <span id="txtVida">100</span></p>
+        </div>
+        <div class="botones-accion">
+          <button id="btnDanio" class="btn-danio">⚔️ Recibir Daño (-20)</button>
+          <button id="btnCurar" class="btn-curar">🧪 Curar (+15)</button>
+          <button id="btnFlecha" class="btn-error">❌ Probar Método Flecha (Error)</button>
+        </div>
+      </div>
+
+      <div class="tarjeta-consola">
+        <h2>💻 Salida en Consola</h2>
+        <pre id="salidaConsola"></pre>
+      </div>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al menú de ejemplos</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

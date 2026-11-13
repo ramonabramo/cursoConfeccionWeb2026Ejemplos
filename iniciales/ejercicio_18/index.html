@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 19 · Objetos Literales en JavaScript - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="contenedor-principal">
+    
+    <!-- CABECERA -->
+    <header class="cabecera-portal">
+      <div class="meta-badge">
+        <span class="badge-dot"></span>
+        <span>Módulo JS · Certificado de Profesionalidad IFCD0110</span>
+      </div>
+      <h1>📦 Ejercicio 19: Objetos en Notación Literal</h1>
+      <p class="subtitulo">
+        Portal didáctico completo para el aprendizaje de objetos en JavaScript: anatomía, accesos, mutación, métodos, contexto <code>this</code>, referencias en memoria, desestructuración ES6+, getters/setters, serialización JSON y clausuras privadas.
+      </p>
+      <div class="autor-info">
+        <span>👨‍🏫 Profesor: <strong>Ramón Abramo</strong></span>
+        <span>📍 <strong>Santander (Cantabria)</strong></span>
+        <span>📅 Curso 2026</span>
+      </div>
+
+      <!-- MÉTRICAS RÁPIDAS -->
+      <div class="metricas-grid">
+        <div class="metrica-card">
+          <div class="metrica-numero">12</div>
+          <div class="metrica-label">Ejemplos Interactivos</div>
+        </div>
+        <div class="metrica-card">
+          <div class="metrica-numero">5</div>
+          <div class="metrica-label">Prácticas + Reto Final</div>
+        </div>
+        <div class="metrica-card">
+          <div class="metrica-numero">2</div>
+          <div class="metrica-label">Manuales PDF Oficiales</div>
+        </div>
+        <div class="metrica-card">
+          <div class="metrica-numero">100%</div>
+          <div class="metrica-label">Soluciones Incluidas</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- BARRA DE CONTROL / FILTROS -->
+    <div class="barra-filtros">
+      <div class="buscador-box">
+        <span class="lupa-icono">🔍</span>
+        <input type="text" id="buscadorInput" placeholder="Buscar por tema, método o palabra clave (ej. this, json, copia, array)...">
+      </div>
+      <div class="filtro-botones">
+        <button class="filtro-btn activo" data-filtro="todos">Todos</button>
+        <button class="filtro-btn" data-filtro="practica">Prácticas (5)</button>
+        <button class="filtro-btn" data-filtro="ejemplo">Ejemplos (12)</button>
+        <button class="filtro-btn" data-filtro="manual">PDFs (2)</button>
+      </div>
+    </div>
+
+    <!-- SECCIÓN: MANUALES Y DOCUMENTACIÓN PDF -->
+    <section class="seccion-bloque" data-categoria="manual">
+      <div class="seccion-titulo">
+        <h2>📄 Documentación y Manuales Oficiales en PDF</h2>
+        <span class="seccion-conteo">2 documentos</span>
+      </div>
+      <div class="grid-tarjetas">
+        
+        <div class="tarjeta tarjeta-pdf" data-tags="manual guia teoria objetos literales metodos this json closures">
+          <div class="tarjeta-icono">📘</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-pdf">Manual Teórico</span>
+            <h3>Manual de Objetos Literales en JavaScript</h3>
+            <p>Guía de referencia completa con 13 capítulos: anatomía, accesos, objetos anidados, arrays de objetos, métodos, `this`, referencias, desestructuración y clausuras.</p>
+            <div class="tarjeta-acciones">
+              <a href="files/Manual_Objetos_Literales_JavaScript.pdf" target="_blank" class="btn-enlace btn-pdf">
+                <span>📖 Abrir Manual PDF</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-pdf" data-tags="practicas guiadas ejercicios solucion ejercicios reto cuenta bancaria">
+          <div class="tarjeta-icono">🛠️</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-pdf">Guía Práctica</span>
+            <h3>Prácticas Guiadas: Objetos en Notación Literal</h3>
+            <p>Cuaderno de trabajo para el alumno con 4 prácticas progresivas detalladas paso a paso y 1 reto final con clausuras y saldo blindado.</p>
+            <div class="tarjeta-acciones">
+              <a href="files/Practicas_Guiadas_Objetos_Literales_JavaScript.pdf" target="_blank" class="btn-enlace btn-pdf">
+                <span>📝 Abrir Guía de Prácticas PDF</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN: PRÁCTICAS GUIADAS Y RETO -->
+    <section class="seccion-bloque" data-categoria="practica">
+      <div class="seccion-titulo">
+        <h2>🧪 Prácticas Guiadas y Reto Final</h2>
+        <span class="seccion-conteo">5 proyectos listos con plantilla y solución</span>
+      </div>
+      <div class="grid-tarjetas">
+
+        <!-- Práctica 1 -->
+        <div class="tarjeta tarjeta-practica" data-tags="practica 1 libro consola crud delete in this keys metodos">
+          <div class="tarjeta-icono">📖</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-practica">Práctica 01</span>
+            <h3>Primeros pasos con objetos en la consola</h3>
+            <p>Creación del objeto <code>libro</code>, acceso por punto y corchetes, adición/borrado dinámico con <code>delete</code>, comprobación con <code>in</code> y método con <code>this</code>.</p>
+            <div class="tarjeta-acciones">
+              <a href="practicas/01_consola/index.html" class="btn-enlace btn-app">💻 Abrir Práctica</a>
+              <a href="practicas/01_consola/appSolucion.js" target="_blank" class="btn-enlace btn-solucion">💡 Ver Solución JS</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Práctica 2 -->
+        <div class="tarjeta tarjeta-practica" data-tags="practica 2 personaje videojuego rpg dom vida nivel daño curar">
+          <div class="tarjeta-icono">🎮</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-practica">Práctica 02</span>
+            <h3>Ficha interactiva de personaje de videojuego</h3>
+            <p>Encapsulación de atributos y métodos interactivos con <code>this</code> (<code>recibirDanio</code>, <code>curar</code>, <code>subirNivel</code>) con interfaz visual reactiva.</p>
+            <div class="tarjeta-acciones">
+              <a href="practicas/02_personaje/index.html" class="btn-enlace btn-app">💻 Abrir Práctica</a>
+              <a href="practicas/02_personaje/appSolucion.js" target="_blank" class="btn-enlace btn-solucion">💡 Ver Solución JS</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Práctica 3 -->
+        <div class="tarjeta tarjeta-practica" data-tags="practica 3 carrito compra articulos subtotal reduce dom catalogo">
+          <div class="tarjeta-icono">🛒</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-practica">Práctica 03</span>
+            <h3>Carrito de la compra con cálculo de totales</h3>
+            <p>Gestión de una colección (array) de objetos con método <code>subtotal()</code> propio, eliminación de productos y sumatorio acumulado del ticket en vivo.</p>
+            <div class="tarjeta-acciones">
+              <a href="practicas/03_carrito/index.html" class="btn-enlace btn-app">💻 Abrir Práctica</a>
+              <a href="practicas/03_carrito/appSolucion.js" target="_blank" class="btn-enlace btn-solucion">💡 Ver Solución JS</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Práctica 4 -->
+        <div class="tarjeta tarjeta-practica" data-tags="practica 4 agenda contactos json localstorage persistencia parse stringify filtro">
+          <div class="tarjeta-icono">📱</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-practica">Práctica 04</span>
+            <h3>Agenda de contactos con JSON y LocalStorage</h3>
+            <p>Aplicación completa de agenda con persistencia real en el navegador: guardar, listar, buscar en tiempo real y eliminar contactos serializados en JSON.</p>
+            <div class="tarjeta-acciones">
+              <a href="practicas/04_agenda/index.html" class="btn-enlace btn-app">💻 Abrir Práctica</a>
+              <a href="practicas/04_agenda/appSolucion.js" target="_blank" class="btn-enlace btn-solucion">💡 Ver Solución JS</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reto Final -->
+        <div class="tarjeta tarjeta-reto" data-tags="practica 5 reto clausura closure iife cuenta bancaria saldo privado encapsulamiento">
+          <div class="tarjeta-icono">🔐</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-reto">Reto Avanzado</span>
+            <h3>Cuenta bancaria con saldo privado y clausuras</h3>
+            <p>Blindaje estricto de datos con función factoría / IIFE: <code>cuenta.saldo === undefined</code>. Operaciones autorizadas de ingreso, retiro e historial de movimientos.</p>
+            <div class="tarjeta-acciones">
+              <a href="practicas/05_reto/index.html" class="btn-enlace btn-app">💻 Abrir Reto</a>
+              <a href="practicas/05_reto/appSolucion.js" target="_blank" class="btn-enlace btn-solucion">💡 Ver Solución JS</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN: EJEMPLOS INTERACTIVOS DEL MANUAL -->
+    <section class="seccion-bloque" data-categoria="ejemplo">
+      <div class="seccion-titulo">
+        <h2>📚 Ejemplos Interactivos del Manual Teórico</h2>
+        <span class="seccion-conteo">12 demostraciones ejecutables</span>
+      </div>
+      <div class="grid-tarjetas">
+
+        <div class="tarjeta tarjeta-ejemplo" data-tags="01 creacion anatomia sintaxis llaves tipos primitivos booleano numero string">
+          <div class="tarjeta-icono">🧱</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-ejemplo">Ejemplo 01</span>
+            <h3>Creación y Anatomía de Objetos</h3>
+            <p>Sintaxis literal con llaves <code>{}</code>, pares clave-valor, tipos soportados y visualización de la estructura en memoria.</p>
+            <div class="tarjeta-acciones">
+              <a href="ejemplos/01_creacion_y_anatomia/index.html" class="btn-enlace btn-app">🚀 Ejecutar Ejemplo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-ejemplo" data-tags="02 tipos claves identificadores guiones espacios comillas simbolos">
+          <div class="tarjeta-icono">🏷️</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-ejemplo">Ejemplo 02</span>
+            <h3>Tipos y Nombres de Claves</h3>
+            <p>Reglas de nombres: identificadores válidos vs claves especiales con espacios, guiones o palabras reservadas entrecomilladas.</p>
+            <div class="tarjeta-acciones">
+              <a href="ejemplos/02_tipos_y_claves/index.html" class="btn-enlace btn-app">🚀 Ejecutar Ejemplo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-ejemplo" data-tags="03 lectura acceso punto corchetes dinamico optional chaining encadenamiento">
+          <div class="tarjeta-icono">🔍</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-ejemplo">Ejemplo 03</span>
+            <h3>Lectura y Acceso a Propiedades</h3>
+            <p>Diferencias entre notación de punto (<code>obj.prop</code>), notación de corchetes (<code>obj[clave]</code>) y encadenamiento opcional <code>?.</code>.</p>
+            <div class="tarjeta-acciones">
+              <a href="ejemplos/03_lectura_y_acceso/index.html" class="btn-enlace btn-app">🚀 Ejecutar Ejemplo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-ejemplo" data-tags="04 modificar borrar delete añadir dinamico mutabilidad">
+          <div class="tarjeta-icono">✏️</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-ejemplo">Ejemplo 04</span>
+            <h3>Modificar, Añadir y Borrar Propiedades</h3>
+            <p>Asignación de nuevas claves en tiempo de ejecución, actualización de valores existentes y eliminación segura con el operador <code>delete</code>.</p>
+            <div class="tarjeta-acciones">
+              <a href="ejemplos/04_modificar_y_borrar/index.html" class="btn-enlace btn-app">🚀 Ejecutar Ejemplo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-ejemplo" data-tags="05 metodos this contexto arrow functions funciones flecha">
+          <div class="tarjeta-icono">⚙️</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-ejemplo">Ejemplo 05</span>
+            <h3>Métodos y la Palabra Clave `this`</h3>
+            <p>Definición de métodos en objetos literales, enlace contextual de <code>this</code> y demostración de por qué las funciones flecha no deben usarse como métodos.</p>
+            <div class="tarjeta-acciones">
+              <a href="ejemplos/05_metodos_y_this/index.html" class="btn-enlace btn-app">🚀 Ejecutar Ejemplo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-ejemplo" data-tags="06 anidados subobjetos niveles profundidad jerarquia">
+          <div class="tarjeta-icono">🌳</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-ejemplo">Ejemplo 06</span>
+            <h3>Estructuras y Objetos Anidados</h3>
+            <p>Modelado de datos en árbol (objetos dentro de objetos), navegación jerárquica y prevención de errores por acceso a claves inexistentes.</p>
+            <div class="tarjeta-acciones">
+              <a href="ejemplos/06_objetos_anidados/index.html" class="btn-enlace btn-app">🚀 Ejecutar Ejemplo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-ejemplo" data-tags="07 arrays objetos colecciones catalogo filter map find">
+          <div class="tarjeta-icono">📋</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-ejemplo">Ejemplo 07</span>
+            <h3>Arrays de Objetos</h3>
+            <p>Modelado de listas y catálogos en el mundo real. Recorrido y manipulación fluida con métodos funcionales (<code>.map()</code>, <code>.filter()</code>, <code>.find()</code>).</p>
+            <div class="tarjeta-acciones">
+              <a href="ejemplos/07_arrays_de_objetos/index.html" class="btn-enlace btn-app">🚀 Ejecutar Ejemplo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-ejemplo" data-tags="08 recorrer for in object keys values entries introspeccion">
+          <div class="tarjeta-icono">🔄</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-ejemplo">Ejemplo 08</span>
+            <h3>Recorrer e Inspeccionar Objetos</h3>
+            <p>Técnicas de introspección: bucle <code>for...in</code> frente a los métodos estáticos modernos <code>Object.keys()</code>, <code>Object.values()</code> y <code>Object.entries()</code>.</p>
+            <div class="tarjeta-acciones">
+              <a href="ejemplos/08_recorrer_objetos/index.html" class="btn-enlace btn-app">🚀 Ejecutar Ejemplo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-ejemplo" data-tags="09 referencias copias puntero shallow deep structuredclone spread memoria">
+          <div class="tarjeta-icono">🧬</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-ejemplo">Ejemplo 09</span>
+            <h3>Referencias frente a Copias en Memoria</h3>
+            <p>Comprende por qué <code>b = a</code> comparte memoria, las limitaciones del spread <code>{ ...a }</code> y cómo crear copias profundas con <code>structuredClone()</code>.</p>
+            <div class="tarjeta-acciones">
+              <a href="ejemplos/09_referencias_y_copias/index.html" class="btn-enlace btn-app">🚀 Ejecutar Ejemplo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-ejemplo" data-tags="10 desestructuracion spread rest fusion parametros es6">
+          <div class="tarjeta-icono">✨</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-ejemplo">Ejemplo 10</span>
+            <h3>Desestructuración y Operador Spread</h3>
+            <p>Extracción limpia de propiedades, alias, valores por defecto, operador rest <code>...rest</code> y fusión de configuraciones con spread.</p>
+            <div class="tarjeta-acciones">
+              <a href="ejemplos/10_desestructuracion_spread/index.html" class="btn-enlace btn-app">🚀 Ejecutar Ejemplo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-ejemplo" data-tags="11 getters setters validacion privacidad closures freeze seal">
+          <div class="tarjeta-icono">🛡️</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-ejemplo">Ejemplo 11</span>
+            <h3>Getters, Setters y Blindaje de Privacidad</h3>
+            <p>Propiedades computadas, validación estricta de asignaciones, privacidad con clausuras (closures) e inmutabilidad con <code>Object.freeze()</code>.</p>
+            <div class="tarjeta-acciones">
+              <a href="ejemplos/11_getters_setters_privacidad/index.html" class="btn-enlace btn-app">🚀 Ejecutar Ejemplo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-ejemplo" data-tags="12 json localstorage persistencia serializacion stringify parse">
+          <div class="tarjeta-icono">💾</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-ejemplo">Ejemplo 12</span>
+            <h3>Serialización JSON y Persistencia Local</h3>
+            <p>Diferencias entre objeto y JSON, <code>stringify</code> con indentación, <code>parse</code> seguro, límites de datos y almacenamiento en <code>localStorage</code>.</p>
+            <div class="tarjeta-acciones">
+              <a href="ejemplos/12_json_y_localstorage/index.html" class="btn-enlace btn-app">🚀 Ejecutar Ejemplo</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie-portal">
+      <div class="pie-contenido">
+        <p><strong>Curso de Confección y Publicación de Páginas Web (IFCD0110)</strong></p>
+        <p>Diseño didáctico desarrollado por <strong>Ramón Abramo</strong> · Santander (Cantabria) · 2026</p>
+        <div class="pie-enlaces">
+          <a href="../index.html">⬅️ Volver a la raíz del curso (Iniciales)</a>
+          <a href="practicas/README.md">📋 Índice de Prácticas</a>
+          <a href="ejemplos/README.md">📚 Índice de Ejemplos</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

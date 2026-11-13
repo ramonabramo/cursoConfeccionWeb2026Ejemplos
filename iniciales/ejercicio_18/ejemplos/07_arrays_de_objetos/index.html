@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 07 · Arrays de Objetos - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Tema 07 · Colecciones de Entidades</span>
+      <h1>🛍️ Catálogo: Arrays de Objetos Literales</h1>
+      <p class="subtitulo">Aprende a procesar colecciones de objetos con métodos funcionales: <code>filter()</code>, <code>map()</code> y <code>reduce()</code>.</p>
+    </header>
+
+    <div class="panel-grid">
+      <div class="tarjeta-visual">
+        <h2>📦 Operaciones sobre el Catálogo</h2>
+        <div class="botones-accion">
+          <button id="btnTodos" class="btn-sm">Mostrar Todos</button>
+          <button id="btnDisponibles" class="btn-sm">Solo Disponibles (filter)</button>
+          <button id="btnNombres" class="btn-sm">Lista de Nombres (map)</button>
+          <button id="btnTotal" class="btn-sm">Calcular Total (reduce)</button>
+        </div>
+        <div id="cajaResultado" class="caja-resultado"></div>
+      </div>
+
+      <div class="tarjeta-consola">
+        <h2>💻 Salida en Consola</h2>
+        <pre id="salidaConsola"></pre>
+      </div>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al menú de ejemplos</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 2 · Cuenta Bancaria y 'this' - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Ejemplo 02 · Métodos y 'this'</span>
+      <h1>💳 Cajero / Cuenta Bancaria</h1>
+      <p class="subtitulo">Aprende cómo los métodos manipulan las propiedades internas del objeto mediante la palabra reservada <code>this</code>.</p>
+    </header>
+
+    <div class="panel-grid">
+      <!-- Tarjeta Visual de la Cuenta -->
+      <section class="tarjeta-cuenta">
+        <div class="chip-banco">🏦 BANCO VIRTUAL JS</div>
+        <div class="datos-cuenta">
+          <div class="titular-caja">
+            <span class="label">Titular de la cuenta</span>
+            <h3 id="txtTitular">-</h3>
+          </div>
+          <div class="saldo-caja">
+            <span class="label">Saldo disponible</span>
+            <div class="cifra-saldo">
+              <span id="txtSaldo">0.00</span>
+              <span class="euro">€</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="aviso-movimiento" id="cajaMensaje">
+          <span id="txtIcono">ℹ️</span>
+          <p id="txtMensaje">Selecciona una operación para comenzar.</p>
+        </div>
+      </section>
+
+      <!-- Panel de Operaciones -->
+      <section class="panel-operaciones">
+        <h2>⚡ Operaciones Disponibles</h2>
+
+        <div class="formulario-operacion">
+          <label for="inpImporte">Importe de la operación (€):</label>
+          <div class="input-grupo">
+            <input type="number" id="inpImporte" min="1" step="5" placeholder="Ej: 50" value="50">
+          </div>
+
+          <div class="botones-operacion">
+            <button id="btnIngresar" class="btn-ingreso">➕ Ingresar Dinero</button>
+            <button id="btnRetirar" class="btn-reintegro">➖ Retirar Dinero</button>
+          </div>
+        </div>
+
+        <div class="historial-bloque">
+          <h3>📜 Historial de Operaciones (Logs)</h3>
+          <ul id="listaHistorial"></ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- Pizarra Didáctica: Explicación de 'this' -->
+    <section class="pizarra-didactica">
+      <h3>💡 ¿Qué hace la palabra reservada <code>this</code> en este ejemplo?</h3>
+      <div class="codigo-analisis">
+        <pre><code><span class="kw">const</span> cuentaBancaria = {
+  titular: <span class="str">"Lucía Navarro"</span>,
+  saldo: <span class="num">200</span>,
+  <span class="fn">ingresar</span>(cantidad) {
+    <span class="kw">this</span>.saldo += cantidad; <span class="cm">// 'this' hace referencia directa a este objeto cuentaBancaria</span>
+    <span class="kw">return</span> <span class="str">`Ingreso de ${cantidad}€. Saldo actual: ${this.saldo}€`</span>;
+  }
+};</code></pre>
+      </div>
+    </section>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al índice general del Ejercicio 18</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 1 · Objeto Producto Básico - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Ejemplo 01 · Sintaxis y Miembros</span>
+      <h1>🏷️ Gestión de Objeto Producto</h1>
+      <p class="subtitulo">Demostración interactiva de creación literal, notación de punto, corchetes, adición y borrado con <code>delete</code>.</p>
+    </header>
+
+    <div class="panel-grid">
+      <!-- Tarjeta Visual del Producto -->
+      <section class="tarjeta-producto">
+        <h2>📦 Estado Actual del Objeto</h2>
+        <div class="ficha-datos">
+          <div class="fila-dato">
+            <span class="clave">Código:</span>
+            <span id="valCodigo" class="valor mono">-</span>
+          </div>
+          <div class="fila-dato">
+            <span class="clave">Nombre:</span>
+            <span id="valNombre" class="valor destacado">-</span>
+          </div>
+          <div class="fila-dato">
+            <span class="clave">Precio:</span>
+            <span id="valPrecio" class="valor precio">-</span>
+          </div>
+          <div class="fila-dato">
+            <span class="clave">En Stock:</span>
+            <span id="valStock" class="valor">-</span>
+          </div>
+          <div class="fila-dato" id="filaCategoria" style="display: none;">
+            <span class="clave">Categoría:</span>
+            <span id="valCategoria" class="valor tag-cat">-</span>
+          </div>
+        </div>
+
+        <div class="consola-objeto">
+          <div class="consola-header">
+            <span>💻 Objeto en memoria (JSON)</span>
+            <button id="btnResetear" class="btn-sm">🔄 Restaurar original</button>
+          </div>
+          <pre id="salidaRaw"></pre>
+        </div>
+      </section>
+
+      <!-- Panel de Acciones -->
+      <section class="panel-acciones">
+        <h2>⚙️ Operaciones sobre el Objeto</h2>
+
+        <div class="bloque-accion">
+          <h3>1. Modificar propiedades existentes</h3>
+          <div class="grupo-input">
+            <label for="nuevoPrecio">Cambiar precio (€):</label>
+            <div class="input-btn">
+              <input type="number" id="nuevoPrecio" step="0.01" value="49.95">
+              <button id="btnModificarPrecio" class="btn-accion">Actualizar</button>
+            </div>
+          </div>
+          <button id="btnAlternarStock" class="btn-secundario">Alternar Stock (true/false)</button>
+        </div>
+
+        <div class="bloque-accion">
+          <h3>2. Añadir nueva propiedad</h3>
+          <div class="grupo-input">
+            <label for="nuevaCategoria">Nueva propiedad <code>categoria</code>:</label>
+            <div class="input-btn">
+              <input type="text" id="nuevaCategoria" value="Periféricos">
+              <button id="btnAgregarCategoria" class="btn-accion">Añadir</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bloque-accion">
+          <h3>3. Eliminar propiedad con <code>delete</code></h3>
+          <button id="btnEliminarCodigo" class="btn-peligro">🗑️ delete producto.codigo</button>
+        </div>
+
+        <div class="bloque-accion">
+          <h3>4. Acceso con corchetes <code>producto[clave]</code></h3>
+          <div class="grupo-input">
+            <label for="inpClave">Escribe el nombre de la clave:</label>
+            <div class="input-btn">
+              <input type="text" id="inpClave" placeholder="nombre, precio, etc.">
+              <button id="btnConsultarCorchetes" class="btn-accion">Consultar</button>
+            </div>
+          </div>
+          <p id="resCorchetes" class="resultado-consulta"></p>
+        </div>
+      </section>
+    </div>
+
+    <footer class="pie">
+      <a href="../index.html" class="enlace-volver">⬅️ Volver al índice general del Ejercicio 18</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
