@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Manual de Referencia Rápida: Iniciación a Objetos en JavaScript - Ramón Abramo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&display=swap');
+  
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #0f172a;
+    background: #ffffff;
+    font-size: 8.5pt;
+    line-height: 1.36;
+  }
+  
+  .page {
+    width: 210mm;
+    height: 297mm;
+    position: relative;
+    padding: 10mm 14mm 8mm 14mm;
+    page-break-after: always;
+    background: #ffffff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Portada Dedicada Exclusiva (Página 1) */
+  .page.cover-page {
+    padding: 16mm 18mm 14mm 18mm;
+    background: linear-gradient(145deg, #080d1a 0%, #0f172a 40%, #1e293b 100%);
+    color: #ffffff;
+  }
+
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid rgba(56, 189, 248, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+  }
+
+  .cover-top .institution {
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #38bdf8;
+    text-transform: uppercase;
+  }
+
+  .cover-top .tag-edition {
+    background: rgba(56, 189, 248, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-size: 7.2pt;
+    font-weight: 800;
+  }
+
+  .cover-hero {
+    margin-bottom: 20px;
+  }
+
+  .cover-badge-category {
+    display: inline-block;
+    background: rgba(14, 165, 233, 0.2);
+    border: 1px solid #0284c7;
+    color: #38bdf8;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .cover-title {
+    font-size: 26pt;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.15;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.8px;
+  }
+
+  .cover-title span {
+    color: #38bdf8;
+  }
+
+  .cover-desc {
+    font-size: 10.5pt;
+    color: #cbd5e1;
+    line-height: 1.5;
+    max-width: 90%;
+    margin-bottom: 22px;
+  }
+
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .cover-card-mini {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(51, 65, 85, 0.8);
+    border-radius: 9px;
+    padding: 12px 14px;
+  }
+
+  .cover-card-mini h4 {
+    margin: 0 0 4px 0;
+    font-size: 9.5pt;
+    color: #38bdf8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cover-card-mini p {
+    margin: 0;
+    font-size: 7.8pt;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+  .cover-footer-box {
+    border-top: 1px solid rgba(51, 65, 85, 0.8);
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cover-author h3 {
+    margin: 0 0 2px 0;
+    font-size: 11pt;
+    color: #ffffff;
+  }
+
+  .cover-author p {
+    margin: 0;
+    font-size: 8pt;
+    color: #94a3b8;
+  }
+
+  .cover-meta {
+    text-align: right;
+    font-size: 7.8pt;
+    color: #64748b;
+  }
+  
+  /* Encabezados y pies de página estándar */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.2pt;
+    font-weight: 700;
+    color: #475569;
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid #cbd5e1;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .badge-header {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 6.8pt;
+    font-weight: 800;
+  }
+  
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.2pt;
+    color: #64748b;
+    padding-top: 5px;
+    border-top: 1.5px solid #cbd5e1;
+    margin-top: 5px;
+  }
+  
+  .content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Tipografía */
+  h2 {
+    font-size: 11pt;
+    color: #0369a1;
+    margin: 5px 0 4px 0;
+    font-weight: 800;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  h3 {
+    font-size: 9pt;
+    color: #0f172a;
+    margin: 4px 0 3px 0;
+    font-weight: 700;
+  }
+  
+  p {
+    margin: 0 0 5px 0;
+    text-align: justify;
+  }
+
+  /* Índice de Contenidos Interactivo */
+  .toc-box {
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 9px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+  }
+
+  .toc-title {
+    font-size: 9.5pt;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 14px;
+  }
+
+  .toc-item {
+    font-size: 7.8pt;
+    line-height: 1.35;
+  }
+
+  .toc-link {
+    text-decoration: none;
+    color: #1e293b;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px dotted #cbd5e1;
+    padding-bottom: 1px;
+    transition: color 0.15s;
+  }
+
+  .toc-link:hover {
+    color: #0284c7;
+    font-weight: 700;
+  }
+
+  .toc-page {
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    color: #0284c7;
+    font-size: 7.4pt;
+    margin-left: 6px;
+  }
+  
+  /* Tablas de estilo profesional */
+  table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0 6px 0;
+    font-size: 7.4pt;
+  }
+  
+  table.custom-table th, table.custom-table td {
+    border: 1px solid #cbd5e1;
+    padding: 4px 7px;
+    text-align: left;
+    vertical-align: middle;
+  }
+  
+  table.custom-table th {
+    background: #0f172a;
+    color: #38bdf8;
+    font-weight: 700;
+    font-size: 7.1pt;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  
+  table.custom-table tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  /* Cajas de notas y avisos */
+  .callout {
+    border-left: 3.5px solid #0284c7;
+    background: #f0f9ff;
+    padding: 6px 9px;
+    margin: 4px 0 6px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 7.8pt;
+  }
+  
+  .callout-title {
+    font-weight: 800;
+    color: #0369a1;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .callout-warning {
+    border-left-color: #eab308;
+    background: #fefce8;
+  }
+  .callout-warning .callout-title {
+    color: #a16207;
+  }
+
+  .callout-tip {
+    border-left-color: #10b981;
+    background: #ecfdf5;
+  }
+  .callout-tip .callout-title {
+    color: #047857;
+  }
+
+  /* Bloques de Código */
+  pre.code-block {
+    background: #0f172a;
+    color: #f8fafc;
+    font-family: 'Fira Code', Consolas, monospace;
+    font-size: 7.2pt;
+    line-height: 1.35;
+    padding: 6px 9px;
+    border-radius: 6px;
+    margin: 4px 0 6px 0;
+    border: 1px solid #334155;
+    overflow: hidden;
+  }
+
+  code {
+    font-family: 'Fira Code', Consolas, monospace;
+    background: #f1f5f9;
+    color: #0f172a;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 7.6pt;
+    border: 1px solid #e2e8f0;
+  }
+
+  pre.code-block code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+
+  .keyword { color: #f43f5e; font-weight: 700; }
+  .variable { color: #38bdf8; }
+  .string { color: #34d399; }
+  .number { color: #fbbf24; }
+  .comment { color: #64748b; font-style: italic; }
+  .function { color: #c084fc; font-weight: 600; }
+  .property { color: #93c5fd; }
+
+  .two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 4px 0;
+  }
+
+  .card-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    padding: 7px 9px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  }
+</style>
+</head>
+<body>
+
+  <!-- ====================================================================
+       PÁGINA 1: PORTADA DEDICADA OFICIAL
+       ==================================================================== -->
+  <div class="page cover-page" id="portada">
+    <div class="cover-top">
+      <div class="institution">Curso de Confección y Publicación de Páginas Web · Ramón Abramo</div>
+      <div class="tag-edition">EJERCICIO 19 · NIVEL BÁSICO</div>
+    </div>
+
+    <div class="cover-hero">
+      <div class="cover-badge-category">📦 Módulo JavaScript · Iniciación Práctica</div>
+      <h1 class="cover-title">Objetos Literales<br><span>en JavaScript</span></h1>
+      <p class="cover-desc">
+        Guía didáctica fundamental para principiantes: de variables sueltas a estructuras organizadas, pares clave-valor, lectura por punto y corchetes, mutación de propiedades, métodos sencillos con <code>this</code> y colecciones con arrays de objetos.
+      </p>
+    </div>
+
+    <div class="cover-grid">
+      <div class="cover-card-mini">
+        <h4>🧱 1. Concepto y Sintaxis</h4>
+        <p>Aprende por qué los objetos resuelven el caos de las variables sueltas y cómo crearlos con la notación literal <code>{}</code>.</p>
+      </div>
+      <div class="cover-card-mini">
+        <h4>🔍 2. Lectura y Escritura</h4>
+        <p>Domina el acceso con punto (<code>objeto.prop</code>), con corchetes (<code>objeto['prop']</code>) y cómo modificar o añadir claves.</p>
+      </div>
+      <div class="cover-card-mini">
+        <h4>⚙️ 3. Métodos y 'this'</h4>
+        <p>Añade funciones dentro de tus objetos y comprende de forma sencilla cómo <code>this</code> apunta al propio objeto.</p>
+      </div>
+      <div class="cover-card-mini">
+        <h4>📋 4. Arrays de Objetos</h4>
+        <p>Modela listas reales del mundo web (catálogos de productos, listas de alumnos) y recórrelas fácilmente con <code>for...of</code>.</p>
+      </div>
+    </div>
+
+    <div class="cover-footer-box">
+      <div class="cover-author">
+        <h3>Ramón Abramo</h3>
+        <p>Profesor de Desarrollo Web y Programación Frontend · Santander (Cantabria)</p>
+      </div>
+      <div class="cover-meta">
+        <strong>Certificado de Profesionalidad IFCD0110</strong><br>
+        Edición 2026 · Documento Oficial con Marcadores
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       PÁGINA 2: ÍNDICE GENERAL Y ¿QUÉ ES UN OBJETO?
+       ==================================================================== -->
+  <div class="page" id="pagina2">
+    <div class="page-header">
+      <span>Recurso Didáctico · Confección Web</span>
+      <span class="badge-header">Ejercicio 19 · Página 2</span>
+    </div>
+
+    <div class="content-area">
+      <!-- ÍNDICE INTERACTIVO -->
+      <div class="toc-box">
+        <div class="toc-title">
+          <span>📑 ÍNDICE GENERAL DE CONTENIDOS</span>
+          <small style="color: #64748b; font-weight: normal;">(Haz clic en cualquier sección para navegar)</small>
+        </div>
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#portada" class="toc-link"><span>📦 Portada Oficial y Presentación</span><span class="toc-page">Pág. 1</span></a></li>
+          <li class="toc-item"><a href="#sec1" class="toc-link"><span>1. ¿Por qué necesitamos objetos en JS?</span><span class="toc-page">Pág. 2</span></a></li>
+          <li class="toc-item"><a href="#sec2" class="toc-link"><span>2. Anatomía de un objeto literal ({})</span><span class="toc-page">Pág. 2</span></a></li>
+          <li class="toc-item"><a href="#sec3" class="toc-link"><span>3. Lectura de propiedades: Punto vs Corchetes</span><span class="toc-page">Pág. 3</span></a></li>
+          <li class="toc-item"><a href="#sec4" class="toc-link"><span>4. Modificar, añadir y borrar (delete)</span><span class="toc-page">Pág. 4</span></a></li>
+          <li class="toc-item"><a href="#sec5" class="toc-link"><span>5. Métodos sencillos y la palabra 'this'</span><span class="toc-page">Pág. 5</span></a></li>
+          <li class="toc-item"><a href="#sec6" class="toc-link"><span>6. Arrays de objetos: Colecciones y for...of</span><span class="toc-page">Pág. 6</span></a></li>
+          <li class="toc-item"><a href="#sec7" class="toc-link"><span>7. Mostrar objetos en el DOM y Buenas Prácticas</span><span class="toc-page">Pág. 7</span></a></li>
+        </ul>
+      </div>
+
+      <!-- SECCIÓN 1 -->
+      <h2 id="sec1">📦 1. ¿Por qué necesitamos objetos en JavaScript?</h2>
+      <p>
+        Hasta ahora, para guardar información sobre una entidad (por ejemplo, un alumno) usábamos variables sueltas: <code>let nombreAlumno = "Ana"; let edadAlumno = 20; let cursoAlumno = "Web";</code>. Esto plantea graves problemas en proyectos reales:
+      </p>
+
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th style="width: 20%;">Enfoque</th>
+            <th style="width: 40%;">Código de Ejemplo</th>
+            <th style="width: 40%;">Problema / Ventaja</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>❌ Variables Sueltas</strong></td>
+            <td><code>let nombre = "Ana";<br>let edad = 20;<br>let aprobado = true;</code></td>
+            <td>Si tenemos 30 alumnos, necesitamos 90 variables independientes. No están vinculadas entre sí y el código se vuelve ingobernable.</td>
+          </tr>
+          <tr>
+            <td><strong>✅ Objeto Literal</strong></td>
+            <td><code>const alumno = {<br>&nbsp;&nbsp;nombre: "Ana",<br>&nbsp;&nbsp;edad: 20,<br>&nbsp;&nbsp;aprobado: true<br>};</code></td>
+            <td><strong>Todos los datos de la entidad viajan juntos</strong> en una sola variable organizada. Es limpio, intuitivo y fácil de mantener.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- SECCIÓN 2 -->
+      <h2 id="sec2">🧱 2. Anatomía de un Objeto Literal ({})</h2>
+      <p>
+        En JavaScript, un <strong>objeto literal</strong> se declara abriendo y cerrando llaves <code>{}</code>. Dentro colocamos pares formados por un <strong>nombre de propiedad (clave)</strong> y su <strong>valor</strong>, separados por dos puntos <code>:</code>. Cada par se separa del siguiente mediante una coma <code>,</code>.
+      </p>
+
+      <div class="two-cols">
+        <div class="card-box">
+          <h3 style="color:#0369a1; margin-top:0;">📝 Reglas sintácticas básicas:</h3>
+          <ul style="margin: 0; padding-left: 14px; font-size: 7.6pt;">
+            <li><strong>Clave (key):</strong> Nombre identificador de la propiedad (ej. <code>nombre</code>, <code>precio</code>, <code>stock</code>).</li>
+            <li><strong>Dos puntos (:):</strong> Separan la clave del valor. ¡Nunca uses <code>=</code> dentro del objeto!</li>
+            <li><strong>Valor (value):</strong> Puede ser cualquier tipo de dato de JS: texto, número, booleano, array u otra función.</li>
+            <li><strong>Coma (,):</strong> Separa cada propiedad. La última propiedad no necesita coma obligatoria.</li>
+          </ul>
+        </div>
+        <div>
+          <pre class="code-block"><code><span class="comment">// Objeto sencillo que modela un libro</span>
+<span class="keyword">const</span> <span class="variable">libro</span> = {
+  <span class="property">titulo</span>: <span class="string">"El Quijote"</span>,
+  <span class="property">autor</span>: <span class="string">"Miguel de Cervantes"</span>,
+  <span class="property">paginas</span>: <span class="number">863</span>,
+  <span class="property">prestado</span>: <span class="keyword">false</span>
+};</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">💡 Consejo del Profesor Ramón:</div>
+        Declara tus objetos con <code>const</code>. En JavaScript, <code>const</code> impide que reasignes la variable a otro valor (por ejemplo <code>libro = "otro"</code>), pero <strong>SÍ te permite modificar, añadir o borrar sus propiedades internas</strong>.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Manual de Referencia Rápida · Objetos en JavaScript</span>
+      <span>Profesor Ramón Abramo · Santander 2026</span>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       PÁGINA 3: LECTURA DE PROPIEDADES (PUNTO Y CORCHETES)
+       ==================================================================== -->
+  <div class="page" id="pagina3">
+    <div class="page-header">
+      <span>Recurso Didáctico · Confección Web</span>
+      <span class="badge-header">Ejercicio 19 · Página 3</span>
+    </div>
+
+    <div class="content-area">
+      <h2 id="sec3">🔍 3. Lectura de Propiedades: Notación de Punto vs Corchetes</h2>
+      <p>
+        Para consultar o leer el valor guardado en una propiedad disponemos de dos formas oficiales. Ambas son totalmente válidas, pero tienen casos de uso específicos:
+      </p>
+
+      <div class="two-cols">
+        <div class="card-box">
+          <h3 style="color:#0284c7; margin-top:0;">👉 1. Notación de Punto (La más habitual)</h3>
+          <p style="font-size:7.6pt;">Escribimos el nombre del objeto, un punto <code>.</code> y el nombre de la propiedad. Es la más limpia y la que más usarás:</p>
+          <pre class="code-block"><code><span class="keyword">const</span> <span class="variable">persona</span> = { <span class="property">nombre</span>: <span class="string">"Carlos"</span>, <span class="property">edad</span>: <span class="number">28</span> };
+
+<span class="variable">console</span>.<span class="function">log</span>(<span class="variable">persona</span>.<span class="property">nombre</span>); <span class="comment">// "Carlos"</span>
+<span class="variable">console</span>.<span class="function">log</span>(<span class="variable">persona</span>.<span class="property">edad</span>);   <span class="comment">// 28</span></code></pre>
+        </div>
+
+        <div class="card-box">
+          <h3 style="color:#0284c7; margin-top:0;">📦 2. Notación de Corchetes (Dinámica)</h3>
+          <p style="font-size:7.6pt;">Escribimos el nombre del objeto y entre corchetes <code>['clave']</code> la propiedad como una cadena de texto:</p>
+          <pre class="code-block"><code><span class="variable">console</span>.<span class="function">log</span>(<span class="variable">persona</span>[<span class="string">'nombre'</span>]); <span class="comment">// "Carlos"</span>
+<span class="variable">console</span>.<span class="function">log</span>(<span class="variable">persona</span>[<span class="string">'edad'</span>]);   <span class="comment">// 28</span></code></pre>
+        </div>
+      </div>
+
+      <h3>⚡ ¿Cuándo es OBLIGATORIO usar la notación de corchetes?</h3>
+      <p>
+        En el 90% de los casos usarás el punto, pero existen <strong>dos situaciones imprescindibles</strong> donde el punto falla y los corchetes son la única solución:
+      </p>
+
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Situación</th>
+            <th style="width: 35%;">¿Por qué falla el punto?</th>
+            <th style="width: 40%;">Solución con Corchetes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. El nombre viene de una variable</strong></td>
+            <td><code>let campo = "nombre";<br>persona.campo; // undefined!</code><br>Busca literalmente la clave llamada "campo".</td>
+            <td><code>let campo = "nombre";<br><strong>persona[campo];</strong> // "Carlos"</code><br>Evalúa el valor de la variable.</td>
+          </tr>
+          <tr>
+            <td><strong>2. La clave contiene espacios o guiones</strong></td>
+            <td><code>usuario.codigo postal; // Error sintaxis!</code><br>JavaScript no permite espacios tras el punto.</td>
+            <td><code><strong>usuario["codigo postal"];</strong></code><br>Entre comillas se permite cualquier carácter.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>❓ ¿Qué ocurre si leemos una propiedad que no existe?</h3>
+      <p>
+        A diferencia de otros lenguajes de programación, JavaScript <strong>no da un error fatal</strong> si intentas leer una clave inexistente: simplemente devuelve <code>undefined</code>.
+      </p>
+
+      <pre class="code-block"><code><span class="keyword">const</span> <span class="variable">coche</span> = { <span class="property">marca</span>: <span class="string">"Seat"</span>, <span class="property">modelo</span>: <span class="string">"Ibiza"</span> };
+
+<span class="variable">console</span>.<span class="function">log</span>(<span class="variable">coche</span>.<span class="property">color</span>); <span class="comment">// Devuelve: undefined (no da error)</span>
+
+<span class="comment">// ⚠️ ¡CUIDADO! Intentar leer algo de undefined sí provoca un error fatal:</span>
+<span class="comment">// console.log(coche.color.toUpperCase()); // TypeError: Cannot read properties of undefined</span></code></pre>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">⚠️ Error clásico de principiante:</div>
+        Al usar corchetes con una clave literal, <strong>no olvides las comillas</strong>: <code>alumno['nombre']</code>. Si escribes <code>alumno[nombre]</code> sin comillas, JavaScript creerá que <code>nombre</code> es una variable y si no existe provocará un <code>ReferenceError: nombre is not defined</code>.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Manual de Referencia Rápida · Objetos en JavaScript</span>
+      <span>Profesor Ramón Abramo · Santander 2026</span>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       PÁGINA 4: MODIFICAR, AÑADIR Y BORRAR (MUTABILIDAD)
+       ==================================================================== -->
+  <div class="page" id="pagina4">
+    <div class="page-header">
+      <span>Recurso Didáctico · Confección Web</span>
+      <span class="badge-header">Ejercicio 19 · Página 4</span>
+    </div>
+
+    <div class="content-area">
+      <h2 id="sec4">✏️ 4. Modificar, Añadir y Borrar Propiedades (CRUD Básico)</h2>
+      <p>
+        Los objetos en JavaScript son estructuras vivas y dinámicas en memoria. Puedes cambiar sus valores, añadir nuevas propiedades o eliminar las existentes en cualquier momento durante la ejecución de la página:
+      </p>
+
+      <!-- Grid de 3 operaciones -->
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 4px 0 8px 0;">
+        <div class="card-box" style="border-top: 3px solid #0284c7;">
+          <h3 style="color:#0284c7; margin-top:0;">1. Modificar Valor</h3>
+          <p style="font-size:7.4pt;">Asigna un nuevo valor a una propiedad existente:</p>
+          <pre class="code-block"><code><span class="variable">alumno</span>.<span class="property">edad</span> = <span class="number">21</span>;
+<span class="comment">// Reemplaza el valor</span></code></pre>
+        </div>
+
+        <div class="card-box" style="border-top: 3px solid #10b981;">
+          <h3 style="color:#10b981; margin-top:0;">2. Añadir Propiedad</h3>
+          <p style="font-size:7.4pt;">Escribe una clave nueva y dale un valor:</p>
+          <pre class="code-block"><code><span class="variable">alumno</span>.<span class="property">email</span> = <span class="string">"ana@web.es"</span>;
+<span class="comment">// Se crea al instante</span></code></pre>
+        </div>
+
+        <div class="card-box" style="border-top: 3px solid #ef4444;">
+          <h3 style="color:#ef4444; margin-top:0;">3. Borrar con delete</h3>
+          <p style="font-size:7.4pt;">Elimina la clave y su valor del objeto:</p>
+          <pre class="code-block"><code><span class="keyword">delete</span> <span class="variable">alumno</span>.<span class="property">edad</span>;
+<span class="comment">// Desaparece del objeto</span></code></pre>
+        </div>
+      </div>
+
+      <h3>💻 Ejemplo Completo Paso a Paso:</h3>
+      <pre class="code-block"><code><span class="comment">// 1. Creamos un objeto con datos iniciales</span>
+<span class="keyword">const</span> <span class="variable">producto</span> = {
+  <span class="property">id</span>: <span class="number">101</span>,
+  <span class="property">nombre</span>: <span class="string">"Ratón Inalámbrico"</span>,
+  <span class="property">precio</span>: <span class="number">15.50</span>
+};
+
+<span class="comment">// 2. Modificamos el precio (rebaja)</span>
+<span class="variable">producto</span>.<span class="property">precio</span> = <span class="number">12.99</span>;
+
+<span class="comment">// 3. Añadimos una propiedad que no existía al principio</span>
+<span class="variable">producto</span>.<span class="property">stock</span> = <span class="number">25</span>;
+<span class="variable">producto</span>.<span class="property">disponible</span> = <span class="keyword">true</span>;
+
+<span class="comment">// 4. Eliminamos una propiedad con el operador delete</span>
+<span class="keyword">delete</span> <span class="variable">producto</span>.<span class="property">id</span>;
+
+<span class="variable">console</span>.<span class="function">log</span>(<span class="variable">producto</span>);
+<span class="comment">// Resultado en consola: { nombre: "Ratón Inalámbrico", precio: 12.99, stock: 25, disponible: true }</span></code></pre>
+
+      <h3>🔍 ¿Cómo saber si una propiedad existe en un objeto?</h3>
+      <p>
+        Existen dos métodos muy sencillos recomendados para principiantes:
+      </p>
+
+      <div class="two-cols">
+        <div class="card-box">
+          <h4 style="color:#0369a1; margin:0 0 3px 0;">El operador <code>in</code></h4>
+          <p style="font-size:7.6pt; margin:0 0 4px 0;">Devuelve <code>true</code> o <code>false</code> comprobando el nombre de la clave entre comillas:</p>
+          <pre class="code-block"><code><span class="keyword">if</span> (<span class="string">"stock"</span> <span class="keyword">in</span> <span class="variable">producto</span>) {
+  <span class="variable">console</span>.<span class="function">log</span>(<span class="string">"Tiene stock registrado"</span>);
+}</code></pre>
+        </div>
+
+        <div class="card-box">
+          <h4 style="color:#0369a1; margin:0 0 3px 0;">Comprobar contra <code>undefined</code></h4>
+          <p style="font-size:7.6pt; margin:0 0 4px 0;">Si la propiedad no existe, devuelve <code>undefined</code>:</p>
+          <pre class="code-block"><code><span class="keyword">if</span> (<span class="variable">producto</span>.<span class="property">descuento</span> !== <span class="keyword">undefined</span>) {
+  <span class="comment">// Tiene descuento</span>
+} <span class="keyword">else</span> {
+  <span class="variable">console</span>.<span class="function">log</span>(<span class="string">"Sin descuento"</span>);
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">💡 ¿Por qué usar 'delete' en vez de asignar 'null' o 'undefined'?</div>
+        Si haces <code>producto.stock = null;</code>, la clave <code>stock</code> sigue existiendo dentro del objeto (solo que su valor es nulo). Con <code>delete producto.stock;</code> la propiedad es completamente eliminada de la memoria del objeto.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Manual de Referencia Rápida · Objetos en JavaScript</span>
+      <span>Profesor Ramón Abramo · Santander 2026</span>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       PÁGINA 5: MÉTODOS BÁSICOS Y LA PALABRA 'THIS'
+       ==================================================================== -->
+  <div class="page" id="pagina5">
+    <div class="page-header">
+      <span>Recurso Didáctico · Confección Web</span>
+      <span class="badge-header">Ejercicio 19 · Página 5</span>
+    </div>
+
+    <div class="content-area">
+      <h2 id="sec5">⚙️ 5. Métodos Sencillos y la Palabra Reservada 'this'</h2>
+      <p>
+        Hasta ahora los objetos guardaban sólo datos (textos, números...). Pero los objetos también pueden contener <strong>acciones</strong>: cuando una función se encuentra dentro de un objeto, se denomina <strong>MÉTODO</strong>.
+      </p>
+
+      <div class="two-cols">
+        <div class="card-box">
+          <h3 style="color:#0284c7; margin-top:0;">¿Cómo se define un método?</h3>
+          <p style="font-size:7.6pt;">En JavaScript moderno usamos la sintaxis abreviada directa:</p>
+          <pre class="code-block"><code><span class="keyword">const</span> <span class="variable">usuario</span> = {
+  <span class="property">nombre</span>: <span class="string">"Marta"</span>,
+  
+  <span class="comment">// Método del objeto:</span>
+  <span class="function">saludar</span>() {
+    <span class="keyword">return</span> <span class="string">"¡Hola a todos!"</span>;
+  }
+};
+
+<span class="comment">// Se invoca con paréntesis ():</span>
+<span class="variable">console</span>.<span class="function">log</span>(<span class="variable">usuario</span>.<span class="function">saludar</span>());</code></pre>
+        </div>
+
+        <div class="card-box">
+          <h3 style="color:#0284c7; margin-top:0;">¿Para qué sirve <code>this</code>?</h3>
+          <p style="font-size:7.6pt;"><code>this</code> significa <strong>"este mismo objeto"</strong>. Permite al método leer o modificar sus propios datos internos:</p>
+          <pre class="code-block"><code><span class="keyword">const</span> <span class="variable">usuario</span> = {
+  <span class="property">nombre</span>: <span class="string">"Marta"</span>,
+  
+  <span class="function">saludar</span>() {
+    <span class="comment">// Accedemos a su propio nombre:</span>
+    <span class="keyword">return</span> <span class="string">"Hola, soy "</span> + <span class="keyword">this</span>.<span class="property">nombre</span>;
+  }
+};
+
+<span class="variable">console</span>.<span class="function">log</span>(<span class="variable">usuario</span>.<span class="function">saludar</span>());
+<span class="comment">// "Hola, soy Marta"</span></code></pre>
+        </div>
+      </div>
+
+      <h3>🎯 Ejemplo Elemental: Un Coche que Acelera y Frena</h3>
+      <p>
+        Fíjate en cómo los métodos de este objeto modifican directamente el valor de <code>this.velocidad</code>:
+      </p>
+
+      <pre class="code-block"><code><span class="keyword">const</span> <span class="variable">coche</span> = {
+  <span class="property">marca</span>: <span class="string">"Toyota"</span>,
+  <span class="property">velocidad</span>: <span class="number">0</span>,
+
+  <span class="function">acelerar</span>() {
+    <span class="keyword">this</span>.<span class="property">velocidad</span> += <span class="number">10</span>; <span class="comment">// Sube 10 km/h</span>
+    <span class="variable">console</span>.<span class="function">log</span>(<span class="string">"Velocidad actual: "</span> + <span class="keyword">this</span>.<span class="property">velocidad</span> + <span class="string">" km/h"</span>);
+  },
+
+  <span class="function">frenar</span>() {
+    <span class="keyword">if</span> (<span class="keyword">this</span>.<span class="property">velocidad</span> > <span class="number">0</span>) {
+      <span class="keyword">this</span>.<span class="property">velocidad</span> -= <span class="number">10</span>;
+    }
+    <span class="variable">console</span>.<span class="function">log</span>(<span class="string">"Velocidad actual: "</span> + <span class="keyword">this</span>.<span class="property">velocidad</span> + <span class="string">" km/h"</span>);
+  }
+};
+
+<span class="variable">coche</span>.<span class="function">acelerar</span>(); <span class="comment">// Velocidad actual: 10 km/h</span>
+<span class="variable">coche</span>.<span class="function">acelerar</span>(); <span class="comment">// Velocidad actual: 20 km/h</span>
+<span class="variable">coche</span>.<span class="function">frenar</span>();   <span class="comment">// Velocidad actual: 10 km/h</span></code></pre>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">⚠️ Regla de Oro para Principiantes: ¡Cuidado con las funciones flecha!</div>
+        <strong>NUNCA</strong> definas métodos con función flecha <code>saludar: () => { ... }</code> si necesitas usar <code>this</code>. Las funciones flecha no tienen su propio <code>this</code> y apuntarán a la ventana global (<code>window</code>), provocando que <code>this.nombre</code> sea <code>undefined</code>. Usa siempre la sintaxis normal: <code>saludar() { ... }</code>.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Manual de Referencia Rápida · Objetos en JavaScript</span>
+      <span>Profesor Ramón Abramo · Santander 2026</span>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       PÁGINA 6: ARRAYS DE OBJETOS (COLECCIONES BÁSICAS)
+       ==================================================================== -->
+  <div class="page" id="pagina6">
+    <div class="page-header">
+      <span>Recurso Didáctico · Confección Web</span>
+      <span class="badge-header">Ejercicio 19 · Página 6</span>
+    </div>
+
+    <div class="content-area">
+      <h2 id="sec6">📋 6. Arrays de Objetos: Colecciones del Mundo Real</h2>
+      <p>
+        En el desarrollo web profesional (tiendas online, listas de alumnos, noticias), los datos nunca vienen solos: vienen en un <strong>Array donde cada elemento es un Objeto</strong>. Esta es la estructura estándar de cualquier API o base de datos.
+      </p>
+
+      <h3>🛒 Catálogo de Ejemplo: Lista de Productos</h3>
+      <pre class="code-block"><code><span class="keyword">const</span> <span class="variable">catalogo</span> = [
+  { <span class="property">id</span>: <span class="number">1</span>, <span class="property">nombre</span>: <span class="string">"Teclado"</span>, <span class="property">precio</span>: <span class="number">25</span>, <span class="property">stock</span>: <span class="number">10</span> },
+  { <span class="property">id</span>: <span class="number">2</span>, <span class="property">nombre</span>: <span class="string">"Ratón"</span>,   <span class="property">precio</span>: <span class="number">15</span>, <span class="property">stock</span>: <span class="number">0</span> },
+  { <span class="property">id</span>: <span class="number">3</span>, <span class="property">nombre</span>: <span class="string">"Monitor"</span>, <span class="property">precio</span>: <span class="number">180</span>, <span class="property">stock</span>: <span class="number">5</span> }
+];
+
+<span class="comment">// Acceso directo: primer producto del array</span>
+<span class="variable">console</span>.<span class="function">log</span>(<span class="variable">catalogo</span>[<span class="number">0</span>].<span class="property">nombre</span>); <span class="comment">// "Teclado"</span>
+<span class="variable">console</span>.<span class="function">log</span>(<span class="variable">catalogo</span>[<span class="number">2</span>].<span class="property">precio</span>); <span class="comment">// 180</span></code></pre>
+
+      <h3>🔄 ¿Cómo recorrer el array fácilmente?</h3>
+      <p>
+        Para principiantes, el bucle más limpio y comprensible es <code>for...of</code>:
+      </p>
+
+      <pre class="code-block"><code><span class="comment">// Recorremos cada producto del catálogo:</span>
+<span class="keyword">for</span> (<span class="keyword">const</span> <span class="variable">item</span> <span class="keyword">of</span> <span class="variable">catalogo</span>) {
+  <span class="variable">console</span>.<span class="function">log</span>(<span class="string">"Producto: "</span> + <span class="variable">item</span>.<span class="property">nombre</span> + <span class="string">" | Precio: "</span> + <span class="variable">item</span>.<span class="property">precio</span> + <span class="string">"€"</span>);
+}</code></pre>
+
+      <h3>🔎 Dos Operaciones Básicas Imprescindibles</h3>
+      <div class="two-cols">
+        <div class="card-box">
+          <h4 style="color:#0369a1; margin:0 0 3px 0;">1. Buscar un elemento (.find)</h4>
+          <p style="font-size:7.4pt; margin:0 0 3px 0;">Devuelve el <strong>primer objeto</strong> que cumple la condición:</p>
+          <pre class="code-block"><code><span class="keyword">const</span> <span class="variable">encontrado</span> = <span class="variable">catalogo</span>.<span class="function">find</span>(<span class="variable">p</span> => <span class="variable">p</span>.<span class="property">id</span> === <span class="number">2</span>);
+<span class="variable">console</span>.<span class="function">log</span>(<span class="variable">encontrado</span>.<span class="property">nombre</span>); <span class="comment">// "Ratón"</span></code></pre>
+        </div>
+
+        <div class="card-box">
+          <h4 style="color:#0369a1; margin:0 0 3px 0;">2. Filtrar elementos (.filter)</h4>
+          <p style="font-size:7.4pt; margin:0 0 3px 0;">Devuelve un <strong>nuevo array</strong> con todos los que cumplen la condición:</p>
+          <pre class="code-block"><code><span class="comment">// Solo los que tienen stock > 0</span>
+<span class="keyword">const</span> <span class="variable">disponibles</span> = <span class="variable">catalogo</span>.<span class="function">filter</span>(<span class="variable">p</span> => <span class="variable">p</span>.<span class="property">stock</span> > <span class="number">0</span>);
+<span class="variable">console</span>.<span class="function">log</span>(<span class="variable">disponibles</span>.<span class="property">length</span>); <span class="comment">// 2</span></code></pre>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">💡 ¿Cómo añadir un nuevo objeto al array?</div>
+        Utiliza el método clásico de arrays <code>push()</code>: <code>catalogo.push({ id: 4, nombre: "Auriculares", precio: 30, stock: 8 });</code>. El nuevo objeto se añadirá automáticamente al final de la lista.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Manual de Referencia Rápida · Objetos en JavaScript</span>
+      <span>Profesor Ramón Abramo · Santander 2026</span>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       PÁGINA 7: MOSTRAR EN EL DOM Y BUENAS PRÁCTICAS
+       ==================================================================== -->
+  <div class="page" id="pagina7">
+    <div class="page-header">
+      <span>Recurso Didáctico · Confección Web</span>
+      <span class="badge-header">Ejercicio 19 · Página 7</span>
+    </div>
+
+    <div class="content-area">
+      <h2 id="sec7">🌐 7. Mostrar Objetos en el DOM y Buenas Prácticas</h2>
+      <p>
+        El paso definitivo en el desarrollo web es conectar los datos del objeto con la pantalla del navegador (HTML). Hay dos formas principales de hacerlo:
+      </p>
+
+      <div class="two-cols">
+        <div class="card-box">
+          <h3 style="color:#0284c7; margin-top:0;">Método 1: Campos individuales</h3>
+          <p style="font-size:7.4pt;">Capturas cada etiqueta con <code>getElementById</code> y asignas su <code>textContent</code>:</p>
+          <pre class="code-block"><code><span class="keyword">const</span> <span class="variable">alumno</span> = { <span class="property">nombre</span>: <span class="string">"Lucía"</span>, <span class="property">nota</span>: <span class="number">9</span> };
+
+<span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"txtNombre"</span>).<span class="property">textContent</span> = <span class="variable">alumno</span>.<span class="property">nombre</span>;
+<span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"txtNota"</span>).<span class="property">textContent</span> = <span class="variable">alumno</span>.<span class="property">nota</span>;</code></pre>
+        </div>
+
+        <div class="card-box">
+          <h3 style="color:#0284c7; margin-top:0;">Método 2: Plantilla con innerHTML</h3>
+          <p style="font-size:7.4pt;">Generas la tarjeta completa usando plantillas de texto <code>`...`</code>:</p>
+          <pre class="code-block"><code><span class="keyword">const</span> <span class="variable">caja</span> = <span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"tarjeta"</span>);
+<span class="variable">caja</span>.<span class="property">innerHTML</span> = <span class="string">`
+  &lt;h3&gt;\${alumno.nombre}&lt;/h3&gt;
+  &lt;p&gt;Calificación: \${alumno.nota}&lt;/p&gt;
+`</span>;</code></pre>
+        </div>
+      </div>
+
+      <h3>⚠️ Los 4 Errores Más Frecuentes de Principiantes</h3>
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Error Típico</th>
+            <th style="width: 35%;">Código Erróneo</th>
+            <th style="width: 40%;">Forma Correcta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Confundir <code>:</code> con <code>=</code></strong></td>
+            <td><code>const p = { nombre = "Ana" };</code></td>
+            <td><code>const p = { <strong>nombre: "Ana"</strong> };</code></td>
+          </tr>
+          <tr>
+            <td><strong>2. Olvidar las comas</strong></td>
+            <td><code>const p = { a: 1 &nbsp; b: 2 };</code></td>
+            <td><code>const p = { <strong>a: 1, b: 2</strong> };</code></td>
+          </tr>
+          <tr>
+            <td><strong>3. Olvidar el <code>this.</code> en métodos</strong></td>
+            <td><code>saludar() { return nombre; }</code></td>
+            <td><code>saludar() { return <strong>this.nombre</strong>; }</code></td>
+          </tr>
+          <tr>
+            <td><strong>4. Pintar el objeto directamente</strong></td>
+            <td><code>div.textContent = alumno; // [object Object]</code></td>
+            <td><code>div.textContent = <strong>alumno.nombre</strong>;</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Resumen final -->
+      <div class="callout callout-tip" style="margin-top: 6px;">
+        <div class="callout-title">🏆 Resumen Clave del Ejercicio 19:</div>
+        <ol style="margin: 0; padding-left: 16px; font-size: 7.6pt;">
+          <li>Un objeto literal <code>{ clave: valor }</code> reúne datos relacionados de una misma entidad.</li>
+          <li>Accede a sus datos con el punto (<code>obj.prop</code>) o con corchetes si la clave viene de una variable (<code>obj[var]</code>).</li>
+          <li>Puedes añadir propiedades nuevas asignándoles valor (<code>obj.nueva = 10</code>) y borrarlas con <code>delete obj.prop</code>.</li>
+          <li>Dentro de un método, usa siempre <code>this.propiedad</code> para referirte a los datos de ese mismo objeto.</li>
+          <li>Para listas de elementos, utiliza un array de objetos <code>[{...}, {...}]</code> y recórrelo con <code>for...of</code>.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Manual de Referencia Rápida · Objetos en JavaScript</span>
+      <span>Profesor Ramón Abramo · Santander 2026</span>
+    </div>
+  </div>
+
+</body>
+</html>

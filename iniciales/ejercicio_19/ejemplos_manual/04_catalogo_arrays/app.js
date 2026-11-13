@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 18 - EJEMPLO MANUAL 04: ARRAYS DE OBJETOS LITERALES
+ * EJERCICIO 19 - EJEMPLO MANUAL 04: ARRAYS DE OBJETOS LITERALES
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web
  * Profesor: Ramón Abramo

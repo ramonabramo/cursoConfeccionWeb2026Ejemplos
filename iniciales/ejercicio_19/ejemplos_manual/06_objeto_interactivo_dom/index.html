@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 6 · Objeto Interactivo en el DOM - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Ejemplo 06 · Objeto y DOM</span>
+      <h1>🐾 Mascota Virtual Interactiva</h1>
+      <p class="subtitulo">Demostración elemental de cómo los métodos de un objeto modifican su estado interno y se reflejan en tiempo real en la página web.</p>
+    </header>
+
+    <div class="panel-grid">
+      <!-- Tarjeta Visual de la Mascota -->
+      <section class="tarjeta-mascota">
+        <div class="avatar-caja">
+          <span id="avatarIcono" class="icono-mascota">🐶</span>
+        </div>
+        <h2 id="txtNombre">Toby</h2>
+        <span id="txtTipo" class="tag-tipo">Perro doméstico</span>
+
+        <div class="barras-estado">
+          <div class="bloque-barra">
+            <div class="barra-info">
+              <span>⚡ Energía</span>
+              <span id="numEnergia">80%</span>
+            </div>
+            <div class="barra-fondo">
+              <div id="barraEnergia" class="barra-progreso energia" style="width: 80%;"></div>
+            </div>
+          </div>
+
+          <div class="bloque-barra">
+            <div class="barra-info">
+              <span>🍖 Hambre</span>
+              <span id="numHambre">20%</span>
+            </div>
+            <div class="barra-fondo">
+              <div id="barraHambre" class="barra-progreso hambre" style="width: 20%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mensaje-estado">
+          <p id="txtMensaje">¡Hola! Toby está contento y listo para jugar.</p>
+        </div>
+      </section>
+
+      <!-- Panel de Acciones -->
+      <section class="panel-acciones">
+        <h2>🎮 Acciones sobre el Objeto</h2>
+        <p class="desc-acciones">Cada botón invoca un método del objeto <code>mascota</code> usando <code>this</code> para alterar sus propiedades:</p>
+
+        <div class="botones-grid">
+          <button id="btnAlimentar" class="btn-accion btn-alimentar">
+            <span class="btn-icono">🍖</span>
+            <div>
+              <strong>Alimentar</strong>
+              <small>mascota.alimentar()</small>
+            </div>
+          </button>
+
+          <button id="btnJugar" class="btn-accion btn-jugar">
+            <span class="btn-icono">🎾</span>
+            <div>
+              <strong>Jugar</strong>
+              <small>mascota.jugar()</small>
+            </div>
+          </button>
+
+          <button id="btnDormir" class="btn-accion btn-dormir">
+            <span class="btn-icono">💤</span>
+            <div>
+              <strong>Dormir</strong>
+              <small>mascota.dormir()</small>
+            </div>
+          </button>
+
+          <button id="btnBañar" class="btn-accion btn-banar">
+            <span class="btn-icono">🛁</span>
+            <div>
+              <strong>Bañar</strong>
+              <small>mascota.bañar()</small>
+            </div>
+          </button>
+        </div>
+
+        <div class="consola-estado">
+          <h3>💻 Objeto en memoria:</h3>
+          <pre id="salidaObjeto"></pre>
+        </div>
+      </section>
+    </div>
+
+    <footer class="pie">
+      <a href="../../index.html" class="enlace-volver">⬅️ Volver al índice general del Ejercicio 19</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

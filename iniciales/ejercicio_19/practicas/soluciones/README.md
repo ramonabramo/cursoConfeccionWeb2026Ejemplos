@@ -1,16 +1,19 @@
-# 🔑 Soluciones Oficiales de las Prácticas · Ejercicio 18
+# 💡 Soluciones Oficiales · Prácticas Guiadas del Ejercicio 19
 
-Este directorio contiene el código modelo y resuelto por el profesor para las prácticas del **Ejercicio 18: Objetos Literales en JavaScript**.
+**Curso:** Confección y Publicación de Páginas Web (IFCD0110)  
+**Profesor:** Ramón Abramo · Santander (Cantabria)  
+**Nivel:** Iniciación y Nivel Básico a Objetos Literales en JavaScript
 
 ---
 
-## 📂 Contenido
+## 📂 Directorio de Soluciones Resueltas
 
-1. **[`practica_01_personaje/`](practica_01_personaje/)**:
-   - Implementación completa del objeto literal `personaje` con sus métodos `recibirDanio(puntos)`, `curar(puntos)` y `subirNivel()`.
-   - Control dinámico de la barra de vida y feedback visual según el estado del héroe.
+| Práctica | Nombre del Proyecto | Enfoque y Aprendizaje Clave | Enlace a la Solución |
+| :---: | :--- | :--- | :--- |
+| **01** | **Ficha del Alumno** | Objeto literal con método `calcularMedia()` usando `this`, estado y sincronización con el DOM. | [`practica_01_alumno/`](practica_01_alumno/) |
+| **02** | **Mini-Catálogo de Productos** | Array de objetos literales, recorrido con bucle `for...of`, botón para restar stock y formulario de alta (`push`). | [`practica_02_catalogo/`](practica_02_catalogo/) |
 
-2. **[`practica_02_carrito/`](practica_02_carrito/)**:
-   - Gestión integral del carrito mediante un único array de objetos literales.
-   - Cálculo automático de subtotales por producto y coste global acumulado.
-   - Funcionalidad añadida de borrado individual de productos de la cesta.
+---
+
+> [!NOTE]
+> Cada carpeta contiene la versión 100% resuelta y funcional, lista para ser revisada por el profesor en proyector de aula o utilizada por el alumno como referencia de auto-evaluación.

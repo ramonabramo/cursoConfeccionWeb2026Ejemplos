@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 18 - EJEMPLO MANUAL 05: INSPECCIÓN DE OBJETOS Y JSON
+ * EJERCICIO 19 - EJEMPLO MANUAL 05: INSPECCIÓN DE OBJETOS Y JSON
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web
  * Profesor: Ramón Abramo

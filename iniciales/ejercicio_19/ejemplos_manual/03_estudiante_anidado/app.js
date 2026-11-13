@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 18 - EJEMPLO MANUAL 03: OBJETOS ANIDADOS Y ARRAYS
+ * EJERCICIO 19 - EJEMPLO MANUAL 03: OBJETOS ANIDADOS Y ARRAYS
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web
  * Profesor: Ramón Abramo

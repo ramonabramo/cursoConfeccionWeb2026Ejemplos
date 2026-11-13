@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 1 · Ficha del Alumno - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Ejercicio 19 · Práctica 01</span>
+      <h1>🎓 Ficha Interactiva del Alumno</h1>
+      <p class="subtitulo">Aprende a encapsular datos y métodos en un objeto literal y a sincronizarlos con la pantalla.</p>
+    </header>
+
+    <main class="panel-principal">
+      <div class="tarjeta-alumno">
+        <div class="tarjeta-cabecera">
+          <div class="avatar-icono">👨‍🎓</div>
+          <div>
+            <h2 id="txtNombre">---</h2>
+            <span id="txtModulo" class="modulo-badge">---</span>
+          </div>
+        </div>
+
+        <div class="tarjeta-cuerpo">
+          <div class="dato-fila">
+            <span class="etiqueta">Notas Parciales:</span>
+            <span id="txtNotas" class="valor">---</span>
+          </div>
+          <div class="dato-fila">
+            <span class="etiqueta">Media Calculada:</span>
+            <span id="txtMedia" class="valor valor-destacado">---</span>
+          </div>
+          <div class="dato-fila">
+            <span class="etiqueta">Estado Académico:</span>
+            <span id="txtEstado" class="valor">---</span>
+          </div>
+        </div>
+
+        <div class="tarjeta-acciones">
+          <button id="btnMostrar" class="btn btn-primario">👁️ Mostrar Ficha</button>
+          <button id="btnSubirNota" class="btn btn-secundario">📈 Subir 1 punto a Nota 2</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="pie">
+      <a href="../../index.html" class="enlace-volver">⬅️ Volver al menú del Ejercicio 19</a>
+    </footer>
+  </div>
+
+  <!-- SCRIPT DE TRABAJO (Por defecto el del alumno): -->
+  <script src="app.js"></script>
+
+  <!-- Para probar la solución oficial del profesor, descomenta: -->
+  <!-- <script src="appSolucion.js"></script> -->
+</body>
+</html>

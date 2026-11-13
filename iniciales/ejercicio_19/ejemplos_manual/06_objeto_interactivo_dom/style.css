@@ -1,0 +1,288 @@
+:root {
+  --bg-color: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #334155;
+  --primary: #38bdf8;
+  --primary-hover: #0284c7;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --radius: 12px;
+  --font-main: system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+}
+
+.contenedor {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.cabecera {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--primary);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.cabecera h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+}
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 800px) {
+  .panel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* TARJETA MASCOTA */
+.tarjeta-mascota {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-caja {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.1);
+  border: 2px solid rgba(56, 189, 248, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.icono-mascota {
+  font-size: 3.2rem;
+  transition: transform 0.2s;
+}
+
+.tarjeta-mascota h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.tag-tipo {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--primary);
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+}
+
+.barras-estado {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.bloque-barra {
+  width: 100%;
+}
+
+.barra-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.barra-fondo {
+  width: 100%;
+  height: 10px;
+  background: #0f172a;
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.barra-progreso {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.barra-progreso.energia {
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+}
+
+.barra-progreso.hambre {
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+}
+
+.mensaje-estado {
+  background: #0f172a;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  width: 100%;
+}
+
+/* PANEL ACCIONES */
+.panel-acciones {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-acciones h2 {
+  font-size: 1.25rem;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.desc-acciones {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.desc-acciones code {
+  color: var(--primary);
+}
+
+.botones-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 500px) {
+  .botones-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.btn-accion {
+  background: var(--surface-alt);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  padding: 0.85rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.btn-accion:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  background: #475569;
+}
+
+.btn-icono {
+  font-size: 1.8rem;
+}
+
+.btn-accion strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.btn-accion small {
+  display: block;
+  color: var(--primary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.consola-estado {
+  background: #090d16;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.consola-estado h3 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.consola-estado pre {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #38bdf8;
+  white-space: pre-wrap;
+}
+
+.pie {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.enlace-volver {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.enlace-volver:hover {
+  color: var(--primary);
+}

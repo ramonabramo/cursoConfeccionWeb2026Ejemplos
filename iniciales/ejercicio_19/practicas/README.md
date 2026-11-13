@@ -1,25 +1,38 @@
-# 📦 Prácticas de Aula · Objetos Literales en JavaScript
+# 🛠️ Cuaderno de Prácticas de Aula · Ejercicio 19
 
-En este directorio se encuentran los ejercicios prácticos para que el alumnado desarrolle habilidades en la modelización de entidades reales utilizando **Objetos en Notación Literal**, manipulación de propiedades, métodos con `this` y colecciones mediante arrays de objetos.
-
----
-
-## 🎯 Índice de Prácticas para el Alumno
-
-### 1. [Práctica 1: Ficha de Personaje (Videojuego)](practica_01_personaje/)
-- **Enfoque Didáctico**: Transición desde variables globales dispersas (`let nombre`, `let vida`) hacia un objeto literal coherente y autónomo (`personaje`).
-- **Conceptos**: Propiedades primitivas, métodos que modifican el estado interno mediante `this` (`recibirDanio`, `curar`, `subirNivel`) y sincronización con el DOM.
-- **Archivo de trabajo**: [`practica_01_personaje/app.js`](practica_01_personaje/app.js)
-
-### 2. [Práctica 2: Cesta de la Compra con Objetos Literales](practica_02_carrito/)
-- **Enfoque Didáctico**: Sustituir el antipatrón de arrays paralelos (`nombres[]`, `precios[]`, `cantidades[]`) por un único array `carrito` donde cada posición almacena un objeto `{ nombre, precio, cantidad, subtotal() }`.
-- **Conceptos**: Creación dinámica de objetos a partir de un formulario, métodos internos de cálculo, almacenamiento con `.push()` y recorrido con bucle `for...of` para actualizar la interfaz.
-- **Archivo de trabajo**: [`practica_02_carrito/app.js`](practica_02_carrito/app.js)
+**Curso:** Confección y Publicación de Páginas Web (IFCD0110)  
+**Profesor:** Ramón Abramo · Santander (Cantabria) · Curso 2026  
+**Nivel:** Iniciación Práctica a Objetos Literales en JavaScript
 
 ---
 
-## 💡 Soluciones Oficiales
+## 🎯 Metodología del Taller
 
-Las soluciones completas y comentadas por el profesor están disponibles en:
-- **[`soluciones/`](soluciones/)**: Directorio local de soluciones de las prácticas.
-- **[`../../soluciones/ejercicio_18/`](../../soluciones/ejercicio_18/)**: Directorio centralizado de soluciones del curso.
+Este cuaderno reúne los **ejercicios prácticos de nivel básico** para asentar las bases del trabajo con objetos en JavaScript. Cada práctica está diseñada para resolver una situación real sin complicar la sintaxis ni introducir abstracciones prematuras:
+
+- **Enfoque directo:** El alumno se concentra en cómo estructurar datos con pares `clave: valor` y cómo invocar métodos internos con `this`.
+- **Plantilla con `TODO`s (`app.js`):** El alumno dispone del archivo comentado paso a paso para completar solo la lógica requerida.
+- **Solución oficial del profesor (`appSolucion.js`):** Incluida en la propia carpeta y en [`soluciones/`](soluciones/).
+
+---
+
+## 📂 Directorio de Prácticas
+
+| Práctica | Nombre | Objetivos Didácticos | Plantilla | Solución |
+| :---: | :--- | :--- | :---: | :---: |
+| **01** | **Ficha del Alumno** | Objeto literal `alumno`, propiedades simples, método `calcularMedia()` con `this`, método `obtenerEstado()` y botón para subir notas. | [`01_alumno/app.js`](practica_01_alumno/app.js) | [`01_alumno/appSolucion.js`](practica_01_alumno/appSolucion.js) |
+| **02** | **Mini-Catálogo de Productos** | Array de objetos literales, recorrido con `for...of`, renderizado dinámico en el DOM, botón para restar stock y formulario de alta (`push`). | [`02_catalogo/app.js`](practica_02_catalogo/app.js) | [`02_catalogo/appSolucion.js`](practica_02_catalogo/appSolucion.js) |
+
+---
+
+## 💡 Cómo Alternar entre la Plantilla del Alumno y la Solución
+
+En cada archivo `index.html` de las prácticas, en las últimas líneas del `<body>`:
+
+```html
+<!-- Por defecto se ejecuta el archivo de trabajo del alumno: -->
+<script src="app.js"></script>
+
+<!-- Para revisar la solución oficial resuelta, cambia la línea a: -->
+<!-- <script src="appSolucion.js"></script> -->
+```

@@ -1,0 +1,196 @@
+:root {
+  --bg-color: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #334155;
+  --primary: #38bdf8;
+  --primary-hover: #0284c7;
+  --success: #10b981;
+  --danger: #ef4444;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --radius: 12px;
+  --font-main: system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+}
+
+.contenedor {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cabecera {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--primary);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.cabecera h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.tarjeta-alumno {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.tarjeta-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+
+.avatar-icono {
+  font-size: 2.5rem;
+  background: rgba(56, 189, 248, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.tarjeta-cabecera h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--text-main);
+}
+
+.modulo-badge {
+  font-size: 0.8rem;
+  color: var(--primary);
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.tarjeta-cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.dato-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: #0f172a;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.etiqueta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.valor {
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+.valor-destacado {
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.tarjeta-acciones {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primario {
+  background: var(--primary);
+  color: #0f172a;
+}
+
+.btn-primario:hover {
+  background: var(--primary-hover);
+  color: #ffffff;
+}
+
+.btn-secundario {
+  background: var(--surface-alt);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+}
+
+.btn-secundario:hover {
+  background: #475569;
+}
+
+.pie {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.enlace-volver {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.enlace-volver:hover {
+  color: var(--primary);
+}

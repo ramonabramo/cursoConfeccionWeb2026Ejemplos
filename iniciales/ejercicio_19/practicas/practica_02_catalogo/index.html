@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 2 · Mini-Catálogo de Productos - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <span class="badge">Ejercicio 19 · Práctica 02</span>
+      <h1>🛒 Mini-Catálogo de Productos</h1>
+      <p class="subtitulo">Gestiona un array de objetos literales, renderiza tarjetas en el DOM, actualiza el stock y añade nuevos artículos.</p>
+    </header>
+
+    <!-- FORMULARIO DE ALTA RÁPIDA -->
+    <section class="seccion-alta">
+      <h2>➕ Añadir Nuevo Producto</h2>
+      <form id="formNuevoProducto" class="formulario-producto">
+        <div class="campo">
+          <label for="inputNombre">Nombre del Producto:</label>
+          <input type="text" id="inputNombre" placeholder="Ej. Archivador" required>
+        </div>
+        <div class="campo">
+          <label for="inputPrecio">Precio (€):</label>
+          <input type="number" id="inputPrecio" step="0.01" min="0.1" placeholder="Ej. 3.50" required>
+        </div>
+        <div class="campo">
+          <label for="inputStock">Unidades en Stock:</label>
+          <input type="number" id="inputStock" min="0" placeholder="Ej. 10" required>
+        </div>
+        <button type="submit" class="btn-alta">Registrar Producto</button>
+      </form>
+    </section>
+
+    <!-- CATÁLOGO DE PRODUCTOS -->
+    <section class="seccion-catalogo">
+      <div class="catalogo-cabecera">
+        <h2>📦 Inventario en Tienda</h2>
+        <span id="conteoTotal" class="conteo-badge">3 productos</span>
+      </div>
+      <div id="contenedorProductos" class="grid-productos">
+        <!-- Las tarjetas se generan dinámicamente con JavaScript -->
+      </div>
+    </section>
+
+    <footer class="pie">
+      <a href="../../index.html" class="enlace-volver">⬅️ Volver al menú del Ejercicio 19</a>
+    </footer>
+  </div>
+
+  <!-- SCRIPT DE TRABAJO (Por defecto el del alumno): -->
+  <script src="app.js"></script>
+
+  <!-- Para probar la solución oficial del profesor, descomenta: -->
+  <!-- <script src="appSolucion.js"></script> -->
+</body>
+</html>

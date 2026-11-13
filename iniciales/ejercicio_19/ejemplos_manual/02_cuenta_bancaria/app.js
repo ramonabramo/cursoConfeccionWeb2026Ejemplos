@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 18 - EJEMPLO MANUAL 02: CUENTA BANCARIA Y 'THIS'
+ * EJERCICIO 19 - EJEMPLO MANUAL 02: CUENTA BANCARIA Y 'THIS'
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web
  * Profesor: Ramón Abramo

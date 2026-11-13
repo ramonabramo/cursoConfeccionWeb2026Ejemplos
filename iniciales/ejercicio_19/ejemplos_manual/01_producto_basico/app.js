@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 18 - EJEMPLO MANUAL 01: OBJETO PRODUCTO BÁSICO
+ * EJERCICIO 19 - EJEMPLO MANUAL 01: OBJETO PRODUCTO BÁSICO
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web
  * Profesor: Ramón Abramo

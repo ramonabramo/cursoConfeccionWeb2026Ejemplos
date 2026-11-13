@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Prácticas Guiadas: Iniciación a Objetos en JavaScript - Ramón Abramo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&display=swap');
+  
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #0f172a;
+    background: #ffffff;
+    font-size: 8.5pt;
+    line-height: 1.36;
+  }
+  
+  .page {
+    width: 210mm;
+    height: 297mm;
+    position: relative;
+    padding: 10mm 14mm 8mm 14mm;
+    page-break-after: always;
+    background: #ffffff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Portada Dedicada Exclusiva (Página 1) */
+  .page.cover-page {
+    padding: 16mm 18mm 14mm 18mm;
+    background: linear-gradient(145deg, #064e3b 0%, #065f46 40%, #0f172a 100%);
+    color: #ffffff;
+  }
+
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid rgba(52, 211, 153, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+  }
+
+  .cover-top .institution {
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #34d399;
+    text-transform: uppercase;
+  }
+
+  .cover-top .tag-edition {
+    background: rgba(52, 211, 153, 0.15);
+    border: 1px solid rgba(52, 211, 153, 0.4);
+    color: #34d399;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-size: 7.2pt;
+    font-weight: 800;
+  }
+
+  .cover-hero {
+    margin-bottom: 20px;
+  }
+
+  .cover-badge-category {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid #10b981;
+    color: #34d399;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .cover-title {
+    font-size: 26pt;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.15;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.8px;
+  }
+
+  .cover-title span {
+    color: #34d399;
+  }
+
+  .cover-desc {
+    font-size: 10.5pt;
+    color: #cbd5e1;
+    line-height: 1.5;
+    max-width: 90%;
+    margin-bottom: 22px;
+  }
+
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .cover-card-mini {
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    border-radius: 9px;
+    padding: 12px 14px;
+  }
+
+  .cover-card-mini h4 {
+    margin: 0 0 4px 0;
+    font-size: 9.5pt;
+    color: #34d399;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cover-card-mini p {
+    margin: 0;
+    font-size: 7.8pt;
+    color: #cbd5e1;
+    line-height: 1.4;
+  }
+
+  .cover-footer-box {
+    border-top: 1px solid rgba(52, 211, 153, 0.3);
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cover-author h3 {
+    margin: 0 0 2px 0;
+    font-size: 11pt;
+    color: #ffffff;
+  }
+
+  .cover-author p {
+    margin: 0;
+    font-size: 8pt;
+    color: #94a3b8;
+  }
+
+  .cover-meta {
+    text-align: right;
+    font-size: 7.8pt;
+    color: #64748b;
+  }
+  
+  /* Encabezados y pies de página estándar */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.2pt;
+    font-weight: 700;
+    color: #475569;
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid #cbd5e1;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .badge-header {
+    background: #d1fae5;
+    color: #065f46;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 6.8pt;
+    font-weight: 800;
+  }
+  
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.2pt;
+    color: #64748b;
+    padding-top: 5px;
+    border-top: 1.5px solid #cbd5e1;
+    margin-top: 5px;
+  }
+  
+  .content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Tipografía */
+  h2 {
+    font-size: 11pt;
+    color: #065f46;
+    margin: 5px 0 4px 0;
+    font-weight: 800;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  h3 {
+    font-size: 9pt;
+    color: #0f172a;
+    margin: 4px 0 3px 0;
+    font-weight: 700;
+  }
+  
+  p {
+    margin: 0 0 5px 0;
+    text-align: justify;
+  }
+
+  /* Índice de Contenidos Interactivo */
+  .toc-box {
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 9px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+  }
+
+  .toc-title {
+    font-size: 9.5pt;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 14px;
+  }
+
+  .toc-item {
+    font-size: 7.8pt;
+    line-height: 1.35;
+  }
+
+  .toc-link {
+    text-decoration: none;
+    color: #1e293b;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px dotted #cbd5e1;
+    padding-bottom: 1px;
+    transition: color 0.15s;
+  }
+
+  .toc-link:hover {
+    color: #059669;
+    font-weight: 700;
+  }
+
+  .toc-page {
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+    color: #059669;
+    font-size: 7.4pt;
+    margin-left: 6px;
+  }
+  
+  /* Tablas de estilo profesional */
+  table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0 6px 0;
+    font-size: 7.4pt;
+  }
+  
+  table.custom-table th, table.custom-table td {
+    border: 1px solid #cbd5e1;
+    padding: 4px 7px;
+    text-align: left;
+    vertical-align: middle;
+  }
+  
+  table.custom-table th {
+    background: #0f172a;
+    color: #34d399;
+    font-weight: 700;
+    font-size: 7.1pt;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  
+  table.custom-table tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  /* Cajas de notas y avisos */
+  .callout {
+    border-left: 3.5px solid #059669;
+    background: #ecfdf5;
+    padding: 6px 9px;
+    margin: 4px 0 6px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 7.8pt;
+  }
+  
+  .callout-title {
+    font-weight: 800;
+    color: #065f46;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* Bloques de Código */
+  pre.code-block {
+    background: #0f172a;
+    color: #f8fafc;
+    font-family: 'Fira Code', Consolas, monospace;
+    font-size: 7.1pt;
+    line-height: 1.33;
+    padding: 6px 9px;
+    border-radius: 6px;
+    margin: 4px 0 6px 0;
+    border: 1px solid #334155;
+    overflow: hidden;
+  }
+
+  code {
+    font-family: 'Fira Code', Consolas, monospace;
+    background: #f1f5f9;
+    color: #0f172a;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 7.6pt;
+    border: 1px solid #e2e8f0;
+  }
+
+  pre.code-block code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+  }
+
+  .keyword { color: #f43f5e; font-weight: 700; }
+  .variable { color: #38bdf8; }
+  .string { color: #34d399; }
+  .number { color: #fbbf24; }
+  .comment { color: #64748b; font-style: italic; }
+  .function { color: #c084fc; font-weight: 600; }
+  .property { color: #93c5fd; }
+
+  .two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 4px 0;
+  }
+
+  .card-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    padding: 7px 9px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  }
+</style>
+</head>
+<body>
+
+  <!-- ====================================================================
+       PÁGINA 1: PORTADA DEDICADA DE PRÁCTICAS
+       ==================================================================== -->
+  <div class="page cover-page" id="portada">
+    <div class="cover-top">
+      <div class="institution">Curso de Confección y Publicación de Páginas Web · Ramón Abramo</div>
+      <div class="tag-edition">EJERCICIO 19 · CUADERNO PRÁCTICO</div>
+    </div>
+
+    <div class="cover-hero">
+      <div class="cover-badge-category">🛠️ Taller de Código en el Aula</div>
+      <h1 class="cover-title">Prácticas Guiadas<br><span>Objetos en JavaScript</span></h1>
+      <p class="cover-desc">
+        Cuaderno práctico para principiantes: dos proyectos sencillos y guiados paso a paso para aprender a modelar datos del mundo real, vincular métodos con <code>this</code> al DOM y gestionar colecciones con arrays de objetos.
+      </p>
+    </div>
+
+    <div class="cover-grid">
+      <div class="cover-card-mini">
+        <h4>🎓 Práctica 1: La Ficha del Alumno</h4>
+        <p>Crea el objeto <code>alumno</code>, implementa métodos para calcular su media y estado, y actualiza la tarjeta interactiva en el DOM.</p>
+      </div>
+      <div class="cover-card-mini">
+        <h4>🛒 Práctica 2: Mini-Catálogo de Productos</h4>
+        <p>Trabaja con un array de objetos, renderiza tarjetas de productos, gestiona el botón "Vender 1 unidad" y añade nuevos productos.</p>
+      </div>
+    </div>
+
+    <div class="cover-footer-box">
+      <div class="cover-author">
+        <h3>Ramón Abramo</h3>
+        <p>Profesor de Desarrollo Web y Programación Frontend · Santander (Cantabria)</p>
+      </div>
+      <div class="cover-meta">
+        <strong>Certificado de Profesionalidad IFCD0110</strong><br>
+        Edición 2026 · Soluciones Oficiales Comentadas
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       PÁGINA 2: ÍNDICE DE PRÁCTICAS E INSTRUCCIONES
+       ==================================================================== -->
+  <div class="page" id="pagina2">
+    <div class="page-header">
+      <span>Prácticas de Aula · Confección Web</span>
+      <span class="badge-header">Ejercicio 19 · Página 2</span>
+    </div>
+
+    <div class="content-area">
+      <!-- ÍNDICE DE PRÁCTICAS -->
+      <div class="toc-box">
+        <div class="toc-title">
+          <span>📑 ÍNDICE GENERAL DE LAS PRÁCTICAS</span>
+          <small style="color: #64748b; font-weight: normal;">(Haz clic en cualquier sección para saltar a ella)</small>
+        </div>
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#portada" class="toc-link"><span>📦 Portada Oficial del Taller</span><span class="toc-page">Pág. 1</span></a></li>
+          <li class="toc-item"><a href="#instrucciones" class="toc-link"><span>📋 Instrucciones Generales para el Alumno</span><span class="toc-page">Pág. 2</span></a></li>
+          <li class="toc-item"><a href="#practica1-enunciado" class="toc-link"><span>🎓 Práctica 1: Ficha del Alumno (Enunciado)</span><span class="toc-page">Pág. 3</span></a></li>
+          <li class="toc-item"><a href="#practica1-solucion" class="toc-link"><span>🧭 Práctica 1: Guía y Solución Comentada</span><span class="toc-page">Pág. 4</span></a></li>
+          <li class="toc-item"><a href="#practica2-enunciado" class="toc-link"><span>🛒 Práctica 2: Catálogo de Productos (Enunciado)</span><span class="toc-page">Pág. 5</span></a></li>
+          <li class="toc-item"><a href="#practica2-solucion" class="toc-link"><span>🧭 Práctica 2: Guía y Solución Comentada</span><span class="toc-page">Pág. 6</span></a></li>
+        </ul>
+      </div>
+
+      <h2 id="instrucciones">📋 Instrucciones Generales para el Alumno</h2>
+      <p>
+        El objetivo de este taller es <strong>aprender la esencia de los objetos en JavaScript sin perderse en complejidades innecesarias</strong>. Cada ejercicio se enfoca en resolver una necesidad web real mediante código directo, limpio y fácil de entender.
+      </p>
+
+      <div class="card-box" style="margin-bottom: 8px;">
+        <h3 style="color:#065f46; margin-top:0;">📂 Estructura de cada carpeta de práctica:</h3>
+        <ul style="margin: 0; padding-left: 14px; font-size: 7.6pt;">
+          <li><code>index.html</code>: Contiene la interfaz gráfica terminada (formulario, botones y tarjetas).</li>
+          <li><code>style.css</code>: Contiene el diseño visual preparado con colores y tipografía moderna.</li>
+          <li><code>app.js</code>: <strong>Tu archivo de trabajo</strong>. Viene estructurado con comentarios paso a paso y marcas <code>// TODO:</code> para que escribas tu código.</li>
+          <li><code>appSolucion.js</code>: <strong>Solución oficial resuelta por el profesor</strong> para comprobar tu resultado cuando termines.</li>
+        </ul>
+      </div>
+
+      <h3>💡 Metodología de Trabajo Recomendada</h3>
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th style="width: 20%;">Paso</th>
+            <th style="width: 40%;">Acción en el Código</th>
+            <th style="width: 40%;">Consejo del Profesor Ramón</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Leer el Enunciado</strong></td>
+            <td>Identifica qué propiedades y métodos necesita el objeto antes de escribir código.</td>
+            <td>Dibuja en un papel el objeto: qué datos guarda y qué acciones debe realizar.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Probar en Consola</strong></td>
+            <td>Abre la consola de Chrome (F12) y haz <code>console.log(objeto)</code> para ver cómo se comporta.</td>
+            <td>Comprueba que los métodos devuelven lo esperado antes de tocar el DOM.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Conectar al DOM</strong></td>
+            <td>Usa <code>document.getElementById()</code> y actualiza <code>textContent</code> o <code>innerHTML</code>.</td>
+            <td>Separa la lógica del objeto de la actualización visual de la pantalla.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">💡 ¿Cómo alternar entre tu código y la solución?</div>
+        En <code>index.html</code>, al final del archivo verás: <code>&lt;script src="app.js"&gt;&lt;/script&gt;</code>. Si deseas ver la solución oficial en directo, solo cambia <code>app.js</code> por <code>appSolucion.js</code> y recarga el navegador.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Cuaderno de Prácticas Guiadas · Objetos en JavaScript</span>
+      <span>Profesor Ramón Abramo · Santander 2026</span>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       PÁGINA 3: PRÁCTICA 1 (ENUNCIADO)
+       ==================================================================== -->
+  <div class="page" id="practica1-enunciado">
+    <div class="page-header">
+      <span>Práctica 1: Ficha del Alumno · Confección Web</span>
+      <span class="badge-header">Ejercicio 19 · Página 3</span>
+    </div>
+
+    <div class="content-area">
+      <h2>🎓 Práctica 1: Ficha Interactiva del Alumno</h2>
+      <p>
+        <strong>Objetivo Didáctico:</strong> Modelar la entidad <code>alumno</code> mediante un objeto literal con datos numéricos y de texto, incorporar métodos de cálculo mediante la palabra clave <code>this</code> y reflejar dinámicamente los cambios en la pantalla (DOM).
+      </p>
+
+      <div class="card-box" style="margin-bottom: 8px;">
+        <h3 style="color:#065f46; margin-top:0;">📋 Enunciado del Ejercicio:</h3>
+        <p style="font-size:7.6pt;">
+          En una academia de formación web en Santander, queremos crear una pequeña ficha interactiva para gestionar el progreso de un alumno. Se debe:
+        </p>
+        <ol style="margin: 0; padding-left: 14px; font-size: 7.6pt;">
+          <li>Crear un objeto literal llamado <code>alumno</code> con las siguientes propiedades iniciales:
+            <ul>
+              <li><code>nombre</code>: "Marcos García"</li>
+              <li><code>modulo</code>: "Confección y Publicación Web"</li>
+              <li><code>nota1</code>: 6.5</li>
+              <li><code>nota2</code>: 7.5</li>
+            </ul>
+          </li>
+          <li>Añadir al objeto un método <code>calcularMedia()</code> que sume <code>this.nota1</code> y <code>this.nota2</code> y divida entre 2, devolviendo el resultado con un decimal (usando <code>toFixed(1)</code>).</li>
+          <li>Añadir un método <code>obtenerEstado()</code> que devuelva <code>"Aprobado ✅"</code> si su media es mayor o igual a 5, o <code>"Suspenso ❌"</code> si es menor.</li>
+          <li>Al cargar la página o pulsar el botón <strong>"Mostrar Ficha"</strong>, pintar los datos en los elementos HTML correspondientes (<code>#txtNombre</code>, <code>#txtModulo</code>, <code>#txtMedia</code>, <code>#txtEstado</code>).</li>
+          <li>Al pulsar el botón <strong>"Subir 1 punto a Nota 2"</strong>, incrementar <code>alumno.nota2</code> en 1 (con tope máximo de 10) y actualizar automáticamente la ficha en pantalla.</li>
+        </ol>
+      </div>
+
+      <h3>🖥️ Maquetación HTML de Referencia</h3>
+      <pre class="code-block"><code><span class="comment">&lt;!-- Estructura HTML en index.html --&gt;</span>
+&lt;<span class="keyword">div</span> <span class="property">class</span>=<span class="string">"tarjeta-alumno"</span>&gt;
+  &lt;<span class="keyword">h2</span> <span class="property">id</span>=<span class="string">"txtNombre"</span>&gt;---&lt;/<span class="keyword">h2</span>&gt;
+  &lt;<span class="keyword">p</span>&gt;&lt;<span class="keyword">strong</span>&gt;Módulo:&lt;/<span class="keyword">strong</span>&gt; &lt;<span class="keyword">span</span> <span class="property">id</span>=<span class="string">"txtModulo"</span>&gt;---&lt;/<span class="keyword">span</span>&gt;&lt;/<span class="keyword">p</span>&gt;
+  &lt;<span class="keyword">p</span>&gt;&lt;<span class="keyword">strong</span>&gt;Notas Parciales:&lt;/<span class="keyword">strong</span>&gt; &lt;<span class="keyword">span</span> <span class="property">id</span>=<span class="string">"txtNotas"</span>&gt;---&lt;/<span class="keyword">span</span>&gt;&lt;/<span class="keyword">p</span>&gt;
+  &lt;<span class="keyword">p</span>&gt;&lt;<span class="keyword">strong</span>&gt;Media Final:&lt;/<span class="keyword">strong</span>&gt; &lt;<span class="keyword">span</span> <span class="property">id</span>=<span class="string">"txtMedia"</span>&gt;---&lt;/<span class="keyword">span</span>&gt;&lt;/<span class="keyword">p</span>&gt;
+  &lt;<span class="keyword">p</span>&gt;&lt;<span class="keyword">strong</span>&gt;Estado:&lt;/<span class="keyword">strong</span>&gt; &lt;<span class="keyword">span</span> <span class="property">id</span>=<span class="string">"txtEstado"</span>&gt;---&lt;/<span class="keyword">span</span>&gt;&lt;/<span class="keyword">p</span>&gt;
+
+  &lt;<span class="keyword">div</span> <span class="property">class</span>=<span class="string">"botones"</span>&gt;
+    &lt;<span class="keyword">button</span> <span class="property">id</span>=<span class="string">"btnMostrar"</span>&gt;Mostrar Ficha&lt;/<span class="keyword">button</span>&gt;
+    &lt;<span class="keyword">button</span> <span class="property">id</span>=<span class="string">"btnSubirNota"</span>&gt;Subir 1 punto a Nota 2&lt;/<span class="keyword">button</span>&gt;
+  &lt;/<span class="keyword">div</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;</code></pre>
+
+      <div class="callout">
+        <div class="callout-title">🎯 Criterio de Evaluación:</div>
+        El cálculo de la media debe hacerse <strong>dentro del propio objeto</strong> a través de su método y no con cálculos sueltos en el evento del botón. Esto garantiza una correcta encapsulación orientada a objetos.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Cuaderno de Prácticas Guiadas · Objetos en JavaScript</span>
+      <span>Profesor Ramón Abramo · Santander 2026</span>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       PÁGINA 4: PRÁCTICA 1 (GUÍA Y SOLUCIÓN)
+       ==================================================================== -->
+  <div class="page" id="practica1-solucion">
+    <div class="page-header">
+      <span>Práctica 1: Ficha del Alumno · Confección Web</span>
+      <span class="badge-header">Ejercicio 19 · Página 4</span>
+    </div>
+
+    <div class="content-area">
+      <h2>🧭 Guía Paso a Paso y Solución Oficial Comentada</h2>
+      <p>
+        Analiza con atención el código de la solución. Observa cómo el método <code>renderizar()</code> centraliza la actualización de la pantalla:
+      </p>
+
+      <pre class="code-block"><code><span class="comment">// ============================================================================</span>
+<span class="comment">// SOLUCIÓN OFICIAL: Práctica 1 - Ficha del Alumno</span>
+<span class="comment">// Profesor Ramón Abramo · Santander 2026</span>
+<span class="comment">// ============================================================================</span>
+
+<span class="comment">// 1. Capturamos los elementos del DOM</span>
+<span class="keyword">const</span> <span class="variable">txtNombre</span> = <span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"txtNombre"</span>);
+<span class="keyword">const</span> <span class="variable">txtModulo</span> = <span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"txtModulo"</span>);
+<span class="keyword">const</span> <span class="variable">txtNotas</span>  = <span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"txtNotas"</span>);
+<span class="keyword">const</span> <span class="variable">txtMedia</span>  = <span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"txtMedia"</span>);
+<span class="keyword">const</span> <span class="variable">txtEstado</span> = <span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"txtEstado"</span>);
+<span class="keyword">const</span> <span class="variable">btnMostrar</span> = <span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"btnMostrar"</span>);
+<span class="keyword">const</span> <span class="variable">btnSubirNota</span> = <span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"btnSubirNota"</span>);
+
+<span class="comment">// 2. Definición del objeto literal con propiedades y métodos</span>
+<span class="keyword">const</span> <span class="variable">alumno</span> = {
+  <span class="property">nombre</span>: <span class="string">"Marcos García"</span>,
+  <span class="property">modulo</span>: <span class="string">"Confección y Publicación Web"</span>,
+  <span class="property">nota1</span>: <span class="number">6.5</span>,
+  <span class="property">nota2</span>: <span class="number">7.5</span>,
+
+  <span class="comment">// Método para calcular la media usando 'this'</span>
+  <span class="function">calcularMedia</span>() {
+    <span class="keyword">const</span> <span class="variable">promedio</span> = (<span class="keyword">this</span>.<span class="property">nota1</span> + <span class="keyword">this</span>.<span class="property">nota2</span>) / <span class="number">2</span>;
+    <span class="keyword">return</span> <span class="variable">promedio</span>.<span class="function">toFixed</span>(<span class="number">1</span>);
+  },
+
+  <span class="comment">// Método para saber si está aprobado o suspenso</span>
+  <span class="function">obtenerEstado</span>() {
+    <span class="keyword">return</span> <span class="keyword">this</span>.<span class="function">calcularMedia</span>() >= <span class="number">5</span> ? <span class="string">"Aprobado ✅"</span> : <span class="string">"Suspenso ❌"</span>;
+  }
+};
+
+<span class="comment">// 3. Función auxiliar para pintar los datos del objeto en pantalla</span>
+<span class="keyword">function</span> <span class="function">renderizarFicha</span>() {
+  <span class="variable">txtNombre</span>.<span class="property">textContent</span> = <span class="variable">alumno</span>.<span class="property">nombre</span>;
+  <span class="variable">txtModulo</span>.<span class="property">textContent</span> = <span class="variable">alumno</span>.<span class="property">modulo</span>;
+  <span class="variable">txtNotas</span>.<span class="property">textContent</span>  = <span class="variable">alumno</span>.<span class="property">nota1</span> + <span class="string">" y "</span> + <span class="variable">alumno</span>.<span class="property">nota2</span>;
+  <span class="variable">txtMedia</span>.<span class="property">textContent</span>  = <span class="variable">alumno</span>.<span class="function">calcularMedia</span>();
+  <span class="variable">txtEstado</span>.<span class="property">textContent</span> = <span class="variable">alumno</span>.<span class="function">obtenerEstado</span>();
+}
+
+<span class="comment">// 4. Eventos de los botones</span>
+<span class="variable">btnMostrar</span>.<span class="function">addEventListener</span>(<span class="string">"click"</span>, () => {
+  <span class="function">renderizarFicha</span>();
+});
+
+<span class="variable">btnSubirNota</span>.<span class="function">addEventListener</span>(<span class="string">"click"</span>, () => {
+  <span class="keyword">if</span> (<span class="variable">alumno</span>.<span class="property">nota2</span> &lt; <span class="number">10</span>) {
+    <span class="variable">alumno</span>.<span class="property">nota2</span> = <span class="variable">Math</span>.<span class="function">min</span>(<span class="number">10</span>, <span class="variable">alumno</span>.<span class="property">nota2</span> + <span class="number">1</span>);
+    <span class="function">renderizarFicha</span>(); <span class="comment">// Repintamos con el nuevo valor</span>
+  } <span class="keyword">else</span> {
+    <span class="variable">alert</span>(<span class="string">"¡La nota ya ha alcanzado el máximo de 10!"</span>);
+  }
+});
+
+<span class="comment">// Renderizado inicial automático al cargar</span>
+<span class="function">renderizarFicha</span>();</code></pre>
+
+      <div class="callout">
+        <div class="callout-title">💡 Claves didácticas a recordar:</div>
+        - Fíjate en cómo <code>obtenerEstado()</code> llama a su propio método vecino mediante <code>this.calcularMedia()</code>.<br>
+        - Modificar la propiedad <code>alumno.nota2</code> altera la memoria del objeto; al llamar de nuevo a <code>renderizarFicha()</code> la pantalla muestra el nuevo cálculo automáticamente.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Cuaderno de Prácticas Guiadas · Objetos en JavaScript</span>
+      <span>Profesor Ramón Abramo · Santander 2026</span>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       PÁGINA 5: PRÁCTICA 2 (ENUNCIADO)
+       ==================================================================== -->
+  <div class="page" id="practica2-enunciado">
+    <div class="page-header">
+      <span>Práctica 2: Catálogo de Productos · Confección Web</span>
+      <span class="badge-header">Ejercicio 19 · Página 5</span>
+    </div>
+
+    <div class="content-area">
+      <h2>🛒 Práctica 2: Mini-Catálogo de Productos (Array de Objetos)</h2>
+      <p>
+        <strong>Objetivo Didáctico:</strong> Gestionar una colección de entidades homogéneas mediante un <strong>Array de Objetos Literales</strong>, recorrerlo con <code>for...of</code> para generar tarjetas en el DOM, modificar el stock de un objeto específico y permitir añadir nuevos objetos a la lista.
+      </p>
+
+      <div class="card-box" style="margin-bottom: 8px;">
+        <h3 style="color:#065f46; margin-top:0;">📋 Enunciado del Ejercicio:</h3>
+        <p style="font-size:7.6pt;">
+          Queremos simular el panel de inventario de una pequeña tienda de papelería en Santander. Se pide:
+        </p>
+        <ol style="margin: 0; padding-left: 14px; font-size: 7.6pt;">
+          <li>Crear un array llamado <code>productos</code> con 3 objetos literales iniciales:
+            <ul>
+              <li><code>{ id: 1, nombre: "Cuaderno A4", precio: 2.50, stock: 5 }</code></li>
+              <li><code>{ id: 2, nombre: "Bolígrafo Azul", precio: 1.20, stock: 12 }</code></li>
+              <li><code>{ id: 3, nombre: "Mochila Escolar", precio: 24.90, stock: 2 }</code></li>
+            </ul>
+          </li>
+          <li>Crear una función <code>renderizarCatalogo()</code> que recorra el array con un bucle <code>for...of</code> y genere dinámicamente en un contenedor <code>#contenedorProductos</code> el HTML de cada tarjeta.</li>
+          <li>Cada tarjeta debe mostrar: nombre, precio, stock restante y un botón <strong>"Vender 1 unidad"</strong>.</li>
+          <li>Al pulsar "Vender", se buscará el producto correspondiente por su <code>id</code> y se le restará 1 unidad a su stock. Si el stock llega a 0, el botón debe deshabilitarse y mostrar el texto <em>"Agotado"</em>.</li>
+          <li>Añadir un formulario con inputs de nombre, precio y stock para que el usuario pueda registrar un nuevo producto en el catálogo mediante <code>productos.push(...)</code>.</li>
+        </ol>
+      </div>
+
+      <h3>🖥️ Maquetación HTML de Referencia</h3>
+      <pre class="code-block"><code><span class="comment">&lt;!-- Formulario de alta rápida --&gt;</span>
+&lt;<span class="keyword">form</span> <span class="property">id</span>=<span class="string">"formNuevoProducto"</span>&gt;
+  &lt;<span class="keyword">input</span> <span class="property">type</span>=<span class="string">"text"</span> <span class="property">id</span>=<span class="string">"inputNombre"</span> <span class="property">placeholder</span>=<span class="string">"Nombre del producto"</span> <span class="property">required</span>&gt;
+  &lt;<span class="keyword">input</span> <span class="property">type</span>=<span class="string">"number"</span> <span class="property">id</span>=<span class="string">"inputPrecio"</span> <span class="property">step</span>=<span class="string">"0.01"</span> <span class="property">placeholder</span>=<span class="string">"Precio (€)"</span> <span class="property">required</span>&gt;
+  &lt;<span class="keyword">input</span> <span class="property">type</span>=<span class="string">"number"</span> <span class="property">id</span>=<span class="string">"inputStock"</span> <span class="property">placeholder</span>=<span class="string">"Stock"</span> <span class="property">required</span>&gt;
+  &lt;<span class="keyword">button</span> <span class="property">type</span>=<span class="string">"submit"</span>&gt;Añadir al Catálogo&lt;/<span class="keyword">button</span>&gt;
+&lt;/<span class="keyword">form</span>&gt;
+
+<span class="comment">&lt;!-- Contenedor donde se inyectan las tarjetas --&gt;</span>
+&lt;<span class="keyword">div</span> <span class="property">id</span>=<span class="string">"contenedorProductos"</span> <span class="property">class</span>=<span class="string">"grid-productos"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</code></pre>
+
+      <div class="callout">
+        <div class="callout-title">🎯 Criterio de Evaluación:</div>
+        Cada vez que se añade un producto o se reduce el stock, se debe volver a llamar a <code>renderizarCatalogo()</code> para que la vista del DOM se mantenga perfectamente sincronizada con los datos del array.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Cuaderno de Prácticas Guiadas · Objetos en JavaScript</span>
+      <span>Profesor Ramón Abramo · Santander 2026</span>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       PÁGINA 6: PRÁCTICA 2 (GUÍA Y SOLUCIÓN)
+       ==================================================================== -->
+  <div class="page" id="practica2-solucion">
+    <div class="page-header">
+      <span>Práctica 2: Catálogo de Productos · Confección Web</span>
+      <span class="badge-header">Ejercicio 19 · Página 6</span>
+    </div>
+
+    <div class="content-area">
+      <h2>🧭 Guía Paso a Paso y Solución Oficial Comentada</h2>
+      <p>
+        Observa cómo asociamos el evento de vender a cada botón mediante un atributo <code>data-id</code> para identificar qué objeto debe modificar su stock:
+      </p>
+
+      <pre class="code-block"><code><span class="comment">// ============================================================================</span>
+<span class="comment">// SOLUCIÓN OFICIAL: Práctica 2 - Catálogo de Productos</span>
+<span class="comment">// Profesor Ramón Abramo · Santander 2026</span>
+<span class="comment">// ============================================================================</span>
+
+<span class="keyword">const</span> <span class="variable">contenedor</span> = <span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"contenedorProductos"</span>);
+<span class="keyword">const</span> <span class="variable">formNuevo</span>  = <span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"formNuevoProducto"</span>);
+
+<span class="comment">// 1. Array inicial de objetos</span>
+<span class="keyword">const</span> <span class="variable">productos</span> = [
+  { <span class="property">id</span>: <span class="number">1</span>, <span class="property">nombre</span>: <span class="string">"Cuaderno A4"</span>, <span class="property">precio</span>: <span class="number">2.50</span>, <span class="property">stock</span>: <span class="number">5</span> },
+  { <span class="property">id</span>: <span class="number">2</span>, <span class="property">nombre</span>: <span class="string">"Bolígrafo Azul"</span>, <span class="property">precio</span>: <span class="number">1.20</span>, <span class="property">stock</span>: <span class="number">12</span> },
+  { <span class="property">id</span>: <span class="number">3</span>, <span class="property">nombre</span>: <span class="string">"Mochila Escolar"</span>, <span class="property">precio</span>: <span class="number">24.90</span>, <span class="property">stock</span>: <span class="number">2</span> }
+];
+
+<span class="comment">// 2. Función para renderizar las tarjetas</span>
+<span class="keyword">function</span> <span class="function">renderizarCatalogo</span>() {
+  <span class="variable">contenedor</span>.<span class="property">innerHTML</span> = <span class="string">""</span>; <span class="comment">// Limpiamos el contenedor</span>
+
+  <span class="keyword">for</span> (<span class="keyword">const</span> <span class="variable">prod</span> <span class="keyword">of</span> <span class="variable">productos</span>) {
+    <span class="keyword">const</span> <span class="variable">agotado</span> = <span class="variable">prod</span>.<span class="property">stock</span> === <span class="number">0</span>;
+    <span class="keyword">const</span> <span class="variable">tarjeta</span> = <span class="variable">document</span>.<span class="function">createElement</span>(<span class="string">"div"</span>);
+    <span class="variable">tarjeta</span>.<span class="property">className</span> = <span class="string">"tarjeta-producto"</span>;
+
+    <span class="variable">tarjeta</span>.<span class="property">innerHTML</span> = <span class="string">`
+      &lt;h3&gt;\${prod.nombre}&lt;/h3&gt;
+      &lt;p&gt;Precio: &lt;strong&gt;\${prod.precio.toFixed(2)}€&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Stock: \${prod.stock} uds.&lt;/p&gt;
+      &lt;button class="btn-vender" data-id="\${prod.id}" \${agotado ? "disabled" : ""}&gt;
+        \${agotado ? "Agotado" : "Vender 1 ud."}
+      &lt;/button&gt;
+    `</span>;
+
+    <span class="variable">contenedor</span>.<span class="function">appendChild</span>(<span class="variable">tarjeta</span>);
+  }
+
+  <span class="comment">// Asociamos los clics a todos los botones de venta</span>
+  <span class="variable">document</span>.<span class="function">querySelectorAll</span>(<span class="string">".btn-vender"</span>).<span class="function">forEach</span>(<span class="variable">btn</span> => {
+    <span class="variable">btn</span>.<span class="function">addEventListener</span>(<span class="string">"click</span>", (<span class="variable">e</span>) => {
+      <span class="keyword">const</span> <span class="variable">idProducto</span> = <span class="variable">Number</span>(<span class="variable">e</span>.<span class="property">target</span>.<span class="property">dataset</span>.<span class="property">id</span>);
+      <span class="function">venderProducto</span>(<span class="variable">idProducto</span>);
+    });
+  });
+}
+
+<span class="comment">// 3. Función para vender una unidad</span>
+<span class="keyword">function</span> <span class="function">venderProducto</span>(<span class="variable">id</span>) {
+  <span class="keyword">const</span> <span class="variable">prod</span> = <span class="variable">productos</span>.<span class="function">find</span>(<span class="variable">item</span> => <span class="variable">item</span>.<span class="property">id</span> === <span class="variable">id</span>);
+  <span class="keyword">if</span> (<span class="variable">prod</span> && <span class="variable">prod</span>.<span class="property">stock</span> > <span class="number">0</span>) {
+    <span class="variable">prod</span>.<span class="property">stock</span>--;
+    <span class="function">renderizarCatalogo</span>(); <span class="comment">// Actualizamos la vista</span>
+  }
+}
+
+<span class="comment">// 4. Manejo del formulario de alta rápida</span>
+<span class="variable">formNuevo</span>.<span class="function">addEventListener</span>(<span class="string">"submit"</span>, (<span class="variable">e</span>) => {
+  <span class="variable">e</span>.<span class="function">preventDefault</span>();
+  <span class="keyword">const</span> <span class="variable">nuevo</span> = {
+    <span class="property">id</span>: <span class="variable">Date</span>.<span class="function">now</span>(),
+    <span class="property">nombre</span>: <span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"inputNombre"</span>).<span class="property">value</span>.<span class="function">trim</span>(),
+    <span class="property">precio</span>: <span class="variable">parseFloat</span>(<span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"inputPrecio"</span>).<span class="property">value</span>),
+    <span class="property">stock</span>: <span class="variable">parseInt</span>(<span class="variable">document</span>.<span class="function">getElementById</span>(<span class="string">"inputStock"</span>).<span class="property">value</span>)
+  };
+
+  <span class="variable">productos</span>.<span class="function">push</span>(<span class="variable">nuevo</span>);
+  <span class="variable">formNuevo</span>.<span class="function">reset</span>();
+  <span class="function">renderizarCatalogo</span>();
+});
+
+<span class="function">renderizarCatalogo</span>();</code></pre>
+
+      <div class="callout">
+        <div class="callout-title">💡 Claves didácticas a recordar:</div>
+        - Cada producto tiene su propia identidad (<code>id</code>), lo que permite localizarlo con <code>.find()</code>.<br>
+        - Añadir un nuevo objeto al array con <code>productos.push()</code> es directo y sencillo.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Cuaderno de Prácticas Guiadas · Objetos en JavaScript</span>
+      <span>Profesor Ramón Abramo · Santander 2026</span>
+    </div>
+  </div>
+
+</body>
+</html>
