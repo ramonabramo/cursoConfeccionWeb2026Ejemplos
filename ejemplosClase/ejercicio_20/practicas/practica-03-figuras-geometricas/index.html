@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Práctica 03 · Figuras geométricas</title>
+    <!-- Hoja de estilos ya realizada -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <main class="app">
+        <h1>Figuras geométricas</h1>
+        <p class="subtitulo">Práctica 03 · Herencia, super, polimorfismo y miembros estáticos</p>
+        <form id="formFigura" class="formulario">
+            <select id="selTipo">
+                <option value="circulo">Círculo (radio)</option>
+                <option value="rectangulo">Rectángulo (ancho, alto)</option>
+                <option value="cuadrado">Cuadrado (lado)</option>
+            </select>
+            <input type="number" id="inpA" placeholder="Medida 1" min="0" step="any" required>
+            <input type="number" id="inpB" placeholder="Medida 2 (alto)" min="0" step="any">
+            <button type="submit">Añadir figura</button>
+        </form>
+        <div id="listaFiguras" class="lista"></div>
+        <p id="resumen" class="resumen"></p>
+    </main>
+
+    <!-- El código de esta práctica va en script.js (es lo único que debes escribir) -->
+    <script src="script.js"></script>
+</body>
+</html>

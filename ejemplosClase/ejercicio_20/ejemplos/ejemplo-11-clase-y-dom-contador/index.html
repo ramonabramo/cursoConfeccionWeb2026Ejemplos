@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejemplo 11 · Clases y DOM: contadores independientes</title>
+    <!-- Hoja de estilos del ejemplo -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <main class="tarjeta">
+        <h1>Ejemplo 11 · Clases y DOM: contadores independientes</h1>
+        <p class="descripcion">Una clase Contador controla un trozo de la página. Creamos dos contadores y cada uno funciona por su cuenta.</p>
+        <div class="contadores">
+            <section class="contador" id="contadorA">
+                <h2>Contador A</h2>
+                <p class="valor">0</p>
+                <div class="botones">
+                    <button class="menos">−</button>
+                    <button class="mas">+</button>
+                    <button class="reiniciar">Reiniciar</button>
+                </div>
+            </section>
+            <section class="contador" id="contadorB">
+                <h2>Contador B (de 5 en 5)</h2>
+                <p class="valor">0</p>
+                <div class="botones">
+                    <button class="menos">−</button>
+                    <button class="mas">+</button>
+                    <button class="reiniciar">Reiniciar</button>
+                </div>
+            </section>
+        </div>
+        <p class="pista">Abre <code>script.js</code> para leer el código comentado.</p>
+    </main>
+
+    <!-- Código JavaScript del ejemplo: va al final para que el HTML ya exista al ejecutarse -->
+    <script src="script.js"></script>
+</body>
+</html>

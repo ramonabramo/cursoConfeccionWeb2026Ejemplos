@@ -1,0 +1,77 @@
+/* ============================================================
+   ESTILOS DEL EJEMPLO
+   Hoja de estilos sencilla: no hace falta modificarla para
+   entender las clases de JavaScript. Está comentada por si
+   quieres cambiar colores o tamaños.
+   ============================================================ */
+
+/* Variables: colores que se reutilizan en toda la hoja */
+:root {
+    --verde: #1d8158;
+    --oscuro: #12333f;
+    --claro: #f2f5f6;
+    --borde: #d5dee3;
+}
+
+/* Estilo general de la página */
+body {
+    font-family: Arial, sans-serif;
+    background: var(--claro);
+    color: var(--oscuro);
+    margin: 0;
+    padding: 30px 16px;
+}
+
+/* Tarjeta blanca centrada que contiene el ejemplo */
+.tarjeta {
+    background: #ffffff;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 26px 30px;
+}
+
+h1 { font-size: 24px; margin: 0 0 8px; color: var(--verde); }
+h2 { font-size: 17px; margin: 22px 0 8px; }
+
+/* Texto de explicación */
+.descripcion { line-height: 1.5; margin: 0 0 6px; }
+.pista { font-size: 14px; color: #5d6b72; line-height: 1.5; }
+
+/* Formulario: campo de texto y botón en la misma fila */
+.formulario { display: flex; gap: 8px; margin-top: 16px; }
+.formulario input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 15px;
+}
+button {
+    padding: 9px 14px;
+    border: none;
+    border-radius: 6px;
+    background: var(--verde);
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover { background: var(--oscuro); }
+
+/* Lista de tareas */
+.lista { list-style: none; padding: 0; margin: 16px 0 8px; border-top: 1px solid var(--borde); }
+.lista li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--borde);
+}
+.lista li span { cursor: pointer; flex: 1; }
+
+/* Tarea marcada como hecha: texto tachado y apagado */
+.lista li.hecha span { text-decoration: line-through; color: #94a3b8; }
+.lista li button { background: #fee2e2; color: #991b1b; }
+
+.resumen { font-weight: bold; color: var(--verde); margin: 6px 0; }

@@ -1,0 +1,19 @@
+PRÁCTICAS · CLASES EN JAVASCRIPT
+=================================
+
+Cada práctica está en su propia carpeta con tres archivos:
+
+  index.html  -> YA REALIZADO (no lo modifiques)
+  estilos.css -> YA REALIZADO (no lo modifiques)
+  script.js   -> LO ÚNICO QUE TIENES QUE ESCRIBIR
+
+En la cabecera de script.js encontrarás el ENUNCIADO y la lista de PASOS (TODO).
+Dentro del archivo, cada paso tiene su propio comentario "TODO PASO n".
+
+CÓMO TRABAJAR
+1. Copia esta carpeta "practicas" dentro de C:\laragon\www\js\clases\
+2. Arranca Apache en Laragon (Iniciar todo).
+3. Abre en el navegador:  http://localhost/js/clases/practicas/
+4. Abre la carpeta de la práctica en Visual Studio Code y trabaja en script.js.
+5. Guarda con Ctrl + S y recarga la página (F5) tras cada paso.
+6. Si algo falla, abre la consola del navegador (F12) y lee el mensaje de error.

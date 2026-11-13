@@ -1,0 +1,18 @@
+EJEMPLOS · CLASES EN JAVASCRIPT
+================================
+
+Cada ejemplo está en su propia carpeta y contiene tres archivos:
+
+  index.html  -> la estructura de la página
+  estilos.css -> el aspecto (comentado)
+  script.js   -> el código JavaScript (comentado paso a paso)
+
+CÓMO USARLOS
+1. Copia esta carpeta "ejemplos" dentro de C:\laragon\www\js\clases\
+2. Arranca Apache en Laragon (Iniciar todo).
+3. Abre en el navegador:  http://localhost/js/clases/ejemplos/
+4. Pulsa sobre un ejemplo, abre su script.js en Visual Studio Code
+   y lee los comentarios mientras pruebas la página.
+5. Abre la consola del navegador (F12) para ver los mismos resultados.
+
+Consejo: cambia valores en script.js, guarda y recarga la página.

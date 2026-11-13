@@ -1,0 +1,96 @@
+/* ============================================================
+   ESTILOS DE LA PRÁCTICA (ya realizados: NO hay que modificarlos)
+   ============================================================ */
+
+/* Variables: colores reutilizables en toda la hoja */
+:root {
+    --verde: #1d8158;
+    --oscuro: #12333f;
+    --claro: #f2f5f6;
+    --borde: #d5dee3;
+    --error: #b00020;
+}
+
+/* Estilo general de la página */
+body {
+    font-family: Arial, sans-serif;
+    background: var(--claro);
+    color: var(--oscuro);
+    margin: 0;
+    padding: 30px 16px;
+}
+
+/* Tarjeta blanca centrada que contiene la aplicación */
+.app {
+    background: #ffffff;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 26px 30px;
+}
+h1 { font-size: 24px; margin: 0 0 6px; color: var(--verde); }
+h2 { font-size: 17px; margin: 18px 0 8px; }
+.subtitulo { color: #5d6b72; margin: 0 0 16px; font-size: 14px; }
+
+/* Formularios: campos en fila que se ajustan al ancho disponible */
+.formulario { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.formulario input, .formulario select {
+    flex: 1 1 120px;
+    padding: 10px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 14px;
+}
+.buscador {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 6px 0 12px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Botones */
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background: var(--verde);
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover { background: var(--oscuro); }
+button.secundario { background: #64748b; }
+
+/* Mensajes de error y resumen */
+.mensaje { color: var(--error); min-height: 20px; margin: 6px 0; font-size: 14px; }
+.resumen { font-weight: bold; color: var(--verde); margin: 12px 0 0; }
+
+/* Lista de tarjetas (cada elemento lo crea JavaScript) */
+.lista { display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+.lista.rejilla { display: grid; grid-template-columns: 1fr 1fr; }
+.tarjeta-item {
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+.tarjeta-item p { margin: 4px 0 0; font-size: 14px; color: #5d6b72; }
+.acciones { display: flex; gap: 6px; margin-top: 10px; }
+.acciones button { padding: 6px 12px; font-size: 13px; }
+
+/* Botones de filtro */
+.filtros { display: flex; gap: 6px; margin: 8px 0; }
+.filtros button { background: #e2e8f0; color: var(--oscuro); }
+.filtros button.activo { background: var(--verde); color: #ffffff; }
+
+/* Cuenta bancaria */
+.saldo-grande { font-size: 22px; font-weight: bold; margin: 6px 0 12px; }
+.lista-simple { padding-left: 20px; margin: 6px 0; font-size: 14px; }
+
+/* Totales del carrito */
+.totales { text-align: right; border-top: 1px solid var(--borde); margin-top: 8px; padding-top: 4px; }
+.totales p { margin: 4px 0; }
+.totales .total { font-size: 19px; }

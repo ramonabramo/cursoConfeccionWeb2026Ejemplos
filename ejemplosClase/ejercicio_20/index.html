@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 20 · Clases en JavaScript (POO) - Ramón Abramo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #090d16;
+      --bg-card: #131b2e;
+      --bg-card-hover: #1b2640;
+      --border: #232f48;
+      --border-light: #334155;
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.25);
+      --accent: #818cf8;
+      --accent-purple: #c084fc;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono: 'Fira Code', Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      padding: 2.5rem 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .contenedor-portal {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    /* CABECERA */
+    .cabecera-portal {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cabecera-portal::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc, #10b981);
+    }
+
+    .meta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--primary);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitulo {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      max-width: 860px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .autor-info {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    /* MÉTRICAS */
+    .metricas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .metrica-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .metrica-numero {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: var(--font-mono);
+    }
+
+    .metrica-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* SECCIONES */
+    .seccion-bloque {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .seccion-titulo {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    .seccion-titulo h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .seccion-conteo {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* GRIDS DE TARJETAS */
+    .grid-tarjetas {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .tarjeta {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    .tarjeta:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      background: var(--bg-card-hover);
+    }
+
+    .tarjeta-icono {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .tarjeta-cuerpo {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .tarjeta-etiqueta {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+      width: fit-content;
+    }
+
+    .etiqueta-pdf {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--primary);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .etiqueta-ejemplo {
+      background: rgba(192, 132, 252, 0.15);
+      color: var(--accent-purple);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+    }
+
+    .etiqueta-practica {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--success);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .tarjeta h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .tarjeta p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .tarjeta-acciones {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-enlace {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.5rem 0.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-pdf {
+      background: #0284c7;
+      color: #fff;
+    }
+    .btn-pdf:hover { background: #0369a1; }
+
+    .btn-app {
+      background: #1e293b;
+      color: #38bdf8;
+      border: 1px solid var(--border-light);
+    }
+    .btn-app:hover {
+      background: #334155;
+      color: #fff;
+    }
+
+    .btn-solucion {
+      background: #1e293b;
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .btn-solucion:hover {
+      background: #10b981;
+      color: #fff;
+    }
+
+    /* PIE */
+    .pie-portal {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .pie-enlaces {
+      margin-top: 0.75rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .pie-enlaces a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .pie-enlaces a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor-portal">
+
+    <!-- CABECERA -->
+    <header class="cabecera-portal">
+      <div class="meta-badge">
+        <span>🏛️ Módulo JS · Certificado de Profesionalidad IFCD0110</span>
+      </div>
+      <h1>Ejercicio 20: Clases en JavaScript (POO)</h1>
+      <p class="subtitulo">
+        Inmersión completa en la Programación Orientada a Objetos en JavaScript (ES6+ / ES2022): plantillas y constructores, métodos y enlace con <code>this</code>, validación mediante getters/setters, campos privados estándar <code>#</code>, miembros estáticos <code>static</code>, herencia con <code>extends</code> y <code>super()</code>, composición, serialización JSON y componentes reactivos en el DOM.
+      </p>
+      <div class="autor-info">
+        <span>👨‍🏫 Profesor: <strong>Ramón Abramo</strong></span>
+        <span>📍 <strong>ALPE Formación · Santander (Cantabria)</strong></span>
+        <span>📅 Curso 2026</span>
+      </div>
+
+      <!-- MÉTRICAS -->
+      <div class="metricas-grid">
+        <div class="metrica-card">
+          <div class="metrica-numero">12</div>
+          <div class="metrica-label">Ejemplos Paso a Paso</div>
+        </div>
+        <div class="metrica-card">
+          <div class="metrica-numero">6</div>
+          <div class="metrica-label">Prácticas Guiadas</div>
+        </div>
+        <div class="metrica-card">
+          <div class="metrica-numero">2</div>
+          <div class="metrica-label">Manuales PDF Oficiales</div>
+        </div>
+        <div class="metrica-card">
+          <div class="metrica-numero">100%</div>
+          <div class="metrica-label">Soluciones Incluidas</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECCIÓN: MANUALES EN PDF -->
+    <section class="seccion-bloque">
+      <div class="seccion-titulo">
+        <h2>📄 Documentación Oficial en PDF</h2>
+        <span class="seccion-conteo">60 páginas en total</span>
+      </div>
+      <div class="grid-tarjetas">
+        
+        <div class="tarjeta">
+          <div class="tarjeta-icono">📘</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-pdf">Manual Teórico (36 págs)</span>
+            <h3>Manual de Clases en JavaScript</h3>
+            <p>Guía de referencia completa con 13 capítulos: anatomía, constructor, métodos, getters/setters, campos privados (#), static, herencia, composición, JSON y DOM.</p>
+            <div class="tarjeta-acciones">
+              <a href="manuales/Manual_Clases_JavaScript.pdf" target="_blank" class="btn-enlace btn-pdf">📖 Abrir Manual PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-icono">🛠️</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-pdf">Cuaderno de Trabajo (24 págs)</span>
+            <h3>Prácticas Guiadas: Clases en JavaScript</h3>
+            <p>Cuaderno práctico para el alumno con 6 ejercicios detallados paso a paso con lista de tareas TODO, casos de prueba y criterios de corrección.</p>
+            <div class="tarjeta-acciones">
+              <a href="manuales/Practicas_Guiadas_Clases_JavaScript.pdf" target="_blank" class="btn-enlace btn-pdf">📝 Abrir Cuaderno PDF</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN: EJEMPLOS INTERACTIVOS -->
+    <section class="seccion-bloque">
+      <div class="seccion-titulo">
+        <h2>📚 12 Ejemplos Didácticos del Manual</h2>
+        <span class="seccion-conteo">HTML + CSS + JS comentados</span>
+      </div>
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h3 style="color: #fff; margin-bottom: 0.25rem;">Índice y Acceso a los 12 Ejemplos</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Desde <code>ejemplo-01-primera-clase</code> hasta <code>ejemplo-12-clases-y-dom-tareas</code>.</p>
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+          <a href="ejemplos/index.html" class="btn-enlace btn-pdf">🚀 Abrir Índice de Ejemplos</a>
+          <a href="ejemplos/README.md" class="btn-enlace btn-app">📋 Ver Documentación de Ejemplos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: PRÁCTICAS GUIADAS -->
+    <section class="seccion-bloque">
+      <div class="seccion-titulo">
+        <h2>🧪 6 Prácticas Guiadas para el Alumnado</h2>
+        <span class="seccion-conteo">Plantillas con TODOs + Soluciones oficiales</span>
+      </div>
+      <div class="grid-tarjetas">
+
+        <div class="tarjeta">
+          <div class="tarjeta-icono">🚗</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-practica">Práctica 01</span>
+            <h3>Garaje de Coches</h3>
+            <p>Clase <code>Coche</code>, constructor, método <code>recorrer(km)</code>, getter <code>antiguedad</code> y renderizado dinámico en tarjetas.</p>
+            <div class="tarjeta-acciones">
+              <a href="practicas/practica-01-garaje-de-coches/index.html" class="btn-enlace btn-app">💻 Abrir Práctica</a>
+              <a href="practicas/soluciones_profesor/practica-01-garaje-de-coches/script.js" target="_blank" class="btn-enlace btn-solucion">💡 Solución JS</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-icono">🔐</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-practica">Práctica 02</span>
+            <h3>Cuenta Bancaria Segura</h3>
+            <p>Campos privados <code>#saldo</code> y <code>#pin</code>, validaciones con <code>throw new Error()</code> y captura en UI con <code>try...catch</code>.</p>
+            <div class="tarjeta-acciones">
+              <a href="practicas/practica-02-cuenta-segura/index.html" class="btn-enlace btn-app">💻 Abrir Práctica</a>
+              <a href="practicas/soluciones_profesor/practica-02-cuenta-segura/script.js" target="_blank" class="btn-enlace btn-solucion">💡 Solución JS</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-icono">📐</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-practica">Práctica 03</span>
+            <h3>Figuras Geométricas</h3>
+            <p>Herencia con <code>extends</code> y <code>super()</code>, polimorfismo en <code>area()</code> / <code>perimetro()</code> y estático <code>Figura.comparar()</code>.</p>
+            <div class="tarjeta-acciones">
+              <a href="practicas/practica-03-figuras-geometricas/index.html" class="btn-enlace btn-app">💻 Abrir Práctica</a>
+              <a href="practicas/soluciones_profesor/practica-03-figuras-geometricas/script.js" target="_blank" class="btn-enlace btn-solucion">💡 Solución JS</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-icono">📖</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-practica">Práctica 04</span>
+            <h3>Biblioteca de Libros</h3>
+            <p>Composición de clases <code>Libro</code> y <code>Biblioteca</code>, préstamos, devoluciones, búsquedas con filtros y método <code>toString()</code>.</p>
+            <div class="tarjeta-acciones">
+              <a href="practicas/practica-04-biblioteca/index.html" class="btn-enlace btn-app">💻 Abrir Práctica</a>
+              <a href="practicas/soluciones_profesor/practica-04-biblioteca/script.js" target="_blank" class="btn-enlace btn-solucion">💡 Solución JS</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-icono">📝</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-practica">Práctica 05</span>
+            <h3>Gestor de Tareas con JSON</h3>
+            <p>Clases <code>Tarea</code> y <code>GestorTareas</code>, serialización con <code>toJSON()</code>, factoría <code>static fromJSON()</code> y persistencia en <code>localStorage</code>.</p>
+            <div class="tarjeta-acciones">
+              <a href="practicas/practica-05-gestor-de-tareas/index.html" class="btn-enlace btn-app">💻 Abrir Práctica</a>
+              <a href="practicas/soluciones_profesor/practica-05-gestor-de-tareas/script.js" target="_blank" class="btn-enlace btn-solucion">💡 Solución JS</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta">
+          <div class="tarjeta-icono">🛒</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-practica">Práctica 06 (Reto)</span>
+            <h3>Tienda con Carrito</h3>
+            <p>Herencia física/digital, composición con <code>LineaCarrito</code> y <code>Carrito</code>, portes de envío, descuentos y cálculo total con getters.</p>
+            <div class="tarjeta-acciones">
+              <a href="practicas/practica-06-tienda-con-carrito/index.html" class="btn-enlace btn-app">💻 Abrir Práctica</a>
+              <a href="practicas/soluciones_profesor/practica-06-tienda-con-carrito/script.js" target="_blank" class="btn-enlace btn-solucion">💡 Solución JS</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PIE -->
+    <footer class="pie-portal">
+      <p>Curso de Confección y Publicación de Páginas Web (IFCD0110) · Santander 2026</p>
+      <div class="pie-enlaces">
+        <a href="../index.html">⬅️ Volver a la raíz del curso (Iniciales)</a>
+        <a href="README.md">📖 Documentación Ejercicio 20</a>
+        <a href="ejemplos/index.html">📚 Índice de Ejemplos</a>
+        <a href="practicas/index.html">🧪 Índice de Prácticas</a>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

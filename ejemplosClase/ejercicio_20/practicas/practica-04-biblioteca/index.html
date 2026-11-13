@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Práctica 04 · Biblioteca de libros</title>
+    <!-- Hoja de estilos ya realizada -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <main class="app">
+        <h1>Biblioteca de libros</h1>
+        <p class="subtitulo">Práctica 04 · Colecciones de objetos, composición y toString()</p>
+        <form id="formLibro" class="formulario">
+            <input type="text" id="inpTitulo" placeholder="Título" required>
+            <input type="text" id="inpAutor" placeholder="Autor" required>
+            <input type="number" id="inpAnio" placeholder="Año" required>
+            <button type="submit">Añadir libro</button>
+        </form>
+        <input type="search" id="inpBuscar" class="buscador" placeholder="Buscar por título o autor...">
+        <div id="listaLibros" class="lista"></div>
+        <p id="resumen" class="resumen"></p>
+    </main>
+
+    <!-- El código de esta práctica va en script.js (es lo único que debes escribir) -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+SOLUCIONES DEL PROFESOR
+=======================
+
+Cada carpeta contiene el script.js resuelto de la práctica correspondiente.
+Para probar una solución, copia su script.js sobre el de la carpeta de la práctica.

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Práctica 02 · Cuenta bancaria segura</title>
+    <!-- Hoja de estilos ya realizada -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <main class="app">
+        <h1>Cuenta bancaria segura</h1>
+        <p class="subtitulo">Práctica 02 · Campos privados, getters y errores controlados</p>
+        <h2 id="titular"></h2>
+        <p class="saldo-grande">Saldo: <span id="saldo">0.00</span> €</p>
+        <div class="formulario">
+            <input type="number" id="inpImporte" placeholder="Importe (€)" min="0" step="0.01">
+            <input type="password" id="inpPin" placeholder="PIN (solo para retirar)">
+        </div>
+        <div class="formulario">
+            <button id="btnIngresar">Ingresar</button>
+            <button id="btnRetirar" class="secundario">Retirar</button>
+        </div>
+        <p id="mensaje" class="mensaje"></p>
+        <h2>Historial</h2>
+        <ul id="historial" class="lista-simple"></ul>
+    </main>
+
+    <!-- El código de esta práctica va en script.js (es lo único que debes escribir) -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Práctica 01 · Garaje de coches</title>
+    <!-- Hoja de estilos ya realizada -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <main class="app">
+        <h1>Garaje de coches</h1>
+        <p class="subtitulo">Práctica 01 · Clases, constructor, métodos y getters</p>
+        <form id="formCoche" class="formulario">
+            <input type="text" id="inpMarca" placeholder="Marca" required>
+            <input type="text" id="inpModelo" placeholder="Modelo" required>
+            <input type="number" id="inpAnio" placeholder="Año" required>
+            <input type="number" id="inpKm" placeholder="Km" value="0">
+            <button type="submit">Añadir coche</button>
+        </form>
+        <p id="mensaje" class="mensaje"></p>
+        <div id="listaCoches" class="lista"></div>
+        <p id="resumen" class="resumen"></p>
+    </main>
+
+    <!-- El código de esta práctica va en script.js (es lo único que debes escribir) -->
+    <script src="script.js"></script>
+</body>
+</html>

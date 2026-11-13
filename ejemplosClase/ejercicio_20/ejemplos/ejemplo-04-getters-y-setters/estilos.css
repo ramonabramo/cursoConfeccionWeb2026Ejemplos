@@ -1,0 +1,53 @@
+/* ============================================================
+   ESTILOS DEL EJEMPLO
+   Hoja de estilos sencilla: no hace falta modificarla para
+   entender las clases de JavaScript. Está comentada por si
+   quieres cambiar colores o tamaños.
+   ============================================================ */
+
+/* Variables: colores que se reutilizan en toda la hoja */
+:root {
+    --verde: #1d8158;
+    --oscuro: #12333f;
+    --claro: #f2f5f6;
+    --borde: #d5dee3;
+}
+
+/* Estilo general de la página */
+body {
+    font-family: Arial, sans-serif;
+    background: var(--claro);
+    color: var(--oscuro);
+    margin: 0;
+    padding: 30px 16px;
+}
+
+/* Tarjeta blanca centrada que contiene el ejemplo */
+.tarjeta {
+    background: #ffffff;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 26px 30px;
+}
+
+h1 { font-size: 24px; margin: 0 0 8px; color: var(--verde); }
+h2 { font-size: 17px; margin: 22px 0 8px; }
+
+/* Texto de explicación */
+.descripcion { line-height: 1.5; margin: 0 0 6px; }
+.pista { font-size: 14px; color: #5d6b72; line-height: 1.5; }
+
+/* Panel donde el script escribe los resultados (equivale a la consola) */
+#salida {
+    background: var(--oscuro);
+    color: #d9f2e6;
+    border-radius: 8px;
+    padding: 16px 18px;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 60px;
+    white-space: pre-wrap;      /* respeta los saltos de línea del texto */
+}

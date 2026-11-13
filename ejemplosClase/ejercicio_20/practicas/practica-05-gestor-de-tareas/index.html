@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Práctica 05 · Gestor de tareas con JSON</title>
+    <!-- Hoja de estilos ya realizada -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <main class="app">
+        <h1>Gestor de tareas con JSON</h1>
+        <p class="subtitulo">Práctica 05 · Clases, JSON, toJSON(), static y localStorage</p>
+        <form id="formTarea" class="formulario">
+            <input type="text" id="inpTexto" placeholder="Nueva tarea..." required>
+            <select id="selPrioridad">
+                <option value="alta">Alta</option>
+                <option value="media" selected>Media</option>
+                <option value="baja">Baja</option>
+            </select>
+            <button type="submit">Añadir</button>
+        </form>
+        <div class="filtros">
+            <button data-filtro="todas" class="activo">Todas</button>
+            <button data-filtro="pendientes">Pendientes</button>
+            <button data-filtro="hechas">Hechas</button>
+        </div>
+        <div id="listaTareas" class="lista"></div>
+        <p id="resumen" class="resumen"></p>
+    </main>
+
+    <!-- El código de esta práctica va en script.js (es lo único que debes escribir) -->
+    <script src="script.js"></script>
+</body>
+</html>
