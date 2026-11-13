@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - MANUAL TEMA 02: TIPOS DE VALORES Y NOMBRES DE CLAVE
+ * EJERCICIO 18 - MANUAL TEMA 02: TIPOS DE VALORES Y NOMBRES DE CLAVE
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web · Profesor: Ramón Abramo
  * ============================================================================

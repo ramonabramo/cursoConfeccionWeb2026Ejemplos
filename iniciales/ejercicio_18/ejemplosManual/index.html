@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplos del Manual Oficial · Objetos Literales - Ramón Abramo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="contenedor-portal">
+
+    <!-- CABECERA -->
+    <header class="cabecera-portal">
+      <div class="meta-badge">
+        <span>📘 Módulo JS · Manual Oficial de Referencia</span>
+      </div>
+      <h1>📦 Ejemplos del Manual: Objetos Literales</h1>
+      <p class="subtitulo">
+        Colección íntegra de los <strong>17 ejemplos sencillos y directos</strong> mostrados en el <em>Manual de JavaScript · Objetos literales</em> (Prof. Ramón Abramo). Cada demostración incluye su código fuente original, salida de consola y ejecución interactiva.
+      </p>
+      <div class="autor-info">
+        <span>👨‍🏫 Profesor: <strong>Ramón Abramo</strong></span>
+        <span>📍 <strong>Santander (Cantabria)</strong></span>
+        <span>📄 Referencia: <strong>Manual de 27 páginas</strong></span>
+      </div>
+      <div class="acciones-cabecera">
+        <a href="../manuales/Manual_Objetos_Literales_JavaScript.pdf" target="_blank" class="btn-pdf">📖 Abrir Manual PDF Oficial</a>
+        <a href="../index.html" class="btn-volver">⬅️ Volver al Portal del Ejercicio 18</a>
+      </div>
+    </header>
+
+    <!-- BARRA DE BÚSQUEDA -->
+    <div class="barra-filtros">
+      <div class="buscador-box">
+        <span class="lupa">🔍</span>
+        <input type="text" id="buscadorInput" placeholder="Buscar ejemplo por nombre, archivo o tema (ej. this, json, copia, array)...">
+      </div>
+      <div class="contador-ejemplos">
+        <span id="conteoVisible">17</span> de 17 ejemplos
+      </div>
+    </div>
+
+    <!-- GRID DE TARJETAS -->
+    <main class="grid-tarjetas" id="gridTarjetas">
+      
+      <div class="tarjeta-ejemplo" data-tema="02 · crear objetos">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 01</span>
+          <span class="badge-pag">Pág. 5</span>
+        </div>
+        <h3 class="tarjeta-titulo">Crear Objetos (Tres Formas)</h3>
+        <div class="archivo-pill"><code>crear-objetos.js</code></div>
+        <p class="tarjeta-desc">Tres formas habituales de crear objetos: directa, objeto vacío con asignación posterior y sintaxis abreviada ES6 a partir de variables existentes.</p>
+        <div class="tarjeta-pie">
+          <a href="01_crear_objetos/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="01_crear_objetos/crear-objetos.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="02 · valores">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 02</span>
+          <span class="badge-pag">Pág. 6</span>
+        </div>
+        <h3 class="tarjeta-titulo">Tipos de Valores en Propiedades</h3>
+        <div class="archivo-pill"><code>tipos-de-valores.js</code></div>
+        <p class="tarjeta-desc">El valor de una propiedad puede ser cualquier tipo: texto, número, booleano, null, array, objeto o función (método).</p>
+        <div class="tarjeta-pie">
+          <a href="02_tipos_de_valores/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="02_tipos_de_valores/tipos-de-valores.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="02 · nombres de clave">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 03</span>
+          <span class="badge-pag">Pág. 7</span>
+        </div>
+        <h3 class="tarjeta-titulo">Nombres de Clave y Comillas</h3>
+        <div class="archivo-pill"><code>nombres-de-clave.js</code></div>
+        <p class="tarjeta-desc">Claves como identificador válido, claves con espacios o guiones entre comillas, claves numéricas y claves calculadas entre corchetes [campo].</p>
+        <div class="tarjeta-pie">
+          <a href="03_nombres_de_clave/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="03_nombres_de_clave/nombres-de-clave.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="03 · leer propiedades">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 04</span>
+          <span class="badge-pag">Pág. 8</span>
+        </div>
+        <h3 class="tarjeta-titulo">Lectura con Punto, Corchetes y ?.</h3>
+        <div class="archivo-pill"><code>leer-propiedades.js</code></div>
+        <p class="tarjeta-desc">Lectura con punto obj.clave, con corchetes obj[clave], comprobación con 'in' y operador de encadenamiento opcional ?.</p>
+        <div class="tarjeta-pie">
+          <a href="04_leer_propiedades/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="04_leer_propiedades/leer-propiedades.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="04 · modificar, añadir y borrar">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 05</span>
+          <span class="badge-pag">Pág. 9</span>
+        </div>
+        <h3 class="tarjeta-titulo">Modificar, Añadir, Borrar y Freeze</h3>
+        <div class="archivo-pill"><code>modificar-objetos.js</code></div>
+        <p class="tarjeta-desc">Mutabilidad de objetos: cambiar valores, añadir claves, borrar con delete, const vs inmutabilidad y Object.freeze().</p>
+        <div class="tarjeta-pie">
+          <a href="05_modificar_objetos/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="05_modificar_objetos/modificar-objetos.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="05 · métodos y this">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 06</span>
+          <span class="badge-pag">Pág. 10</span>
+        </div>
+        <h3 class="tarjeta-titulo">Métodos y la Palabra Clave this</h3>
+        <div class="archivo-pill"><code>metodos-y-this.js</code></div>
+        <p class="tarjeta-desc">Funciones dentro de objetos que operan sobre sus propios datos mediante this (cuenta con ingresar y retirar).</p>
+        <div class="tarjeta-pie">
+          <a href="06_metodos_y_this/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="06_metodos_y_this/metodos-y-this.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="05 · errores con this">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 07</span>
+          <span class="badge-pag">Pág. 11</span>
+        </div>
+        <h3 class="tarjeta-titulo">Errores Típicos con this y Solución con bind</h3>
+        <div class="archivo-pill"><code>errores-con-this.js</code></div>
+        <p class="tarjeta-desc">Por qué las funciones flecha rompen this en métodos, pérdida de contexto al separar el método y fijación con .bind().</p>
+        <div class="tarjeta-pie">
+          <a href="07_errores_con_this/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="07_errores_con_this/errores-con-this.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="06 · objetos anidados">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 08</span>
+          <span class="badge-pag">Pág. 12</span>
+        </div>
+        <h3 class="tarjeta-titulo">Objetos Anidados y Arrays Internos</h3>
+        <div class="archivo-pill"><code>objetos-anidados.js</code></div>
+        <p class="tarjeta-desc">Objetos y arrays dentro de objetos: navegación jerárquica, métodos que operan sobre arrays internos y mutación.</p>
+        <div class="tarjeta-pie">
+          <a href="08_objetos_anidados/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="08_objetos_anidados/objetos-anidados.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="07 · arrays de objetos">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 09</span>
+          <span class="badge-pag">Pág. 13</span>
+        </div>
+        <h3 class="tarjeta-titulo">Array de Objetos y Métodos de Colección</h3>
+        <div class="archivo-pill"><code>array-de-objetos.js</code></div>
+        <p class="tarjeta-desc">Colección de entidades (catálogo) y operaciones clave con for...of, filter, map, find y reduce.</p>
+        <div class="tarjeta-pie">
+          <a href="09_array_de_objetos/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="09_array_de_objetos/array-de-objetos.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="08 · recorrer un objeto">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 10</span>
+          <span class="badge-pag">Pág. 14</span>
+        </div>
+        <h3 class="tarjeta-titulo">Recorrer un Objeto (keys, values, entries)</h3>
+        <div class="archivo-pill"><code>recorrer-un-objeto.js</code></div>
+        <p class="tarjeta-desc">Técnicas de introspección: Object.keys(), Object.values(), Object.entries(), bucle for...in y desestructuración en for...of.</p>
+        <div class="tarjeta-pie">
+          <a href="10_recorrer_un_objeto/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="10_recorrer_un_objeto/recorrer-un-objeto.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="09 · referencias y copias">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 11</span>
+          <span class="badge-pag">Pág. 15</span>
+        </div>
+        <h3 class="tarjeta-titulo">Referencias vs Copia Superficial y Profunda</h3>
+        <div class="archivo-pill"><code>copiar-objetos.js</code></div>
+        <p class="tarjeta-desc">Diferencia crítica entre asignación por referencia b = a, copia superficial {...a} y copia profunda structuredClone(a).</p>
+        <div class="tarjeta-pie">
+          <a href="11_copiar_objetos/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="11_copiar_objetos/copiar-objetos.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="10 · desestructuración y spread">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 12</span>
+          <span class="badge-pag">Pág. 16</span>
+        </div>
+        <h3 class="tarjeta-titulo">Desestructuración y Operador Spread</h3>
+        <div class="archivo-pill"><code>desestructuracion-y-spread.js</code></div>
+        <p class="tarjeta-desc">Extracción limpia de propiedades, alias, valores por defecto, combinación de objetos con spread y desestructuración en parámetros.</p>
+        <div class="tarjeta-pie">
+          <a href="12_desestructuracion_y_spread/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="12_desestructuracion_y_spread/desestructuracion-y-spread.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="11 · getters, setters y privacidad">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 13</span>
+          <span class="badge-pag">Pág. 17</span>
+        </div>
+        <h3 class="tarjeta-titulo">Getters y Setters (Propiedades Computadas)</h3>
+        <div class="archivo-pill"><code>getters-y-setters.js</code></div>
+        <p class="tarjeta-desc">Propiedades computadas que se leen y asignan como propiedades convencionales ejecutando código interno.</p>
+        <div class="tarjeta-pie">
+          <a href="13_getters_y_setters/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="13_getters_y_setters/getters-y-setters.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="11 · privacidad y clausuras">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 14</span>
+          <span class="badge-pag">Pág. 18</span>
+        </div>
+        <h3 class="tarjeta-titulo">Privacidad y Clausuras (Closures)</h3>
+        <div class="archivo-pill"><code>privacidad.js</code></div>
+        <p class="tarjeta-desc">Convención visual del guion bajo frente a verdadera protección de datos mediante IIFE (función autoejecutable) y clausura léxica.</p>
+        <div class="tarjeta-pie">
+          <a href="14_privacidad/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="14_privacidad/privacidad.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="12 · convertir con json">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 15</span>
+          <span class="badge-pag">Pág. 20</span>
+        </div>
+        <h3 class="tarjeta-titulo">Serialización con JSON.stringify y parse</h3>
+        <div class="archivo-pill"><code>objeto-a-json.js</code></div>
+        <p class="tarjeta-desc">Conversión de objeto a texto con JSON.stringify, reconstrucción con JSON.parse e indentación visual con sangría de espacios.</p>
+        <div class="tarjeta-pie">
+          <a href="15_objeto_a_json/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="15_objeto_a_json/objeto-a-json.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="12 · lo que json pierde">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 16</span>
+          <span class="badge-pag">Pág. 21</span>
+        </div>
+        <h3 class="tarjeta-titulo">Lo que JSON Pierde (Funciones, Fechas y Errores)</h3>
+        <div class="archivo-pill"><code>lo-que-json-pierde.js</code></div>
+        <p class="tarjeta-desc">Qué datos se descartan al serializar (funciones, undefined), conversión de fechas a texto y SyntaxError con comillas simples.</p>
+        <div class="tarjeta-pie">
+          <a href="16_lo_que_json_pierde/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="16_lo_que_json_pierde/lo-que-json-pierde.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+      <div class="tarjeta-ejemplo" data-tema="12 · json y localstorage">
+        <div class="tarjeta-cabecera">
+          <span class="badge-num">Ejemplo 17</span>
+          <span class="badge-pag">Pág. 22</span>
+        </div>
+        <h3 class="tarjeta-titulo">Persistencia de Objetos en LocalStorage</h3>
+        <div class="archivo-pill"><code>guardar-en-localstorage.js</code></div>
+        <p class="tarjeta-desc">Almacenamiento persistente en el navegador: transformar objetos en JSON antes de guardar y deserializarlos al recuperar.</p>
+        <div class="tarjeta-pie">
+          <a href="17_guardar_en_localstorage/index.html" class="btn-lanzar">🚀 Ver y Ejecutar</a>
+          <a href="17_guardar_en_localstorage/guardar-en-localstorage.js" target="_blank" class="btn-codigo">📄 Código JS</a>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- PIE -->
+    <footer class="pie-portal">
+      <p>Curso de Confección y Publicación de Páginas Web (IFCD0110) · Santander 2026</p>
+      <p><a href="../index.html">⬅️ Regresar al Ejercicio 18</a> · <a href="../README.md">Documentación General</a></p>
+    </footer>
+
+  </div>
+
+  <script>
+    const buscador = document.getElementById('buscadorInput');
+    const tarjetas = document.querySelectorAll('.tarjeta-ejemplo');
+    const conteo = document.getElementById('conteoVisible');
+
+    buscador.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      let visibles = 0;
+      tarjetas.forEach(t => {
+        const texto = t.textContent.toLowerCase();
+        if (!query || texto.includes(query)) {
+          t.style.display = 'flex';
+          visibles++;
+        } else {
+          t.style.display = 'none';
+        }
+      });
+      conteo.textContent = visibles;
+    });
+  </script>
+</body>
+</html>

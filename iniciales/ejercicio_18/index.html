@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejercicio 19 · Objetos Literales en JavaScript - Ramón Abramo</title>
+  <title>Ejercicio 18 · Objetos Literales en JavaScript - Ramón Abramo</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
         <span class="badge-dot"></span>
         <span>Módulo JS · Certificado de Profesionalidad IFCD0110</span>
       </div>
-      <h1>📦 Ejercicio 19: Objetos en Notación Literal</h1>
+      <h1>📦 Ejercicio 18: Objetos en Notación Literal</h1>
       <p class="subtitulo">
         Portal didáctico completo para el aprendizaje de objetos en JavaScript: anatomía, accesos, mutación, métodos, contexto <code>this</code>, referencias en memoria, desestructuración ES6+, getters/setters, serialización JSON y clausuras privadas.
       </p>
@@ -31,15 +31,15 @@
       <!-- MÉTRICAS RÁPIDAS -->
       <div class="metricas-grid">
         <div class="metrica-card">
-          <div class="metrica-numero">12</div>
-          <div class="metrica-label">Ejemplos Interactivos</div>
+          <div class="metrica-numero">17</div>
+          <div class="metrica-label">Ejemplos del Manual</div>
         </div>
         <div class="metrica-card">
           <div class="metrica-numero">5</div>
           <div class="metrica-label">Prácticas + Reto Final</div>
         </div>
         <div class="metrica-card">
-          <div class="metrica-numero">2</div>
+          <div class="metrica-numero">3</div>
           <div class="metrica-label">Manuales PDF Oficiales</div>
         </div>
         <div class="metrica-card">
@@ -57,17 +57,40 @@
       </div>
       <div class="filtro-botones">
         <button class="filtro-btn activo" data-filtro="todos">Todos</button>
+        <button class="filtro-btn" data-filtro="manual_ejemplos">Ejemplos del Manual (17)</button>
         <button class="filtro-btn" data-filtro="practica">Prácticas (5)</button>
-        <button class="filtro-btn" data-filtro="ejemplo">Ejemplos (12)</button>
-        <button class="filtro-btn" data-filtro="manual">PDFs (2)</button>
+        <button class="filtro-btn" data-filtro="ejemplo">Ejemplos Paso a Paso (12)</button>
+        <button class="filtro-btn" data-filtro="manual">PDFs (3)</button>
       </div>
     </div>
+
+    <!-- SECCIÓN: EJEMPLOS REALES DEL MANUAL OFICIAL (17 EJEMPLOS SENCILLOS) -->
+    <section class="seccion-bloque" data-categoria="manual_ejemplos">
+      <div class="seccion-titulo">
+        <h2>📘 Ejemplos Reales del Manual de Referencia (Manual_Objetos_Literales_JavaScript)</h2>
+        <span class="seccion-conteo">17 códigos directos</span>
+      </div>
+      <div class="grid-tarjetas">
+        <div class="tarjeta tarjeta-pdf" data-tags="manual ejemplos directos sencillos crear tipos nombres leer modificar metodos this anidados array recorrer copiar spread getters privacidad json localstorage" style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(2, 132, 199, 0.12), rgba(168, 85, 247, 0.08)); border: 1px solid rgba(56, 189, 248, 0.35);">
+          <div class="tarjeta-icono">💻</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-pdf">Colección Oficial del Manual</span>
+            <h3>Carpeta ejemplosManual: Los 17 Códigos Sencillos del Manual</h3>
+            <p>Acceso a los 17 ejemplos sencillos del manual de teoría (páginas 5 a 22): desde <code>crear-objetos.js</code> hasta <code>guardar-en-localstorage.js</code>, con su estructura HTML, script limpio y salida por consola.</p>
+            <div class="tarjeta-acciones" style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem;">
+              <a href="ejemplosManual/index.html" class="btn-enlace btn-app">🚀 Abrir Portal de los 17 Ejemplos</a>
+              <a href="ejemplosManual/README.md" class="btn-enlace btn-solucion">📋 Ver Índice de Ejemplos del Manual</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- SECCIÓN: MANUALES Y DOCUMENTACIÓN PDF -->
     <section class="seccion-bloque" data-categoria="manual">
       <div class="seccion-titulo">
         <h2>📄 Documentación y Manuales Oficiales en PDF</h2>
-        <span class="seccion-conteo">2 documentos</span>
+        <span class="seccion-conteo">3 documentos oficiales</span>
       </div>
       <div class="grid-tarjetas">
         
@@ -78,7 +101,7 @@
             <h3>Manual de Objetos Literales en JavaScript</h3>
             <p>Guía de referencia completa con 13 capítulos: anatomía, accesos, objetos anidados, arrays de objetos, métodos, `this`, referencias, desestructuración y clausuras.</p>
             <div class="tarjeta-acciones">
-              <a href="files/Manual_Objetos_Literales_JavaScript.pdf" target="_blank" class="btn-enlace btn-pdf">
+              <a href="manuales/Manual_Objetos_Literales_JavaScript.pdf" target="_blank" class="btn-enlace btn-pdf">
                 <span>📖 Abrir Manual PDF</span>
               </a>
             </div>
@@ -92,8 +115,22 @@
             <h3>Prácticas Guiadas: Objetos en Notación Literal</h3>
             <p>Cuaderno de trabajo para el alumno con 4 prácticas progresivas detalladas paso a paso y 1 reto final con clausuras y saldo blindado.</p>
             <div class="tarjeta-acciones">
-              <a href="files/Practicas_Guiadas_Objetos_Literales_JavaScript.pdf" target="_blank" class="btn-enlace btn-pdf">
+              <a href="manuales/Practicas_Guiadas_Objetos_Literales_JavaScript.pdf" target="_blank" class="btn-enlace btn-pdf">
                 <span>📝 Abrir Guía de Prácticas PDF</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tarjeta tarjeta-pdf" data-tags="manual guia ejemplos a realizar paso a paso enunciados soluciones 12 ejemplos">
+          <div class="tarjeta-icono">📑</div>
+          <div class="tarjeta-cuerpo">
+            <span class="tarjeta-etiqueta etiqueta-pdf">Ejemplos Paso a Paso</span>
+            <h3>Manual de Ejemplos a Realizar: Objetos Literales</h3>
+            <p>Guía didáctica paso a paso de los 12 ejemplos del temario: enunciado oficial, descomposición paso a paso, código fuente completo y consola explicada.</p>
+            <div class="tarjeta-acciones">
+              <a href="manuales/Manual_de_Ejemplos_a_Realizar_Objetos_Literales.pdf" target="_blank" class="btn-enlace btn-pdf">
+                <span>📖 Abrir Guía Paso a Paso PDF</span>
               </a>
             </div>
           </div>
@@ -345,8 +382,9 @@
         <p>Diseño didáctico desarrollado por <strong>Ramón Abramo</strong> · Santander (Cantabria) · 2026</p>
         <div class="pie-enlaces">
           <a href="../index.html">⬅️ Volver a la raíz del curso (Iniciales)</a>
+          <a href="ejemplosManual/index.html">📘 Ejemplos del Manual (17)</a>
           <a href="practicas/README.md">📋 Índice de Prácticas</a>
-          <a href="ejemplos/README.md">📚 Índice de Ejemplos</a>
+          <a href="ejemplos/README.md">📚 Ejemplos Paso a Paso (12)</a>
         </div>
       </div>
     </footer>

@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - PRÁCTICA 3: SOLUCIÓN OFICIAL DEL PROFESOR
+ * EJERCICIO 18 - PRÁCTICA 3: SOLUCIÓN OFICIAL DEL PROFESOR
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web
  * Profesor: Ramón Abramo

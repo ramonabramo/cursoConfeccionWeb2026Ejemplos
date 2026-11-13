@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - PRÁCTICA 2: FICHA DE PERSONAJE
+ * EJERCICIO 18 - PRÁCTICA 2: FICHA DE PERSONAJE
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web
  * Alumno/a: [Escribe aquí tu nombre]

@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - MANUAL TEMA 07: ARRAYS DE OBJETOS (FILTER, MAP, REDUCE)
+ * EJERCICIO 18 - MANUAL TEMA 07: ARRAYS DE OBJETOS (FILTER, MAP, REDUCE)
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web · Profesor: Ramón Abramo
  * ============================================================================

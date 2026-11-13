@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - MANUAL TEMA 04: MODIFICAR, AÑADIR, BORRAR Y CONGELAR
+ * EJERCICIO 18 - MANUAL TEMA 04: MODIFICAR, AÑADIR, BORRAR Y CONGELAR
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web · Profesor: Ramón Abramo
  * ============================================================================

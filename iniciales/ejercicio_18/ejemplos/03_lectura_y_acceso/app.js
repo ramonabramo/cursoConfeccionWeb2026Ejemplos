@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - MANUAL TEMA 03: LECTURA DE PROPIEDADES (PUNTO, CORCHETES Y ?.)
+ * EJERCICIO 18 - MANUAL TEMA 03: LECTURA DE PROPIEDADES (PUNTO, CORCHETES Y ?.)
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web · Profesor: Ramón Abramo
  * ============================================================================

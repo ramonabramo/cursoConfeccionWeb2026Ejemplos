@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - MANUAL TEMA 06: OBJETOS Y ARRAYS DENTRO DE OBJETOS
+ * EJERCICIO 18 - MANUAL TEMA 06: OBJETOS Y ARRAYS DENTRO DE OBJETOS
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web · Profesor: Ramón Abramo
  * ============================================================================

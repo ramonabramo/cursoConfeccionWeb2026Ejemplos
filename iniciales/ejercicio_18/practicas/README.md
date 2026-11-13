@@ -1,4 +1,4 @@
-# 🛠️ Prácticas Guiadas y Reto · Ejercicio 19
+# 🛠️ Prácticas Guiadas y Reto · Ejercicio 18
 
 En este directorio se encuentran los ejercicios prácticos paso a paso correspondientes a la guía didáctica **Prácticas Guiadas: Objetos en Notación Literal en JavaScript** (Profesor Ramón Abramo).
 

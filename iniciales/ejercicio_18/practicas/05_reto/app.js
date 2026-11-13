@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - RETO FINAL: CUENTA BANCARIA CON SALDO PRIVADO
+ * EJERCICIO 18 - RETO FINAL: CUENTA BANCARIA CON SALDO PRIVADO
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web
  * Alumno/a: [Escribe aquí tu nombre]

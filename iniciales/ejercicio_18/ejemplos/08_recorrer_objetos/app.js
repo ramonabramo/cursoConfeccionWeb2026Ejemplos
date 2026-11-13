@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - MANUAL TEMA 08: RECORRER UN OBJETO (KEYS, VALUES, ENTRIES, FOR...IN)
+ * EJERCICIO 18 - MANUAL TEMA 08: RECORRER UN OBJETO (KEYS, VALUES, ENTRIES, FOR...IN)
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web · Profesor: Ramón Abramo
  * ============================================================================

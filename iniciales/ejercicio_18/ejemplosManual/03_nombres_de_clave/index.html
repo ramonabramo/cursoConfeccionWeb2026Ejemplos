@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 03: Nombres de Clave y Comillas · Manual Oficial</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="contenedor">
+    
+    <header class="cabecera-ejemplo">
+      <div class="badge-row">
+        <span class="badge badge-manual">📘 Manual de Referencia</span>
+        <span class="badge badge-pagina">Página 7 de 27</span>
+        <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">02 · Nombres de clave</span>
+      </div>
+      <h1>Ejemplo 03: Nombres de Clave y Comillas</h1>
+      <p class="descripcion">Claves como identificador válido, claves con espacios o guiones entre comillas, claves numéricas y claves calculadas entre corchetes [campo].</p>
+    </header>
+
+    <!-- Ventana de Código -->
+    <div class="ventana-codigo">
+      <div class="barra-titulo">
+        <div class="botones-ventana">
+          <span class="boton-punto punto-rojo"></span>
+          <span class="boton-punto punto-amarillo"></span>
+          <span class="boton-punto punto-verde"></span>
+        </div>
+        <div class="nombre-archivo">nombres-de-clave.js</div>
+        <div class="etiqueta-lenguaje">JavaScript</div>
+      </div>
+      <pre class="codigo-fuente"><code>const especial = {
+  &quot;nombre completo&quot;: &quot;Ana Ruiz&quot;, // espacios: necesita comillas
+  &quot;e-mail&quot;: &quot;ana@ejemplo.com&quot;,   // guion: necesita comillas
+  2024: &quot;año&quot;,                   // un número también vale
+  clase: &quot;A&quot;                     // identificador válido: sin comillas
+};
+
+console.log(especial[&quot;nombre completo&quot;]);
+console.log(especial[&quot;e-mail&quot;]);
+console.log(especial[2024]);
+console.log(especial.clase);
+
+const campo = &quot;color&quot;;
+const camiseta = { talla: &quot;M&quot;, [campo]: &quot;azul&quot; }; // clave calculada
+console.log(camiseta);</code></pre>
+    </div>
+
+    <!-- Panel de Salida en la Consola -->
+    <div class="panel-consola">
+      <div class="consola-cabecera">
+        <span class="consola-titulo">💻 Salida en la Consola (en vivo)</span>
+        <button class="btn btn-secundario" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="document.getElementById('consolaSalida').innerHTML = '';">🧹 Limpiar</button>
+      </div>
+      <div id="consolaSalida" class="consola-salida"></div>
+    </div>
+
+    <!-- Barra de acciones y navegación -->
+    <div class="barra-acciones">
+      <div style="display: flex; gap: 0.5rem;">
+        <button class="btn btn-primario" onclick="location.reload();">🔄 Ejecutar de nuevo</button>
+        <a href="../index.html" class="btn btn-secundario">📂 Volver al Índice de Ejemplos</a>
+      </div>
+      <div style="display: flex; gap: 0.5rem;">
+        <a href="../02_tipos_de_valores/index.html" class="btn btn-secundario">⬅️ Anterior</a>
+        <a href="../04_leer_propiedades/index.html" class="btn btn-secundario">Siguiente ➡️</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

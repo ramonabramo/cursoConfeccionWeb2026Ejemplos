@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 07: Errores Típicos con this y Solución con bind · Manual Oficial</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="contenedor">
+    
+    <header class="cabecera-ejemplo">
+      <div class="badge-row">
+        <span class="badge badge-manual">📘 Manual de Referencia</span>
+        <span class="badge badge-pagina">Página 11 de 27</span>
+        <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">05 · Errores con this</span>
+      </div>
+      <h1>Ejemplo 07: Errores Típicos con this y Solución con bind</h1>
+      <p class="descripcion">Por qué las funciones flecha rompen this en métodos, pérdida de contexto al separar el método y fijación con .bind().</p>
+    </header>
+
+    <!-- Ventana de Código -->
+    <div class="ventana-codigo">
+      <div class="barra-titulo">
+        <div class="botones-ventana">
+          <span class="boton-punto punto-rojo"></span>
+          <span class="boton-punto punto-amarillo"></span>
+          <span class="boton-punto punto-verde"></span>
+        </div>
+        <div class="nombre-archivo">errores-con-this.js</div>
+        <div class="etiqueta-lenguaje">JavaScript</div>
+      </div>
+      <pre class="codigo-fuente"><code>const gato = {
+  nombre: &quot;Misi&quot;,
+  saludarMal: () =&gt; `Soy ${this.nombre}`,             // flecha: this NO es el objeto
+  saludarBien() { return `Soy ${this.nombre}`; }     // método abreviado: correcto
+};
+
+console.log(gato.saludarBien());
+console.log(gato.saludarMal());
+
+// Perder this al separar el método del objeto
+const suelto = gato.saludarBien;
+console.log(suelto());
+
+// Solución: fijar this con bind
+const ligado = gato.saludarBien.bind(gato);
+console.log(ligado());</code></pre>
+    </div>
+
+    <!-- Panel de Salida en la Consola -->
+    <div class="panel-consola">
+      <div class="consola-cabecera">
+        <span class="consola-titulo">💻 Salida en la Consola (en vivo)</span>
+        <button class="btn btn-secundario" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="document.getElementById('consolaSalida').innerHTML = '';">🧹 Limpiar</button>
+      </div>
+      <div id="consolaSalida" class="consola-salida"></div>
+    </div>
+
+    <!-- Barra de acciones y navegación -->
+    <div class="barra-acciones">
+      <div style="display: flex; gap: 0.5rem;">
+        <button class="btn btn-primario" onclick="location.reload();">🔄 Ejecutar de nuevo</button>
+        <a href="../index.html" class="btn btn-secundario">📂 Volver al Índice de Ejemplos</a>
+      </div>
+      <div style="display: flex; gap: 0.5rem;">
+        <a href="../06_metodos_y_this/index.html" class="btn btn-secundario">⬅️ Anterior</a>
+        <a href="../08_objetos_anidados/index.html" class="btn btn-secundario">Siguiente ➡️</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

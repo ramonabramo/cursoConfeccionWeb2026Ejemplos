@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - PRÁCTICA 1: PRIMEROS PASOS CON OBJETOS LITERALES (CONSOLA)
+ * EJERCICIO 18 - PRÁCTICA 1: PRIMEROS PASOS CON OBJETOS LITERALES (CONSOLA)
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web
  * Alumno/a: [Escribe aquí tu nombre]

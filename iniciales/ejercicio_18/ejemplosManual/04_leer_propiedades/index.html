@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 04: Lectura con Punto, Corchetes y ?. · Manual Oficial</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="contenedor">
+    
+    <header class="cabecera-ejemplo">
+      <div class="badge-row">
+        <span class="badge badge-manual">📘 Manual de Referencia</span>
+        <span class="badge badge-pagina">Página 8 de 27</span>
+        <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">03 · Leer propiedades</span>
+      </div>
+      <h1>Ejemplo 04: Lectura con Punto, Corchetes y ?.</h1>
+      <p class="descripcion">Lectura con punto obj.clave, con corchetes obj[clave], comprobación con 'in' y operador de encadenamiento opcional ?.</p>
+    </header>
+
+    <!-- Ventana de Código -->
+    <div class="ventana-codigo">
+      <div class="barra-titulo">
+        <div class="botones-ventana">
+          <span class="boton-punto punto-rojo"></span>
+          <span class="boton-punto punto-amarillo"></span>
+          <span class="boton-punto punto-verde"></span>
+        </div>
+        <div class="nombre-archivo">leer-propiedades.js</div>
+        <div class="etiqueta-lenguaje">JavaScript</div>
+      </div>
+      <pre class="codigo-fuente"><code>const coche = {
+  marca: &quot;Toyota&quot;,
+  modelo: &quot;Yaris&quot;,
+  puertas: 5,
+  extras: { aire: true }
+};
+
+console.log(coche.marca);            // notación de punto
+console.log(coche[&quot;modelo&quot;]);        // notación de corchetes
+const clave = &quot;puertas&quot;;
+console.log(coche[clave]);           // clave guardada en una variable
+
+console.log(coche.color);            // no existe: undefined
+console.log(&quot;marca&quot; in coche);       // ¿existe la clave?
+console.log(&quot;color&quot; in coche);
+console.log(coche.garantia?.anios);  // ?. evita el error si falta garantia</code></pre>
+    </div>
+
+    <!-- Panel de Salida en la Consola -->
+    <div class="panel-consola">
+      <div class="consola-cabecera">
+        <span class="consola-titulo">💻 Salida en la Consola (en vivo)</span>
+        <button class="btn btn-secundario" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="document.getElementById('consolaSalida').innerHTML = '';">🧹 Limpiar</button>
+      </div>
+      <div id="consolaSalida" class="consola-salida"></div>
+    </div>
+
+    <!-- Barra de acciones y navegación -->
+    <div class="barra-acciones">
+      <div style="display: flex; gap: 0.5rem;">
+        <button class="btn btn-primario" onclick="location.reload();">🔄 Ejecutar de nuevo</button>
+        <a href="../index.html" class="btn btn-secundario">📂 Volver al Índice de Ejemplos</a>
+      </div>
+      <div style="display: flex; gap: 0.5rem;">
+        <a href="../03_nombres_de_clave/index.html" class="btn btn-secundario">⬅️ Anterior</a>
+        <a href="../05_modificar_objetos/index.html" class="btn btn-secundario">Siguiente ➡️</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

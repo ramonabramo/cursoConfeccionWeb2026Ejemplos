@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - RETO FINAL: SOLUCIÓN OFICIAL DEL PROFESOR
+ * EJERCICIO 18 - RETO FINAL: SOLUCIÓN OFICIAL DEL PROFESOR
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web
  * Profesor: Ramón Abramo

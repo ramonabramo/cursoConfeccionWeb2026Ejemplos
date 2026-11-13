@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - PRÁCTICA 3: CARRITO DE LA COMPRA CON OBJETOS LITERALES
+ * EJERCICIO 18 - PRÁCTICA 3: CARRITO DE LA COMPRA CON OBJETOS LITERALES
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web
  * Alumno/a: [Escribe aquí tu nombre]

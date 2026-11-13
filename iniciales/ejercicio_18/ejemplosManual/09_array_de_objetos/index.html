@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 09: Array de Objetos y Métodos de Colección · Manual Oficial</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="contenedor">
+    
+    <header class="cabecera-ejemplo">
+      <div class="badge-row">
+        <span class="badge badge-manual">📘 Manual de Referencia</span>
+        <span class="badge badge-pagina">Página 13 de 27</span>
+        <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">07 · Arrays de objetos</span>
+      </div>
+      <h1>Ejemplo 09: Array de Objetos y Métodos de Colección</h1>
+      <p class="descripcion">Colección de entidades (catálogo) y operaciones clave con for...of, filter, map, find y reduce.</p>
+    </header>
+
+    <!-- Ventana de Código -->
+    <div class="ventana-codigo">
+      <div class="barra-titulo">
+        <div class="botones-ventana">
+          <span class="boton-punto punto-rojo"></span>
+          <span class="boton-punto punto-amarillo"></span>
+          <span class="boton-punto punto-verde"></span>
+        </div>
+        <div class="nombre-archivo">array-de-objetos.js</div>
+        <div class="etiqueta-lenguaje">JavaScript</div>
+      </div>
+      <pre class="codigo-fuente"><code>const catalogo = [
+  { id: 1, titulo: &quot;Monitor 24 pulgadas&quot;, precio: 140, disponible: true },
+  { id: 2, titulo: &quot;Ratón Inalámbrico&quot;, precio: 25, disponible: false },
+  { id: 3, titulo: &quot;Alfombrilla XXL&quot;, precio: 18, disponible: true }
+];
+
+for (const item of catalogo) {
+  if (item.disponible) {
+    console.log(`✓ ${item.titulo} - ${item.precio}€`);
+  }
+}
+
+const baratos = catalogo.filter(p =&gt; p.precio &lt; 50);
+const titulos = catalogo.map(p =&gt; p.titulo);
+const raton = catalogo.find(p =&gt; p.id === 2);
+const total = catalogo.reduce((suma, p) =&gt; suma + p.precio, 0);
+
+console.log(baratos.length);
+console.log(titulos);
+console.log(raton.titulo);
+console.log(total);</code></pre>
+    </div>
+
+    <!-- Panel de Salida en la Consola -->
+    <div class="panel-consola">
+      <div class="consola-cabecera">
+        <span class="consola-titulo">💻 Salida en la Consola (en vivo)</span>
+        <button class="btn btn-secundario" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="document.getElementById('consolaSalida').innerHTML = '';">🧹 Limpiar</button>
+      </div>
+      <div id="consolaSalida" class="consola-salida"></div>
+    </div>
+
+    <!-- Barra de acciones y navegación -->
+    <div class="barra-acciones">
+      <div style="display: flex; gap: 0.5rem;">
+        <button class="btn btn-primario" onclick="location.reload();">🔄 Ejecutar de nuevo</button>
+        <a href="../index.html" class="btn btn-secundario">📂 Volver al Índice de Ejemplos</a>
+      </div>
+      <div style="display: flex; gap: 0.5rem;">
+        <a href="../08_objetos_anidados/index.html" class="btn btn-secundario">⬅️ Anterior</a>
+        <a href="../10_recorrer_un_objeto/index.html" class="btn btn-secundario">Siguiente ➡️</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * PORTAL PRINCIPAL: Ejercicio 19 - Objetos Literales en JavaScript
+ * PORTAL PRINCIPAL: Ejercicio 18 - Objetos Literales en JavaScript
  * Profesor: Ramón Abramo (Santander, 2026)
  * ============================================================================
  */
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mensaje en consola pedagógico
   console.log(
-    '%c📦 EJERCICIO 19: OBJETOS EN NOTACIÓN LITERAL EN JAVASCRIPT',
+    '%c📦 EJERCICIO 18: OBJETOS EN NOTACIÓN LITERAL EN JAVASCRIPT',
     'color: #38bdf8; font-size: 16px; font-weight: bold; background: #0f172a; padding: 6px 12px; border-radius: 4px;'
   );
   console.log(

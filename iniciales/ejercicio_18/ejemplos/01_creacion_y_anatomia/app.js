@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - MANUAL TEMA 01 Y 02: ANATOMÍA Y 3 FORMAS DE CREAR OBJETOS
+ * EJERCICIO 18 - MANUAL TEMA 01 Y 02: ANATOMÍA Y 3 FORMAS DE CREAR OBJETOS
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web · Profesor: Ramón Abramo
  * ============================================================================

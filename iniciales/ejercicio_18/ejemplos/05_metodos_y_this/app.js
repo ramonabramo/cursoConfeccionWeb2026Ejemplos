@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - MANUAL TEMA 05: MÉTODOS Y LA PALABRA RESERVADA 'THIS'
+ * EJERCICIO 18 - MANUAL TEMA 05: MÉTODOS Y LA PALABRA RESERVADA 'THIS'
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web · Profesor: Ramón Abramo
  * ============================================================================

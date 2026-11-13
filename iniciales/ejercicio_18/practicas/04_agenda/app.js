@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * EJERCICIO 19 - PRÁCTICA 4: AGENDA DE CONTACTOS CON JSON Y LOCALSTORAGE
+ * EJERCICIO 18 - PRÁCTICA 4: AGENDA DE CONTACTOS CON JSON Y LOCALSTORAGE
  * ============================================================================
  * Curso: Confección y Publicación de Páginas Web
  * Alumno/a: [Escribe aquí tu nombre]

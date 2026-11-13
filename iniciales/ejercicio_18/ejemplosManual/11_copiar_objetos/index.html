@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo 11: Referencias vs Copia Superficial y Profunda · Manual Oficial</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="contenedor">
+    
+    <header class="cabecera-ejemplo">
+      <div class="badge-row">
+        <span class="badge badge-manual">📘 Manual de Referencia</span>
+        <span class="badge badge-pagina">Página 15 de 27</span>
+        <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">09 · Referencias y copias</span>
+      </div>
+      <h1>Ejemplo 11: Referencias vs Copia Superficial y Profunda</h1>
+      <p class="descripcion">Diferencia crítica entre asignación por referencia b = a, copia superficial {...a} y copia profunda structuredClone(a).</p>
+    </header>
+
+    <!-- Ventana de Código -->
+    <div class="ventana-codigo">
+      <div class="barra-titulo">
+        <div class="botones-ventana">
+          <span class="boton-punto punto-rojo"></span>
+          <span class="boton-punto punto-amarillo"></span>
+          <span class="boton-punto punto-verde"></span>
+        </div>
+        <div class="nombre-archivo">copiar-objetos.js</div>
+        <div class="etiqueta-lenguaje">JavaScript</div>
+      </div>
+      <pre class="codigo-fuente"><code>const a = { nombre: &quot;Ana&quot;, notas: [7, 8] };
+
+const b = a;                           // NO es una copia: apunta al mismo objeto
+b.nombre = &quot;Berta&quot;;
+console.log(a.nombre);
+console.log(a === b);
+
+const c = { ...a };                    // copia superficial
+c.nombre = &quot;Carla&quot;;
+c.notas.push(10);                      // el array interno se comparte
+console.log(a.nombre, a.notas);
+
+const d = structuredClone(a);          // copia profunda
+d.notas.push(5);
+console.log(a.notas, d.notas);
+
+console.log({} === {});                // dos objetos distintos nunca son iguales</code></pre>
+    </div>
+
+    <!-- Panel de Salida en la Consola -->
+    <div class="panel-consola">
+      <div class="consola-cabecera">
+        <span class="consola-titulo">💻 Salida en la Consola (en vivo)</span>
+        <button class="btn btn-secundario" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="document.getElementById('consolaSalida').innerHTML = '';">🧹 Limpiar</button>
+      </div>
+      <div id="consolaSalida" class="consola-salida"></div>
+    </div>
+
+    <!-- Barra de acciones y navegación -->
+    <div class="barra-acciones">
+      <div style="display: flex; gap: 0.5rem;">
+        <button class="btn btn-primario" onclick="location.reload();">🔄 Ejecutar de nuevo</button>
+        <a href="../index.html" class="btn btn-secundario">📂 Volver al Índice de Ejemplos</a>
+      </div>
+      <div style="display: flex; gap: 0.5rem;">
+        <a href="../10_recorrer_un_objeto/index.html" class="btn btn-secundario">⬅️ Anterior</a>
+        <a href="../12_desestructuracion_y_spread/index.html" class="btn btn-secundario">Siguiente ➡️</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
