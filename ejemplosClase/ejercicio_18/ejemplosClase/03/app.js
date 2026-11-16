@@ -13,7 +13,7 @@ botonGuardar.addEventListener('click', () => {
         habilidad: '',
         render(selector) {
             const tabla = document.querySelector(selector);
-            tabla.innerHTML += `
+            tabla.innerHTML = `
                 <tr>
                 <td>${this.id}</td>
                 <td>${this.nombre}</td>
