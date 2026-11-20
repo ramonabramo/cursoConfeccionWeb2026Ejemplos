@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidad Didáctica: De Arrays a Clases y Fetch en JavaScript</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .hero {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      color: white;
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+    }
+    .hero h1 {
+      color: white;
+      font-size: 2.2rem;
+      margin-bottom: 0.6rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .badge-fase {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+    .badge-fase-1 { background: #fee2e2; color: #991b1b; }
+    .badge-fase-2 { background: #fef3c7; color: #92400e; }
+    .badge-fase-3 { background: #dcfce7; color: #166534; }
+    .badge-fase-4 { background: #e0e7ff; color: #3730a3; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <div class="hero">
+      <h1>Estructuras de Datos y Clases en JS</h1>
+      <p>Progresión didáctica: aprende por qué pasamos de arrays paralelos a objetos literales, clases y comunicación con un servidor.</p>
+    </div>
+
+    <!-- Guía Teórica y Documentación -->
+    <div class="card" style="border-left: 4px solid #3b82f6;">
+      <h2>📚 Material Didáctico para Clase</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1rem;">
+        Hemos preparado una guía teórica completa y un script SQL con datos de prueba listo para importar en MySQL o utilizar con Node.js.
+      </p>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="TEORIA.md" class="btn btn-primary" target="_blank">📖 Leer Guía Teórica (TEORIA.md)</a>
+        <a href="servidor/database.sql" class="btn-nav" target="_blank">💾 Ver Script SQL (database.sql)</a>
+        <a href="servidor/php/README.md" class="btn-nav" target="_blank">🐘 Guía Laragon / PHP</a>
+        <a href="servidor/node/README.md" class="btn-nav" target="_blank">🟢 Guía Node.js + SQLite</a>
+      </div>
+    </div>
+
+    <!-- Fases del Ejercicio -->
+    <h2 style="font-size: 1.4rem; margin-bottom: 1rem;">Fases del Ejercicio</h2>
+    
+    <div class="grid-phases">
+      <!-- FASE 1 -->
+      <a href="01-arrays-paralelos/index.html" class="phase-card">
+        <div>
+          <span class="badge-fase badge-fase-1">Fase 1</span>
+          <div class="phase-title">Arrays Paralelos</div>
+          <p class="phase-desc">
+            Guardamos los nombres en <code>nombres[]</code> y las notas en <code>notas[]</code> sincronizados por índice. Demuestra la fragilidad de no encapsular.
+          </p>
+        </div>
+        <div class="phase-link">Abrir ejercicio →</div>
+      </a>
+
+      <!-- FASE 2 -->
+      <a href="02-objetos-literales/index.html" class="phase-card">
+        <div>
+          <span class="badge-fase badge-fase-2">Fase 2</span>
+          <div class="phase-title">Objetos Literales</div>
+          <p class="phase-desc">
+            Agrupamos las propiedades en un solo objeto literal <code>{ nombre, nota }</code>. Garantizamos cohesión de datos y facilitamos la ordenación.
+          </p>
+        </div>
+        <div class="phase-link">Abrir ejercicio →</div>
+      </a>
+
+      <!-- FASE 3 -->
+      <a href="03-clases/index.html" class="phase-card">
+        <div>
+          <span class="badge-fase badge-fase-3">Fase 3</span>
+          <div class="phase-title">Clases (POO)</div>
+          <p class="phase-desc">
+            Definimos <code>class Alumno</code> con constructor y métodos (<code>estaAprobado()</code>). Aborda el concepto clave de la <strong>rehidratación</strong> tras <code>JSON.parse()</code>.
+          </p>
+        </div>
+        <div class="phase-link">Abrir ejercicio →</div>
+      </a>
+
+      <!-- FASE 4 -->
+      <a href="04-fetch-servidor/index.html" class="phase-card">
+        <div>
+          <span class="badge-fase badge-fase-4">Fase 4</span>
+          <div class="phase-title">Consumo con <code>fetch()</code></div>
+          <p class="phase-desc">
+            Recuperamos alumnos desde un servidor de base de datos MySQL/Node con <code>fetch()</code> y <code>async/await</code>, instanciando la clase Alumno.
+          </p>
+        </div>
+        <div class="phase-link">Abrir ejercicio →</div>
+      </a>
+    </div>
+
+    <!-- Resumen pedagógico -->
+    <div class="card" style="margin-top: 2rem;">
+      <h2>💡 Resumen de la Persistencia (localStorage)</h2>
+      <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">
+        En todas las fases se utiliza <span class="code-badge">localStorage</span> del navegador para persistir los datos:
+      </p>
+      <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">
+        <li><strong>Fase 1:</strong> Requiere 2 llamadas a <code>setItem()</code> (una para nombres, otra para notas).</li>
+        <li><strong>Fase 2:</strong> 1 sola llamada con <code>JSON.stringify(alumnos)</code>.</li>
+        <li><strong>Fase 3 y 4:</strong> Al leer con <code>JSON.parse()</code>, es imprescindible <strong>rehidratar</strong> las instancias usando <code>datos.map(d =&gt; new Alumno(d.nombre, d.nota))</code> para no perder los métodos.</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

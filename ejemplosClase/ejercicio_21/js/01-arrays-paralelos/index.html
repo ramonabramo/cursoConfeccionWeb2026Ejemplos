@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fase 1: Arrays Paralelos | Curso JS</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="nav-top">
+        <a href="../index.html" class="btn-nav">← Volver al Menú Principal</a>
+        <span class="phase-tag">Fase 1 de 4</span>
+      </div>
+      <h1>Gestión con Arrays Paralelos</h1>
+      <p class="subtitle">Almacenamos los nombres en un array y las notas en otro array sincronizado por índice.</p>
+    </header>
+
+    <div class="callout callout-warning">
+      <strong>⚠️ Concepto didáctico:</strong>
+      Los datos se guardan en dos arrays separados: <span class="code-badge">nombres = []</span> y <span class="code-badge">notas = []</span>.
+      En <span class="code-badge">localStorage</span> se guardan bajo dos claves distintas: <em>alumnos_nombres</em> y <em>alumnos_notas</em>.
+      Esta estructura es frágil porque si modificamos un array y olvidamos el otro, los datos pierden sincronía.
+    </div>
+
+    <!-- Formulario -->
+    <div class="card">
+      <h2>Añadir Alumno</h2>
+      <form id="form-alumno">
+        <div class="form-grid">
+          <input type="text" id="input-nombre" placeholder="Nombre completo" required autocomplete="off">
+          <input type="number" id="input-nota" placeholder="Nota (0 - 10)" min="0" max="10" step="0.1" required>
+          <button type="submit" class="btn btn-primary">➕ Guardar</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Listado -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h2>Listado de Alumnos (<span id="total-alumnos">0</span>)</h2>
+        <button id="btn-vaciar" class="btn-danger-outline">Vaciar Todo</button>
+      </div>
+
+      <ul id="lista-alumnos" class="alumnos-list">
+        <!-- Generado dinámicamente con JS -->
+      </ul>
+
+      <div id="empty-state" class="empty-state">
+        No hay alumnos registrados. ¡Añade el primero con el formulario superior!
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

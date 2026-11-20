@@ -7,11 +7,14 @@
 
 // tengo que comprobar si anteriormente he metido trabajadores o tengo que crear una rray vacio
 
-// recupero los trabajadores pero solo sus propiedades
-const trabajadoresRecuperadores = JSON.parse(localStorage.getItem('claveTrabajadores'));
+
 
 // creo un array vacio de trabajadores
 const trabajadores = [];
+
+
+// recupero los trabajadores pero solo sus propiedades
+const trabajadoresRecuperadores = JSON.parse(localStorage.getItem('claveTrabajadores')) || [];
 
 // asigno los trabajadores recuperados al array creando un trabajador con los metodos completos
 trabajadoresRecuperadores.forEach(trabajadorRecuperado => {
@@ -28,11 +31,10 @@ trabajadoresRecuperadores.forEach(trabajadorRecuperado => {
                 <td>${this.habilidad}</td>
                 </tr>
             `;
-
         }
     };
     trabajadores.push(trabajador);
-})
+});
 
 const inputId = document.querySelector('#id');
 const inputNombre = document.querySelector('#nombre');

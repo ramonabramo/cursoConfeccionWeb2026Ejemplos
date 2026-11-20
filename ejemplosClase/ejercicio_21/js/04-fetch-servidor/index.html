@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fase 4: Consumo con fetch() | Curso JS</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="nav-top">
+        <a href="../index.html" class="btn-nav">← Volver al Menú Principal</a>
+        <span class="phase-tag">Fase 4 de 4</span>
+      </div>
+      <h1>Consumo de Servidor con <code>fetch()</code></h1>
+      <p class="subtitle">Conectamos nuestra aplicación con una base de datos real o simulada mediante peticiones asíncronas HTTP.</p>
+    </header>
+
+    <div class="callout callout-info">
+      <strong>🌐 Concepto didáctico:</strong>
+      1. Usamos <span class="code-badge">fetch()</span> con <span class="code-badge">async / await</span> para comunicarnos con el backend.<br>
+      2. El servidor responde con un JSON de la base de datos.<br>
+      3. Convertimos cada registro en una instancia de la <span class="code-badge">class Alumno</span> (Rehidratación).<br>
+      4. Combinamos los datos remotos con la persistencia local de <span class="code-badge">localStorage</span>.
+    </div>
+
+    <!-- Panel de Conexión con el Servidor -->
+    <div class="card" style="border-left: 4px solid var(--primary);">
+      <h2>🔌 Servidor de Datos</h2>
+      <div style="display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; align-items: end;">
+        <div>
+          <label for="select-servidor" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">
+            Origen del Backend:
+          </label>
+          <select id="select-servidor" style="width: 100%; padding: 0.65rem; border-radius: 6px; border: 1px solid var(--border); font-size: 0.95rem;">
+            <option value="http://localhost:3000/api/alumnos">Node.js + SQLite real (http://localhost:3000/api/alumnos)</option>
+            <option value="http://localhost/api-alumnos/obtener_alumnos.php">PHP + Laragon (http://localhost/api-alumnos/obtener_alumnos.php)</option>
+          </select>
+        </div>
+        <button id="btn-fetch" type="button" class="btn btn-success">
+          📥 Cargar desde BD con fetch()
+        </button>
+      </div>
+      <div id="status-servidor" style="margin-top: 0.75rem; font-size: 0.875rem; display: none;"></div>
+    </div>
+
+    <!-- Formulario -->
+    <div class="card">
+      <h2>Añadir Alumno</h2>
+      <form id="form-alumno">
+        <div class="form-grid">
+          <input type="text" id="input-nombre" placeholder="Nombre completo" required autocomplete="off">
+          <input type="number" id="input-nota" placeholder="Nota (0 - 10)" min="0" max="10" step="0.1" required>
+          <button type="submit" class="btn btn-primary">➕ Guardar Local</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="card" id="card-estadisticas" style="display: none;">
+      <h2>Resumen de la Clase</h2>
+      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+        <div><strong>Media de notas:</strong> <span id="stat-media">0</span></div>
+        <div><strong>Aprobados:</strong> <span id="stat-aprobados">0</span></div>
+        <div><strong>Suspensos:</strong> <span id="stat-suspensos">0</span></div>
+      </div>
+    </div>
+
+    <!-- Listado -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+        <h2>Listado de Alumnos (<span id="total-alumnos">0</span>)</h2>
+        <div style="display: flex; gap: 0.5rem;">
+          <button id="btn-ordenar-nota" class="btn-nav">📊 Ordenar Nota</button>
+          <button id="btn-vaciar" class="btn-danger-outline">Vaciar Todo</button>
+        </div>
+      </div>
+
+      <ul id="lista-alumnos" class="alumnos-list">
+        <!-- Generado dinámicamente -->
+      </ul>
+
+      <div id="empty-state" class="empty-state">
+        No hay alumnos. Pulsa en <strong>"Cargar desde BD con fetch()"</strong> o añade uno nuevo.
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

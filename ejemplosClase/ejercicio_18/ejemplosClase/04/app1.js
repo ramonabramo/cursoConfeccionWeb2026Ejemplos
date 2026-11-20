@@ -6,8 +6,10 @@
  */
 
 const funciones = {
-    render(selector, trabajador) {
-        const tabla = document.querySelector(selector);
+    selector: 'tbody',
+
+    render(trabajador) {
+        const tabla = document.querySelector(this.selector);
         tabla.innerHTML += `
         <tr>
         <td>${trabajador.id}</td>
@@ -19,7 +21,7 @@ const funciones = {
     },
 
     limpiarTabla() {
-        const tabla = document.querySelector('tbody');
+        const tabla = document.querySelector(this.selector);
         tabla.innerHTML = '';
     }
 
@@ -61,7 +63,7 @@ botonGuardar.addEventListener('click', () => {
     funciones.limpiarTabla();
 
     // muestro el trabajador guardado
-    funciones.render('tbody', trabajador);
+    funciones.render(trabajador);
 
 });
 
@@ -70,7 +72,7 @@ botonListar.addEventListener('click', () => {
     funciones.limpiarTabla();
 
     trabajadores.forEach(trabajador => {
-        funciones.render('tbody', trabajador);
+        funciones.render(trabajador);
     })
 });
 

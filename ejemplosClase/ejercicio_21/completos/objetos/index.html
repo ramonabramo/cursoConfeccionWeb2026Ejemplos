@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Datos - Layout Avanzado</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <h1>Registro de Usuarios Pro</h1>
+
+        <!-- Zona de arriba: Formulario a la izquierda, Último dato a la derecha -->
+        <div class="layout-superior">
+            <div class="panel-entrada">
+                <h2>Nuevo Registro</h2>
+                <label for="txtNombre">Nombre:</label>
+                <input type="text" id="txtNombre" placeholder="Introduce el nombre">
+
+                <label for="numEdad">Edad:</label>
+                <input type="number" id="numEdad" placeholder="Introduce la edad">
+
+                <button id="btnAccionPrincipal">Añadir y Guardar</button>
+            </div>
+
+            <div class="panel-ultimo oculto" id="panelUltimo">
+                <h2>Última Operación:</h2>
+                <p id="parrafoUltimo"></p>
+            </div>
+        </div>
+
+        <!-- Zona de abajo: Listado completo -->
+        <div class="panel-salida">
+            <div class="cabecera-lista">
+                <h2>Todos los Datos en LocalStorage:</h2>
+                <button id="btnBorrarTodos" class="btn-peligro">Eliminar TODOS</button>
+            </div>
+            <ul id="listaResultados"></ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
