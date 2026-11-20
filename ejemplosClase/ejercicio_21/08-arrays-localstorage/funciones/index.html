@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · Funciones declaradas y anónimas</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>Funciones declaradas y anónimas</h1>
+    <p class="intro">Parámetros, return, hoisting y pasar funciones a eventos. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>Funciones con parámetros y return</h2>
+      <div class="fila">
+        <input type="number" id="a" value="6" style="width:5rem">
+        <input type="number" id="b" value="4" style="width:5rem">
+        <button id="btnCalcular">Calcular media y estado</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Pasar la función o ejecutarla</h2>
+      <div class="fila">
+        <button id="btnBien">Botón BIEN (addEventListener("click", contar))</button>
+        <button class="peligro" id="btnMal">Botón MAL (addEventListener("click", contar()))</button>
+      </div>
+      <p>Contador: <strong id="contador">0</strong></p>
+      <p class="pista">Pulsa los dos botones. ¿Cuál suma? Mira también la consola: ¿por qué el contador ya empezó en 1?</p>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Resultado</h2>
+      <pre id="salida" class="salida"></pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

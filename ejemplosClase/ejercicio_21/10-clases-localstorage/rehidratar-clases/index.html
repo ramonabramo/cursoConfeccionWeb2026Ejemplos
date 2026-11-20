@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · Rehidratar objetos de una clase</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>Rehidratar objetos de una clase</h1>
+    <p class="intro">Por qué se pierden los métodos y cómo recuperarlos con map(). Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>1. Antes de nada: qué hace map()</h2>
+      <button class="secundario" id="btnMap">[1, 2, 3].map(...)</button>
+    </div>
+
+    <div class="tarjeta">
+      <h2>2. Guardar instancias de la clase Tarea</h2>
+      <button id="btnGuardar">Crear tres tareas y guardarlas</button>
+    </div>
+
+    <div class="tarjeta">
+      <h2>3. Cargarlas de nuevo</h2>
+      <div class="fila">
+        <button class="peligro" id="btnSin">Cargar SIN rehidratar</button>
+        <button id="btnCon">Cargar CON map + new Tarea</button>
+      </div>
+      <p class="pista">Recarga la página entre el paso 2 y el 3 para simular que el usuario vuelve otro día.</p>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Resultado</h2>
+      <pre id="salida" class="salida">Sigue los pasos en orden.</pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 11 · Arrays sueltos: eliminar un registro</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+
+    <header class="cabecera">
+      <h1>Notas del alumnado</h1>
+      <p>Práctica 11 · Arrays sueltos: eliminar un registro</p>
+    </header>
+
+    <section class="panel panel--doble">
+      <!-- Formulario: nombre y nota -->
+      <div class="tarjeta">
+        <h2 id="tituloFormulario">Nuevo alumno</h2>
+        <form id="formulario" class="formulario" autocomplete="off">
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej.: Ana López" required>
+          </div>
+          <div class="campo">
+            <label for="nota">Nota</label>
+            <input type="number" id="nota" name="nota" min="0" max="10" step="0.1" placeholder="0 - 10" required>
+          </div>
+          <div class="formulario__botones">
+            <button type="submit" id="btnGuardar" class="btn">Añadir</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Tarjeta con el último alumno añadido -->
+      <aside class="tarjeta">
+        <h2>Último añadido</h2>
+        <p id="ultimoNombre" class="ultimo__nombre">—</p>
+        <p id="ultimoNota" class="ultimo__nota">Todavía no hay alumnos.</p>
+      </aside>
+    </section>
+
+    <!-- Botones de acción sobre la lista -->
+    <div class="acciones">
+      <button type="button" id="btnListar" class="btn btn--secundario">Listar</button>
+      <button type="button" id="btnBorrarTodo" class="btn btn--peligro">Eliminar todo</button>
+    </div>
+
+    <!-- Aquí JavaScript irá colocando los alumnos -->
+    <ul id="lista" class="lista"></ul>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

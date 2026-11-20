@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · Eliminar con splice</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>Eliminar con splice</h1>
+    <p class="intro">Quitar, insertar y por qué cambian los índices. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>Quitar elementos con splice(posición, cuántos)</h2>
+      <p>Array: <strong id="estado"></strong></p>
+      <div class="fila">
+        <label for="posicion">Posición</label>
+        <input type="number" id="posicion" value="1" min="0" style="width:5rem">
+        <label for="cuantos">Cuántos</label>
+        <input type="number" id="cuantos" value="1" min="0" style="width:5rem">
+        <button id="btnQuitar">splice(posición, cuántos)</button>
+      </div>
+      <div class="fila">
+        <button class="secundario" id="btnInsertar">Insertar "X" con splice(posición, 0, "X")</button>
+        <button class="secundario" id="btnReiniciar">Reiniciar el array</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>El peligro de los arrays paralelos</h2>
+      <div class="fila">
+        <button class="peligro" id="btnMal">Borrar Luis SOLO de nombres</button>
+        <button id="btnBien">Borrar Luis de los DOS arrays</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Resultado</h2>
+      <pre id="salida" class="salida">Prueba distintas posiciones.</pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

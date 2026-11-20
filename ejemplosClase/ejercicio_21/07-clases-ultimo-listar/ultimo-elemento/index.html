@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · El último elemento de un array</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>El último elemento de un array</h1>
+    <p class="intro">length - 1, at(-1) y el caso del array vacío. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>Temperaturas registradas</h2>
+      <p>Array: <strong id="estado"></strong></p>
+      <div class="fila">
+        <input type="number" id="temperatura" value="21" style="width:6rem">
+        <button id="btnAnadir">Añadir</button>
+        <button class="peligro" id="btnVaciar">Vaciar el array</button>
+      </div>
+      <div class="fila">
+        <button class="secundario" id="btnUltimo">Ver el último</button>
+        <button class="secundario" id="btnPenultimo">Ver el penúltimo</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Y con un array de objetos</h2>
+      <button class="secundario" id="btnObjetos">Último objeto de un array de objetos</button>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Resultado</h2>
+      <pre id="salida" class="salida">Añade temperaturas y pide el último. Después vacía el array y vuelve a pedirlo.</pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

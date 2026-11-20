@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · localStorage</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>localStorage</h1>
+    <p class="intro">Guardar datos en el navegador: setItem, getItem, removeItem. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>Contador de visitas</h2>
+      <p>Has abierto esta página <strong id="visitas">?</strong> veces. Recarga (F5) y mira cómo sube.</p>
+      <button class="peligro" id="btnReiniciar">Reiniciar contador (removeItem)</button>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Guardar y leer a mano</h2>
+      <div class="fila">
+        <label for="clave">Clave</label>
+        <input type="text" id="clave" value="teoria_ls_color">
+        <label for="valor">Valor</label>
+        <input type="text" id="valor" value="azul">
+      </div>
+      <div class="fila">
+        <button id="btnGuardar">setItem</button>
+        <button class="secundario" id="btnLeer">getItem</button>
+        <button class="secundario" id="btnBorrar">removeItem</button>
+        <button class="secundario" id="btnTodo">Ver todas las claves</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>¿Y si guardo un array tal cual?</h2>
+      <button class="secundario" id="btnArray">setItem con un array sin JSON</button>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Resultado</h2>
+      <pre id="salida" class="salida">Abre también F12 → Application → Local Storage.</pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

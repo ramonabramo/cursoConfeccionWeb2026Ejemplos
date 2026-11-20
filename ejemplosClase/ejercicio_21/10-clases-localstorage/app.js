@@ -1,0 +1,146 @@
+/* =========================================================
+   PRÁCTICA 10 · Clases + localStorage
+   ---------------------------------------------------------
+   Misma funcionalidad que las prácticas 08 y 09, con la
+   clase Alumno. Aquí aparece la trampa de esta práctica:
+
+   JSON.stringify guarda SOLO las propiedades (nombre, nota),
+   no los métodos. Al hacer JSON.parse recuperamos objetos
+   literales normales, que NO tienen estaAprobado().
+
+   Solución: "rehidratar" los datos, es decir, volver a
+   crear un new Alumno(...) por cada objeto recuperado.
+   ========================================================= */
+
+// 1. La clase Alumno
+class Alumno {
+  constructor(nombre, nota) {
+    this.nombre = nombre;
+    this.nota = nota;
+  }
+
+  estaAprobado() {
+    return this.nota >= 5;
+  }
+}
+
+// 2. Clave de almacenamiento
+const CLAVE_ALUMNOS = "practica10_alumnos";
+
+// 3. Cargamos y REHIDRATAMOS:
+//    datosGuardados -> objetos literales sin métodos
+//    alumnos        -> instancias de Alumno con métodos
+const datosGuardados = JSON.parse(localStorage.getItem(CLAVE_ALUMNOS)) || [];
+const alumnos = datosGuardados.map(function (dato) {
+  return new Alumno(dato.nombre, dato.nota);
+});
+
+// 4. Referencias a los elementos del HTML
+const formulario = document.getElementById("formulario");
+const inputNombre = document.getElementById("nombre");
+const inputNota = document.getElementById("nota");
+const lista = document.getElementById("lista");
+const btnListar = document.getElementById("btnListar");
+const btnBorrarTodo = document.getElementById("btnBorrarTodo");
+const ultimoNombre = document.getElementById("ultimoNombre");
+const ultimoNota = document.getElementById("ultimoNota");
+
+// ---------------------------------------------------------
+// 5. Funciones
+// ---------------------------------------------------------
+
+function guardarDatos() {
+  localStorage.setItem(CLAVE_ALUMNOS, JSON.stringify(alumnos));
+}
+
+function pintarUltimo() {
+  if (alumnos.length === 0) {
+    ultimoNombre.textContent = "—";
+    ultimoNota.textContent = "Todavía no hay alumnos.";
+    return;
+  }
+
+  const ultimo = alumnos[alumnos.length - 1];
+  ultimoNombre.textContent = ultimo.nombre;
+  ultimoNota.textContent = `Nota: ${ultimo.nota} (${ultimo.estaAprobado() ? "aprobado" : "suspenso"})`;
+}
+
+function crearItem(alumno) {
+  const li = document.createElement("li");
+  li.classList.add("alumno");
+
+  const spanNombre = document.createElement("span");
+  spanNombre.classList.add("alumno__nombre");
+  spanNombre.textContent = alumno.nombre;
+
+  const spanNota = document.createElement("span");
+  spanNota.classList.add("alumno__nota");
+  spanNota.textContent = alumno.nota;
+
+  // Si no hubiéramos rehidratado, esta línea daría el error
+  // "alumno.estaAprobado is not a function"
+  const estado = alumno.estaAprobado() ? "aprobado" : "suspenso";
+  const spanEstado = document.createElement("span");
+  spanEstado.classList.add("estado", `estado--${estado}`);
+  spanEstado.textContent = estado;
+
+  li.append(spanNombre, spanNota, spanEstado);
+  return li;
+}
+
+function pintarLista() {
+  lista.replaceChildren();
+
+  if (alumnos.length === 0) {
+    const vacio = document.createElement("li");
+    vacio.classList.add("lista__vacia");
+    vacio.textContent = "Todavía no hay alumnos registrados.";
+    lista.appendChild(vacio);
+    return;
+  }
+
+  for (const alumno of alumnos) {
+    lista.appendChild(crearItem(alumno));
+  }
+}
+
+// ---------------------------------------------------------
+// 6. Eventos
+// ---------------------------------------------------------
+
+formulario.addEventListener("submit", function (evento) {
+  evento.preventDefault();
+
+  const nombre = inputNombre.value.trim();
+  const nota = Number(inputNota.value);
+
+  if (nombre === "" || inputNota.value === "" || nota < 0 || nota > 10) {
+    alert("Escribe un nombre y una nota entre 0 y 10.");
+    return;
+  }
+
+  alumnos.push(new Alumno(nombre, nota));
+
+  guardarDatos();
+  pintarUltimo();
+
+  formulario.reset();
+  inputNombre.focus();
+});
+
+btnListar.addEventListener("click", pintarLista);
+
+btnBorrarTodo.addEventListener("click", function () {
+  if (!confirm("¿Seguro que quieres borrar todos los alumnos?")) {
+    return;
+  }
+
+  alumnos.length = 0;
+  localStorage.removeItem(CLAVE_ALUMNOS);
+
+  pintarUltimo();
+  pintarLista();
+});
+
+// 7. Estado inicial
+pintarUltimo();

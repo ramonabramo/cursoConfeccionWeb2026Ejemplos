@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · Serialización con JSON</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>Serialización con JSON</h1>
+    <p class="intro">JSON.stringify y JSON.parse: de dato a texto y de vuelta. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>De dato a texto: JSON.stringify</h2>
+      <div class="fila">
+        <button id="btnArray">Un array</button>
+        <button id="btnObjeto">Un objeto</button>
+        <button id="btnArrayObjetos">Un array de objetos</button>
+        <button class="secundario" id="btnBonito">Con sangría (null, 2)</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>De texto a dato: JSON.parse</h2>
+      <div class="fila">
+        <button id="btnParse">Parsear un texto JSON</button>
+        <button class="secundario" id="btnNull">JSON.parse(null) y el truco || []</button>
+        <button class="peligro" id="btnError">Parsear un texto que NO es JSON</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Ida y vuelta con localStorage</h2>
+      <div class="fila">
+        <button id="btnGuardar">Guardar array de objetos</button>
+        <button class="secundario" id="btnCargar">Cargarlo y usarlo</button>
+        <button class="secundario" id="btnPierde">¿Qué NO guarda JSON?</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Resultado</h2>
+      <pre id="salida" class="salida">Pulsa cualquier botón.</pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

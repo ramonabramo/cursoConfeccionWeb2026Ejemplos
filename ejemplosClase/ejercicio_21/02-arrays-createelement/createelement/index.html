@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · createElement</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>createElement</h1>
+    <p class="intro">Crear etiquetas como objetos y colgarlas en la página. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>Crear un elemento paso a paso</h2>
+      <div class="fila">
+        <input type="text" id="texto" value="Soy un párrafo creado con JavaScript">
+      </div>
+      <div class="fila">
+        <button id="btnCrear">1. Crear el &lt;p&gt; (aún no se ve)</button>
+        <button id="btnColgar" class="secundario">2. Colgarlo con appendChild</button>
+        <button id="btnDestacar" class="secundario">3. Alternar clase con classList.toggle</button>
+      </div>
+      <div id="zona" class="caja"></div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Crear una lista desde un array</h2>
+      <div class="fila">
+        <button id="btnLista">Generar lista</button>
+        <button id="btnVaciar" class="peligro">Vaciar con replaceChildren()</button>
+      </div>
+      <div class="caja"><ul id="lista"></ul></div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Qué está pasando</h2>
+      <pre id="salida" class="salida">Sigue los pasos 1, 2 y 3.</pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

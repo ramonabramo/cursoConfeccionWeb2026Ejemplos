@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · Modo edición con variable de estado</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>Modo edición con variable de estado</h1>
+    <p class="intro">Un mismo formulario para añadir y editar. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2 id="titulo">Añadir color</h2>
+      <form id="formulario" class="fila">
+        <input type="text" id="color" placeholder="Escribe un color" required>
+        <button type="submit" id="btnGuardar">Añadir</button>
+        <button type="button" class="secundario" id="btnCancelar" hidden>Cancelar</button>
+      </form>
+      <p>Variable de estado: <span id="verEstado" class="estado-variable"></span></p>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Colores</h2>
+      <ul id="lista" class="lista-simple"></ul>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Qué ha pasado</h2>
+      <pre id="salida" class="salida">Pulsa «Editar» en cualquier color.</pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

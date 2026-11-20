@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · innerHTML y plantillas de texto</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>innerHTML y plantillas de texto</h1>
+    <p class="intro">Generar HTML como texto y por qué tener cuidado. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>innerHTML frente a textContent</h2>
+      <div class="fila">
+        <input type="text" id="texto" size="40" value="Hola <b>en negrita</b> y <i>en cursiva</i>">
+      </div>
+      <div class="fila">
+        <button id="btnInner">Poner con innerHTML</button>
+        <button class="secundario" id="btnText">Poner con textContent</button>
+        <button class="secundario" id="btnSumar">Añadir con innerHTML +=</button>
+      </div>
+      <p><strong>Caja A (innerHTML):</strong></p>
+      <div id="cajaA" class="caja"></div>
+      <p><strong>Caja B (textContent):</strong></p>
+      <div id="cajaB" class="caja"></div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Generar una lista con una plantilla de texto</h2>
+      <button id="btnLista">Generar &lt;li&gt; desde un array</button>
+      <div class="caja" style="margin-top:.6rem">
+        <ul id="lista"></ul>
+      </div>
+      <p class="pista">Abre la consola (F12) para ver el HTML que se ha construido.</p>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

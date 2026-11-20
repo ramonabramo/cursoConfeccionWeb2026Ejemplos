@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · Objetos literales</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>Objetos literales</h1>
+    <p class="intro">Propiedades, notación punto, forma abreviada y arrays de objetos. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>Un objeto: <code>alumno</code></h2>
+      <p>Estado actual: <strong id="estado"></strong></p>
+      <div class="fila">
+        <button id="btnLeer">Leer propiedades</button>
+        <input type="number" id="nuevaNota" value="8" min="0" max="10" style="width:5rem">
+        <button class="secundario" id="btnModificar">Cambiar la nota</button>
+        <button class="secundario" id="btnAnadir">Añadir propiedad email</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Un array de objetos</h2>
+      <div class="fila">
+        <button id="btnRecorrer">Recorrer con for...of</button>
+        <button class="secundario" id="btnAbreviada">Crear con la forma abreviada</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Resultado</h2>
+      <pre id="salida" class="salida">Pulsa cualquier botón. Mira también la consola (F12).</pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

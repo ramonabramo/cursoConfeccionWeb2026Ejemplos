@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · Clases</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>Clases</h1>
+    <p class="intro">class, constructor, this, métodos e instancias con new. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>Fabricar un objeto con la clase <code>Libro</code></h2>
+      <div class="fila">
+        <input type="text" id="titulo" value="El Quijote">
+        <input type="number" id="paginas" value="300" min="1" style="width:6rem">
+        <button id="btnCrear">new Libro(titulo, paginas)</button>
+      </div>
+      <div class="fila">
+        <button class="secundario" id="btnLeer">libro.leer(50)</button>
+        <button class="secundario" id="btnEstado">libro.describir()</button>
+        <button class="secundario" id="btnDos">Crear dos libros y compararlos</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Resultado</h2>
+      <pre id="salida" class="salida">Crea un libro para empezar.</pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

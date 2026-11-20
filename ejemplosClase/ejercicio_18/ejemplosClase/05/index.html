@@ -5,20 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="main.css"></script>
 </head>
 
 <body>
     <form>
         <div>
             <label for="nombre">Nombre</label>
-            <input type="text" id="mombre">
+            <input type="text" id="nombre" required>
         </div>
         <div>
             <label for="nota">Nota</label>
-            <input type="number" id="nota">
+            <input type="number" id="nota" min="0" max="10" required>
         </div>
+
         <div>
-            <button type="button">Guardar</button>
+            <button id="guardar">Guardar</button>
+            <button type="button" id="botonListar">Listar</button>
+            <button type="button" id="botonLimpiar">Borrar Todo</button>
         </div>
     </form>
     <ul id="lista">

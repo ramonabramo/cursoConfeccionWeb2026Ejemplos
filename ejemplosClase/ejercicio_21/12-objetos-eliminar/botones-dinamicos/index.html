@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · Botones creados dinámicamente</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>Botones creados dinámicamente</h1>
+    <p class="intro">Eventos en elementos creados con createElement y clausuras. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>Cada botón sabe a qué elemento pertenece</h2>
+      <ul id="lista" class="lista-simple"></ul>
+      <p class="pista">Pulsa «¿Quién soy?» y «Eliminar» en distintas filas.</p>
+    </div>
+
+    <div class="tarjeta">
+      <h2>El error clásico: var frente a let</h2>
+      <div class="fila">
+        <button class="peligro" id="btnVar">Crear botones con var i</button>
+        <button id="btnLet">Crear botones con let i</button>
+      </div>
+      <div id="zonaBotones" class="fila"></div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Resultado</h2>
+      <pre id="salida" class="salida"></pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

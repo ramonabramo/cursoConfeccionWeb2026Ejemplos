@@ -1,0 +1,265 @@
+/* =========================================================
+   NOTAS DEL ALUMNADO · Estilos comunes a todas las prácticas
+   ---------------------------------------------------------
+   Este archivo es igual en las 16 prácticas. Así podéis
+   centraros en el JavaScript, que es lo que cambia.
+   ========================================================= */
+
+/* ---------- Variables de color y medidas ---------- */
+:root {
+  --color-fondo: #f4f6fb;
+  --color-tarjeta: #ffffff;
+  --color-texto: #1f2937;
+  --color-suave: #6b7280;
+  --color-borde: #e5e7eb;
+  --color-primario: #2563eb;
+  --color-primario-oscuro: #1d4ed8;
+  --color-peligro: #dc2626;
+  --color-peligro-oscuro: #b91c1c;
+  --color-aprobado: #15803d;
+  --color-aprobado-fondo: #dcfce7;
+  --color-suspenso: #b91c1c;
+  --color-suspenso-fondo: #fee2e2;
+  --radio: 10px;
+  --sombra: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+/* Cualquier elemento con el atributo hidden se oculta siempre */
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.5;
+}
+
+.contenedor {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+/* ---------- Cabecera ---------- */
+.cabecera h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.8rem;
+}
+
+.cabecera p {
+  margin: 0 0 1.5rem;
+  color: var(--color-suave);
+}
+
+/* ---------- Panel superior (formulario + último añadido) ---------- */
+.panel {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.panel--doble {
+  grid-template-columns: 2fr 1fr;
+}
+
+.tarjeta {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 1.25rem;
+  box-shadow: var(--sombra);
+}
+
+.tarjeta h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+}
+
+/* ---------- Formulario ---------- */
+.formulario {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 0.75rem 1rem;
+  align-items: end;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-suave);
+}
+
+.campo input {
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.campo input:focus {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.formulario__botones {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--color-primario);
+  border-radius: 8px;
+  background: var(--color-primario);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn:hover {
+  background: var(--color-primario-oscuro);
+}
+
+.btn--secundario {
+  background: #fff;
+  color: var(--color-primario);
+}
+
+.btn--secundario:hover {
+  background: #eff6ff;
+}
+
+.btn--peligro {
+  background: var(--color-peligro);
+  border-color: var(--color-peligro);
+}
+
+.btn--peligro:hover {
+  background: var(--color-peligro-oscuro);
+}
+
+.btn--pequeno {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+/* ---------- Último alumno añadido ---------- */
+.ultimo__nombre {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.ultimo__nota {
+  margin: 0.25rem 0 0;
+  color: var(--color-suave);
+}
+
+/* ---------- Barra de acciones (Listar / Eliminar todo) ---------- */
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* ---------- Lista de alumnos ---------- */
+.lista {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.alumno {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 0.7rem 1rem;
+}
+
+.alumno--editando {
+  border-color: var(--color-primario);
+  background: #eff6ff;
+}
+
+.alumno__nombre {
+  flex: 1;
+  font-weight: 600;
+}
+
+.alumno__nota {
+  min-width: 3ch;
+  text-align: right;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.alumno__acciones {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.lista__vacia {
+  padding: 0.7rem 1rem;
+  color: var(--color-suave);
+  font-style: italic;
+}
+
+/* ---------- Etiqueta Aprobado / Suspenso ---------- */
+.estado {
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.estado--aprobado {
+  background: var(--color-aprobado-fondo);
+  color: var(--color-aprobado);
+}
+
+.estado--suspenso {
+  background: var(--color-suspenso-fondo);
+  color: var(--color-suspenso);
+}
+
+/* ---------- Móvil ---------- */
+@media (max-width: 640px) {
+  .panel--doble,
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+
+  .alumno {
+    flex-wrap: wrap;
+  }
+}

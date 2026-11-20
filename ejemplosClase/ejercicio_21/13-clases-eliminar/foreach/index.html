@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · forEach</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>forEach</h1>
+    <p class="intro">Recorrer un array con elemento e índice. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>Tres formas de recorrer el mismo array</h2>
+      <div class="fila">
+        <button class="secundario" id="btnFor">for clásico</button>
+        <button class="secundario" id="btnForOf">for...of</button>
+        <button id="btnForEach">forEach (elemento, índice)</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>forEach con un array de objetos</h2>
+      <button id="btnObjetos">Pintar una lista numerada con forEach</button>
+      <div class="caja" style="margin-top:.6rem"><ol id="lista"></ol></div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Resultado</h2>
+      <pre id="salida" class="salida">Compara las tres formas.</pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

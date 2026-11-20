@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · Arrays</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>Arrays</h1>
+    <p class="intro">Crear, añadir con push, índices, length y recorrer con for. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>Un array de frutas</h2>
+      <p>Estado actual del array: <strong id="estado"></strong></p>
+      <div class="fila">
+        <input type="text" id="nuevaFruta" placeholder="Escribe una fruta">
+        <button id="btnPush">Añadir con push()</button>
+      </div>
+      <div class="fila">
+        <button class="secundario" id="btnPrimero">Ver el primero [0]</button>
+        <button class="secundario" id="btnUltimo">Ver el último [length - 1]</button>
+        <button class="secundario" id="btnRecorrer">Recorrer con for</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Arrays paralelos</h2>
+      <p>Dos arrays distintos unidos solo por la posición.</p>
+      <button class="secundario" id="btnParalelos">Recorrer nombres y notas a la vez</button>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Resultado</h2>
+      <pre id="salida" class="salida">Pulsa cualquier botón.</pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

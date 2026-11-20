@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría · Formularios y eventos</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <main class="contenedor">
+    <span class="etiqueta-teoria">Teoría básica</span>
+    <h1>Formularios y eventos</h1>
+    <p class="intro">addEventListener, submit, preventDefault y cómo leer los campos. Lee el PDF de esta carpeta y prueba cada botón.</p>
+
+    <div class="tarjeta">
+      <h2>Un formulario de prueba</h2>
+      <form id="formulario">
+        <div class="fila">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" value="   Ana   ">
+          <label for="edad">Edad</label>
+          <input type="number" id="edad" name="edad" value="20">
+          <button type="submit">Enviar</button>
+        </div>
+        <div class="fila">
+          <input type="checkbox" id="prevenir" checked>
+          <label for="prevenir">Usar evento.preventDefault() (desmárcalo y envía para ver qué pasa)</label>
+        </div>
+      </form>
+      <p class="pista">Prueba también a pulsar Intro dentro de un campo: el evento submit salta igual.</p>
+    </div>
+
+    <div class="tarjeta">
+      <h2>Lo que lee JavaScript</h2>
+      <pre id="salida" class="salida">Pulsa «Enviar».</pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

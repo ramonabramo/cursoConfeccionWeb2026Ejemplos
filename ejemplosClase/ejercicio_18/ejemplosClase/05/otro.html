@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        Nombre<input type="text" id="nombre" required>
+        Hora Entrada<input type="datetime-local" required>
+        Valor<input type="number" min="0" required>
+        <button id="uno">Comprobar</button>
+        <button id="dos">Guardar</button>
+    </form>
+</body>
+<script>
+    document.querySelector('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        console.log(e.submitter);
+
+    });
+</script>
+
+</html>
